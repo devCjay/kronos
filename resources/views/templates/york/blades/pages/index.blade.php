@@ -4,7 +4,7 @@
     {{-- ════════════════════════════════════════════════════════════════════════════════
          HERO DECK: ALGORITHMIC COMMAND CENTER & KINETIC TERMINAL
     ════════════════════════════════════════════════════════════════════════════════ --}}
-    <section class="relative min-h-[100dvh] pt-32 pb-24 flex flex-col justify-between overflow-hidden bg-[#050507] isolate">
+    <section class="relative min-h-[100dvh] pt-32 pb-[340px] sm:pb-[410px] flex flex-col justify-between overflow-hidden bg-[#050507] isolate">
         {{-- SVG Laser Dash Tracers Overlay (Effects 1 & 2: Moon Arc Edge Tracer + Data Pipeline Circuit) --}}
         <div class="absolute inset-0 pointer-events-none -z-10">
             <svg class="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
