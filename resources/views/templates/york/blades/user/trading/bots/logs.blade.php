@@ -7,7 +7,7 @@
 <div class="min-h-screen relative space-y-12 pb-24">
 
     {{-- Global Ethereal Ambient Mesh Gradients --}}
-    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-cyan-500/10 via-purple-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
+    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-amber-500/10 via-orange-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
     <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-accent-primary/5 via-emerald-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto space-y-12">
@@ -18,12 +18,12 @@
                  style="background: linear-gradient(135deg, rgba(8,9,14,0.98) 0%, rgba(3,4,7,0.99) 100%);">
                 
                 {{-- Ambient Glow --}}
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute -top-24 -right-24 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
                 <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
                     <div class="max-w-2xl space-y-4">
-                        <div class="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-cyan-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <div class="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-amber-400 shadow-[0_0_15px_rgba(6,182,212,0.2)]">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                             <span>{{ __('Trade Logs') }}</span>
                         </div>
 
@@ -54,8 +54,8 @@
                         </a>
 
                         <a href="{{ route('user.trading-bots.logs') }}"
-                           class="px-5 py-2.5 rounded-full bg-cyan-500/20 text-white font-black text-xs uppercase tracking-wider border border-cyan-500/30 shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                           class="px-5 py-2.5 rounded-full bg-amber-500/20 text-white font-black text-xs uppercase tracking-wider border border-amber-500/30 shadow-[0_0_20px_rgba(6,182,212,0.25)] transition-all flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                             <span>{{ __('Logs') }}</span>
                         </a>
                     </div>
@@ -82,14 +82,14 @@
             <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
                 <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Active Bots') }}</span>
-                    <div class="text-3xl font-black text-purple-400 font-mono tracking-tight">{{ $stats['active_bots'] }}</div>
+                    <div class="text-3xl font-black text-orange-400 font-mono tracking-tight">{{ $stats['active_bots'] }}</div>
                 </div>
             </div>
 
             <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
                 <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Total Trades') }}</span>
-                    <div class="text-3xl font-black text-cyan-400 font-mono tracking-tight">{{ number_format($stats['total_trades']) }}</div>
+                    <div class="text-3xl font-black text-amber-400 font-mono tracking-tight">{{ number_format($stats['total_trades']) }}</div>
                 </div>
             </div>
         </div>
@@ -107,7 +107,7 @@
                     {{-- Search Input --}}
                     <div class="relative w-full md:w-80">
                         <input type="text" id="log-search"
-                            class="w-full bg-black/50 border border-white/10 rounded-full px-6 py-3 text-xs text-white focus:border-cyan-400 outline-none transition-all placeholder:text-slate-500"
+                            class="w-full bg-black/50 border border-white/10 rounded-full px-6 py-3 text-xs text-white focus:border-amber-400 outline-none transition-all placeholder:text-slate-500"
                             placeholder="{{ __('Search pair, exchange...') }}">
                     </div>
                 </div>
@@ -116,7 +116,7 @@
                     <div id="table-loading"
                         class="absolute inset-0 z-20 bg-black/60 backdrop-blur-md flex items-center justify-center opacity-0 pointer-events-none transition-opacity">
                         <div class="flex flex-col items-center gap-4">
-                            <div class="w-10 h-10 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
+                            <div class="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
                             <span class="text-[10px] font-black text-white uppercase tracking-widest">{{ __('Filtering Telemetry...') }}</span>
                         </div>
                     </div>

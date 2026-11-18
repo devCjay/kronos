@@ -134,7 +134,7 @@
                                 <div class="w-full space-y-4">
                                     {{-- Converted Amount (Main Emphasis) --}}
                                     <div
-                                        class="bg-[#0f1115] rounded-xl p-4 border border-white/10 mt-4 relative group md:hidden">
+                                        class="bg-[#171b22] rounded-xl p-4 border border-white/10 mt-4 relative group md:hidden">
                                         <span
                                             class="text-[10px] text-accent-primary uppercase tracking-wider block mb-1 font-bold">{{ __('Exact Amount to Send') }}</span>
                                         <div class="flex flex-col gap-1 mt-1">
@@ -158,7 +158,7 @@
                                         </button>
                                     </div>
                                     {{-- Address --}}
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4 relative group">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4 relative group">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Wallet Address') }}</p>
                                         <div class="flex items-center justify-between gap-4">
@@ -182,14 +182,14 @@
 
                                     <div class="grid grid-cols-2 gap-4">
                                         @if (!empty($info['network']))
-                                            <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                            <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                                 <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                                     {{ __('Network') }}</p>
                                                 <p class="text-white font-bold">{{ $info['network'] }}</p>
                                             </div>
                                         @endif
                                         @if (!empty($info['currency']))
-                                            <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                            <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                                 <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                                     {{ __('Asset') }}</p>
                                                 <p class="text-white font-bold">{{ $info['currency'] }}</p>
@@ -201,7 +201,7 @@
                             </div>
                         @elseif($payment_method->type == 'bank_transfer')
                             {{-- Converted Amount (Main Emphasis) --}}
-                            <div class="bg-[#0f1115] rounded-xl p-4 border border-white/10 mt-4 relative group md:hidden">
+                            <div class="bg-[#171b22] rounded-xl p-4 border border-white/10 mt-4 relative group md:hidden">
                                 <span
                                     class="text-[10px] text-accent-primary uppercase tracking-wider block mb-1 font-bold">{{ __('Exact Amount to Send') }}</span>
                                 <div class="flex flex-col gap-1 mt-1">
@@ -228,21 +228,21 @@
                             {{-- Bank Transfer Details --}}
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 @if (!empty($info['bank_name']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Bank Name') }}</p>
                                         <p class="text-white font-bold">{{ $info['bank_name'] }}</p>
                                     </div>
                                 @endif
                                 @if (!empty($info['account_holder']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Account Holder') }}</p>
                                         <p class="text-white font-bold">{{ $info['account_holder'] }}</p>
                                     </div>
                                 @endif
                                 @if (!empty($info['account_number']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4 relative group">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4 relative group">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Account Number') }}</p>
                                         <div class="flex items-center justify-between">
@@ -261,14 +261,14 @@
                                     </div>
                                 @endif
                                 @if (!empty($info['routing_number']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Routing Number') }}</p>
                                         <p class="text-white font-bold">{{ $info['routing_number'] }}</p>
                                     </div>
                                 @endif
                                 @if (!empty($info['swift']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('SWIFT / BIC') }}</p>
                                         <p class="text-white font-bold">{{ $info['swift'] }}</p>
@@ -280,7 +280,7 @@
                             <div class="space-y-4">
                                 {{-- Converted Amount (Main Emphasis) --}}
                                 <div
-                                    class="bg-[#0f1115] rounded-xl p-4 border border-white/10 mt-4 relative group md:hidden">
+                                    class="bg-[#171b22] rounded-xl p-4 border border-white/10 mt-4 relative group md:hidden">
                                     <span
                                         class="text-[10px] text-accent-primary uppercase tracking-wider block mb-1 font-bold">{{ __('Exact Amount to Send') }}</span>
                                     <div class="flex flex-col gap-1 mt-1">
@@ -305,7 +305,7 @@
                                 </div>
 
                                 @if (!empty($info['email']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4 relative group">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4 relative group">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Email Address') }}</p>
                                         <div class="flex items-center justify-between">
@@ -324,21 +324,21 @@
                                     </div>
                                 @endif
                                 @if (!empty($info['username']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Username') }}</p>
                                         <p class="text-white font-bold">{{ $info['username'] }}</p>
                                     </div>
                                 @endif
                                 @if (!empty($info['tag']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Tag / Handle') }}</p>
                                         <p class="text-white font-bold">{{ $info['tag'] }}</p>
                                     </div>
                                 @endif
                                 @if (!empty($info['phone']))
-                                    <div class="bg-[#0f1115] border border-white/10 rounded-xl p-4">
+                                    <div class="bg-[#171b22] border border-white/10 rounded-xl p-4">
                                         <p class="text-[10px] uppercase font-bold text-text-secondary mb-1">
                                             {{ __('Phone Number') }}</p>
                                         <p class="text-white font-bold">{{ $info['phone'] }}</p>
@@ -353,7 +353,7 @@
                         @endif
 
                         {{-- Instructions --}}
-                        <div class="p-6 bg-[#0f1115] rounded-xl border border-white/5">
+                        <div class="p-6 bg-[#171b22] rounded-xl border border-white/5">
                             <h4 class="text-sm font-bold text-white mb-2 flex items-center gap-2">
                                 <svg class="w-4 h-4 text-accent-primary" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
@@ -374,7 +374,7 @@
 
                         <!-- Helper Tip -->
                         <div
-                            class="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4 flex gap-3 text-blue-400 text-xs">
+                            class="bg-amber-500/10 border border-amber-500/20 rounded-xl p-4 flex gap-3 text-amber-400 text-xs">
                             <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                     d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>

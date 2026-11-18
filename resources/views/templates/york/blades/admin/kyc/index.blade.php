@@ -6,10 +6,10 @@
         {{-- Disabled Warning --}}
         @if (!moduleEnabled('kyc_module'))
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-8 text-center font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-8 text-center font-mono">
                     <h3 class="text-lg font-bold text-white uppercase">{{ __('KYC Verification is Disabled') }}</h3>
                     <p class="text-xs text-slate-400 mt-2 mb-4">{{ __('Turn on the KYC module in settings to review documents.') }}</p>
-                    <a href="{{ route('admin.settings.modules.index') }}" class="px-6 py-2 rounded-full bg-cyan-400 text-black font-black text-xs uppercase">{{ __('Settings') }}</a>
+                    <a href="{{ route('admin.settings.modules.index') }}" class="px-6 py-2 rounded-full bg-amber-400 text-black font-black text-xs uppercase">{{ __('Settings') }}</a>
                 </div>
             </div>
         @else
@@ -32,7 +32,7 @@
                 </div>
 
                 {{-- Fast Filter Ribbon Tabs --}}
-                <div class="flex flex-wrap items-center bg-[#090c14] border border-white/[0.08] p-1.5 rounded-2xl gap-1.5 font-mono text-xs shadow-xl">
+                <div class="flex flex-wrap items-center bg-[#151a21] border border-white/[0.08] p-1.5 rounded-2xl gap-1.5 font-mono text-xs shadow-xl">
                     @php $currentStatus = request('status', 'all'); @endphp
                     <a href="{{ route('admin.kyc.index', array_merge(request()->except('status', 'page'), ['status' => 'all'])) }}"
                         class="px-4 py-2 rounded-xl font-bold transition-all {{ $currentStatus === 'all' ? 'bg-amber-400 text-black shadow-[0_0_15px_rgba(245,158,11,0.3)]' : 'text-slate-400 hover:text-white' }}">
@@ -58,12 +58,12 @@
             {{-- ==================================================================================== --}}
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                         <div>
                             <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Total Documents') }}</span>
                             <span class="text-xl font-black text-white">{{ number_format($totalSubmissions) }}</span>
                         </div>
-                        <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                        <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                             </svg>
@@ -72,7 +72,7 @@
                 </div>
 
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                         <div>
                             <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Pending Review') }}</span>
                             <span class="text-xl font-black text-amber-400">{{ number_format($pendingCount) }}</span>
@@ -86,7 +86,7 @@
                 </div>
 
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                         <div>
                             <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Approved') }}</span>
                             <span class="text-xl font-black text-emerald-400">{{ number_format($approvedCount) }}</span>
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                         <div>
                             <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Rejected') }}</span>
                             <span class="text-xl font-black text-rose-400">{{ number_format($rejectedCount) }}</span>
@@ -118,14 +118,14 @@
             {{-- DATA TABLE CHASSIS --}}
             {{-- ==================================================================================== --}}
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 overflow-hidden font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 overflow-hidden font-mono">
 
                     {{-- Search Toolbar --}}
                     <div class="p-6 border-b border-white/[0.06] flex flex-col lg:flex-row justify-between items-center gap-4 text-xs">
                         <form action="{{ route('admin.kyc.index') }}" method="GET" class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
                             <input type="hidden" name="status" value="{{ request('status', 'all') }}">
                             <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('Search by user or document...') }}" 
-                                class="bg-[#05070d] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2 text-xs focus:outline-none transition-all w-full sm:w-72">
+                                class="bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2 text-xs focus:outline-none transition-all w-full sm:w-72">
 
                             <button type="submit" class="p-2 rounded-xl bg-amber-400 text-black hover:bg-amber-300 font-bold transition-all cursor-pointer">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

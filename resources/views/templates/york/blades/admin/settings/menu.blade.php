@@ -55,11 +55,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('NAVIGATION & MENUS') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Navigation Menus') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -69,7 +69,7 @@
 
             <div class="flex items-center gap-3 text-xs">
                 <button type="button" onclick="openCreateModal()"
-                    class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,245,255,0.3)] flex items-center gap-2 cursor-pointer">
+                    class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(247,166,0,0.3)] flex items-center gap-2 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
@@ -86,7 +86,7 @@
             {{-- Left Navigation Deck --}}
             <div class="lg:col-span-4 xl:col-span-3">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                         @include("templates.$template.blades.admin.settings.partials.sidebar")
                     </div>
                 </div>
@@ -95,13 +95,13 @@
             {{-- Right Content Chassis --}}
             <div class="lg:col-span-8 xl:col-span-9 space-y-6">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-6 text-xs">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-6 text-xs">
                         
                         {{-- Tabs: Admin vs User Sidebar --}}
                         <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                             <div class="flex items-center gap-2">
                                 <button type="button" onclick="switchTab('admin')" id="tab-admin"
-                                    class="tab-btn px-4 py-2 rounded-xl bg-cyan-400 text-black font-black uppercase text-[10px] tracking-wider transition-all cursor-pointer">
+                                    class="tab-btn px-4 py-2 rounded-xl bg-amber-400 text-black font-black uppercase text-[10px] tracking-wider transition-all cursor-pointer">
                                     {{ __('Admin Menu') }}
                                 </button>
                                 <button type="button" onclick="switchTab('user')" id="tab-user"
@@ -136,7 +136,7 @@
     {{-- Create Modal --}}
     <div id="createModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] w-full max-w-lg">
-            <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 space-y-6 text-xs font-mono">
+            <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 space-y-6 text-xs font-mono">
                 <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                     <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Add Menu Item') }}</h3>
                     <button type="button" onclick="closeCreateModal()" class="text-slate-400 hover:text-white cursor-pointer">✕</button>
@@ -148,13 +148,13 @@
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Menu Label') }}</label>
                             <input type="text" name="label" required placeholder="e.g. Analytics" value="{{ old('label') }}"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
 
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Target Menu') }}</label>
                             <select name="type" id="menu_type_select" required onchange="filterParentOptions()"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                 <option value="user" {{ old('type') == 'user' ? 'selected' : '' }}>{{ __('User Portal') }}</option>
                                 <option value="admin" {{ old('type') == 'admin' ? 'selected' : '' }}>{{ __('Admin Portal') }}</option>
                             </select>
@@ -164,23 +164,23 @@
                     <div class="p-4 rounded-xl bg-white/[0.015] border border-white/[0.04] space-y-3">
                         <div class="flex items-center gap-6">
                             <label class="flex items-center gap-2 cursor-pointer text-slate-300">
-                                <input type="radio" name="nav_mode" value="route" checked onchange="switchNavMode()" class="accent-cyan-400">
+                                <input type="radio" name="nav_mode" value="route" checked onchange="switchNavMode()" class="accent-amber-400">
                                 <span class="text-[10px] font-bold uppercase">{{ __('Named Route') }}</span>
                             </label>
                             <label class="flex items-center gap-2 cursor-pointer text-slate-300">
-                                <input type="radio" name="nav_mode" value="url" onchange="switchNavMode()" class="accent-cyan-400">
+                                <input type="radio" name="nav_mode" value="url" onchange="switchNavMode()" class="accent-amber-400">
                                 <span class="text-[10px] font-bold uppercase">{{ __('Direct URL') }}</span>
                             </label>
                         </div>
 
                         <div id="route_input_container">
                             <input type="text" name="route_name" value="{{ old('route_name') }}" placeholder="user.dashboard"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none">
                         </div>
 
                         <div id="url_input_container" class="hidden">
                             <input type="text" name="url" value="{{ old('url') }}" placeholder="https://external-link.com"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none">
                         </div>
                     </div>
 
@@ -188,13 +188,13 @@
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Sort Order') }}</label>
                             <input type="number" name="sort_order" value="{{ old('sort_order', 0) }}"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
 
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Parent Menu Item') }}</label>
                             <select name="parent_id" id="parent_id_select"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                 <option value="">{{ __('None (Top-Level Item)') }}</option>
                                 @foreach ($admin_menus as $menu)
                                     <option value="{{ $menu->id }}" data-type="admin" {{ old('parent_id') == $menu->id ? 'selected' : '' }}>
@@ -213,14 +213,14 @@
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Icon SVG Code (Optional)') }}</label>
                         <textarea name="icon" rows="2" placeholder="<svg ...> ... </svg>"
-                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl p-3 text-xs focus:outline-none resize-none">{{ old('icon') }}</textarea>
+                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none resize-none">{{ old('icon') }}</textarea>
                     </div>
 
                     <div class="pt-4 border-t border-white/[0.06] flex items-center justify-end gap-3">
                         <button type="button" onclick="closeCreateModal()" class="px-5 py-2.5 rounded-xl bg-white/[0.04] text-slate-300 uppercase text-[10px] font-bold">
                             {{ __('Cancel') }}
                         </button>
-                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-[10px]">
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-[10px]">
                             {{ __('Add Item') }}
                         </button>
                     </div>
@@ -234,8 +234,8 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         function switchTab(type) {
-            $('.tab-btn').removeClass('bg-cyan-400 text-black').addClass('bg-white/[0.03] text-slate-400');
-            $(`#tab-${type}`).addClass('bg-cyan-400 text-black').removeClass('bg-white/[0.03] text-slate-400');
+            $('.tab-btn').removeClass('bg-amber-400 text-black').addClass('bg-white/[0.03] text-slate-400');
+            $(`#tab-${type}`).addClass('bg-amber-400 text-black').removeClass('bg-white/[0.03] text-slate-400');
             $('.menu-tab-content').addClass('hidden');
             $(`#menu-container-${type}`).removeClass('hidden');
         }
@@ -334,7 +334,7 @@
                         title: response.message || '{{ __('Order saved.') }}',
                         showConfirmButton: false,
                         timer: 1200,
-                        customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                        customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                     });
                 }
             });
@@ -372,7 +372,7 @@
                         title: response.message || '{{ __('Visibility updated.') }}',
                         showConfirmButton: false,
                         timer: 1200,
-                        customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                        customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                     });
                 },
                 error: function(xhr) {
@@ -381,7 +381,7 @@
                         icon: 'error',
                         title: '{{ __('Error') }}',
                         text: xhr.responseJSON?.message || '{{ __('Failed to update visibility.') }}',
-                        customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                        customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                     });
                 }
             });

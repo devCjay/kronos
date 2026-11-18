@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('ACCOUNT SETTINGS') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Admin Profile') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -40,10 +40,10 @@
 
                 {{-- Account Metadata Card --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl mt-6">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 space-y-4 text-xs">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 space-y-4 text-xs">
                         <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                             <span class="text-slate-500 uppercase text-[10px] font-bold">{{ __('Account Role') }}</span>
-                            <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase">
+                            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase">
                                 {{ __('Administrator') }}
                             </span>
                         </div>
@@ -62,7 +62,7 @@
             {{-- Right Main Form Panel --}}
             <div class="lg:col-span-8 xl:col-span-9">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-8">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-8">
                         
                         <form id="profile-update-form" action="{{ route('admin.account.profile.update') }}" method="POST"
                             enctype="multipart/form-data" class="space-y-8">
@@ -75,18 +75,18 @@
                                 </label>
                                 <div class="flex flex-col sm:flex-row items-center sm:items-start gap-6">
                                     <div class="relative group cursor-pointer" onclick="$('#image-upload').click()">
-                                        <div class="w-24 h-24 rounded-3xl overflow-hidden border-2 border-white/10 group-hover:border-cyan-400 transition-all bg-[#05070d] flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)]">
+                                        <div class="w-24 h-24 rounded-3xl overflow-hidden border-2 border-white/10 group-hover:border-amber-400 transition-all bg-[#0b0e11] flex items-center justify-center shadow-[0_0_20px_rgba(0,0,0,0.5)]">
                                             @if ($admin->image)
                                                 <img id="image-preview" src="{{ asset('storage/profile/' . $admin->image) }}" class="w-full h-full object-cover">
                                             @else
-                                                <div id="image-placeholder" class="w-full h-full bg-gradient-to-br from-cyan-600/30 to-purple-600/30 flex items-center justify-center text-white text-3xl font-black">
+                                                <div id="image-placeholder" class="w-full h-full bg-gradient-to-br from-amber-600/30 to-orange-600/30 flex items-center justify-center text-white text-3xl font-black">
                                                     {{ substr($admin->name, 0, 1) }}
                                                 </div>
                                                 <img id="image-preview" class="w-full h-full object-cover hidden">
                                             @endif
                                             
                                             {{-- Hover Overlay --}}
-                                            <div class="absolute inset-0 bg-[#05070d]/80 backdrop-blur-xs flex flex-col items-center justify-center text-cyan-400 opacity-0 group-hover:opacity-100 transition-opacity">
+                                            <div class="absolute inset-0 bg-[#0b0e11]/80 backdrop-blur-xs flex flex-col items-center justify-center text-amber-400 opacity-0 group-hover:opacity-100 transition-opacity">
                                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -114,7 +114,7 @@
                                         {{ __('Full Name') }} <span class="text-rose-400">*</span>
                                     </label>
                                     <input type="text" name="name" value="{{ $admin->name }}" required
-                                        class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors"
+                                        class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors"
                                         placeholder="{{ __('Enter your full name') }}">
                                 </div>
 
@@ -123,7 +123,7 @@
                                         {{ __('Username') }} <span class="text-rose-400">*</span>
                                     </label>
                                     <input type="text" name="username" value="{{ $admin->username }}" required
-                                        class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors"
+                                        class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors"
                                         placeholder="{{ __('Enter username') }}">
                                 </div>
 
@@ -132,7 +132,7 @@
                                         {{ __('Email Address') }} <span class="text-rose-400">*</span>
                                     </label>
                                     <input type="email" name="email" value="{{ $admin->email }}" required
-                                        class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors"
+                                        class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors"
                                         placeholder="{{ __('admin@example.com') }}">
                                 </div>
 
@@ -141,9 +141,9 @@
                                         {{ __('Language') }} <span class="text-rose-400">*</span>
                                     </label>
                                     <select name="lang" required
-                                        class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors">
+                                        class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-colors">
                                         @foreach (config('languages') as $code => $lang)
-                                            <option value="{{ $code }}" {{ $admin->lang == $code ? 'selected' : '' }} class="bg-[#090c14] text-white">
+                                            <option value="{{ $code }}" {{ $admin->lang == $code ? 'selected' : '' }} class="bg-[#151a21] text-white">
                                                 {{ $lang['name'] }} ({{ strtoupper($code) }})
                                             </option>
                                         @endforeach
@@ -154,7 +154,7 @@
                             {{-- Submit Button --}}
                             <div class="pt-6 border-t border-white/[0.06] flex items-center justify-end">
                                 <button type="submit" id="submit-btn"
-                                    class="px-8 py-3.5 bg-cyan-400 hover:bg-cyan-300 text-[#050507] text-xs font-black uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(0,245,255,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-3 cursor-pointer">
+                                    class="px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-[#0b0e11] text-xs font-black uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(247,166,0,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-3 cursor-pointer">
                                     <svg class="w-4 h-4 submit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                                     </svg>
@@ -225,7 +225,7 @@
                             title: response.message || '{{ __('Profile updated successfully.') }}',
                             showConfirmButton: false,
                             timer: 2000,
-                            customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                            customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                         });
                     },
                     error: function(xhr) {
@@ -239,7 +239,7 @@
                             icon: 'error',
                             title: '{{ __('Validation Error') }}',
                             html: errorMessage,
-                            customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                            customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                         });
                     },
                     complete: function() {

@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('BLOCKCHAIN SETTINGS') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Blockchain Settings') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -22,7 +22,7 @@
 
             <div class="flex items-center gap-3 text-xs">
                 <button type="button" onclick="openAddBlockchainModal()"
-                    class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,245,255,0.3)] flex items-center gap-2 cursor-pointer">
+                    class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(247,166,0,0.3)] flex items-center gap-2 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
@@ -39,7 +39,7 @@
             {{-- Left Navigation Deck --}}
             <div class="lg:col-span-4 xl:col-span-3">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                         @include("templates.$template.blades.admin.settings.partials.sidebar")
                     </div>
                 </div>
@@ -50,9 +50,9 @@
                 
                 {{-- MASTER WALLETS NOTICE BANNER --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-gradient-to-r from-[#090c14] via-[#0c1424] to-[#090c14] p-6 sm:p-8 border border-cyan-500/20 shadow-[0_0_30px_rgba(0,245,255,0.05)] flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="rounded-[2rem] bg-gradient-to-r from-[#151a21] via-[#0c1424] to-[#151a21] p-6 sm:p-8 border border-amber-500/20 shadow-[0_0_30px_rgba(247,166,0,0.05)] flex flex-col md:flex-row md:items-center justify-between gap-6">
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 shadow-[0_0_20px_rgba(0,245,255,0.2)]">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 shadow-[0_0_20px_rgba(247,166,0,0.2)]">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                                 </svg>
@@ -60,7 +60,7 @@
                             <div class="space-y-1">
                                 <div class="flex items-center gap-2">
                                     <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Master Wallets & Private Keys') }}</h3>
-                                    <span class="px-2 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-300 text-[9px] font-bold uppercase tracking-wider">{{ __('Admin Hub') }}</span>
+                                    <span class="px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-300 text-[9px] font-bold uppercase tracking-wider">{{ __('Admin Hub') }}</span>
                                 </div>
                                 <p class="text-[11px] text-slate-300 leading-relaxed max-w-2xl">
                                     {{ __('Master receiving addresses, private key generation/reveals, sweeping schedules, and on-chain balances are managed in the Master Wallets Dashboard. Use the button below or click each network\'s direct link.') }}
@@ -69,7 +69,7 @@
                         </div>
 
                         <a href="{{ route('admin.deposits.master-wallets') }}"
-                            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-[10px] tracking-wider transition-all shadow-[0_0_20px_rgba(0,245,255,0.25)] shrink-0 active:scale-[0.98] cursor-pointer">
+                            class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-[10px] tracking-wider transition-all shadow-[0_0_20px_rgba(247,166,0,0.25)] shrink-0 active:scale-[0.98] cursor-pointer">
                             <span>{{ __('Go to Master Wallets') }}</span>
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -80,7 +80,7 @@
 
                 {{-- BLOCKCHAIN NETWORKS & RPC ROSTER --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-6 text-xs">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-6 text-xs">
                         <div class="pb-3 border-b border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                             <div>
                                 <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Supported Blockchains & Tokens') }}</h3>
@@ -91,7 +91,7 @@
                                     class="px-3 py-1.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-slate-300 font-bold uppercase text-[9px] transition-all cursor-pointer">
                                     {{ __('Expand All') }}
                                 </button>
-                                <span class="px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold">
+                                <span class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold">
                                     {{ count($blockchains) }} {{ __('Chains') }}
                                 </span>
                             </div>
@@ -116,15 +116,15 @@
                             </div>
 
                             {{-- External Wallet Import Notice --}}
-                            <div class="px-4 py-3 rounded-2xl bg-cyan-500/10 border border-cyan-500/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-cyan-200/90">
+                            <div class="px-4 py-3 rounded-2xl bg-amber-500/10 border border-amber-500/25 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-[11px] text-amber-200/90">
                                 <div class="flex items-center gap-2.5">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400 shrink-0 animate-pulse"></span>
+                                    <span class="w-2 h-2 rounded-full bg-amber-400 shrink-0 animate-pulse"></span>
                                     <span>
-                                        <strong class="text-cyan-300 font-bold">{{ __('External Wallet Import (Trust Wallet / MetaMask / Phantom / TronLink):') }}</strong>
+                                        <strong class="text-amber-300 font-bold">{{ __('External Wallet Import (Trust Wallet / MetaMask / Phantom / TronLink):') }}</strong>
                                         {{ __('Admins can reveal and export master wallet private keys to import them directly into Trust Wallet, MetaMask, Phantom, TronLink, or hardware wallets for direct manual control and monitoring.') }}
                                     </span>
                                 </div>
-                                <a href="{{ route('admin.deposits.master-wallets') }}" class="text-cyan-400 font-bold hover:text-cyan-300 hover:underline shrink-0 text-[10px] uppercase tracking-wider inline-flex items-center gap-1">
+                                <a href="{{ route('admin.deposits.master-wallets') }}" class="text-amber-400 font-bold hover:text-amber-300 hover:underline shrink-0 text-[10px] uppercase tracking-wider inline-flex items-center gap-1">
                                     <span>{{ __('View Master Wallets') }}</span>
                                     <span>&rarr;</span>
                                 </a>
@@ -153,7 +153,7 @@
                                     <div class="p-4 sm:p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
                                         <div class="flex items-center gap-3 min-w-0">
                                             {{-- Drag Handle --}}
-                                            <div class="drag-handle p-2 text-slate-500 hover:text-cyan-400 cursor-grab active:cursor-grabbing shrink-0" title="{{ __('Drag to reorder priority') }}">
+                                            <div class="drag-handle p-2 text-slate-500 hover:text-amber-400 cursor-grab active:cursor-grabbing shrink-0" title="{{ __('Drag to reorder priority') }}">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16" />
                                                 </svg>
@@ -165,7 +165,7 @@
                                             </span>
 
                                             {{-- Blockchain Logo --}}
-                                            <div class="w-9 h-9 rounded-xl bg-[#05070d] border border-white/[0.08] flex items-center justify-center text-cyan-400 font-bold shrink-0 overflow-hidden">
+                                            <div class="w-9 h-9 rounded-xl bg-[#0b0e11] border border-white/[0.08] flex items-center justify-center text-amber-400 font-bold shrink-0 overflow-hidden">
                                                 @php $blockchainLogo = !empty($bc->logo) ? asset($bc->logo) : asset('assets/images/tokens/' . strtolower($bc->code) . '.png'); @endphp
                                                 <img src="{{ $blockchainLogo }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="{{ $bc->name }}" class="w-full h-full object-contain p-1">
                                                 <span class="hidden items-center justify-center font-black text-[10px]">{{ strtoupper(substr($bc->code, 0, 3)) }}</span>
@@ -176,7 +176,7 @@
                                                 <div class="flex items-center gap-2 flex-wrap">
                                                     <h4 class="text-sm font-bold text-white truncate">{{ $bc->name }}</h4>
                                                     <span class="px-2 py-0.5 rounded bg-white/[0.04] text-slate-400 font-mono text-[9px]">{{ $bc->code }}</span>
-                                                    <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-300 font-mono text-[9px]">
+                                                    <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-300 font-mono text-[9px]">
                                                         {{ $bc->tokens->count() }} {{ __('Tokens') }}
                                                     </span>
                                                 </div>
@@ -187,7 +187,7 @@
                                         <div class="flex flex-wrap items-center gap-2.5 sm:gap-3 shrink-0 self-end md:self-auto">
                                             {{-- Master Wallet Link --}}
                                             <a href="{{ $masterWalletLink }}"
-                                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-500/10 hover:bg-cyan-400 hover:text-black text-cyan-400 font-bold uppercase text-[9px] transition-all cursor-pointer border border-cyan-500/20 shadow-[0_0_10px_rgba(0,245,255,0.08)]">
+                                                class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-amber-500/10 hover:bg-amber-400 hover:text-black text-amber-400 font-bold uppercase text-[9px] transition-all cursor-pointer border border-amber-500/20 shadow-[0_0_10px_rgba(247,166,0,0.08)]">
                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                                                 </svg>
@@ -198,7 +198,7 @@
                                             {{-- Status Toggle --}}
                                             <label class="relative inline-flex items-center cursor-pointer" title="{{ __('Toggle network active state') }}">
                                                 <input type="checkbox" class="blockchain-status-toggle sr-only peer" data-id="{{ $bc->id }}" {{ $bc->status === 'enabled' ? 'checked' : '' }}>
-                                                <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-cyan-400"></div>
+                                                <div class="w-9 h-5 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-amber-400"></div>
                                             </label>
 
                                             {{-- Expand / Collapse Button --}}
@@ -217,9 +217,9 @@
                                         
                                         {{-- RPC Node & Controls --}}
                                         <div class="pt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                                            <div class="p-3 bg-[#05070d] rounded-xl border border-white/[0.06] flex-1 min-w-0">
+                                            <div class="p-3 bg-[#0b0e11] rounded-xl border border-white/[0.06] flex-1 min-w-0">
                                                 <span class="text-[8px] uppercase font-bold text-slate-500 block mb-0.5">{{ __('Active RPC Node URL') }}</span>
-                                                <code class="text-cyan-300 font-mono text-[10px] truncate block select-all">{{ $bc->rpc_url }}</code>
+                                                <code class="text-amber-300 font-mono text-[10px] truncate block select-all">{{ $bc->rpc_url }}</code>
                                             </div>
 
                                             <button type="button" onclick="openEditBlockchainModal({{ json_encode($bc) }})"
@@ -241,7 +241,7 @@
                                             <div class="flex items-center justify-between">
                                                 <span class="text-[9px] uppercase font-black text-slate-400 tracking-wider">{{ __('Supported Tokens') }} ({{ $bc->tokens->count() }})</span>
                                                 <button type="button" onclick="openAddTokenModal({{ $bc->id }}, '{{ $bc->name }}')"
-                                                    class="px-2.5 py-1 rounded-md bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 text-[9px] font-bold uppercase tracking-wider transition-all cursor-pointer">
+                                                    class="px-2.5 py-1 rounded-md bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 text-[9px] font-bold uppercase tracking-wider transition-all cursor-pointer">
                                                     + {{ __('Add Token') }}
                                                 </button>
                                             </div>
@@ -253,9 +253,9 @@
                                             @else
                                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                                                     @foreach ($bc->tokens as $token)
-                                                        <div class="p-3 bg-[#05070d] rounded-xl border border-white/[0.06] flex items-center justify-between gap-3" id="token-row-{{ $token->id }}">
+                                                        <div class="p-3 bg-[#0b0e11] rounded-xl border border-white/[0.06] flex items-center justify-between gap-3" id="token-row-{{ $token->id }}">
                                                             <div class="flex items-center gap-2.5 min-w-0">
-                                                                <div class="w-7 h-7 rounded-lg bg-white/[0.03] flex items-center justify-center text-cyan-400 text-xs font-black shrink-0 overflow-hidden">
+                                                                <div class="w-7 h-7 rounded-lg bg-white/[0.03] flex items-center justify-center text-amber-400 text-xs font-black shrink-0 overflow-hidden">
                                                                     @php $tokenLogo = !empty($token->logo) ? asset($token->logo) : asset('assets/images/tokens/' . strtolower($token->symbol) . '.png'); @endphp
                                                                     <img src="{{ $tokenLogo }}" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" alt="{{ $token->symbol }}" class="w-full h-full object-contain p-0.5">
                                                                     <span class="hidden font-bold text-[8px]">{{ $token->symbol }}</span>
@@ -269,7 +269,7 @@
                                                             <div class="flex items-center gap-2 shrink-0">
                                                                 <label class="relative inline-flex items-center cursor-pointer">
                                                                     <input type="checkbox" class="token-status-toggle sr-only peer" data-id="{{ $token->id }}" {{ $token->status === 'enabled' ? 'checked' : '' }}>
-                                                                    <div class="w-7 h-4 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-cyan-400"></div>
+                                                                    <div class="w-7 h-4 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-amber-400"></div>
                                                                 </label>
 
                                                                 <button type="button" onclick="openEditTokenModal({{ json_encode($token) }})"
@@ -308,7 +308,7 @@
     <!-- Add/Edit Blockchain Modal -->
     <div id="blockchainModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] w-full max-w-lg">
-            <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 space-y-5 text-xs font-mono">
+            <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 space-y-5 text-xs font-mono">
                 <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                     <h3 class="text-sm font-black text-white uppercase tracking-wider" id="blockchainModalTitle">{{ __('Configure Blockchain') }}</h3>
                     <button type="button" onclick="closeModal('blockchainModal')" class="text-slate-400 hover:text-white cursor-pointer">✕</button>
@@ -320,13 +320,13 @@
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Network Name') }}</label>
                             <input type="text" name="name" id="blockchain_name" required placeholder="Solana Mainnet"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
 
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Chain Code') }}</label>
                             <input type="text" name="code" id="blockchain_code" required placeholder="solana"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
                     </div>
 
@@ -336,7 +336,7 @@
                             <span class="text-[9px] text-slate-500">{{ __('Supports self-hosted & custom providers') }}</span>
                         </div>
                         <input type="url" name="rpc_url" id="blockchain_rpc_url" required placeholder="https://mainnet.helius-rpc.com/?api-key=..."
-                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none font-mono">
+                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none font-mono">
                         <p class="text-[9px] text-slate-500">
                             {{ __('Paste your private node or provider endpoint URL (QuickNode, Helius, Alchemy, etc.). Contact support for help configuring dedicated nodes.') }}
                         </p>
@@ -345,26 +345,26 @@
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Deposit Instructions') }}</label>
                         <textarea name="instructions" id="blockchain_instructions" rows="2" placeholder="Deposit network notes or instructions for users..."
-                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl p-3 text-xs focus:outline-none resize-none"></textarea>
+                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none resize-none"></textarea>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Live Explorer Base URL') }}</label>
                             <input type="text" name="explorer_url_live" id="blockchain_explorer_url_live" placeholder="https://solscan.io/tx/{tx}"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
 
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Devnet Explorer Base URL') }}</label>
                             <input type="text" name="explorer_url_devnet" id="blockchain_explorer_url_devnet" placeholder="https://solscan.io/tx/{tx}?cluster=devnet"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
                     </div>
 
                     <div class="space-y-2" id="blockchainStatusGroup">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Network Status') }}</label>
-                        <select name="status" id="blockchain_status" class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                        <select name="status" id="blockchain_status" class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                             <option value="enabled">{{ __('Enabled') }}</option>
                             <option value="disabled">{{ __('Disabled') }}</option>
                         </select>
@@ -372,7 +372,7 @@
 
                     <div class="pt-4 border-t border-white/[0.06] flex items-center justify-end gap-3">
                         <button type="button" onclick="closeModal('blockchainModal')" class="px-5 py-2.5 rounded-xl bg-white/[0.04] text-slate-400 font-bold uppercase text-[10px] tracking-wider cursor-pointer">{{ __('Cancel') }}</button>
-                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-[10px] tracking-wider transition-all cursor-pointer">{{ __('Save Network') }}</button>
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-[10px] tracking-wider transition-all cursor-pointer">{{ __('Save Network') }}</button>
                     </div>
                 </form>
             </div>
@@ -382,7 +382,7 @@
     <!-- Add/Edit Token Modal -->
     <div id="tokenModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] w-full max-w-md">
-            <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 space-y-5 text-xs font-mono">
+            <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 space-y-5 text-xs font-mono">
                 <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                     <h3 class="text-sm font-black text-white uppercase tracking-wider" id="tokenModalTitle">{{ __('Configure Token') }}</h3>
                     <button type="button" onclick="closeModal('tokenModal')" class="text-slate-400 hover:text-white cursor-pointer">✕</button>
@@ -396,32 +396,32 @@
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Symbol') }}</label>
                             <input type="text" name="symbol" id="token_symbol" required placeholder="USDT"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
 
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Token Name') }}</label>
                             <input type="text" name="name" id="token_name" required placeholder="Tether USD"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
                     </div>
 
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Contract / Mint Address (Leave empty for Native Token)') }}</label>
                         <input type="text" name="mint_address" id="token_mint_address" placeholder="Es9vMFrzaCERmJfrF4H2FYD4KCoNkY11McCe8BenwNYB"
-                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none font-mono">
+                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none font-mono">
                     </div>
 
                     <div class="grid grid-cols-2 gap-4">
                         <div class="space-y-2">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Decimals') }}</label>
                             <input type="number" name="decimals" id="token_decimals" required value="6" min="0" max="18"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                         </div>
 
                         <div class="space-y-2" id="tokenStatusGroup">
                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Status') }}</label>
-                            <select name="status" id="token_status" class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                            <select name="status" id="token_status" class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                 <option value="enabled">{{ __('Enabled') }}</option>
                                 <option value="disabled">{{ __('Disabled') }}</option>
                             </select>
@@ -430,7 +430,7 @@
 
                     <div class="pt-4 border-t border-white/[0.06] flex items-center justify-end gap-3">
                         <button type="button" onclick="closeModal('tokenModal')" class="px-5 py-2.5 rounded-xl bg-white/[0.04] text-slate-400 font-bold uppercase text-[10px] tracking-wider cursor-pointer">{{ __('Cancel') }}</button>
-                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-[10px] tracking-wider transition-all cursor-pointer">{{ __('Save Token') }}</button>
+                        <button type="submit" class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-[10px] tracking-wider transition-all cursor-pointer">{{ __('Save Token') }}</button>
                     </div>
                 </form>
             </div>
@@ -494,7 +494,7 @@
                     handle: '.drag-handle',
                     ghostClass: 'opacity-40',
                     chosenClass: 'scale-[1.01]',
-                    dragClass: 'shadow-[0_0_30px_rgba(0,245,255,0.2)]',
+                    dragClass: 'shadow-[0_0_30px_rgba(247,166,0,0.2)]',
                     onEnd: function() {
                         const items = [];
                         $('#blockchain-sortable-list > .blockchain-card').each(function() {
@@ -518,7 +518,7 @@
                                     title: response.message || '{{ __('Priority order updated.') }}',
                                     showConfirmButton: false,
                                     timer: 1200,
-                                    customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                                    customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                                 });
                             },
                             error: function() {
@@ -529,7 +529,7 @@
                                     title: '{{ __('Failed to save priority order.') }}',
                                     showConfirmButton: false,
                                     timer: 1500,
-                                    customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono text-xs' }
+                                    customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono text-xs' }
                                 });
                             }
                         });
@@ -543,7 +543,7 @@
                 const id = $toggle.data('id');
                 $.post(`{{ url('admin/settings/blockchain/blockchains/toggle-status') }}/${id}`, { _token: '{{ csrf_token() }}' })
                     .done(function(res) {
-                        Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.message, showConfirmButton: false, timer: 1200, customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' } });
+                        Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.message, showConfirmButton: false, timer: 1200, customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' } });
                     })
                     .fail(function() {
                         $toggle.prop('checked', !$toggle.is(':checked'));
@@ -556,7 +556,7 @@
                 const id = $toggle.data('id');
                 $.post(`{{ url('admin/settings/blockchain/tokens/toggle-status') }}/${id}`, { _token: '{{ csrf_token() }}' })
                     .done(function(res) {
-                        Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.message, showConfirmButton: false, timer: 1200, customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' } });
+                        Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: res.message, showConfirmButton: false, timer: 1200, customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' } });
                     })
                     .fail(function() {
                         $toggle.prop('checked', !$toggle.is(':checked'));
@@ -623,7 +623,7 @@
                 confirmButtonColor: '#f43f5e',
                 cancelButtonColor: '#1e293b',
                 confirmButtonText: '{{ __('Delete') }}',
-                customClass: { popup: 'bg-[#090c14] border border-white/10 text-white font-mono' }
+                customClass: { popup: 'bg-[#151a21] border border-white/10 text-white font-mono' }
             }).then((result) => {
                 if (result.isConfirmed) {
                     $.post(`{{ url('admin/settings/blockchain/tokens/delete') }}/${id}`, { _token: '{{ csrf_token() }}' })

@@ -4,8 +4,8 @@
 <div class="min-h-screen relative space-y-12 pb-24">
 
     {{-- Global Ethereal Ambient Mesh Gradients --}}
-    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-purple-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-cyan-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-orange-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
+    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-amber-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto space-y-12">
 
@@ -42,9 +42,9 @@
 
                         <a href="{{ route('user.trading-bots.activations') }}"
                            class="px-5 py-2.5 rounded-full hover:bg-white/10 text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-purple-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-orange-400"></span>
                             <span>{{ __('Active Bots') }}</span>
-                            <span class="px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 text-[10px] font-black">{{ $total_activations }}</span>
+                            <span class="px-2 py-0.5 rounded-full bg-orange-500/20 text-orange-300 text-[10px] font-black">{{ $total_activations }}</span>
                         </a>
 
                         <a href="{{ route('user.trading-bots.daily-summary') }}"
@@ -96,7 +96,7 @@
 
                             <div class="flex items-center gap-5">
                                 <div class="relative shrink-0">
-                                    <div class="absolute -inset-2 bg-gradient-to-tr from-accent-primary to-purple-600 rounded-3xl blur-md opacity-40 group-hover:opacity-80 transition-opacity"></div>
+                                    <div class="absolute -inset-2 bg-gradient-to-tr from-accent-primary to-orange-600 rounded-3xl blur-md opacity-40 group-hover:opacity-80 transition-opacity"></div>
                                     <img src="{{ asset('assets/images/bots/' . $featuredBot->logo) }}"
                                          alt="{{ $featuredBot->name }}"
                                          class="relative w-20 h-20 rounded-3xl object-cover border border-white/20 shadow-2xl">
@@ -173,7 +173,7 @@
                                  <div class="flex items-start justify-between gap-4">
                                      <div class="flex items-center gap-4 min-w-0">
                                          <div class="relative shrink-0">
-                                             <div class="absolute -inset-1 bg-gradient-to-tr from-accent-primary to-purple-500 rounded-2xl blur opacity-20 group-hover:opacity-60 transition-opacity"></div>
+                                             <div class="absolute -inset-1 bg-gradient-to-tr from-accent-primary to-orange-500 rounded-2xl blur opacity-20 group-hover:opacity-60 transition-opacity"></div>
                                              <img src="{{ asset('assets/images/bots/' . $bot->logo) }}"
                                                   alt="{{ $bot->name }}"
                                                   class="relative w-14 h-14 rounded-2xl object-cover border border-white/10 shadow-lg">
@@ -273,7 +273,7 @@
                  </div>
                  <div class="col-span-2 p-3.5 rounded-2xl bg-white/[0.02] border border-white/5">
                      <span class="block text-[9px] text-slate-500 font-bold uppercase tracking-widest mb-1">{{ __('Trading Pairs') }}</span>
-                     <span id="modalPairs" class="text-xs font-mono font-medium text-cyan-400 block truncate">--</span>
+                     <span id="modalPairs" class="text-xs font-mono font-medium text-amber-400 block truncate">--</span>
                  </div>
              </div>
 
@@ -375,7 +375,7 @@ document.getElementById('activationForm').addEventListener('submit', function(e)
                 icon: 'success',
                 title: '{{ __('Bot Deployed!') }}',
                 text: data.message,
-                background: '#08090e',
+                background: '#0f1217',
                 color: '#fff'
             }).then(() => {
                 if (data.redirect) {
@@ -389,7 +389,7 @@ document.getElementById('activationForm').addEventListener('submit', function(e)
                 icon: 'error',
                 title: '{{ __('Notice') }}',
                 text: data.message,
-                background: '#08090e',
+                background: '#0f1217',
                 color: '#fff'
             });
             btn.disabled = false;
@@ -402,7 +402,7 @@ document.getElementById('activationForm').addEventListener('submit', function(e)
             icon: 'error',
             title: '{{ __('Error') }}',
             text: '{{ __('Something went wrong. Please try again.') }}',
-            background: '#08090e',
+            background: '#0f1217',
             color: '#fff'
         });
         btn.disabled = false;

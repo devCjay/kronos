@@ -6,11 +6,11 @@
         {{-- Top Header --}}
         <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.2em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('System Update') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Installing Update') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-wider uppercase">
@@ -20,19 +20,19 @@
 
             {{-- Live Status Badge --}}
             <div class="flex items-center gap-2.5 text-xs shrink-0">
-                <div id="status-badge" class="px-3.5 py-2 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-[0_0_15px_rgba(0,245,255,0.15)]">
-                    <div class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></div>
+                <div id="status-badge" class="px-3.5 py-2 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider flex items-center gap-2 shadow-[0_0_15px_rgba(247,166,0,0.15)]">
+                    <div class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></div>
                     <span id="status-text">{{ __('In Progress') }}</span>
                 </div>
             </div>
         </div>
 
         {{-- Progress Bar --}}
-        <div class="p-5 rounded-2xl bg-[#090c14] border border-white/[0.08] shadow-2xl space-y-3">
+        <div class="p-5 rounded-2xl bg-[#151a21] border border-white/[0.08] shadow-2xl space-y-3">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs">
                 <div class="flex items-center gap-2">
                     <span class="text-[9px] uppercase font-bold text-slate-500 tracking-wider">{{ __('Status:') }}</span>
-                    <span id="progress-text" class="font-bold text-cyan-400 text-xs">
+                    <span id="progress-text" class="font-bold text-amber-400 text-xs">
                         {{ __('Preparing update...') }}
                     </span>
                 </div>
@@ -43,7 +43,7 @@
             </div>
 
             <div class="h-2 w-full bg-white/[0.04] rounded-full overflow-hidden border border-white/[0.08] p-0.5">
-                <div id="progress-bar" style="width: 0%" class="h-full bg-gradient-to-r from-cyan-500 to-cyan-300 rounded-full transition-all duration-500 shadow-[0_0_15px_rgba(0,245,255,0.6)]"></div>
+                <div id="progress-bar" style="width: 0%" class="h-full bg-gradient-to-r from-amber-500 to-amber-300 rounded-full transition-all duration-500 shadow-[0_0_15px_rgba(247,166,0,0.6)]"></div>
             </div>
         </div>
 
@@ -77,15 +77,15 @@
         </div>
 
         {{-- Current Step Message Panel (Replaces old terminal console) --}}
-        <div class="p-6 rounded-2xl bg-[#090c14] border border-white/[0.08] shadow-2xl space-y-4" id="current-step-panel">
+        <div class="p-6 rounded-2xl bg-[#151a21] border border-white/[0.08] shadow-2xl space-y-4" id="current-step-panel">
             <div class="flex items-center justify-between pb-3 border-b border-white/[0.06] text-xs">
                 <span class="text-[10px] font-bold uppercase tracking-wider text-slate-400">{{ __('Current Step') }}</span>
-                <span id="active-step-counter" class="text-xs font-bold text-cyan-400 font-mono">{{ __('Step 1 of 6') }}</span>
+                <span id="active-step-counter" class="text-xs font-bold text-amber-400 font-mono">{{ __('Step 1 of 6') }}</span>
             </div>
 
             <div class="flex items-start gap-4">
-                <div id="step-icon-container" class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_15px_rgba(0,245,255,0.15)]">
-                    <div class="w-4 h-4 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full animate-spin"></div>
+                <div id="step-icon-container" class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center shrink-0 mt-0.5 shadow-[0_0_15px_rgba(247,166,0,0.15)]">
+                    <div class="w-4 h-4 border-2 border-amber-400/30 border-t-amber-400 rounded-full animate-spin"></div>
                 </div>
                 <div class="space-y-1">
                     <h3 id="active-step-title" class="text-sm font-bold text-white tracking-wide">
@@ -111,13 +111,13 @@
                     <p id="error-description" class="text-slate-300 mt-1 leading-relaxed">{{ __('The current step could not complete.') }}</p>
                 </div>
             </div>
-            <button type="button" id="btn-retry" class="px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-[10px] tracking-wider transition-all shrink-0 cursor-pointer shadow-[0_0_15px_rgba(0,245,255,0.3)]">
+            <button type="button" id="btn-retry" class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-[10px] tracking-wider transition-all shrink-0 cursor-pointer shadow-[0_0_15px_rgba(247,166,0,0.3)]">
                 {{ __('Retry Step') }}
             </button>
         </div>
 
         {{-- Completion Box --}}
-        <div id="completion-container" class="hidden p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-[#090c14] to-[#090c14] border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.1)] flex flex-col md:flex-row md:items-center justify-between gap-6 text-xs">
+        <div id="completion-container" class="hidden p-6 sm:p-8 rounded-2xl bg-gradient-to-r from-emerald-950/30 via-[#151a21] to-[#151a21] border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.1)] flex flex-col md:flex-row md:items-center justify-between gap-6 text-xs">
             <div class="flex items-center gap-4">
                 <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center font-bold shrink-0 shadow-[0_0_20px_rgba(16,185,129,0.3)]">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,7 +203,7 @@
             $('#btn-retry').on('click', function() {
                 $('#retry-container').addClass('hidden');
                 $('#status-badge').removeClass('bg-rose-500/10 text-rose-400 border-rose-500/30')
-                    .addClass('bg-cyan-500/10 text-cyan-400 border-cyan-500/30');
+                    .addClass('bg-amber-500/10 text-amber-400 border-amber-500/30');
                 $('#status-text').text("{{ __('In Progress') }}");
                 processNextStage();
             });
@@ -231,22 +231,22 @@
 
             if (state === 'running') {
                 card.removeClass('opacity-35 bg-white/[0.01] border-white/[0.04]')
-                    .addClass('opacity-100 bg-cyan-950/20 border-cyan-400 shadow-[0_0_15px_rgba(0,245,255,0.15)]');
+                    .addClass('opacity-100 bg-amber-950/20 border-amber-400 shadow-[0_0_15px_rgba(247,166,0,0.15)]');
                 badge.removeClass('bg-white/[0.04] text-slate-500 border-white/[0.06]')
-                    .addClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/30 flex items-center gap-1.5')
-                    .html('<span class="w-2 h-2 border-2 border-cyan-400/40 border-t-cyan-400 rounded-full animate-spin inline-block"></span> {{ __('Running') }}');
+                    .addClass('bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5')
+                    .html('<span class="w-2 h-2 border-2 border-amber-400/40 border-t-amber-400 rounded-full animate-spin inline-block"></span> {{ __('Running') }}');
                 title.removeClass('text-slate-400').addClass('text-white');
             } else if (state === 'completed') {
-                card.removeClass('border-cyan-400 bg-cyan-950/20 shadow-[0_0_15px_rgba(0,245,255,0.15)]')
-                    .addClass('opacity-100 bg-[#090c14] border-emerald-500/30');
-                badge.removeClass('bg-cyan-500/20 text-cyan-300 border-cyan-500/30 flex items-center gap-1.5')
+                card.removeClass('border-amber-400 bg-amber-950/20 shadow-[0_0_15px_rgba(247,166,0,0.15)]')
+                    .addClass('opacity-100 bg-[#151a21] border-emerald-500/30');
+                badge.removeClass('bg-amber-500/20 text-amber-300 border-amber-500/30 flex items-center gap-1.5')
                     .addClass('bg-emerald-500/10 text-emerald-400 border border-emerald-500/20')
                     .html('✓ {{ __('Done') }}');
                 title.removeClass('text-slate-400').addClass('text-white');
             } else if (state === 'failed') {
-                card.removeClass('border-cyan-400 bg-cyan-950/20')
+                card.removeClass('border-amber-400 bg-amber-950/20')
                     .addClass('opacity-100 bg-rose-950/20 border-rose-500/40');
-                badge.removeClass('bg-cyan-500/20 text-cyan-300 border-cyan-500/30 flex items-center gap-1.5')
+                badge.removeClass('bg-amber-500/20 text-amber-300 border-amber-500/30 flex items-center gap-1.5')
                     .addClass('bg-rose-500/20 text-rose-400 border border-rose-500/40')
                     .html('✗ {{ __('Failed') }}');
             }
@@ -266,9 +266,9 @@
             $('#active-step-counter').text(`Step ${currentStageIndex + 1} of ${stages.length}`);
             $('#active-step-title').text(stage.name);
             $('#active-step-message').text(stage.runningMsg);
-            $('#step-icon-container').html('<div class="w-4 h-4 border-2 border-cyan-400/30 border-t-cyan-400 rounded-full animate-spin"></div>')
+            $('#step-icon-container').html('<div class="w-4 h-4 border-2 border-amber-400/30 border-t-amber-400 rounded-full animate-spin"></div>')
                 .removeClass('bg-emerald-500/10 border-emerald-500/30 text-emerald-400')
-                .addClass('bg-cyan-500/10 border-cyan-500/30 text-cyan-400');
+                .addClass('bg-amber-500/10 border-amber-500/30 text-amber-400');
 
             $.ajax({
                 url: "{{ route('admin.update.process.index') }}/" + stage.id,
@@ -289,7 +289,7 @@
                     updateStageCardState(stage.id, 'failed');
                     $('#error-description').text(errorMsg);
                     $('#retry-container').removeClass('hidden');
-                    $('#status-badge').removeClass('bg-cyan-500/10 text-cyan-400 border-cyan-500/30')
+                    $('#status-badge').removeClass('bg-amber-500/10 text-amber-400 border-amber-500/30')
                         .addClass('bg-rose-500/10 text-rose-400 border-rose-500/30');
                     $('#status-text').text("{{ __('Failed') }}");
                 }
@@ -299,7 +299,7 @@
         function handleSuccess() {
             if (timerInterval) clearInterval(timerInterval);
             updateProgressBar(100, "{{ __('Update completed successfully') }}");
-            $('#status-badge').removeClass('bg-cyan-500/10 text-cyan-400 border-cyan-500/30')
+            $('#status-badge').removeClass('bg-amber-500/10 text-amber-400 border-amber-500/30')
                 .addClass('bg-emerald-500/10 text-emerald-400 border-emerald-500/30')
                 .html(`<div class="w-2 h-2 rounded-full bg-emerald-400"></div> {{ __('Completed') }}`);
             $('#current-step-panel').addClass('hidden');

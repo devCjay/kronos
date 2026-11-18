@@ -1,18 +1,18 @@
 @theme {
-    --color-primary-dark: #030303;
-    /* Deepest obsidian black background */
-    --color-secondary-dark: rgba(20, 20, 25, 0.4);
-    /* Frosted dark glass container */
-    --color-border-primary: rgba(255, 255, 255, 0.06);
-    /* Frosted glass border outline */
+    --color-primary-dark: #0b0e11;
+    /* Bybit-inspired exchange canvas */
+    --color-secondary-dark: rgba(21, 26, 33, 0.88);
+    /* Elevated charcoal trading panel */
+    --color-border-primary: rgba(255, 255, 255, 0.08);
+    /* Neutral exchange panel divider */
 
-    /* Premium Accents */
-    --color-accent-primary: #e2b13c;
-    /* Luxury liquid gold */
+    /* Exchange accents */
+    --color-accent-primary: #f7a600;
+    /* Warm Bybit-style gold */
     --color-accent-secondary: #10b981;
-    /* Premium emerald green */
-    --color-accent-glow: rgba(226, 177, 60, 0.12);
-    /* Warm gold ambient glow */
+    /* Positive market movement */
+    --color-accent-glow: rgba(247, 166, 0, 0.18);
+    /* Amber ambient glow */
 
     --color-text-primary: #f8fafc;
     /* Slate 50 */
@@ -22,8 +22,8 @@
     /* Emerald 500 */
     --color-warning: #f59e0b;
     /* Amber 500 */
-    --color-info: #3b82f6;
-    /* Blue 500 */
+    --color-info: #f7a600;
+    /* Gold informational accent */
     --color-error: #ef4444;
     /* Red 500 */
 

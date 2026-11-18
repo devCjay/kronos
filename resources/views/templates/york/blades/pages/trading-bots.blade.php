@@ -25,11 +25,11 @@
         }
     </style>
 
-    <div class="relative bg-[#050507] isolate overflow-hidden min-h-screen">
+    <div class="relative bg-[#0b0e11] isolate overflow-hidden min-h-screen">
         
         {{-- Ambient Mesh Glow Elements --}}
-        <div class="absolute top-10 left-1/4 -translate-x-1/2 w-[650px] h-[650px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
-        <div class="absolute top-1/2 right-0 w-[550px] h-[550px] bg-indigo-600/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 12s;"></div>
+        <div class="absolute top-10 left-1/4 -translate-x-1/2 w-[650px] h-[650px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
+        <div class="absolute top-1/2 right-0 w-[550px] h-[550px] bg-orange-600/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 12s;"></div>
         <div class="absolute bottom-20 left-10 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
         <div class="fixed inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.025] pointer-events-none -z-20"></div>
 
@@ -42,8 +42,8 @@
                     
                     {{-- Left Column: Hero Narrative & Everyday Metric Chips --}}
                     <div class="lg:col-span-7 space-y-8 text-left">
-                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/25 text-cyan-400 font-mono text-[11px] font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(0,245,255,0.15)]">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/25 text-amber-400 font-mono text-[11px] font-bold uppercase tracking-widest shadow-[0_0_20px_rgba(247,166,0,0.15)]">
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
                             <span>{{ __('AUTOMATED TRADING') }}</span>
                             <span class="text-slate-600">•</span>
                             <span class="text-emerald-400">{{ __('RUNNING 24/7') }}</span>
@@ -51,7 +51,7 @@
 
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.05]">
                             {{ __('Automated Crypto &') }}<br>
-                            <span class="bg-gradient-to-r from-cyan-400 via-teal-300 to-indigo-400 bg-clip-text text-transparent">
+                            <span class="bg-gradient-to-r from-amber-400 via-teal-300 to-orange-400 bg-clip-text text-transparent">
                                 {{ __('Forex Trading Bots') }}
                             </span>
                         </h1>
@@ -62,31 +62,31 @@
 
                         {{-- Metric Chips in Everyday Language --}}
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 font-mono">
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Available Bots') }}</span>
-                                <div class="text-2xl font-black text-white">{{ $allBots->count() }} <span class="text-cyan-400 text-xs">{{ __('Plans') }}</span></div>
+                                <div class="text-2xl font-black text-white">{{ $allBots->count() }} <span class="text-amber-400 text-xs">{{ __('Plans') }}</span></div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Avg Daily Return') }}</span>
                                 <div class="text-2xl font-black text-emerald-400">+2.45%</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Trade Speed') }}</span>
-                                <div class="text-2xl font-black text-cyan-300">&lt; 8ms</div>
+                                <div class="text-2xl font-black text-amber-300">&lt; 8ms</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Exchanges') }}</span>
-                                <div class="text-2xl font-black text-indigo-300">{{ count($botTrading['exchanges']) > 0 ? count($botTrading['exchanges']) : 10 }}+</div>
+                                <div class="text-2xl font-black text-orange-300">{{ count($botTrading['exchanges']) > 0 ? count($botTrading['exchanges']) : 10 }}+</div>
                             </div>
                         </div>
 
                         {{-- Action Buttons --}}
                         <div class="flex flex-wrap items-center gap-4 pt-2">
-                            <a href="#fleetMatrix" class="px-8 py-4 rounded-2xl bg-cyan-400 hover:bg-cyan-300 text-slate-950 font-mono font-black text-xs uppercase tracking-widest shadow-[0_0_30px_rgba(0,245,255,0.3)] hover:shadow-[0_0_40px_rgba(0,245,255,0.5)] transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
+                            <a href="#fleetMatrix" class="px-8 py-4 rounded-2xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-mono font-black text-xs uppercase tracking-widest shadow-[0_0_30px_rgba(247,166,0,0.3)] hover:shadow-[0_0_40px_rgba(247,166,0,0.5)] transition-all transform hover:-translate-y-0.5 active:scale-95 flex items-center gap-2">
                                 <span>{{ __('View All Bots') }}</span>
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
                             </a>
-                            <a href="#profitCalculator" class="px-6 py-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-cyan-500/30 text-white font-mono text-xs uppercase tracking-widest transition-all">
+                            <a href="#profitCalculator" class="px-6 py-4 rounded-2xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 hover:border-amber-500/30 text-white font-mono text-xs uppercase tracking-widest transition-all">
                                 {{ __('Calculate Profits') }}
                             </a>
                         </div>
@@ -94,8 +94,8 @@
 
                     {{-- Right Column: Live Trade Activity Feed --}}
                     <div class="lg:col-span-5 relative">
-                        <div class="relative rounded-3xl p-[1px] bg-gradient-to-b from-cyan-500/30 via-white/[0.08] to-indigo-500/20 shadow-[0_0_50px_rgba(0,245,255,0.1)]">
-                            <div class="bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 backdrop-blur-2xl font-mono relative overflow-hidden">
+                        <div class="relative rounded-3xl p-[1px] bg-gradient-to-b from-amber-500/30 via-white/[0.08] to-orange-500/20 shadow-[0_0_50px_rgba(247,166,0,0.1)]">
+                            <div class="bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 backdrop-blur-2xl font-mono relative overflow-hidden">
                                 
                                 {{-- Console Header --}}
                                 <div class="flex items-center justify-between pb-4 mb-5 border-b border-white/[0.08]">
@@ -105,7 +105,7 @@
                                         <span class="w-3 h-3 rounded-full bg-emerald-500/70 inline-block"></span>
                                         <span class="text-xs font-bold text-slate-300 ml-2 uppercase tracking-wider">{{ __('Live Trade Activity') }}</span>
                                     </div>
-                                    <span class="text-[10px] px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-bold">
+                                    <span class="text-[10px] px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/20 font-bold">
                                         {{ __('LIVE UPDATES') }}
                                     </span>
                                 </div>
@@ -130,7 +130,7 @@
                                     </div>
                                     <div class="flex items-center justify-between p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04]">
                                         <div class="flex items-center gap-2">
-                                            <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-cyan-500/20 text-cyan-400">SELL</span>
+                                            <span class="px-1.5 py-0.5 rounded text-[9px] font-bold bg-amber-500/20 text-amber-400">SELL</span>
                                             <span class="text-white font-bold">ETH/USDT</span>
                                             <span class="text-slate-500 text-[10px]">OKX</span>
                                         </div>
@@ -154,8 +154,8 @@
                                     </div>
                                     <div class="h-14 w-full">
                                         <svg class="w-full h-full" viewBox="0 0 100 30" preserveAspectRatio="none">
-                                            <path d="M0 25 L 15 20 L 30 22 L 45 14 L 60 16 L 75 8 L 90 10 L 100 2" fill="none" stroke="#00f5ff" stroke-width="2" stroke-linecap="round"/>
-                                            <path d="M0 25 L 15 20 L 30 22 L 45 14 L 60 16 L 75 8 L 90 10 L 100 2 L 100 30 L 0 30 Z" fill="rgba(0,245,255,0.08)"/>
+                                            <path d="M0 25 L 15 20 L 30 22 L 45 14 L 60 16 L 75 8 L 90 10 L 100 2" fill="none" stroke="#f7a600" stroke-width="2" stroke-linecap="round"/>
+                                            <path d="M0 25 L 15 20 L 30 22 L 45 14 L 60 16 L 75 8 L 90 10 L 100 2 L 100 30 L 0 30 Z" fill="rgba(247,166,0,0.08)"/>
                                         </svg>
                                     </div>
                                 </div>
@@ -180,16 +180,16 @@
         {{-- ==================================================================================== --}}
         @if ($recommendedBots->count() > 0)
             @php $flagship = $recommendedBots->first(); @endphp
-            <section class="relative py-16 border-b border-white/[0.06] bg-gradient-to-b from-[#090c14]/40 to-transparent">
+            <section class="relative py-16 border-b border-white/[0.06] bg-gradient-to-b from-[#151a21]/40 to-transparent">
                 <div class="max-w-7xl mx-auto px-4 lg:px-8">
-                    <div class="rounded-3xl p-[1px] bg-gradient-to-r from-cyan-500/40 via-indigo-500/20 to-emerald-500/30 shadow-[0_0_40px_rgba(0,245,255,0.08)]">
-                        <div class="bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-10 backdrop-blur-2xl">
+                    <div class="rounded-3xl p-[1px] bg-gradient-to-r from-amber-500/40 via-orange-500/20 to-emerald-500/30 shadow-[0_0_40px_rgba(247,166,0,0.08)]">
+                        <div class="bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-10 backdrop-blur-2xl">
                             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                                 
                                 {{-- Flagship Left Info --}}
                                 <div class="lg:col-span-8 space-y-4">
-                                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest">
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                                         {{ __('FEATURED TOP PERFORMER') }}
                                     </div>
                                     
@@ -217,7 +217,7 @@
                                     <div class="flex flex-wrap gap-4 pt-2 font-mono text-xs">
                                         <div class="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06]">
                                             <span class="text-[9px] text-slate-500 block uppercase">{{ __('Daily Profit Rate') }}</span>
-                                            <span class="text-cyan-300 font-bold text-sm">{{ $flagship->daily_return_min }}% - {{ $flagship->daily_return_max }}% {{ __('Daily') }}</span>
+                                            <span class="text-amber-300 font-bold text-sm">{{ $flagship->daily_return_min }}% - {{ $flagship->daily_return_max }}% {{ __('Daily') }}</span>
                                         </div>
                                         <div class="px-4 py-2 rounded-xl bg-white/[0.03] border border-white/[0.06]">
                                             <span class="text-[9px] text-slate-500 block uppercase">{{ __('Trading Period') }}</span>
@@ -238,7 +238,7 @@
                                             {{ $flagship->daily_return_max }}% <span class="text-xs text-slate-400 font-normal">/ {{ __('Max Day') }}</span>
                                         </div>
                                         <a href="{{ route('user.trading-bots.index') }}" 
-                                           class="block w-full py-4 px-6 rounded-xl bg-gradient-to-r from-cyan-400 to-teal-400 hover:from-cyan-300 hover:to-teal-300 text-slate-950 font-mono font-black text-xs uppercase tracking-widest shadow-[0_0_30px_rgba(0,245,255,0.3)] transition-all">
+                                           class="block w-full py-4 px-6 rounded-xl bg-gradient-to-r from-amber-400 to-teal-400 hover:from-amber-300 hover:to-teal-300 text-slate-950 font-mono font-black text-xs uppercase tracking-widest shadow-[0_0_30px_rgba(247,166,0,0.3)] transition-all">
                                             {{ __('Start This Bot') }} →
                                         </a>
                                     </div>
@@ -260,8 +260,8 @@
                 <div class="space-y-6 mb-12">
                     <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
                         <div>
-                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                                 {{ __('BOT DIRECTORY') }}
                             </div>
                             <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -276,14 +276,14 @@
                     </div>
 
                     {{-- Interactive Filter Bar --}}
-                    <div class="p-3 sm:p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl flex flex-col lg:flex-row items-center justify-between gap-4">
+                    <div class="p-3 sm:p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl flex flex-col lg:flex-row items-center justify-between gap-4">
                         
                         {{-- Search Input --}}
                         <div class="relative w-full lg:w-72">
                             <input type="text" 
                                    id="botSearchInput"
                                    placeholder="{{ __('Search by bot name or pair...') }}" 
-                                   class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 pl-10 text-xs font-mono text-white placeholder-slate-500 focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/30 outline-none transition-all">
+                                   class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-2.5 pl-10 text-xs font-mono text-white placeholder-slate-500 focus:border-amber-400 focus:ring-1 focus:ring-amber-400/30 outline-none transition-all">
                             <svg class="w-4 h-4 text-slate-500 absolute left-3.5 top-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                             </svg>
@@ -291,7 +291,7 @@
 
                         {{-- Category Tabs --}}
                         <div class="flex items-center gap-2 overflow-x-auto w-full lg:w-auto pb-2 lg:pb-0 scrollbar-none font-mono text-xs">
-                            <button class="filter-tab-btn active px-4 py-2 rounded-xl bg-cyan-400 text-slate-950 font-bold transition-all whitespace-nowrap cursor-pointer" data-type="all">
+                            <button class="filter-tab-btn active px-4 py-2 rounded-xl bg-amber-400 text-slate-950 font-bold transition-all whitespace-nowrap cursor-pointer" data-type="all">
                                 {{ __('All Categories') }}
                             </button>
                             @foreach ($botTypes as $type)
@@ -304,7 +304,7 @@
                         {{-- Sort Dropdown --}}
                         <div class="flex items-center gap-3 w-full lg:w-auto justify-end font-mono">
                             <label class="text-[10px] uppercase text-slate-500 tracking-wider whitespace-nowrap">{{ __('Sort:') }}</label>
-                            <select id="botSortSelector" class="bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-xs font-mono text-white focus:border-cyan-400 outline-none cursor-pointer">
+                            <select id="botSortSelector" class="bg-black/50 border border-white/10 rounded-xl px-3 py-2 text-xs font-mono text-white focus:border-amber-400 outline-none cursor-pointer">
                                 <option value="featured">{{ __('Most Popular') }}</option>
                                 <option value="roi_desc">{{ __('Highest Daily Profit') }}</option>
                                 <option value="min_asc">{{ __('Lowest Minimum Deposit') }}</option>
@@ -318,7 +318,7 @@
                         <div class="flex items-center gap-2 flex-wrap font-mono text-[11px]">
                             <span class="text-[10px] text-slate-500 uppercase tracking-wider mr-1">{{ __('Filter by Pair:') }}</span>
                             @foreach (array_slice($botMarkets->toArray(), 0, 10) as $market)
-                                <button class="market-pill-btn px-3 py-1 rounded-lg bg-white/[0.02] border border-white/[0.06] text-slate-400 hover:text-cyan-300 hover:border-cyan-500/30 transition-all cursor-pointer" data-market="{{ $market }}">
+                                <button class="market-pill-btn px-3 py-1 rounded-lg bg-white/[0.02] border border-white/[0.06] text-slate-400 hover:text-amber-300 hover:border-amber-500/30 transition-all cursor-pointer" data-market="{{ $market }}">
                                     {{ $market }}
                                 </button>
                             @endforeach
@@ -337,15 +337,15 @@
                 </div>
 
                 {{-- Empty State --}}
-                <div id="noFleetBotsFound" class="hidden text-center py-28 px-4 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] mt-8">
-                    <div class="w-16 h-16 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-4">
+                <div id="noFleetBotsFound" class="hidden text-center py-28 px-4 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] mt-8">
+                    <div class="w-16 h-16 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-2 font-mono">{{ __('No Bots Match Your Search') }}</h3>
                     <p class="text-sm text-slate-400 max-w-md mx-auto mb-6">{{ __('Try adjusting your search keywords, category filter, or selected currency pair.') }}</p>
-                    <button id="resetAllFiltersBtn" class="px-6 py-3 rounded-xl bg-cyan-400 text-slate-950 font-mono font-bold text-xs uppercase tracking-widest hover:bg-cyan-300 transition-all cursor-pointer">
+                    <button id="resetAllFiltersBtn" class="px-6 py-3 rounded-xl bg-amber-400 text-slate-950 font-mono font-bold text-xs uppercase tracking-widest hover:bg-amber-300 transition-all cursor-pointer">
                         {{ __('Reset All Filters') }}
                     </button>
                 </div>
@@ -355,11 +355,11 @@
         {{-- ==================================================================================== --}}
         {{-- SECTION 4: PROFIT CALCULATOR --}}
         {{-- ==================================================================================== --}}
-        <section id="profitCalculator" class="relative py-20 sm:py-28 border-t border-white/[0.06] bg-[#090c14]/60">
+        <section id="profitCalculator" class="relative py-20 sm:py-28 border-t border-white/[0.06] bg-[#151a21]/60">
             <div class="max-w-7xl mx-auto px-4 lg:px-8">
                 <div class="max-w-3xl mx-auto text-center mb-12">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                         {{ __('PROFIT CALCULATOR') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -370,8 +370,8 @@
                     </p>
                 </div>
 
-                <div class="max-w-4xl mx-auto rounded-3xl p-[1px] bg-gradient-to-b from-white/10 via-cyan-500/20 to-transparent shadow-2xl">
-                    <div class="bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-10 backdrop-blur-2xl font-mono">
+                <div class="max-w-4xl mx-auto rounded-3xl p-[1px] bg-gradient-to-b from-white/10 via-amber-500/20 to-transparent shadow-2xl">
+                    <div class="bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-10 backdrop-blur-2xl font-mono">
                         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
                             
                             {{-- Input Controls --}}
@@ -379,10 +379,10 @@
                                 <div>
                                     <div class="flex justify-between items-center text-xs mb-2 text-slate-300">
                                         <span>{{ __('Deposit Amount (USD)') }}</span>
-                                        <span class="text-cyan-400 font-black text-sm" id="calcCapitalDisplay">$5,000</span>
+                                        <span class="text-amber-400 font-black text-sm" id="calcCapitalDisplay">$5,000</span>
                                     </div>
                                     <input type="range" id="calcCapitalSlider" min="100" max="50000" step="100" value="5000" 
-                                           class="w-full h-2 bg-black/60 rounded-lg appearance-none cursor-pointer accent-cyan-400">
+                                           class="w-full h-2 bg-black/60 rounded-lg appearance-none cursor-pointer accent-amber-400">
                                     <div class="flex justify-between text-[9px] text-slate-500 mt-1">
                                         <span>$100</span>
                                         <span>$25,000</span>
@@ -407,13 +407,13 @@
                                 <div>
                                     <div class="flex justify-between items-center text-xs mb-2 text-slate-300">
                                         <span>{{ __('Trading Duration') }}</span>
-                                        <span class="text-indigo-400 font-black text-sm" id="calcDurationDisplay">30 Days</span>
+                                        <span class="text-orange-400 font-black text-sm" id="calcDurationDisplay">30 Days</span>
                                     </div>
                                     <div class="grid grid-cols-4 gap-2 text-xs">
-                                        <button class="calc-duration-btn py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-slate-300 hover:border-cyan-400 transition-all cursor-pointer" data-days="7">7D</button>
-                                        <button class="calc-duration-btn py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-slate-300 hover:border-cyan-400 transition-all cursor-pointer" data-days="14">14D</button>
-                                        <button class="calc-duration-btn active py-2 rounded-xl bg-cyan-400 text-slate-950 font-bold border border-cyan-400 transition-all cursor-pointer" data-days="30">30D</button>
-                                        <button class="calc-duration-btn py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-slate-300 hover:border-cyan-400 transition-all cursor-pointer" data-days="60">60D</button>
+                                        <button class="calc-duration-btn py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-slate-300 hover:border-amber-400 transition-all cursor-pointer" data-days="7">7D</button>
+                                        <button class="calc-duration-btn py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-slate-300 hover:border-amber-400 transition-all cursor-pointer" data-days="14">14D</button>
+                                        <button class="calc-duration-btn active py-2 rounded-xl bg-amber-400 text-slate-950 font-bold border border-amber-400 transition-all cursor-pointer" data-days="30">30D</button>
+                                        <button class="calc-duration-btn py-2 rounded-xl bg-white/[0.03] border border-white/[0.08] text-slate-300 hover:border-amber-400 transition-all cursor-pointer" data-days="60">60D</button>
                                     </div>
                                 </div>
                             </div>
@@ -434,7 +434,7 @@
                                     </div>
                                     <div class="flex justify-between">
                                         <span>{{ __('Daily Payout Est.:') }}</span>
-                                        <span class="text-cyan-300 font-bold" id="calcSummaryDaily">$125.00/day</span>
+                                        <span class="text-amber-300 font-bold" id="calcSummaryDaily">$125.00/day</span>
                                     </div>
                                     <div class="flex justify-between text-sm font-bold pt-2 border-t border-white/[0.04]">
                                         <span class="text-white">{{ __('Total Payout at End:') }}</span>
@@ -443,7 +443,7 @@
                                 </div>
 
                                 <a href="{{ route('user.trading-bots.index') }}" 
-                                   class="block w-full py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-indigo-500 hover:from-cyan-300 hover:to-indigo-400 text-slate-950 font-black text-xs uppercase tracking-widest shadow-[0_0_25px_rgba(0,245,255,0.25)] transition-all">
+                                   class="block w-full py-4 rounded-xl bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-black text-xs uppercase tracking-widest shadow-[0_0_25px_rgba(247,166,0,0.25)] transition-all">
                                     {{ __('Start Trading Now') }} →
                                 </a>
                             </div>
@@ -459,7 +459,7 @@
         <section class="relative py-20 sm:py-28 border-t border-white/[0.06]">
             <div class="max-w-7xl mx-auto px-4 lg:px-8">
                 <div class="max-w-3xl mx-auto text-center mb-16">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
                         {{ __('HOW IT WORKS') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -469,8 +469,8 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono">
                     {{-- Step 1 --}}
-                    <div class="p-6 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] relative group hover:border-cyan-500/40 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-black text-sm mb-4">
+                    <div class="p-6 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] relative group hover:border-amber-500/40 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-black text-sm mb-4">
                             01
                         </div>
                         <h3 class="text-base font-bold text-white mb-2">{{ __('Market Scanning') }}</h3>
@@ -480,8 +480,8 @@
                     </div>
 
                     {{-- Step 2 --}}
-                    <div class="p-6 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] relative group hover:border-cyan-500/40 transition-all">
-                        <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center font-black text-sm mb-4">
+                    <div class="p-6 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] relative group hover:border-amber-500/40 transition-all">
+                        <div class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center font-black text-sm mb-4">
                             02
                         </div>
                         <h3 class="text-base font-bold text-white mb-2">{{ __('Signal Analysis') }}</h3>
@@ -491,7 +491,7 @@
                     </div>
 
                     {{-- Step 3 --}}
-                    <div class="p-6 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] relative group hover:border-cyan-500/40 transition-all">
+                    <div class="p-6 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] relative group hover:border-amber-500/40 transition-all">
                         <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-sm mb-4">
                             03
                         </div>
@@ -502,7 +502,7 @@
                     </div>
 
                     {{-- Step 4 --}}
-                    <div class="p-6 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] relative group hover:border-cyan-500/40 transition-all">
+                    <div class="p-6 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] relative group hover:border-amber-500/40 transition-all">
                         <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-black text-sm mb-4">
                             04
                         </div>
@@ -560,9 +560,9 @@
 
             // Category Tab Clicks
             $('.filter-tab-btn').on('click', function() {
-                $('.filter-tab-btn').removeClass('active bg-cyan-400 text-slate-950 font-bold')
+                $('.filter-tab-btn').removeClass('active bg-amber-400 text-slate-950 font-bold')
                     .addClass('bg-white/[0.03] text-slate-300');
-                $(this).addClass('active bg-cyan-400 text-slate-950 font-bold')
+                $(this).addClass('active bg-amber-400 text-slate-950 font-bold')
                     .removeClass('bg-white/[0.03] text-slate-300');
                 
                 activeCategory = $(this).data('type');
@@ -579,12 +579,12 @@
                 const market = $(this).data('market');
                 if (activeMarket === market) {
                     activeMarket = null;
-                    $('.market-pill-btn').removeClass('bg-cyan-500/20 text-cyan-300 border-cyan-500/40');
+                    $('.market-pill-btn').removeClass('bg-amber-500/20 text-amber-300 border-amber-500/40');
                     $('#clearMarketFilters').addClass('hidden');
                 } else {
                     activeMarket = market;
-                    $('.market-pill-btn').removeClass('bg-cyan-500/20 text-cyan-300 border-cyan-500/40');
-                    $(this).addClass('bg-cyan-500/20 text-cyan-300 border-cyan-500/40');
+                    $('.market-pill-btn').removeClass('bg-amber-500/20 text-amber-300 border-amber-500/40');
+                    $(this).addClass('bg-amber-500/20 text-amber-300 border-amber-500/40');
                     $('#clearMarketFilters').removeClass('hidden');
                 }
                 filterBots();
@@ -592,7 +592,7 @@
 
             $('#clearMarketFilters').on('click', function() {
                 activeMarket = null;
-                $('.market-pill-btn').removeClass('bg-cyan-500/20 text-cyan-300 border-cyan-500/40');
+                $('.market-pill-btn').removeClass('bg-amber-500/20 text-amber-300 border-amber-500/40');
                 $(this).addClass('hidden');
                 filterBots();
             });
@@ -649,9 +649,9 @@
             $('#calcCapitalSlider, #calcRoiSlider').on('input', updateCalculator);
 
             $('.calc-duration-btn').on('click', function() {
-                $('.calc-duration-btn').removeClass('active bg-cyan-400 text-slate-950 font-bold border-cyan-400')
+                $('.calc-duration-btn').removeClass('active bg-amber-400 text-slate-950 font-bold border-amber-400')
                     .addClass('bg-white/[0.03] text-slate-300 border-white/[0.08]');
-                $(this).addClass('active bg-cyan-400 text-slate-950 font-bold border-cyan-400')
+                $(this).addClass('active bg-amber-400 text-slate-950 font-bold border-amber-400')
                     .removeClass('bg-white/[0.03] text-slate-300');
                 
                 currentDuration = parseInt($(this).data('days'));

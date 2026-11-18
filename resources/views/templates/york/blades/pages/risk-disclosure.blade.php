@@ -4,7 +4,7 @@
 @section('page_title', $page_title)
 
 @section('content')
-    <div class="relative bg-[#050507] py-16 sm:py-24 overflow-hidden isolate">
+    <div class="relative bg-[#0b0e11] py-16 sm:py-24 overflow-hidden isolate">
         
         {{-- Ambient Glow --}}
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-[radial-gradient(circle_at_50%_0%,rgba(239,68,68,0.08),transparent_70%)] pointer-events-none -z-10"></div>
@@ -20,7 +20,7 @@
                 </div>
                 <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.08] mb-6">
                     {{ __('Risk & Investment') }} <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-white to-[#e2b13c]">
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-white to-[#f7a600]">
                         {{ __('Disclosure.') }}
                     </span>
                 </h1>
@@ -32,7 +32,7 @@
             {{-- 3 Category Cards --}}
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
                 
-                <div class="p-8 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] hover:border-red-500/40 backdrop-blur-2xl transition-all shadow-2xl group flex flex-col justify-between">
+                <div class="p-8 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] hover:border-red-500/40 backdrop-blur-2xl transition-all shadow-2xl group flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center text-red-400 mb-6 shadow-inner">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
@@ -44,9 +44,9 @@
                     </div>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] hover:border-amber-500/40 backdrop-blur-2xl transition-all shadow-2xl group flex flex-col justify-between">
+                <div class="p-8 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-500/40 backdrop-blur-2xl transition-all shadow-2xl group flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-[#e2b13c] mb-6 shadow-inner">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-[#f7a600] mb-6 shadow-inner">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">{{ __('Execution & Slippage') }}</h3>
@@ -56,9 +56,9 @@
                     </div>
                 </div>
 
-                <div class="p-8 rounded-3xl bg-[#090c14]/90 border border-white/[0.08] hover:border-cyan-400/40 backdrop-blur-2xl transition-all shadow-2xl group flex flex-col justify-between">
+                <div class="p-8 rounded-3xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-2xl transition-all shadow-2xl group flex flex-col justify-between">
                     <div>
-                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6 shadow-inner">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 mb-6 shadow-inner">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
                         </div>
                         <h3 class="text-xl font-bold text-white mb-3">{{ __('Regulatory & Regional Rules') }}</h3>
@@ -71,7 +71,7 @@
             </div>
 
             {{-- Policy Prose Container --}}
-            <div class="max-w-4xl mx-auto rounded-3xl bg-[#090c14]/95 border border-white/[0.1] backdrop-blur-2xl p-8 sm:p-14 shadow-2xl mb-20 space-y-12">
+            <div class="max-w-4xl mx-auto rounded-3xl bg-[#151a21]/95 border border-white/[0.1] backdrop-blur-2xl p-8 sm:p-14 shadow-2xl mb-20 space-y-12">
                 
                 <div class="space-y-4">
                     <h2 class="text-2xl font-black text-white font-mono uppercase tracking-wide flex items-center gap-3">
@@ -111,15 +111,15 @@
             </div>
 
             {{-- Final Call to Action --}}
-            <div class="relative rounded-3xl bg-[#090c14]/95 border border-cyan-500/30 p-10 sm:p-16 text-center overflow-hidden shadow-2xl">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-cyan-500/10 blur-3xl rounded-full pointer-events-none"></div>
+            <div class="relative rounded-3xl bg-[#151a21]/95 border border-amber-500/30 p-10 sm:p-16 text-center overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 blur-3xl rounded-full pointer-events-none"></div>
 
                 <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-6">
                     {{ __('Ready to Start Trading Smarter?') }}
                 </h2>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="{{ route('user.register') }}"
-                        class="w-full sm:w-auto py-4 px-8 bg-[#00f5ff] hover:bg-cyan-300 text-[#050507] font-black uppercase text-xs tracking-widest rounded-2xl shadow-[0_0_30px_rgba(0,245,255,0.4)] transition-all cursor-pointer">
+                        class="w-full sm:w-auto py-4 px-8 bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black uppercase text-xs tracking-widest rounded-2xl shadow-[0_0_30px_rgba(247,166,0,0.4)] transition-all cursor-pointer">
                         {{ __('Create Free Account') }}
                     </a>
                 </div>

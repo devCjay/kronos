@@ -18,7 +18,7 @@
                 @foreach ($login_methods as $method => $data)
                     @if ($method === 'email')
                         <button type="button" onclick="toggleEmailForm()"
-                            class="flex items-center justify-center gap-3 w-full bg-white/[0.04] hover:bg-white/[0.08] text-white font-semibold py-3 px-4 rounded-2xl border border-white/10 hover:border-cyan-500/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg text-sm">
+                            class="flex items-center justify-center gap-3 w-full bg-white/[0.04] hover:bg-white/[0.08] text-white font-semibold py-3 px-4 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg text-sm">
                             {!! $data['icon'] !!}
                             <span>{{ __('Register with Email') }}</span>
                         </button>
@@ -36,7 +36,7 @@
             <div id="email-register-container" @if (!$only_email) style="display: none;" @endif class="space-y-5">
                 @if (!$only_email)
                     <button type="button" onclick="toggleSelection()"
-                        class="text-cyan-400 hover:text-cyan-300 text-xs font-mono flex items-center gap-2 transition-colors cursor-pointer group">
+                        class="text-amber-400 hover:text-amber-300 text-xs font-mono flex items-center gap-2 transition-colors cursor-pointer group">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none"
                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="19" y1="12" x2="5" y2="12" />
@@ -61,7 +61,7 @@
                             <label for="first_name"
                                 class="block text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">{{ __('First Name') }}</label>
                             <input type="text" name="first_name" id="first_name"
-                                class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                                class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                                 placeholder="{{ __('John') }}" required>
                         </div>
 
@@ -69,7 +69,7 @@
                             <label for="last_name"
                                 class="block text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">{{ __('Last Name') }}</label>
                             <input type="text" name="last_name" id="last_name"
-                                class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                                class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                                 placeholder="{{ __('Doe') }}" required>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
                             <div class="relative">
                                 <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs font-mono text-slate-500">@</span>
                                 <input type="text" name="username" id="username"
-                                    class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl pl-8 pr-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-mono text-sm shadow-inner"
+                                    class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl pl-8 pr-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-mono text-sm shadow-inner"
                                     placeholder="johndoe" required>
                             </div>
                         </div>
@@ -91,7 +91,7 @@
                             <label for="email"
                                 class="block text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">{{ __('Email Address') }}</label>
                             <input type="email" name="email" id="email"
-                                class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                                class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                                 placeholder="{{ __('john@example.com') }}" required>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                             <label for="password"
                                 class="block text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">{{ __('Password') }}</label>
                             <input type="password" name="password" id="password"
-                                class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                                class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                                 placeholder="••••••••" required>
                         </div>
 
@@ -110,7 +110,7 @@
                             <label for="password_confirmation"
                                 class="block text-[10px] font-mono font-bold text-slate-400 uppercase tracking-wider">{{ __('Confirm Password') }}</label>
                             <input type="password" name="password_confirmation" id="password_confirmation"
-                                class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                                class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                                 placeholder="••••••••" required>
                         </div>
                     </div>
@@ -124,7 +124,7 @@
                         <div class="relative">
                             <input type="text" name="referral_code" id="referral_code"
                                 @if (session()->has('referrer_code')) readonly value="{{ session()->get('referrer_code') }}" @endif
-                                class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-mono text-sm shadow-inner @if(session()->has('referrer_code')) text-emerald-400 font-bold @endif"
+                                class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-mono text-sm shadow-inner @if(session()->has('referrer_code')) text-emerald-400 font-bold @endif"
                                 placeholder="PROMO_CODE">
                             @if (session()->has('referrer_code'))
                                 <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-lg border border-emerald-500/20">
@@ -146,7 +146,7 @@
 
                     {{-- Submit Button --}}
                     <button type="submit"
-                        class="w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(0,245,255,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide mt-2">
+                        class="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(247,166,0,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide mt-2">
                         <span class="relative z-10 flex items-center justify-center gap-2">
                             <span>{{ __('Create Free Account') }}</span>
                             <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -177,7 +177,7 @@
                 </form>
 
                 <div class="text-center pt-4">
-                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 mb-4 shadow-inner">
+                    <div class="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 mb-4 shadow-inner">
                         <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75"
                                 d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
@@ -186,7 +186,7 @@
                     <h3 class="text-2xl font-bold text-white tracking-tight mb-2">{{ __('Verify Your Email') }}</h3>
                     <p class="text-slate-400 text-xs font-body">
                         {{ __('We sent a 6-digit code to') }} <br>
-                        <span class="text-cyan-400 font-mono font-bold text-sm">{{ session('register_info.email') }}</span>
+                        <span class="text-amber-400 font-mono font-bold text-sm">{{ session('register_info.email') }}</span>
                     </p>
                 </div>
 
@@ -199,13 +199,13 @@
                         <label for="otp_code" class="sr-only">{{ __('Verification Code') }}</label>
                         <div class="relative">
                             <input type="text" name="otp_code" id="otp_code"
-                                class="w-full bg-[#05070d]/90 border border-white/[0.12] rounded-2xl px-4 py-4 text-white placeholder-slate-700 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all text-center tracking-[0.75em] text-2xl font-mono font-bold shadow-inner"
+                                class="w-full bg-[#0b0e11]/90 border border-white/[0.12] rounded-2xl px-4 py-4 text-white placeholder-slate-700 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all text-center tracking-[0.75em] text-2xl font-mono font-bold shadow-inner"
                                 placeholder="••••••" required maxlength="6" autofocus>
                         </div>
                     </div>
 
                     <button type="submit"
-                        class="w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(0,245,255,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide">
+                        class="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(247,166,0,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide">
                         <span class="relative z-10 flex items-center justify-center gap-2">
                             <span>{{ __('Confirm & Activate Account') }}</span>
                             <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -222,12 +222,12 @@
                         class="ajax-form inline-block">
                         @csrf
                         <button type="submit" id="resend-btn"
-                            class="text-cyan-400 font-mono font-bold text-xs hover:text-cyan-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-transparent border-0 p-0 cursor-pointer">
+                            class="text-amber-400 font-mono font-bold text-xs hover:text-amber-300 transition-colors disabled:opacity-40 disabled:cursor-not-allowed bg-transparent border-0 p-0 cursor-pointer">
                             {{ __('Resend Verification Code') }}
                         </button>
                     </form>
                     <div id="countdown-timer" class="text-[11px] font-mono text-slate-500 mt-1.5 hidden">
-                        ({{ __('Wait') }} <span id="timer-seconds" class="text-cyan-400 font-bold">60</span>s)
+                        ({{ __('Wait') }} <span id="timer-seconds" class="text-amber-400 font-bold">60</span>s)
                     </div>
                 </div>
             </div>
@@ -238,7 +238,7 @@
             <p class="text-xs text-slate-400 font-body">
                 {{ __('Already have an account?') }}
                 <a href="{{ route('user.login') }}"
-                    class="font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors ml-1">
+                    class="font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors ml-1">
                     {{ __('Sign In') }}
                 </a>
             </p>

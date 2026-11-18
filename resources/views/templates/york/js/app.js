@@ -20,11 +20,11 @@ window.toastNotification = function (text, type = 'success') {
             break;
         case 'info':
             iconColor = '#3b82f6'; // Blue-500
-            progressBarClass = 'bg-blue-500';
+            progressBarClass = 'bg-amber-500';
             break;
         case 'question':
             iconColor = '#8b5cf6'; // Violet-500
-            progressBarClass = 'bg-violet-500';
+            progressBarClass = 'bg-orange-500';
             break;
         default:
             iconColor = '#ff5500'; // Theme Accent

@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('ACCOUNT SECURITY') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Password & Active Sessions') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -40,14 +40,14 @@
 
                 {{-- Security Protocol Telemetry --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl mt-6">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 space-y-4 text-xs">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 space-y-4 text-xs">
                         <div class="pb-3 border-b border-white/[0.06]">
                             <h4 class="text-[11px] font-black text-white uppercase tracking-wider">{{ __('Password Policy') }}</h4>
                             <p class="text-[10px] text-slate-400 mt-1">{{ __('Requires minimum 8 characters with uppercase, lowercase, number, and symbol.') }}</p>
                         </div>
                         <div class="flex items-center justify-between">
                             <span class="text-slate-500 uppercase text-[10px] font-bold">{{ __('Session Timeout') }}</span>
-                            <span class="text-cyan-400 font-bold">{{ config('session.lifetime', 120) }}m</span>
+                            <span class="text-amber-400 font-bold">{{ config('session.lifetime', 120) }}m</span>
                         </div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                 
                 {{-- 1. Password Update Card --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-6">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-6">
                         <div class="pb-4 border-b border-white/[0.06]">
                             <h3 class="text-base font-black text-white uppercase tracking-wide">{{ __('Change Password') }}</h3>
                             <p class="text-xs text-slate-400 mt-1">{{ __('Enter your current password and choose a new secure password.') }}</p>
@@ -73,7 +73,7 @@
                                 </label>
                                 <div class="relative">
                                     <input type="password" name="current_password" required
-                                        class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 pr-12 text-xs focus:outline-none transition-colors"
+                                        class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 pr-12 text-xs focus:outline-none transition-colors"
                                         placeholder="{{ __('Enter current password') }}">
                                     <button type="button" onclick="togglePasswordVisibility(this)"
                                         class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors cursor-pointer">
@@ -92,7 +92,7 @@
                                     </label>
                                     <div class="relative">
                                         <input type="password" name="password" required
-                                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 pr-12 text-xs focus:outline-none transition-colors"
+                                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 pr-12 text-xs focus:outline-none transition-colors"
                                             placeholder="{{ __('Enter new password') }}">
                                         <button type="button" onclick="togglePasswordVisibility(this)"
                                             class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors cursor-pointer">
@@ -110,7 +110,7 @@
                                     </label>
                                     <div class="relative">
                                         <input type="password" name="password_confirmation" required
-                                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 pr-12 text-xs focus:outline-none transition-colors"
+                                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 pr-12 text-xs focus:outline-none transition-colors"
                                             placeholder="{{ __('Confirm new password') }}">
                                         <button type="button" onclick="togglePasswordVisibility(this)"
                                             class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 hover:text-white transition-colors cursor-pointer">
@@ -125,7 +125,7 @@
 
                             <div class="pt-4 border-t border-white/[0.06] flex items-center justify-end">
                                 <button type="submit" id="password-submit-btn"
-                                    class="px-8 py-3.5 bg-cyan-400 hover:bg-cyan-300 text-[#050507] text-xs font-black uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(0,245,255,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-3 cursor-pointer">
+                                    class="px-8 py-3.5 bg-amber-400 hover:bg-amber-300 text-[#0b0e11] text-xs font-black uppercase tracking-wider rounded-xl shadow-[0_0_25px_rgba(247,166,0,0.3)] hover:scale-[1.02] active:scale-[0.98] transition-all flex items-center gap-3 cursor-pointer">
                                     <svg class="w-4 h-4 submit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                                     </svg>
@@ -142,7 +142,7 @@
 
                 {{-- 2. Active Sessions & Devices --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-6">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-6">
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/[0.06]">
                             <div>
                                 <h3 class="text-base font-black text-white uppercase tracking-wide">{{ __('Active Login Sessions') }}</h3>
@@ -158,9 +158,9 @@
 
                         <div class="space-y-3">
                             {{-- Current Session Card --}}
-                            <div class="p-4 rounded-2xl bg-cyan-500/5 border border-cyan-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <div class="p-4 rounded-2xl bg-amber-500/5 border border-amber-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-10 h-10 rounded-xl bg-cyan-400 text-black flex items-center justify-center font-bold shrink-0 shadow-[0_0_15px_rgba(0,245,255,0.4)]">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-400 text-black flex items-center justify-center font-bold shrink-0 shadow-[0_0_15px_rgba(247,166,0,0.4)]">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
@@ -171,7 +171,7 @@
                                             @if ($current_location)
                                                 <span class="text-[10px] text-slate-400">({{ $current_location }})</span>
                                             @endif
-                                            <span class="px-2 py-0.5 rounded-md bg-cyan-500/20 text-cyan-300 text-[9px] font-black uppercase tracking-wider">
+                                            <span class="px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 text-[9px] font-black uppercase tracking-wider">
                                                 ● {{ __('Current Device') }}
                                             </span>
                                         </div>
@@ -219,9 +219,9 @@
     </div>
 
     {{-- Logout Others Modal --}}
-    <div id="logout-modal" class="hidden fixed inset-0 bg-[#05070d]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
+    <div id="logout-modal" class="hidden fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.05] border border-white/[0.1] w-full max-w-md font-mono">
-            <div class="rounded-[2rem] bg-[#090c14] p-8 space-y-6">
+            <div class="rounded-[2rem] bg-[#151a21] p-8 space-y-6">
                 <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                     <h3 class="text-base font-bold text-white uppercase">{{ __('Log Out Other Devices') }}</h3>
                     <button type="button" onclick="closeLogoutModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -238,7 +238,7 @@
                             {{ __('Current Password') }} <span class="text-rose-400">*</span>
                         </label>
                         <input type="password" name="password" required
-                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-rose-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none"
+                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-rose-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none"
                             placeholder="{{ __('Enter current password') }}">
                     </div>
 
@@ -309,7 +309,7 @@
                             title: response.message || '{{ __('Password updated successfully.') }}',
                             showConfirmButton: false,
                             timer: 2000,
-                            customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                            customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                         });
                         $('#password-update-form')[0].reset();
                     },
@@ -324,7 +324,7 @@
                             icon: 'error',
                             title: '{{ __('Security Exception') }}',
                             html: errorMessage,
-                            customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                            customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                         });
                     },
                     complete: function() {
@@ -354,7 +354,7 @@
                             icon: 'success',
                             title: '{{ __('Sessions Terminated') }}',
                             text: response.message || '{{ __('Other sessions logged out successfully.') }}',
-                            customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono' }
+                            customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono' }
                         }).then(() => {
                             location.reload();
                         });
@@ -365,7 +365,7 @@
                             icon: 'error',
                             title: '{{ __('Verification Failed') }}',
                             text: errorMessage,
-                            customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                            customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                         });
                         $btn.prop('disabled', false).removeClass('opacity-50').text(originalText);
                     }

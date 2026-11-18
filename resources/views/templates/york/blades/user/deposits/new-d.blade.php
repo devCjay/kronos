@@ -332,7 +332,7 @@ function copyVaultAddress() {
             title: '{{ __('Deposit address copied to clipboard!') }}',
             showConfirmButton: false,
             timer: 2200,
-            background: '#08090e',
+            background: '#0f1217',
             color: '#fff'
         });
     });
@@ -359,10 +359,10 @@ function generatePersonalWallet(blockchainId, blockchainName) {
         text: '{{ __('Create a personal deposit address for ') }}' + blockchainName + '{{ __('.') }}',
         icon: 'question',
         showCancelButton: true,
-        confirmButtonColor: '#e2b13c',
+        confirmButtonColor: '#f7a600',
         cancelButtonColor: '#1e293b',
         confirmButtonText: '{{ __('Generate Now') }}',
-        background: '#08090e',
+        background: '#0f1217',
         color: '#fff',
         customClass: {
             popup: 'border border-white/10 rounded-2xl'
@@ -382,7 +382,7 @@ function generatePersonalWallet(blockchainId, blockchainName) {
                         icon: 'success',
                         title: '{{ __('Address Created!') }}',
                         text: response.message,
-                        background: '#08090e',
+                        background: '#0f1217',
                         color: '#fff'
                     }).then(() => {
                         window.location.reload();
@@ -397,7 +397,7 @@ function generatePersonalWallet(blockchainId, blockchainName) {
                         icon: 'error',
                         title: '{{ __('Notice') }}',
                         text: msg,
-                        background: '#08090e',
+                        background: '#0f1217',
                         color: '#fff'
                     });
                 }

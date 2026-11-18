@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('REFERRALS & AFFILIATES') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Referral Network') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -23,7 +23,7 @@
             <div class="flex items-center gap-2">
                 <a href="{{ route('admin.settings.index') }}"
                     class="px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.1] text-slate-300 hover:text-white text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer">
-                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -37,7 +37,7 @@
         {{-- ==================================================================================== --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Total Commissions Paid') }}</span>
                         <span class="text-xl font-black text-emerald-400">{{ showAmount($total_commissions) }}</span>
@@ -51,12 +51,12 @@
             </div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Total Referrals') }}</span>
                         <span class="text-xl font-black text-white">{{ number_format($total_referrals) }}</span>
                     </div>
-                    <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                    <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                         </svg>
@@ -65,12 +65,12 @@
             </div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Levels Active') }}</span>
-                        <span class="text-xl font-black text-purple-400">{{ $total_levels }} {{ __('Levels') }}</span>
+                        <span class="text-xl font-black text-orange-400">{{ $total_levels }} {{ __('Levels') }}</span>
                     </div>
-                    <div class="w-11 h-11 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+                    <div class="w-11 h-11 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                         </svg>
@@ -79,7 +79,7 @@
             </div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Level 1 Commission') }}</span>
                         <span class="text-xl font-black text-amber-400">{{ $referral_bonus_percentage[0] ?? 0 }}%</span>
@@ -99,7 +99,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 text-xs">
             {{-- Commission Tiers Card --}}
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-6 space-y-4">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-6 space-y-4">
                     <div class="pb-3 border-b border-white/[0.06]">
                         <h3 class="text-sm font-bold text-white uppercase tracking-wide">{{ __('Commission Rates') }}</h3>
                         <p class="text-[10px] text-slate-400 mt-0.5">{{ __('Percentage paid out for each referral level') }}</p>
@@ -109,7 +109,7 @@
                         @foreach ($referral_bonus_percentage as $idx => $percent)
                             <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
                                 <span class="font-bold text-white uppercase text-[11px]">{{ __('Level') }} {{ $idx + 1 }}</span>
-                                <span class="px-2.5 py-1 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 font-black text-xs">
+                                <span class="px-2.5 py-1 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 font-black text-xs">
                                     {{ $percent }}%
                                 </span>
                             </div>
@@ -120,7 +120,7 @@
 
             {{-- Top Influencers --}}
             <div class="lg:col-span-2 p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-6 space-y-4">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-6 space-y-4">
                     <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-sm font-bold text-white uppercase tracking-wide">{{ __('Top Referrers') }}</h3>
@@ -128,9 +128,9 @@
                         </div>
                         <div class="flex items-center gap-1 text-[10px]">
                             @php $sort = request('sort', 'size'); @endphp
-                            <a href="{{ route('admin.referrals.index', ['sort' => 'size']) }}" class="px-2.5 py-1 rounded-lg font-bold {{ $sort === 'size' ? 'bg-cyan-400 text-black' : 'text-slate-400 hover:text-white' }}">{{ __('Size') }}</a>
-                            <a href="{{ route('admin.referrals.index', ['sort' => 'deposits']) }}" class="px-2.5 py-1 rounded-lg font-bold {{ $sort === 'deposits' ? 'bg-cyan-400 text-black' : 'text-slate-400 hover:text-white' }}">{{ __('Volume') }}</a>
-                            <a href="{{ route('admin.referrals.index', ['sort' => 'payouts']) }}" class="px-2.5 py-1 rounded-lg font-bold {{ $sort === 'payouts' ? 'bg-cyan-400 text-black' : 'text-slate-400 hover:text-white' }}">{{ __('Payouts') }}</a>
+                            <a href="{{ route('admin.referrals.index', ['sort' => 'size']) }}" class="px-2.5 py-1 rounded-lg font-bold {{ $sort === 'size' ? 'bg-amber-400 text-black' : 'text-slate-400 hover:text-white' }}">{{ __('Size') }}</a>
+                            <a href="{{ route('admin.referrals.index', ['sort' => 'deposits']) }}" class="px-2.5 py-1 rounded-lg font-bold {{ $sort === 'deposits' ? 'bg-amber-400 text-black' : 'text-slate-400 hover:text-white' }}">{{ __('Volume') }}</a>
+                            <a href="{{ route('admin.referrals.index', ['sort' => 'payouts']) }}" class="px-2.5 py-1 rounded-lg font-bold {{ $sort === 'payouts' ? 'bg-amber-400 text-black' : 'text-slate-400 hover:text-white' }}">{{ __('Payouts') }}</a>
                         </div>
                     </div>
 
@@ -138,11 +138,11 @@
                         @forelse($top_referrers as $leader)
                             <div class="py-3 flex items-center justify-between gap-4">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs">
+                                    <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-xs">
                                         {{ substr($leader->username, 0, 2) }}
                                     </div>
                                     <div>
-                                        <a href="{{ route('admin.users.detail', $leader->id) }}" class="text-white hover:text-cyan-300 font-bold block leading-tight">
+                                        <a href="{{ route('admin.users.detail', $leader->id) }}" class="text-white hover:text-amber-300 font-bold block leading-tight">
                                             {{ $leader->first_name }} {{ $leader->last_name }}
                                         </a>
                                         <span class="text-[10px] text-slate-500 block">@<span>{{ $leader->username }}</span></span>
@@ -159,7 +159,7 @@
                                         <span class="text-emerald-400 font-black">{{ showAmount($leader->network_payouts) }}</span>
                                     </div>
                                     <a href="{{ route('admin.referrals.index', ['user_id' => $leader->id]) }}"
-                                        class="px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-cyan-400 hover:text-black text-slate-300 font-bold uppercase text-[10px] transition-all cursor-pointer">
+                                        class="px-3 py-1.5 rounded-xl bg-white/[0.04] hover:bg-amber-400 hover:text-black text-slate-300 font-bold uppercase text-[10px] transition-all cursor-pointer">
                                         {{ __('View Tree') }}
                                     </a>
                                 </div>
@@ -177,10 +177,10 @@
         {{-- ==================================================================================== --}}
         @if ($target_user)
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6">
                     <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                         <div>
-                            <span class="text-[9px] uppercase font-bold text-cyan-400 tracking-widest block">{{ __('REFERRAL TREE') }}</span>
+                            <span class="text-[9px] uppercase font-bold text-amber-400 tracking-widest block">{{ __('REFERRAL TREE') }}</span>
                             <h3 class="text-lg font-black text-white mt-0.5">{{ $target_user->fullname }} (@<span>{{ $target_user->username }}</span>)</h3>
                         </div>
                         <a href="{{ route('admin.referrals.index') }}" class="text-xs text-slate-400 hover:text-white uppercase font-bold cursor-pointer">
@@ -205,7 +205,7 @@
         {{-- GLOBAL REFERRAL LEDGER --}}
         {{-- ==================================================================================== --}}
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-            <div class="rounded-[2rem] bg-[#090c14]/95 overflow-hidden">
+            <div class="rounded-[2rem] bg-[#151a21]/95 overflow-hidden">
                 <div class="p-6 border-b border-white/[0.06] flex items-center justify-between text-xs">
                     <h3 class="text-sm font-bold text-white uppercase tracking-wide">{{ __('Recent Referral Signups') }}</h3>
                 </div>
@@ -226,11 +226,11 @@
                                     {{-- Member --}}
                                     <td class="p-5">
                                         <div class="flex items-center gap-3">
-                                            <div class="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                            <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0">
                                                 {{ substr($ref->username, 0, 2) }}
                                             </div>
                                             <div>
-                                                <a href="{{ route('admin.users.detail', $ref->id) }}" class="text-white hover:text-cyan-300 font-bold block leading-tight">
+                                                <a href="{{ route('admin.users.detail', $ref->id) }}" class="text-white hover:text-amber-300 font-bold block leading-tight">
                                                     {{ $ref->fullname ?? $ref->username }}
                                                 </a>
                                                 <span class="text-[10px] text-slate-500 block">@<span>{{ $ref->username }}</span></span>
@@ -242,11 +242,11 @@
                                     <td class="p-5">
                                         @if($ref->referrer)
                                             <div class="flex items-center gap-3">
-                                                <div class="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                                <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center font-bold text-xs shrink-0">
                                                     {{ substr($ref->referrer->username, 0, 2) }}
                                                 </div>
                                                 <div>
-                                                    <a href="{{ route('admin.users.detail', $ref->referrer_id) }}" class="text-white hover:text-purple-300 font-bold block leading-tight">
+                                                    <a href="{{ route('admin.users.detail', $ref->referrer_id) }}" class="text-white hover:text-orange-300 font-bold block leading-tight">
                                                         {{ $ref->referrer->fullname ?? $ref->referrer->username }}
                                                     </a>
                                                     <span class="text-[10px] text-slate-500 block">@<span>{{ $ref->referrer->username }}</span></span>
@@ -265,7 +265,7 @@
                                     {{-- Action --}}
                                     <td class="p-5 text-center">
                                         <a href="{{ route('admin.referrals.index', ['user_id' => $ref->id]) }}"
-                                            class="px-3.5 py-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/20 font-bold uppercase text-[10px] tracking-wider transition-all inline-flex items-center gap-1.5 cursor-pointer">
+                                            class="px-3.5 py-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 font-bold uppercase text-[10px] tracking-wider transition-all inline-flex items-center gap-1.5 cursor-pointer">
                                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />

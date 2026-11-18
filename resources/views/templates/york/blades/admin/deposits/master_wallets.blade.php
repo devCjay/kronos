@@ -60,10 +60,10 @@
         {{-- Header --}}
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end gap-4">
             <div>
-                <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-400 tracking-tight leading-tight">
+                <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-orange-400 tracking-tight leading-tight">
                     {{ __('Master Wallets') }}
                 </h2>
-                <p class="text-indigo-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
+                <p class="text-orange-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
                     {{ __('Central destination wallets where incoming deposits are received and stored') }}
                 </p>
             </div>
@@ -79,7 +79,7 @@
                 </button>
 
                 {{-- Sync Button --}}
-                <button type="button" id="sync-button" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-xs font-bold text-white flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.2)] active:scale-[0.98] cursor-pointer">
+                <button type="button" id="sync-button" class="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-orange-600 hover:bg-orange-500 text-xs font-bold text-white flex items-center justify-center gap-2 transition-all duration-300 shadow-[0_0_15px_rgba(99,102,241,0.2)] active:scale-[0.98] cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" id="sync-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h1m15 6a8 8 0 1 1-13.5-3.5M20 20v-5h-1m-15-6a8 8 0 1 0 13.5 3.5" />
                     </svg>
@@ -94,7 +94,7 @@
                         </svg>
                     </div>
                     <input type="text" id="search-input" placeholder="{{ __('Search blockchain or address...') }}" 
-                           class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-black/20 border border-white/5 focus:border-indigo-500/50 focus:bg-black/40 text-xs text-white placeholder-slate-500 outline-none transition-all duration-300">
+                           class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-black/20 border border-white/5 focus:border-orange-500/50 focus:bg-black/40 text-xs text-white placeholder-slate-500 outline-none transition-all duration-300">
                 </div>
             </div>
         </div>
@@ -102,8 +102,8 @@
         {{-- Information & Security Notices Stack --}}
         <div class="space-y-3 font-mono text-xs">
             {{-- 1. Private Key Encryption Security Notice (Cyan) --}}
-            <div class="px-5 py-4 rounded-2xl bg-cyan-500/[0.04] border border-cyan-500/20 flex items-start gap-3.5 shadow-[0_0_20px_rgba(0,245,255,0.03)]">
-                <div class="w-9 h-9 rounded-xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 shrink-0 mt-0.5">
+            <div class="px-5 py-4 rounded-2xl bg-amber-500/[0.04] border border-amber-500/20 flex items-start gap-3.5 shadow-[0_0_20px_rgba(247,166,0,0.03)]">
+                <div class="w-9 h-9 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 shrink-0 mt-0.5">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                     </svg>
@@ -132,9 +132,9 @@
             </div>
 
             {{-- 3. Blockchain Settings & RPC Notice (Indigo) --}}
-            <div class="px-5 py-4 rounded-2xl bg-indigo-500/[0.04] border border-indigo-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[0_0_20px_rgba(99,102,241,0.03)]">
+            <div class="px-5 py-4 rounded-2xl bg-orange-500/[0.04] border border-orange-500/20 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-[0_0_20px_rgba(99,102,241,0.03)]">
                 <div class="flex items-start gap-3.5">
-                    <div class="w-9 h-9 rounded-xl bg-indigo-500/10 border border-indigo-500/30 flex items-center justify-center text-indigo-400 shrink-0 mt-0.5">
+                    <div class="w-9 h-9 rounded-xl bg-orange-500/10 border border-orange-500/30 flex items-center justify-center text-orange-400 shrink-0 mt-0.5">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
@@ -148,7 +148,7 @@
                 </div>
                 <div class="shrink-0 flex items-center">
                     <a href="{{ route('admin.settings.blockchain.index') }}"
-                       class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/25 text-indigo-300 hover:text-white border border-indigo-500/30 text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer">
+                       class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-orange-500/10 hover:bg-orange-500/25 text-orange-300 hover:text-white border border-orange-500/30 text-[10px] font-bold uppercase tracking-wider transition-all cursor-pointer">
                         <span>{{ __('Blockchain Settings') }}</span>
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </a>
@@ -200,7 +200,7 @@
                                      <div class="flex items-center justify-between gap-4">
                                          <div class="flex items-center gap-3">
                                              {{-- Dynamic Logo --}}
-                                             <div class="w-8 h-8 rounded-lg overflow-hidden border border-white/10 flex items-center justify-center bg-indigo-500/10 text-indigo-400 font-bold shrink-0">
+                                             <div class="w-8 h-8 rounded-lg overflow-hidden border border-white/10 flex items-center justify-center bg-orange-500/10 text-orange-400 font-bold shrink-0">
                                                  <img src="{{ $logoUrl }}" 
                                                       alt="{{ $bc->name }}" 
                                                       class="w-full h-full object-cover" 
@@ -210,13 +210,13 @@
                                                  </span>
                                              </div>
                                              <div>
-                                                 <div class="font-bold text-white leading-tight group-hover:text-indigo-300 transition-colors">
+                                                 <div class="font-bold text-white leading-tight group-hover:text-orange-300 transition-colors">
                                                      {{ $bc->name }}
                                                  </div>
                                                  <div class="text-[9px] text-slate-500 font-mono tracking-wider uppercase mt-0.5">
                                                      {{ $bc->code }}
                                                  </div>
-                                                 <div class="text-[9px] text-indigo-400/80 font-bold uppercase tracking-wider mt-1 flex items-center gap-1">
+                                                 <div class="text-[9px] text-orange-400/80 font-bold uppercase tracking-wider mt-1 flex items-center gap-1">
                                                      <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                                      </svg>
@@ -273,7 +273,7 @@
 
                                             {{-- QR Code Button --}}
                                             <button type="button" onclick="showMasterWalletQrModal('{{ addslashes($bc->name) }}', '{{ addslashes($address) }}')" 
-                                                    class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-cyan-500/30 text-slate-400 hover:text-cyan-400 transition-all active:scale-95 cursor-pointer"
+                                                    class="p-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/30 text-slate-400 hover:text-amber-400 transition-all active:scale-95 cursor-pointer"
                                                     title="{{ __('Show QR Code') }}">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                     <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -302,7 +302,7 @@
                                         @if ($isConfigured)
                                             @if ($manageLink)
                                                 <a href="{{ $manageLink }}" 
-                                                   class="p-2 rounded-lg bg-indigo-600/10 border border-indigo-500/20 hover:bg-indigo-600 text-indigo-400 hover:text-white transition-all active:scale-95 cursor-pointer"
+                                                   class="p-2 rounded-lg bg-orange-600/10 border border-orange-500/20 hover:bg-orange-600 text-orange-400 hover:text-white transition-all active:scale-95 cursor-pointer"
                                                    title="{{ __('Manage Wallet') }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                         <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
@@ -356,7 +356,7 @@
                 position: 'top-end',
                 showConfirmButton: false,
                 timer: 2500,
-                background: '#12131a',
+                background: '#1a1f27',
                 color: '#fff'
             });
             return;
@@ -415,7 +415,7 @@
                 cancelButtonText: '{{ __('Cancel') }}',
                 confirmButtonColor: '#dc2626',
                 cancelButtonColor: '#475569',
-                background: '#12131a',
+                background: '#1a1f27',
                 color: '#fff',
                 preConfirm: (password) => {
                     if (!password || !password.trim()) {
@@ -536,7 +536,7 @@
             cancelButtonText: '{{ __('Cancel') }}',
             confirmButtonColor: '#10b981',
             cancelButtonColor: '#475569',
-            background: '#12131a',
+            background: '#1a1f27',
             color: '#fff'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -544,7 +544,7 @@
                     title: '{{ __('Processing...') }}',
                     text: '{{ __('Generating master wallet...') }}',
                     allowOutsideClick: false,
-                    background: '#12131a',
+                    background: '#1a1f27',
                     color: '#fff',
                     didOpen: () => {
                         Swal.showLoading();
@@ -563,7 +563,7 @@
                                 icon: 'success',
                                 title: '{{ __('Success!') }}',
                                 text: res.message,
-                                background: '#12131a',
+                                background: '#1a1f27',
                                 color: '#fff'
                             }).then(() => {
                                 window.location.reload();
@@ -573,7 +573,7 @@
                                 icon: 'error',
                                 title: '{{ __('Error') }}',
                                 text: res.message || 'Generation failed',
-                                background: '#12131a',
+                                background: '#1a1f27',
                                 color: '#fff'
                             });
                         }
@@ -584,7 +584,7 @@
                             icon: 'error',
                             title: '{{ __('Error') }}',
                             text: msg,
-                            background: '#12131a',
+                            background: '#1a1f27',
                             color: '#fff'
                         });
                     }

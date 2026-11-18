@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('USERS') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('All Users') }}
                 </h1>
                 <p class="text-slate-400 font-mono text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -23,8 +23,8 @@
             {{-- Top Actions & Filter Ribbon --}}
             <div class="flex flex-wrap items-center gap-2">
                 <a href="{{ route('admin.users.bulk-email') }}"
-                    class="px-4 py-2 rounded-xl bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/30 text-purple-300 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.15)] cursor-pointer">
-                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="px-4 py-2 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/30 text-orange-300 hover:text-white font-mono text-xs font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.15)] cursor-pointer">
+                    <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                     </svg>
                     <span>{{ __('Send Group Email') }}</span>
@@ -49,9 +49,9 @@
                             data-status="{{ $stKey }}"
                             class="status-tab-btn px-3 py-1.5 rounded-xl font-bold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer
                             {{ $isActive 
-                                ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab' 
+                                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab'
                                 : 'text-slate-400 hover:text-white hover:bg-white/[0.04]' }}">
-                            <span class="w-1.5 h-1.5 rounded-full tab-dot {{ $isActive ? 'bg-cyan-400 animate-pulse' : 'bg-slate-600' }}"></span>
+                            <span class="w-1.5 h-1.5 rounded-full tab-dot {{ $isActive ? 'bg-amber-400 animate-pulse' : 'bg-slate-600' }}"></span>
                             <span>{{ __($tab['label']) }}</span>
                         </a>
                     @endforeach
@@ -64,12 +64,12 @@
         {{-- ==================================================================================== --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
             {{-- Card 1: Total Users --}}
-            <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-cyan-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
-                <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+            <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Total Users') }}</span>
-                        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
@@ -79,7 +79,7 @@
                         <div class="text-2xl font-black font-mono text-white tracking-tight">
                             {{ number_format($stats['total']) }}
                         </div>
-                        <div class="text-[9px] font-mono text-cyan-400/80 mt-1 uppercase tracking-wider">
+                        <div class="text-[9px] font-mono text-amber-400/80 mt-1 uppercase tracking-wider">
                             {{ __('Registered on platform') }}
                         </div>
                     </div>
@@ -89,7 +89,7 @@
             {{-- Card 2: Active Accounts --}}
             <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-emerald-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Active Users') }}</span>
                         <div class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
@@ -112,7 +112,7 @@
             {{-- Card 3: Banned / Suspended --}}
             <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-rose-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Banned Users') }}</span>
                         <div class="w-8 h-8 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
@@ -135,7 +135,7 @@
             {{-- Card 4: Email Unverified --}}
             <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Unverified Emails') }}</span>
                         <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
@@ -156,25 +156,25 @@
             </div>
 
             {{-- Card 5: KYC Pending --}}
-            <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-purple-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
-                <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+            <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-orange-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Pending KYC') }}</span>
-                        <div class="w-8 h-8 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
                         </div>
                     </div>
                     <div>
-                        <div class="text-2xl font-black font-mono text-purple-400 tracking-tight flex items-center gap-2">
+                        <div class="text-2xl font-black font-mono text-orange-400 tracking-tight flex items-center gap-2">
                             <span>{{ number_format($stats['kyc_pending']) }}</span>
                             @if ($stats['kyc_pending'] > 0)
-                                <span class="w-2 h-2 rounded-full bg-purple-400 animate-ping"></span>
+                                <span class="w-2 h-2 rounded-full bg-orange-400 animate-ping"></span>
                             @endif
                         </div>
-                        <div class="text-[9px] font-mono text-purple-400/70 mt-1 uppercase tracking-wider">
+                        <div class="text-[9px] font-mono text-orange-400/70 mt-1 uppercase tracking-wider">
                             {{ __('Identity waiting for review') }}
                         </div>
                     </div>
@@ -188,17 +188,17 @@
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden" id="users-wrapper">
 
             {{-- Loading Spinner Overlay --}}
-            <div id="loading-spinner" class="hidden absolute inset-0 bg-[#090c14]/85 backdrop-blur-md z-50 flex flex-col items-center justify-center transition-all duration-300">
-                <div class="w-10 h-10 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
-                <p class="mt-3 text-cyan-300 font-mono text-xs tracking-widest uppercase">{{ __('Loading users...') }}</p>
+            <div id="loading-spinner" class="hidden absolute inset-0 bg-[#151a21]/85 backdrop-blur-md z-50 flex flex-col items-center justify-center transition-all duration-300">
+                <div class="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+                <p class="mt-3 text-amber-300 font-mono text-xs tracking-widest uppercase">{{ __('Loading users...') }}</p>
             </div>
 
-            <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
+            <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
 
                 {{-- Table Control Bar --}}
                 <div class="p-6 border-b border-white/[0.06] flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white/[0.01]">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+                        <div class="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
                             </svg>
@@ -206,7 +206,7 @@
                         <div>
                             <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide flex items-center gap-2">
                                 <span>{{ __('Users List') }}</span>
-                                <span class="px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-[10px]">
+                                <span class="px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-[10px]">
                                     {{ $users->total() }}
                                 </span>
                             </h3>
@@ -220,15 +220,15 @@
                         <div class="relative min-w-[200px]">
                             <input type="text" name="search" placeholder="{{ __('Search name, email, or username...') }}"
                                 value="{{ request('search') }}"
-                                class="w-full bg-white/[0.03] border border-white/[0.1] focus:border-cyan-400/60 rounded-xl px-4 py-2 text-white text-xs placeholder-slate-500 focus:outline-none transition-all">
+                                class="w-full bg-white/[0.03] border border-white/[0.1] focus:border-amber-400/60 rounded-xl px-4 py-2 text-white text-xs placeholder-slate-500 focus:outline-none transition-all">
                         </div>
 
                         {{-- Status Dropdown --}}
                         <div class="relative custom-dropdown" id="status-filter-dropdown">
                             <input type="hidden" name="status" id="status-input" value="{{ request('status', 'all') }}">
                             <button type="button"
-                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-cyan-400/50 transition-all cursor-pointer min-w-[120px]">
-                                <span class="selected-label font-bold text-cyan-300">
+                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-amber-400/50 transition-all cursor-pointer min-w-[120px]">
+                                <span class="selected-label font-bold text-amber-300">
                                     {{ request('status') && request('status') != 'all' ? ucfirst(request('status')) : __('All Status') }}
                                 </span>
                                 <svg class="w-3.5 h-3.5 text-slate-500 dropdown-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,9 +236,9 @@
                                 </svg>
                             </button>
                             <div class="dropdown-menu absolute right-0 z-[120] mt-2 w-36 bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="all">{{ __('All Status') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="active">{{ __('Active') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="banned">{{ __('Banned') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="all">{{ __('All Status') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="active">{{ __('Active') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="banned">{{ __('Banned') }}</div>
                             </div>
                         </div>
 
@@ -246,7 +246,7 @@
                         <div class="relative custom-dropdown" id="kyc-filter-dropdown">
                             <input type="hidden" name="kyc_status" id="kyc-status-input" value="{{ request('kyc_status', 'all') }}">
                             <button type="button"
-                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-cyan-400/50 transition-all cursor-pointer min-w-[120px]">
+                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-amber-400/50 transition-all cursor-pointer min-w-[120px]">
                                 <span class="selected-label text-slate-300">
                                     {{ request('kyc_status') && request('kyc_status') != 'all' ? 'KYC: ' . ucfirst(request('kyc_status')) : __('All KYC') }}
                                 </span>
@@ -255,10 +255,10 @@
                                 </svg>
                             </button>
                             <div class="dropdown-menu absolute right-0 z-[120] mt-2 w-40 bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="all">{{ __('All KYC') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="approved">{{ __('Approved') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="pending">{{ __('Pending') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="rejected">{{ __('Rejected') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="all">{{ __('All KYC') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="approved">{{ __('Approved') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="pending">{{ __('Pending') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="rejected">{{ __('Rejected') }}</div>
                             </div>
                         </div>
 
@@ -266,7 +266,7 @@
                         <div class="relative custom-dropdown" id="email-filter-dropdown">
                             <input type="hidden" name="email_verified" id="email-verified-input" value="{{ request('email_verified', 'all') }}">
                             <button type="button"
-                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-cyan-400/50 transition-all cursor-pointer min-w-[120px]">
+                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-amber-400/50 transition-all cursor-pointer min-w-[120px]">
                                 <span class="selected-label text-slate-300">
                                     @if (request('email_verified') === '1')
                                         {{ __('Email Verified') }}
@@ -281,29 +281,29 @@
                                 </svg>
                             </button>
                             <div class="dropdown-menu absolute right-0 z-[120] mt-2 w-44 bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="all">{{ __('All Email') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="1">{{ __('Verified Only') }}</div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="0">{{ __('Unverified Only') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="all">{{ __('All Email') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="1">{{ __('Verified Only') }}</div>
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="0">{{ __('Unverified Only') }}</div>
                             </div>
                         </div>
 
                         {{-- Export Dropdown --}}
                         <div class="relative custom-dropdown" id="export-dropdown">
                             <button type="button"
-                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-cyan-400/50 transition-all cursor-pointer">
+                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-amber-400/50 transition-all cursor-pointer">
                                 <span>{{ __('Export') }}</span>
                                 <svg class="w-3.5 h-3.5 text-slate-500 dropdown-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
                             <div class="dropdown-menu absolute right-0 z-[120] mt-2 w-36 bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-2" data-export="csv">
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2" data-export="csv">
                                     <span>CSV</span>
                                 </div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-2" data-export="sql">
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2" data-export="sql">
                                     <span>SQL</span>
                                 </div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-2" data-export="pdf">
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2" data-export="pdf">
                                     <span>PDF</span>
                                 </div>
                             </div>
@@ -311,7 +311,7 @@
 
                         {{-- Submit Search Button --}}
                         <button type="submit"
-                            class="p-2 bg-cyan-400 hover:bg-cyan-300 text-[#050507] rounded-xl transition-all cursor-pointer shadow-[0_0_15px_rgba(0,245,255,0.25)]">
+                            class="p-2 bg-amber-400 hover:bg-amber-300 text-[#0b0e11] rounded-xl transition-all cursor-pointer shadow-[0_0_15px_rgba(247,166,0,0.25)]">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
@@ -320,9 +320,9 @@
                 </div>
 
                 {{-- Bulk Action Ribbon (Revealed on select) --}}
-                <div id="bulk-actions-bar" class="hidden px-6 py-3 bg-cyan-500/10 border-b border-cyan-500/20 flex items-center justify-between flex-wrap gap-3 font-mono text-xs">
-                    <div class="flex items-center gap-2 text-cyan-300 font-bold">
-                        <span id="selected-count" class="px-2 py-0.5 rounded-md bg-cyan-500/20 border border-cyan-500/30">0</span>
+                <div id="bulk-actions-bar" class="hidden px-6 py-3 bg-amber-500/10 border-b border-amber-500/20 flex items-center justify-between flex-wrap gap-3 font-mono text-xs">
+                    <div class="flex items-center gap-2 text-amber-300 font-bold">
+                        <span id="selected-count" class="px-2 py-0.5 rounded-md bg-amber-500/20 border border-amber-500/30">0</span>
                         <span>{{ __('users selected') }}</span>
                     </div>
                     <div class="flex items-center gap-2">
@@ -332,7 +332,7 @@
                         <button type="button" class="bulk-action-btn px-3 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500 text-rose-300 hover:text-white font-bold transition-all" data-action="ban">
                             {{ __('Ban') }}
                         </button>
-                        <button type="button" class="bulk-action-btn px-3 py-1.5 rounded-lg bg-cyan-500/20 hover:bg-cyan-500 text-cyan-300 hover:text-black font-bold transition-all" data-action="verify_email">
+                        <button type="button" class="bulk-action-btn px-3 py-1.5 rounded-lg bg-amber-500/20 hover:bg-amber-500 text-amber-300 hover:text-black font-bold transition-all" data-action="verify_email">
                             {{ __('Verify Email') }}
                         </button>
                     </div>
@@ -344,7 +344,7 @@
                         <thead>
                             <tr class="border-b border-white/[0.06] bg-white/[0.01]">
                                 <th class="px-4 py-4 w-10 text-center">
-                                    <input type="checkbox" id="select-all" class="w-4 h-4 rounded border-white/20 bg-white/5 text-cyan-400 focus:ring-cyan-400 focus:ring-offset-0 cursor-pointer accent-cyan-400">
+                                    <input type="checkbox" id="select-all" class="w-4 h-4 rounded border-white/20 bg-white/5 text-amber-400 focus:ring-amber-400 focus:ring-offset-0 cursor-pointer accent-amber-400">
                                 </th>
                                 <th class="px-6 py-4 text-[10px] font-black uppercase text-slate-400 tracking-widest font-mono">{{ __('User') }}</th>
                                 <th class="px-6 py-4 text-[10px] font-black uppercase text-slate-400 tracking-widest font-mono">{{ __('Balance') }}</th>
@@ -359,7 +359,7 @@
                                 <tr class="hover:bg-white/[0.02] transition-colors group">
                                     {{-- Checkbox --}}
                                     <td class="px-4 py-4 text-center">
-                                        <input type="checkbox" name="user_ids[]" value="{{ $user->id }}" class="user-checkbox w-4 h-4 rounded border-white/20 bg-white/5 text-cyan-400 focus:ring-cyan-400 focus:ring-offset-0 cursor-pointer accent-cyan-400">
+                                        <input type="checkbox" name="user_ids[]" value="{{ $user->id }}" class="user-checkbox w-4 h-4 rounded border-white/20 bg-white/5 text-amber-400 focus:ring-amber-400 focus:ring-offset-0 cursor-pointer accent-amber-400">
                                     </td>
 
                                     {{-- User Profile --}}
@@ -370,17 +370,17 @@
                                                     <img src="{{ asset('storage/profile/' . $user->photo) }}" alt="{{ $user->username }}" class="w-full h-full object-cover">
                                                 </div>
                                             @else
-                                                <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-xs font-bold font-mono text-cyan-400 shrink-0">
+                                                <div class="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-xs font-bold font-mono text-amber-400 shrink-0">
                                                     {{ strtoupper(substr($user->username ?? 'U', 0, 2)) }}
                                                 </div>
                                             @endif
                                             <div>
                                                 <div class="flex items-center gap-1.5">
-                                                    <a href="{{ route('admin.users.detail', $user->id) }}" class="text-xs font-bold font-mono text-white hover:text-cyan-400 transition-colors">
+                                                    <a href="{{ route('admin.users.detail', $user->id) }}" class="text-xs font-bold font-mono text-white hover:text-amber-400 transition-colors">
                                                         {{ $user->fullname ?? $user->username }}
                                                     </a>
                                                     @if ($user->email_verified_at)
-                                                        <span title="{{ __('Email Verified') }}" class="text-cyan-400">
+                                                        <span title="{{ __('Email Verified') }}" class="text-amber-400">
                                                             <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
                                                         </span>
                                                     @endif
@@ -415,7 +415,7 @@
                                                 ● {{ __('Verified') }}
                                             </span>
                                         @elseif($kycStatus === 'pending')
-                                            <span class="px-3 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20 text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-3 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20 text-[10px] font-bold uppercase tracking-wider">
                                                 ● {{ __('Pending') }}
                                             </span>
                                         @elseif($kycStatus === 'rejected')
@@ -461,7 +461,7 @@
                                         <div class="flex items-center justify-end gap-1.5">
                                             {{-- Dossier / Detail --}}
                                             <a href="{{ route('admin.users.detail', $user->id) }}"
-                                                class="p-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/20 transition-all cursor-pointer"
+                                                class="p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 transition-all cursor-pointer"
                                                 title="{{ __('View User Details') }}">
                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -482,7 +482,7 @@
 
                                             {{-- Quick Ban/Unban or Status Modal --}}
                                             <button type="button"
-                                                class="edit-user-status-btn p-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/20 transition-all cursor-pointer"
+                                                class="edit-user-status-btn p-2 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-300 border border-orange-500/20 transition-all cursor-pointer"
                                                 data-id="{{ $user->id }}" data-status="{{ $user->status }}"
                                                 title="{{ __('Edit Status') }}">
                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -531,10 +531,10 @@
     {{-- 1. Edit User Status Modal --}}
     <div id="user-status-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-left">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 relative">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 relative">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wide">{{ __('Change User Status') }}</h3>
@@ -554,7 +554,7 @@
                                 {{ __('Account Status') }}
                             </label>
                             <select name="status" id="edit-user-status-select"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-all cursor-pointer">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none transition-all cursor-pointer">
                                 <option value="active">{{ __('Active (Can access account)') }}</option>
                                 <option value="banned">{{ __('Banned (Access blocked)') }}</option>
                             </select>
@@ -566,7 +566,7 @@
                                 {{ __('Cancel') }}
                             </button>
                             <button type="submit"
-                                class="flex-1 px-4 py-2.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer">
+                                class="flex-1 px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer">
                                 {{ __('Save Changes') }}
                             </button>
                         </div>
@@ -579,10 +579,10 @@
     {{-- 2. Direct Email Modal --}}
     <div id="direct-email-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-lg transform transition-all text-left">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 relative">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 relative">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wide">{{ __('Send Email to User') }}</h3>
@@ -602,7 +602,7 @@
                                 {{ __('Email Subject') }}
                             </label>
                             <input type="text" name="subject" required placeholder="{{ __('Account Notice / Update...') }}"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none transition-all">
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none transition-all">
                         </div>
 
                         <div>
@@ -610,7 +610,7 @@
                                 {{ __('Message') }}
                             </label>
                             <textarea name="message" rows="5" required placeholder="{{ __('Type your message here...') }}"
-                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none transition-all resize-none"></textarea>
+                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2.5 text-xs focus:outline-none transition-all resize-none"></textarea>
                         </div>
 
                         <div class="pt-4 border-t border-white/[0.06] flex gap-3">
@@ -619,7 +619,7 @@
                                 {{ __('Cancel') }}
                             </button>
                             <button type="submit"
-                                class="flex-1 px-4 py-2.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer">
+                                class="flex-1 px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer">
                                 {{ __('Send Email') }}
                             </button>
                         </div>
@@ -632,10 +632,10 @@
     {{-- 3. Export Modal --}}
     <div id="export-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close cursor-pointer"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close cursor-pointer"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-left">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wide">{{ __('Export Users') }}</h3>
@@ -667,10 +667,10 @@
                                     ];
                                 @endphp
                                 @foreach ($columns as $key => $col)
-                                    <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-cyan-400/40 transition-all cursor-pointer group">
+                                    <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-amber-400/40 transition-all cursor-pointer group">
                                         <input type="checkbox" name="export_cols[]" value="{{ $key }}"
                                             {{ $col['default'] ? 'checked' : '' }}
-                                            class="w-4 h-4 rounded border-white/20 bg-white/5 text-cyan-400 focus:ring-cyan-400 focus:ring-offset-0 cursor-pointer accent-cyan-400">
+                                            class="w-4 h-4 rounded border-white/20 bg-white/5 text-amber-400 focus:ring-amber-400 focus:ring-offset-0 cursor-pointer accent-amber-400">
                                         <span class="text-xs font-mono text-slate-300 group-hover:text-white transition-colors">{{ __($col['label']) }}</span>
                                     </label>
                                 @endforeach
@@ -684,7 +684,7 @@
                                 {{ __('Cancel') }}
                             </button>
                             <button type="button" id="confirm-export"
-                                class="flex-1 px-4 py-2.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer">
+                                class="flex-1 px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer">
                                 {{ __('Download File') }}
                             </button>
                         </div>
@@ -747,15 +747,15 @@
                 $('#status-filter-dropdown .selected-label').text(label);
                 
                 // Sync status ribbon tabs
-                $('.status-tab-btn').removeClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                $('.status-tab-btn').removeClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                                     .addClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                $('.status-tab-btn .tab-dot').removeClass('bg-cyan-400 animate-pulse').addClass('bg-slate-600');
+                $('.status-tab-btn .tab-dot').removeClass('bg-amber-400 animate-pulse').addClass('bg-slate-600');
                 
                 const $matchingTab = $(`.status-tab-btn[data-status="${val}"]`);
                 if ($matchingTab.length) {
-                    $matchingTab.addClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                    $matchingTab.addClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                                 .removeClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                    $matchingTab.find('.tab-dot').removeClass('bg-slate-600').addClass('bg-cyan-400 animate-pulse');
+                    $matchingTab.find('.tab-dot').removeClass('bg-slate-600').addClass('bg-amber-400 animate-pulse');
                 }
 
                 $('#filter-form').submit();
@@ -785,13 +785,13 @@
                 const url = $(this).attr('href');
                 const status = $(this).data('status');
 
-                $('.status-tab-btn').removeClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                $('.status-tab-btn').removeClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                                     .addClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                $('.status-tab-btn .tab-dot').removeClass('bg-cyan-400 animate-pulse').addClass('bg-slate-600');
+                $('.status-tab-btn .tab-dot').removeClass('bg-amber-400 animate-pulse').addClass('bg-slate-600');
                 
-                $(this).addClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                $(this).addClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                        .removeClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                $(this).find('.tab-dot').removeClass('bg-slate-600').addClass('bg-cyan-400 animate-pulse');
+                $(this).find('.tab-dot').removeClass('bg-slate-600').addClass('bg-amber-400 animate-pulse');
 
                 $('#status-input').val(status);
                 const statusLabels = {
@@ -922,11 +922,11 @@
                     text: '{{ __('Are you sure you want to execute this action on selected accounts?') }}',
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#00f5ff',
+                    confirmButtonColor: '#f7a600',
                     cancelButtonColor: '#334155',
                     confirmButtonText: '{{ __('Yes, Execute') }}',
                     customClass: {
-                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                         title: 'text-white font-mono',
                         htmlContainer: 'text-slate-400 font-mono',
                     }
@@ -1047,7 +1047,7 @@
                     cancelButtonColor: '#334155',
                     confirmButtonText: '{{ __('Yes, Login') }}',
                     customClass: {
-                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                         title: 'text-white font-mono',
                         htmlContainer: 'text-slate-400 font-mono',
                     }

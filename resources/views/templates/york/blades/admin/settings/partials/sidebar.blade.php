@@ -44,8 +44,8 @@
                     $isActive = request()->routeIs($item['route']) || (str_contains($item['route'], 'blockchain') && request()->routeIs('admin.settings.blockchain.*'));
                 @endphp
                 <a href="{{ $url }}"
-                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group {{ $isActive ? 'bg-cyan-500/10 border border-cyan-500/20 text-white shadow-[0_0_15px_rgba(0,245,255,0.1)]' : 'border border-transparent text-slate-400 hover:bg-white/[0.03] hover:text-white' }}">
-                    <div class="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors {{ $isActive ? 'bg-cyan-400 text-black shadow-[0_0_10px_rgba(0,245,255,0.3)]' : 'bg-white/5 text-slate-400 group-hover:bg-white/10 group-hover:text-white' }}">
+                    class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all group {{ $isActive ? 'bg-amber-500/10 border border-amber-500/20 text-white shadow-[0_0_15px_rgba(247,166,0,0.1)]' : 'border border-transparent text-slate-400 hover:bg-white/[0.03] hover:text-white' }}">
+                    <div class="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 transition-colors {{ $isActive ? 'bg-amber-400 text-black shadow-[0_0_10px_rgba(247,166,0,0.3)]' : 'bg-white/5 text-slate-400 group-hover:bg-white/10 group-hover:text-white' }}">
                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="{{ $item['icon'] }}" />
                         </svg>
@@ -54,7 +54,7 @@
                         {{ __($item['title']) }}
                     </span>
                     @if ($isActive)
-                        <span class="ml-auto w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span class="ml-auto w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     @endif
                 </a>
             @endforeach

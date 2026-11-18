@@ -119,7 +119,7 @@
                                     </p>
                                     @if ($txUrl !== '#')
                                         <a href="{{ $txUrl }}" target="_blank"
-                                           class="p-2.5 hover:bg-indigo-500/10 rounded-lg text-indigo-400 border border-indigo-500/20 transition-colors flex items-center justify-center gap-1.5 text-xs font-bold shrink-0 px-3.5 cursor-pointer">
+                                           class="p-2.5 hover:bg-orange-500/10 rounded-lg text-orange-400 border border-orange-500/20 transition-colors flex items-center justify-center gap-1.5 text-xs font-bold shrink-0 px-3.5 cursor-pointer">
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                             </svg>
@@ -218,7 +218,7 @@
 
                 {{-- Support CTA --}}
                 <div
-                    class="bg-gradient-to-br from-accent-primary/20 to-purple-500/10 border border-accent-primary/20 rounded-2xl p-6 text-center">
+                    class="bg-gradient-to-br from-accent-primary/20 to-orange-500/10 border border-accent-primary/20 rounded-2xl p-6 text-center">
                     <div
                         class="w-12 h-12 rounded-full bg-accent-primary/20 text-accent-primary flex items-center justify-center mx-auto mb-4">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -25,7 +25,7 @@
                 </label>
                 <div class="relative">
                     <input type="password" name="password" id="password"
-                        class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                        class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                         placeholder="••••••••" required autofocus>
                 </div>
                 @error('password')
@@ -41,14 +41,14 @@
                 </label>
                 <div class="relative">
                     <input type="password" name="password_confirmation" id="password_confirmation"
-                        class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                        class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3.5 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                         placeholder="••••••••" required>
                 </div>
             </div>
 
             {{-- Submit Button --}}
             <button type="submit"
-                class="w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(0,245,255,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide mt-2">
+                class="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(247,166,0,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide mt-2">
                 <span class="relative z-10 flex items-center justify-center gap-2">
                     <span>{{ __('Update & Secure Password') }}</span>
                     <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">

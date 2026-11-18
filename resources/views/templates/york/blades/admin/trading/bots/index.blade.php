@@ -6,7 +6,7 @@
         {{-- Disabled Module Warning --}}
         @if (!moduleEnabled('trading_bot_module'))
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-8 flex flex-col items-center justify-center text-center">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-8 flex flex-col items-center justify-center text-center">
                     <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-4">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
@@ -18,7 +18,7 @@
                         {{ __('The trading bot module is currently turned off. You can turn it on in module settings.') }}
                     </p>
                     <a href="{{ route('admin.settings.modules.index') }}"
-                        class="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#050507] font-black text-xs font-mono uppercase tracking-wider transition-all">
+                        class="px-6 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs font-mono uppercase tracking-wider transition-all">
                         {{ __('Enable Module in Settings') }}
                     </a>
                 </div>
@@ -30,11 +30,11 @@
             {{-- ==================================================================================== --}}
             <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
                 <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                         {{ __('TRADING BOTS') }}
                     </div>
-                    <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                    <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                         {{ __('Trading Bots') }}
                     </h1>
                     <p class="text-slate-400 font-mono text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -45,8 +45,8 @@
                 {{-- Action Cluster --}}
                 <div class="flex flex-wrap items-center gap-2.5 font-mono text-xs">
                     <a href="{{ route('admin.trading-bots.activations.index') }}"
-                        class="px-4 py-2.5 rounded-xl bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/30 text-purple-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.15)] cursor-pointer">
-                        <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        class="px-4 py-2.5 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/30 text-orange-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.15)] cursor-pointer">
+                        <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                         <span>{{ __('User Subscriptions') }}</span>
@@ -54,7 +54,7 @@
 
                     <a href="{{ route('admin.trading-bots.logs.index') }}"
                         class="px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.1] text-slate-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer">
-                        <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                         </svg>
                         <span>{{ __('Trade History') }}</span>
@@ -70,7 +70,7 @@
                     </button>
 
                     <a href="{{ route('admin.trading-bots.create') }}"
-                        class="px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(0,245,255,0.3)] cursor-pointer">
+                        class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(247,166,0,0.3)] cursor-pointer">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                         </svg>
@@ -84,13 +84,13 @@
             {{-- ==================================================================================== --}}
             <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                 @forelse($bots as $bot)
-                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] hover:border-cyan-400/40 backdrop-blur-2xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 flex flex-col justify-between h-full relative">
+                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-2xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 flex flex-col justify-between h-full relative">
 
                             {{-- Bot Card Header --}}
                             <div class="flex items-start justify-between gap-4 pb-5 border-b border-white/[0.06]">
                                 <div class="flex items-center gap-4">
-                                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center overflow-hidden shrink-0 shadow-lg">
+                                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center overflow-hidden shrink-0 shadow-lg">
                                         @if(str_starts_with($bot->logo, 'bot-'))
                                             <img src="{{ asset('assets/images/bots/' . $bot->logo) }}" alt="{{ $bot->name }}" class="w-9 h-9 object-contain">
                                         @else
@@ -98,7 +98,7 @@
                                         @endif
                                     </div>
                                     <div>
-                                        <h3 class="text-base font-black text-white font-mono tracking-tight leading-tight group-hover:text-cyan-300 transition-colors">
+                                        <h3 class="text-base font-black text-white font-mono tracking-tight leading-tight group-hover:text-amber-300 transition-colors">
                                             {{ $bot->name }}
                                         </h3>
                                         <div class="flex items-center gap-2 mt-1 font-mono text-[10px]">
@@ -143,7 +143,7 @@
 
                                 <div class="p-3 rounded-2xl bg-white/[0.02] border border-white/[0.06]">
                                     <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Capital Back') }}</span>
-                                    <span class="text-sm font-bold {{ $bot->is_capital_returned ? 'text-cyan-400' : 'text-slate-400' }}">
+                                    <span class="text-sm font-bold {{ $bot->is_capital_returned ? 'text-amber-400' : 'text-slate-400' }}">
                                         {{ $bot->is_capital_returned ? __('Yes (100%)') : __('Profit Only') }}
                                     </span>
                                 </div>
@@ -155,7 +155,7 @@
                                     <span class="text-slate-400 uppercase font-bold tracking-wider block mb-1.5">{{ __('Trading Pairs') }}</span>
                                     <div class="flex flex-wrap gap-1.5">
                                         @foreach(array_slice($bot->traded_pairs, 0, 4) as $pair)
-                                            <span class="px-2 py-0.5 rounded-lg bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 font-bold uppercase">
+                                            <span class="px-2 py-0.5 rounded-lg bg-amber-500/10 text-amber-300 border border-amber-500/20 font-bold uppercase">
                                                 {{ $pair }}
                                             </span>
                                         @endforeach
@@ -176,7 +176,7 @@
                                             $botDays = is_array($bot->trading_days) ? $bot->trading_days : [];
                                         @endphp
                                         @foreach($allDays as $day)
-                                            <span class="px-2 py-0.5 rounded text-[8px] font-bold {{ in_array($day, $botDays) ? 'bg-cyan-400/20 text-cyan-300 border border-cyan-400/30' : 'bg-white/[0.02] text-slate-600 border border-white/[0.04]' }}">
+                                            <span class="px-2 py-0.5 rounded text-[8px] font-bold {{ in_array($day, $botDays) ? 'bg-amber-400/20 text-amber-300 border border-amber-400/30' : 'bg-white/[0.02] text-slate-600 border border-white/[0.04]' }}">
                                                 {{ substr($day, 0, 3) }}
                                             </span>
                                         @endforeach
@@ -209,8 +209,8 @@
                     </div>
                 @empty
                     <div class="col-span-full p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1]">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-12 text-center">
-                            <div class="w-16 h-16 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mx-auto mb-4">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-12 text-center">
+                            <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto mb-4">
                                 <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                                 </svg>
@@ -221,7 +221,7 @@
                             </p>
                             <div class="flex flex-wrap items-center justify-center gap-4">
                                 <a href="{{ route('admin.trading-bots.create') }}"
-                                    class="px-8 py-3 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs font-mono uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all">
+                                    class="px-8 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs font-mono uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all">
                                     {{ __('Create Trading Bot') }}
                                 </a>
                                 <button type="button"
@@ -267,7 +267,7 @@
                     confirmButtonText: '{{ __('Yes, Import (15)') }}',
                     cancelButtonText: '{{ __('Cancel') }}',
                     customClass: {
-                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                         title: 'text-white font-mono',
                         htmlContainer: 'text-slate-400 font-mono text-xs',
                         confirmButton: 'rounded-xl font-bold uppercase tracking-wider text-xs px-5 py-2.5',
@@ -283,7 +283,7 @@
                                 Swal.showLoading();
                             },
                             customClass: {
-                                popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                                popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                                 title: 'text-white font-mono'
                             }
                         });
@@ -300,7 +300,7 @@
                                     text: response.message || '{{ __('Default bots imported successfully.') }}',
                                     icon: 'success',
                                     customClass: {
-                                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                                         title: 'text-white font-mono'
                                     }
                                 }).then(() => {
@@ -313,7 +313,7 @@
                                     text: xhr.responseJSON?.message || '{{ __('Failed to import default bots.') }}',
                                     icon: 'error',
                                     customClass: {
-                                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                                         title: 'text-white font-mono'
                                     }
                                 });
@@ -335,7 +335,7 @@
                     cancelButtonColor: '#334155',
                     confirmButtonText: '{{ __('Yes, Delete') }}',
                     customClass: {
-                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                         title: 'text-white font-mono',
                         htmlContainer: 'text-slate-400 font-mono',
                     }

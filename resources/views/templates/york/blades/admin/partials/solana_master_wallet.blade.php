@@ -23,14 +23,14 @@
 <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors mt-6">
     {{-- Decorative Background Blurs --}}
     <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-purple-600/15 rounded-full blur-3xl pointer-events-none z-0"></div>
+    <div class="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 bg-orange-600/15 rounded-full blur-3xl pointer-events-none z-0"></div>
     <div class="absolute bottom-0 left-0 -mb-8 -ml-8 w-36 h-36 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
 
     <div class="relative z-10 p-6">
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
             <div class="flex items-center gap-3">
                 {{-- Solana Stylized SVG Icon --}}
-                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-purple-600 to-emerald-500 p-0.5 flex items-center justify-center shadow-lg shadow-purple-500/10">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-orange-600 to-emerald-500 p-0.5 flex items-center justify-center shadow-lg shadow-orange-500/10">
                     <div class="w-full h-full bg-secondary-dark rounded-[10px] flex items-center justify-center">
                         <svg class="w-6 h-6 text-emerald-400" viewBox="0 0 397 311" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M64.6 237.9c-2.4-2.4-5.7-3.8-9.2-3.8H4c-2.9 0-4.3 3.5-2.2 5.6l62.8 62.8c2.4 2.4 5.7 3.8 9.2 3.8h51.4c2.9 0 4.3-3.5 2.2-5.6L64.6 237.9z" fill="url(#solana-gradient)" />
@@ -84,14 +84,14 @@
             {{-- Wallet Configured State --}}
             <div class="space-y-4">
                 {{-- Master Activation Tip Alert --}}
-                <div class="p-4 bg-purple-500/5 border border-purple-500/10 rounded-xl flex items-start gap-3">
-                    <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0">
+                <div class="p-4 bg-orange-500/5 border border-orange-500/10 rounded-xl flex items-start gap-3">
+                    <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400 shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </div>
                     <div>
-                        <h4 class="text-xs font-bold text-purple-300 uppercase tracking-wider mb-1">
+                        <h4 class="text-xs font-bold text-orange-300 uppercase tracking-wider mb-1">
                             {{ __('Activation & Sweeping Requirements') }}
                         </h4>
                         <p class="text-[11px] text-slate-400 leading-relaxed">
@@ -101,8 +101,8 @@
                 </div>
 
                 {{-- 1. Private Key Encryption Security Notice (Cyan) --}}
-                <div class="p-4 bg-cyan-500/[0.04] border border-cyan-500/20 rounded-xl flex items-start gap-3.5 font-mono text-xs">
-                    <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0 mt-0.5">
+                <div class="p-4 bg-amber-500/[0.04] border border-amber-500/20 rounded-xl flex items-start gap-3.5 font-mono text-xs">
+                    <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0 mt-0.5">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
@@ -135,9 +135,9 @@
                 </div>
 
                 {{-- 3. Blockchain Settings & RPC Notice (Indigo) --}}
-                <div class="p-4 bg-indigo-500/[0.04] border border-indigo-500/20 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
+                <div class="p-4 bg-orange-500/[0.04] border border-orange-500/20 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
                     <div class="flex items-start gap-3.5">
-                        <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0 mt-0.5">
+                        <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400 shrink-0 mt-0.5">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
@@ -152,7 +152,7 @@
                         </div>
                     </div>
                     <a href="{{ route('admin.settings.blockchain.index') }}"
-                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/25 text-indigo-300 hover:text-white border border-indigo-500/30 text-[9px] font-bold uppercase tracking-wider transition-all shrink-0 self-end sm:self-auto cursor-pointer">
+                       class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-500/10 hover:bg-orange-500/25 text-orange-300 hover:text-white border border-orange-500/30 text-[9px] font-bold uppercase tracking-wider transition-all shrink-0 self-end sm:self-auto cursor-pointer">
                         <span>{{ __('Blockchain Settings') }}</span>
                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                     </a>
@@ -163,7 +163,7 @@
                     <div class="p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:bg-white/[0.04] transition-colors">
                         <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">{{ __('Master Wallet Address') }}</div>
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <span class="font-mono text-xs md:text-sm text-white tracking-wide break-all select-all selection:bg-purple-500/30" id="solana-address-text">
+                            <span class="font-mono text-xs md:text-sm text-white tracking-wide break-all select-all selection:bg-orange-500/30" id="solana-address-text">
                                 {{ $masterAddress }}
                             </span>
                             <div class="flex items-center gap-2 shrink-0">
@@ -175,7 +175,7 @@
                                     <span>{{ __('Copy') }}</span>
                                 </button>
                                 <button type="button" onclick="toggleWalletQr('solana-qr-panel', 'solana-qr-canvas', '{{ addslashes($masterAddress) }}')"
-                                        class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold text-slate-300 uppercase tracking-wider hover:bg-white/10 hover:text-cyan-400 hover:border-cyan-500/30 transition-all active:scale-95 cursor-pointer"
+                                        class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold text-slate-300 uppercase tracking-wider hover:bg-white/10 hover:text-amber-400 hover:border-amber-500/30 transition-all active:scale-95 cursor-pointer"
                                         title="{{ __('Show QR Code') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -199,8 +199,8 @@
                                 </div>
                                 <div class="space-y-1.5 text-center sm:text-left min-w-0 flex-1">
                                     <div class="flex items-center justify-center sm:justify-between gap-2">
-                                        <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5 font-mono">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                                        <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 font-mono">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                                             {{ __('Solana Master Address') }}
                                         </span>
                                         <button type="button" onclick="toggleWalletQr('solana-qr-panel')" class="text-slate-500 hover:text-white p-1 text-xs cursor-pointer" title="{{ __('Close') }}">✕</button>
@@ -220,12 +220,12 @@
                     <div class="p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:bg-white/[0.04] transition-colors">
                         <div class="text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">{{ __('Private Key') }}</div>
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                            <div class="flex-1 font-mono text-sm text-slate-400 break-all select-all selection:bg-purple-500/30" id="solana-private-key-container">
+                            <div class="flex-1 font-mono text-sm text-slate-400 break-all select-all selection:bg-orange-500/30" id="solana-private-key-container">
                                 <span class="text-slate-600 tracking-widest font-sans">••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••</span>
                             </div>
                             <div class="flex items-center gap-2 shrink-0">
                                 <button type="button" id="btn-reveal-key" onclick="promptRevealKey()"
-                                        class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-purple-500/10 border border-purple-500/20 text-[10px] font-bold text-purple-300 uppercase tracking-wider hover:bg-purple-500/20 hover:text-purple-200 transition-all active:scale-95 cursor-pointer">
+                                        class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-500/10 border border-orange-500/20 text-[10px] font-bold text-orange-300 uppercase tracking-wider hover:bg-orange-500/20 hover:text-orange-200 transition-all active:scale-95 cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0z"/>
                                         <circle cx="12" cy="12" r="3"/>
@@ -251,7 +251,7 @@
                     <div class="p-4 bg-white/[0.02] border border-white/[0.05] rounded-xl hover:bg-white/[0.04] transition-colors flex flex-col justify-between">
                         <div class="flex items-center justify-between mb-3">
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider">{{ __('Wallet Balances') }}</span>
-                            <button type="button" onclick="fetchSolanaBalance()" class="text-[9px] font-bold text-purple-400 hover:text-purple-300 transition-colors uppercase tracking-wider flex items-center gap-1 cursor-pointer">
+                            <button type="button" onclick="fetchSolanaBalance()" class="text-[9px] font-bold text-orange-400 hover:text-orange-300 transition-colors uppercase tracking-wider flex items-center gap-1 cursor-pointer">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
                                 </svg>
@@ -295,7 +295,7 @@
 
                 <div class="flex justify-end pt-2">
                     <a href="{{ route('admin.solana-master-wallet.history') }}"
-                       class="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-300 text-[10px] font-bold uppercase tracking-widest hover:bg-purple-500/20 hover:text-purple-200 transition-all active:scale-95 cursor-pointer">
+                       class="flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-orange-500/10 border border-orange-500/20 text-orange-300 text-[10px] font-bold uppercase tracking-widest hover:bg-orange-500/20 hover:text-orange-200 transition-all active:scale-95 cursor-pointer">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/>
                             <path d="M3 3v5h5"/>
@@ -353,7 +353,7 @@
                     {{ __('A Solana Master Wallet has not been generated yet. This wallet is responsible for holding the swept deposits of all users and authorizing operational payout transactions.') }}
                 </p>
                 <button type="button" onclick="generateMasterWallet(false)"
-                        class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-emerald-500 hover:from-purple-500 hover:to-emerald-400 text-white text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-purple-500/20 active:scale-95 transition-all cursor-pointer">
+                        class="px-5 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 to-emerald-500 hover:from-orange-500 hover:to-emerald-400 text-white text-[10px] font-bold uppercase tracking-widest shadow-lg shadow-orange-500/20 active:scale-95 transition-all cursor-pointer">
                     {{ __('Generate Solana Master Wallet') }}
                 </button>
             </div>
@@ -447,7 +447,7 @@
             confirmButtonColor: isForce ? '#ef4444' : '#9945ff',
             cancelButtonColor: '#1e293b',
             confirmButtonText: isForce ? '{{ __('Regenerate & Overwrite') }}' : '{{ __('Generate Now') }}',
-            background: '#12131a',
+            background: '#1a1f27',
             color: '#fff'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -464,7 +464,7 @@
                             icon: 'success',
                             title: isForce ? '{{ __('Regenerated!') }}' : '{{ __('Generated!') }}',
                             text: response.message,
-                            background: '#12131a',
+                            background: '#1a1f27',
                             color: '#fff'
                         }).then(() => {
                             window.location.reload();
@@ -479,7 +479,7 @@
                             icon: 'error',
                             title: '{{ __('Error') }}',
                             text: msg,
-                            background: '#12131a',
+                            background: '#1a1f27',
                             color: '#fff'
                         });
                     }
@@ -501,7 +501,7 @@
             confirmButtonText: '{{ __('Confirm') }}',
             confirmButtonColor: '#10b981',
             cancelButtonColor: '#1e293b',
-            background: '#12131a',
+            background: '#1a1f27',
             color: '#fff',
             showLoaderOnConfirm: true,
             preConfirm: (password) => {

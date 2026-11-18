@@ -236,11 +236,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('SECURITY & AUDIT') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('System Audit & Diagnostics') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -250,7 +250,7 @@
 
             <div class="flex items-center gap-3 text-xs">
                 <a href="{{ route('admin.settings.audit.pdf') }}" target="_blank"
-                    class="px-6 py-2.5 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/20 font-black uppercase tracking-wider transition-all flex items-center gap-2">
+                    class="px-6 py-2.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 border border-amber-500/20 font-black uppercase tracking-wider transition-all flex items-center gap-2">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
                     </svg>
@@ -267,7 +267,7 @@
             {{-- Left Navigation Deck --}}
             <div class="lg:col-span-4 xl:col-span-3">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                         @include("templates.$template.blades.admin.settings.partials.sidebar")
                     </div>
                 </div>
@@ -279,7 +279,7 @@
                 {{-- KPI SUMMARY METRICS --}}
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[1.5rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                        <div class="rounded-[1.5rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                             <div>
                                 <span class="text-[9px] uppercase font-bold text-slate-500 block">{{ __('Passed Checks') }}</span>
                                 <span class="text-2xl font-black text-emerald-400 font-mono">{{ $okCount }}</span>
@@ -291,7 +291,7 @@
                     </div>
 
                     <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[1.5rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                        <div class="rounded-[1.5rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                             <div>
                                 <span class="text-[9px] uppercase font-bold text-slate-500 block">{{ __('Failed / Warnings') }}</span>
                                 <span class="text-2xl font-black {{ $badCount > 0 ? 'text-rose-400' : 'text-slate-500' }} font-mono">{{ $badCount }}</span>
@@ -303,12 +303,12 @@
                     </div>
 
                     <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[1.5rem] bg-[#090c14]/95 p-5 flex items-center justify-between">
+                        <div class="rounded-[1.5rem] bg-[#151a21]/95 p-5 flex items-center justify-between">
                             <div>
                                 <span class="text-[9px] uppercase font-bold text-slate-500 block">{{ __('Scan Duration') }}</span>
-                                <span class="text-2xl font-black text-cyan-400 font-mono">{{ number_format($elapsed, 3) }}s</span>
+                                <span class="text-2xl font-black text-amber-400 font-mono">{{ number_format($elapsed, 3) }}s</span>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold">
                                 ⚡
                             </div>
                         </div>
@@ -317,7 +317,7 @@
 
                 {{-- SYSTEM CHECKS TABLE --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-6 text-xs">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-6 text-xs">
                         <div class="pb-3 border-b border-white/[0.06] flex items-center justify-between">
                             <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Security & Environment Checklist') }}</h3>
                             <span class="text-[10px] text-slate-500">{{ __('System Checks') }}</span>
@@ -359,7 +359,7 @@
                 {{-- SYSTEM WARNINGS NOTICES --}}
                 @if (!empty($warnings))
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-amber-500/20 backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-4 text-xs">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-4 text-xs">
                             <h3 class="text-sm font-black text-amber-400 uppercase tracking-wider flex items-center gap-2">
                                 <span>⚠️</span> {{ __('System Warnings') }}
                             </h3>

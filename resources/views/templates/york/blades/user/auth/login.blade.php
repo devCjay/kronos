@@ -17,7 +17,7 @@
             @foreach ($login_methods as $method => $data)
                 @if ($method === 'email')
                     <button type="button" onclick="toggleEmailForm()"
-                        class="flex items-center justify-center gap-3 w-full bg-white/[0.04] hover:bg-white/[0.08] text-white font-semibold py-3 px-4 rounded-2xl border border-white/10 hover:border-cyan-500/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg text-sm">
+                        class="flex items-center justify-center gap-3 w-full bg-white/[0.04] hover:bg-white/[0.08] text-white font-semibold py-3 px-4 rounded-2xl border border-white/10 hover:border-amber-500/40 transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-lg text-sm">
                         {!! $data['icon'] !!}
                         <span>{{ __('Continue with Email') }}</span>
                     </button>
@@ -35,7 +35,7 @@
         <div id="email-login-container" @if (!$only_email) style="display: none;" @endif class="space-y-5">
             @if (!$only_email)
                 <button type="button" onclick="toggleSelection()"
-                    class="text-cyan-400 hover:text-cyan-300 text-xs font-mono flex items-center gap-2 transition-colors cursor-pointer group">
+                    class="text-amber-400 hover:text-amber-300 text-xs font-mono flex items-center gap-2 transition-colors cursor-pointer group">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <line x1="19" y1="12" x2="5" y2="12" />
@@ -57,7 +57,7 @@
                     </label>
                     <div class="relative">
                         <input type="email" name="email" id="email"
-                            class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                            class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                             placeholder="{{ __('john@example.com') }}" value="{{ old('email') }}" required autofocus>
                     </div>
                 </div>
@@ -70,13 +70,13 @@
                             {{ __('Password') }}
                         </label>
                         <a href="{{ route('user.forgot-password') }}"
-                            class="text-xs text-cyan-400 hover:text-cyan-300 transition-colors font-mono">
+                            class="text-xs text-amber-400 hover:text-amber-300 transition-colors font-mono">
                             {{ __('Forgot password?') }}
                         </a>
                     </div>
                     <div class="relative">
                         <input type="password" name="password" id="password"
-                            class="w-full bg-[#05070d]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400 transition-all font-body text-sm shadow-inner"
+                            class="w-full bg-[#0b0e11]/80 border border-white/[0.1] rounded-2xl px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition-all font-body text-sm shadow-inner"
                             placeholder="••••••••" required>
                     </div>
                 </div>
@@ -85,7 +85,7 @@
                 <div class="flex items-center pt-1">
                     <label class="relative flex items-center gap-2.5 cursor-pointer text-xs text-slate-400 hover:text-slate-300 transition-colors select-none">
                         <input id="remember" name="remember" type="checkbox"
-                            class="w-4 h-4 rounded-lg bg-[#05070d] border border-white/20 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 transition-colors">
+                            class="w-4 h-4 rounded-lg bg-[#0b0e11] border border-white/20 text-amber-500 focus:ring-amber-500 focus:ring-offset-0 transition-colors">
                         <span>{{ __('Remember this browser') }}</span>
                     </label>
                 </div>
@@ -102,7 +102,7 @@
 
                 {{-- Submit Button --}}
                 <button type="submit"
-                    class="w-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 hover:from-cyan-300 hover:to-blue-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(0,245,255,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide">
+                    class="w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-black font-extrabold py-3.5 px-4 rounded-2xl shadow-[0_0_30px_rgba(247,166,0,0.25)] transition-all duration-300 transform hover:-translate-y-0.5 relative overflow-hidden group cursor-pointer text-sm font-mono tracking-wide">
                     <span class="relative z-10 flex items-center justify-center gap-2">
                         <span>{{ __('Sign In to Dashboard') }}</span>
                         <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -119,7 +119,7 @@
             <p class="text-xs text-slate-400 font-body">
                 {{ __("Don't have an account?") }}
                 <a href="{{ route('user.register') }}"
-                    class="font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors ml-1">
+                    class="font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors ml-1">
                     {{ __('Create Free Account') }}
                 </a>
             </p>

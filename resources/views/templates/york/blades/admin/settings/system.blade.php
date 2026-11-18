@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('SYSTEM & SERVER') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('System & Server') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -23,14 +23,14 @@
             <div class="flex items-center gap-3 text-xs">
                 <button onclick="clearSystemCache()"
                     class="px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.1] text-slate-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer">
-                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                     </svg>
                     <span>{{ __('Clear Cache') }}</span>
                 </button>
 
                 <button onclick="openConfigModal()"
-                    class="px-5 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,245,255,0.3)] flex items-center gap-2 cursor-pointer">
+                    class="px-5 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(247,166,0,0.3)] flex items-center gap-2 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
@@ -47,7 +47,7 @@
             {{-- Left Navigation Deck --}}
             <div class="lg:col-span-4 xl:col-span-3">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                         @include("templates.$template.blades.admin.settings.partials.sidebar")
                     </div>
                 </div>
@@ -65,7 +65,7 @@
                         'storage' => __('Folder Permissions'),
                     ] as $key => $label)
                         <button type="button" onclick="switchSysTab('{{ $key }}')" id="tab-btn-{{ $key }}"
-                            class="sys-tab-btn px-4 py-2 rounded-xl transition-all font-bold uppercase tracking-wider cursor-pointer {{ $loop->first ? 'bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,245,255,0.3)]' : 'bg-white/[0.02] text-slate-400 border border-white/[0.06] hover:bg-white/[0.05] hover:text-white' }}">
+                            class="sys-tab-btn px-4 py-2 rounded-xl transition-all font-bold uppercase tracking-wider cursor-pointer {{ $loop->first ? 'bg-amber-400 text-black shadow-[0_0_15px_rgba(247,166,0,0.3)]' : 'bg-white/[0.02] text-slate-400 border border-white/[0.06] hover:bg-white/[0.05] hover:text-white' }}">
                             {{ $label }}
                         </button>
                     @endforeach
@@ -74,7 +74,7 @@
                 {{-- TAB 1: PLATFORM CORE --}}
                 <div id="sys-tab-core" class="sys-tab-pane">
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6 text-xs">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6 text-xs">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Application & Server Details') }}</h3>
                                 <p class="text-[10px] text-slate-400">{{ __('Installed framework and runtime versions.') }}</p>
@@ -135,7 +135,7 @@
                                     @else
                                         <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
                                             <span class="text-slate-400 font-bold uppercase text-[10px]">{{ __($label) }}</span>
-                                            <code class="px-2 py-0.5 rounded bg-white/[0.04] text-cyan-300 font-bold text-[11px]">{{ $val }}</code>
+                                            <code class="px-2 py-0.5 rounded bg-white/[0.04] text-amber-300 font-bold text-[11px]">{{ $val }}</code>
                                         </div>
                                     @endif
                                 @endforeach
@@ -147,7 +147,7 @@
                 {{-- TAB 2: ENVIRONMENT DRIVERS --}}
                 <div id="sys-tab-env" class="sys-tab-pane hidden">
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6 text-xs">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6 text-xs">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('System Drivers') }}</h3>
                                 <p class="text-[10px] text-slate-400">{{ __('Configured drivers for database, cache, sessions, and queues.') }}</p>
@@ -164,7 +164,7 @@
                                 ] as $label => $val)
                                     <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
                                         <span class="text-slate-400 font-bold uppercase text-[10px]">{{ __($label) }}</span>
-                                        <code class="px-2 py-0.5 rounded bg-white/[0.04] text-cyan-300 font-bold text-[11px]">{{ $val }}</code>
+                                        <code class="px-2 py-0.5 rounded bg-white/[0.04] text-amber-300 font-bold text-[11px]">{{ $val }}</code>
                                     </div>
                                 @endforeach
                             </div>
@@ -175,7 +175,7 @@
                 {{-- TAB 3: PHP EXTENSIONS --}}
                 <div id="sys-tab-extensions" class="sys-tab-pane hidden">
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6 text-xs">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6 text-xs">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Required PHP Extensions') }}</h3>
                                 <p class="text-[10px] text-slate-400">{{ __('PHP extensions required for full platform functionality.') }}</p>
@@ -217,7 +217,7 @@
                 {{-- TAB 4: STORAGE & PERMISSIONS --}}
                 <div id="sys-tab-storage" class="sys-tab-pane hidden">
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6 text-xs">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6 text-xs">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Folder Permissions') }}</h3>
                                 <p class="text-[10px] text-slate-400">{{ __('Verify required folders have write permissions.') }}</p>
@@ -253,9 +253,9 @@
     </div>
 
     {{-- Configure Modal --}}
-    <div id="config-modal" class="hidden fixed inset-0 bg-[#05070d]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
+    <div id="config-modal" class="hidden fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.05] border border-white/[0.1] w-full max-w-md font-mono">
-            <div class="rounded-[2rem] bg-[#090c14] p-8 space-y-5 text-xs">
+            <div class="rounded-[2rem] bg-[#151a21] p-8 space-y-5 text-xs">
                 <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                     <h3 class="text-base font-bold text-white uppercase">{{ __('Environment Settings') }}</h3>
                     <button type="button" onclick="closeModal('config-modal')" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -264,7 +264,7 @@
                 <div class="space-y-4">
                     <div class="space-y-1">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('App Environment') }}</label>
-                        <select id="config-app-env" class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl p-3 text-xs focus:outline-none">
+                        <select id="config-app-env" class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none">
                             <option value="production">production</option>
                             <option value="local">local</option>
                             <option value="sandbox">sandbox</option>
@@ -273,7 +273,7 @@
 
                     <div class="space-y-1">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Debug Mode (APP_DEBUG)') }}</label>
-                        <select id="config-app-debug" onchange="checkDebugWarning(this.value)" class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl p-3 text-xs focus:outline-none">
+                        <select id="config-app-debug" onchange="checkDebugWarning(this.value)" class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none">
                             <option value="false">false (Recommended for Production)</option>
                             <option value="true">true (Development Only - Security Risk)</option>
                         </select>
@@ -284,7 +284,7 @@
 
                     <div class="space-y-1">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Log Level') }}</label>
-                        <select id="config-log-level" class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl p-3 text-xs focus:outline-none">
+                        <select id="config-log-level" class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none">
                             <option value="debug">debug</option>
                             <option value="info">info</option>
                             <option value="warning">warning</option>
@@ -298,7 +298,7 @@
                     <button type="button" onclick="closeModal('config-modal')" class="px-4 py-2 rounded-xl bg-white/[0.04] text-slate-300 font-bold uppercase text-[10px] cursor-pointer">
                         {{ __('Cancel') }}
                     </button>
-                    <button type="button" onclick="saveSystemConfig()" class="px-6 py-2 rounded-xl bg-cyan-400 text-black font-black uppercase text-[10px] cursor-pointer">
+                    <button type="button" onclick="saveSystemConfig()" class="px-6 py-2 rounded-xl bg-amber-400 text-black font-black uppercase text-[10px] cursor-pointer">
                         {{ __('Save Changes') }}
                     </button>
                 </div>
@@ -324,10 +324,10 @@
             $('.sys-tab-pane').addClass('hidden');
             $(`#sys-tab-${tabKey}`).removeClass('hidden');
 
-            $('.sys-tab-btn').removeClass('bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,245,255,0.3)]')
+            $('.sys-tab-btn').removeClass('bg-amber-400 text-black shadow-[0_0_15px_rgba(247,166,0,0.3)]')
                 .addClass('bg-white/[0.02] text-slate-400 border border-white/[0.06] hover:bg-white/[0.05] hover:text-white');
 
-            $(`#tab-btn-${tabKey}`).addClass('bg-cyan-400 text-black shadow-[0_0_15px_rgba(0,245,255,0.3)]')
+            $(`#tab-btn-${tabKey}`).addClass('bg-amber-400 text-black shadow-[0_0_15px_rgba(247,166,0,0.3)]')
                 .removeClass('bg-white/[0.02] text-slate-400 border border-white/[0.06] hover:bg-white/[0.05] hover:text-white');
         }
 
@@ -352,7 +352,7 @@
             Swal.fire({
                 title: '{{ __('Clearing system cache...') }}',
                 didOpen: () => { Swal.showLoading(); },
-                customClass: { popup: 'bg-[#090c14] border border-white/10 text-white font-mono' }
+                customClass: { popup: 'bg-[#151a21] border border-white/10 text-white font-mono' }
             });
 
             $.ajax({
@@ -367,7 +367,7 @@
                         title: response.message || '{{ __('Cache cleared successfully.') }}',
                         showConfirmButton: false,
                         timer: 2000,
-                        customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                        customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                     });
                 },
                 error: function(xhr) {
@@ -375,7 +375,7 @@
                         icon: 'error',
                         title: '{{ __('Error') }}',
                         text: xhr.responseJSON?.message || '{{ __('Failed to clear cache.') }}',
-                        customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                        customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                     });
                 }
             });
@@ -402,7 +402,7 @@
                         title: response.message || '{{ __('Configuration updated.') }}',
                         showConfirmButton: false,
                         timer: 2000,
-                        customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                        customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                     });
                 },
                 error: function(xhr) {
@@ -410,7 +410,7 @@
                         icon: 'error',
                         title: '{{ __('Error') }}',
                         text: xhr.responseJSON?.message || '{{ __('Failed to update configuration.') }}',
-                        customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                        customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                     });
                 }
             });

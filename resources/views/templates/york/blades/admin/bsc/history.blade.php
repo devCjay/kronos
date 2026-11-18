@@ -13,10 +13,10 @@
                         </svg>
                     </a>
                     <div>
-                        <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-400 tracking-tight leading-tight">
+                        <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-orange-400 tracking-tight leading-tight">
                             {{ __('BSC Master Wallet Details') }}
                         </h2>
-                        <p class="text-indigo-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
+                        <p class="text-orange-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
                             {{ __('Real-time On-chain Wallet Telemetry') }}
                         </p>
                     </div>
@@ -55,7 +55,7 @@
                                     </svg>
                                 </button>
                                 <button type="button" onclick="showMasterWalletQrModal('BNB Smart Chain', '{{ addslashes($address) }}')"
-                                        class="text-slate-400 hover:text-cyan-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
+                                        class="text-slate-400 hover:text-amber-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                                         <rect x="14" y="3" width="7" height="7" rx="1"></rect>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="my-auto py-2">
-                        <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-indigo-300 tracking-tight leading-none font-mono">
+                        <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-orange-300 tracking-tight leading-none font-mono">
                             <span id="bsc-balance-text">{{ number_format($balance, 4) }}</span> <span class="text-sm font-black text-slate-400 font-sans">BNB</span>
                         </div>
                         <div class="text-xs text-emerald-400 font-bold tracking-wide mt-2">
@@ -160,10 +160,10 @@
                 {{-- USDC Card --}}
                 <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors p-5 flex items-center justify-between gap-4">
                     <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-                    <div class="absolute top-0 right-0 -mt-8 -mr-8 w-24 h-24 bg-blue-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
+                    <div class="absolute top-0 right-0 -mt-8 -mr-8 w-24 h-24 bg-amber-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
                     
                     <div class="relative z-10 flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.15)]">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-sm shadow-[0_0_15px_rgba(59,130,246,0.15)]">
                             USDC
                         </div>
                         <div>
@@ -409,7 +409,7 @@
         isRefreshing = true;
         
         // Visual indicator on auto-refresh ping
-        $('#auto-refresh-ping').removeClass('bg-purple-500').addClass('bg-amber-400 animate-ping');
+        $('#auto-refresh-ping').removeClass('bg-orange-500').addClass('bg-amber-400 animate-ping');
 
         $.ajax({
             url: window.location.href,
@@ -419,7 +419,7 @@
                 isRefreshing = false;
                 $('#refresh-button-text').text('{{ __('Refresh') }}');
                 $('#btn-balance-refresh svg').removeClass('animate-spin');
-                $('#auto-refresh-ping').removeClass('bg-amber-400 animate-ping').addClass('bg-purple-500');
+                $('#auto-refresh-ping').removeClass('bg-amber-400 animate-ping').addClass('bg-orange-500');
 
                 if (response.status === 'success') {
                     // Update Balances
@@ -441,7 +441,7 @@
                 isRefreshing = false;
                 $('#refresh-button-text').text('{{ __('Refresh') }}');
                 $('#btn-balance-refresh svg').removeClass('animate-spin');
-                $('#auto-refresh-ping').removeClass('bg-amber-400 animate-ping').addClass('bg-purple-500');
+                $('#auto-refresh-ping').removeClass('bg-amber-400 animate-ping').addClass('bg-orange-500');
                 console.error('Failed to load wallet telemetry: ', xhr);
             }
         });

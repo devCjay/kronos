@@ -13,10 +13,10 @@
                         </svg>
                     </a>
                     <div>
-                        <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-400 tracking-tight leading-tight">
+                        <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-orange-400 tracking-tight leading-tight">
                             {{ __('Solana Master Wallet Details') }}
                         </h2>
-                        <p class="text-indigo-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
+                        <p class="text-orange-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
                             {{ __('Real-time On-chain Wallet Telemetry') }}
                         </p>
                     </div>
@@ -33,7 +33,7 @@
             {{-- CARD 1: WALLET METADATA --}}
             <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors p-6">
                 <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-purple-600/10 rounded-full blur-2xl pointer-events-none z-0"></div>
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-orange-600/10 rounded-full blur-2xl pointer-events-none z-0"></div>
                 
                 <div class="relative z-10 space-y-4">
                     <div class="flex items-center justify-between">
@@ -55,7 +55,7 @@
                                     </svg>
                                 </button>
                                 <button type="button" onclick="showMasterWalletQrModal('Solana', '{{ addslashes($address) }}')"
-                                        class="text-slate-400 hover:text-cyan-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
+                                        class="text-slate-400 hover:text-amber-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                                         <rect x="14" y="3" width="7" height="7" rx="1"></rect>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="p-3 bg-white/[0.02] border border-white/[0.05] rounded-xl">
                             <div class="text-[8px] font-bold uppercase tracking-wider text-slate-500 mb-1">{{ __('Blockchain') }}</div>
-                            <div class="text-xs font-bold text-purple-400 uppercase">{{ __('SOL (Ed25519)') }}</div>
+                            <div class="text-xs font-bold text-orange-400 uppercase">{{ __('SOL (Ed25519)') }}</div>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Wallet Balance') }}</span>
                         <button type="button" onclick="triggerManualRefresh()" id="btn-balance-refresh"
-                                class="flex items-center gap-1 text-[9px] font-bold text-purple-400 hover:text-purple-300 transition-colors uppercase tracking-wider cursor-pointer">
+                                class="flex items-center gap-1 text-[9px] font-bold text-orange-400 hover:text-orange-300 transition-colors uppercase tracking-wider cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
                             </svg>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="my-auto py-2">
-                        <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-purple-300 tracking-tight leading-none font-mono">
+                        <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-orange-300 tracking-tight leading-none font-mono">
                             <span id="sol-balance-text">{{ number_format($balance, 4) }}</span> <span class="text-sm font-black text-slate-400 font-sans">SOL</span>
                         </div>
                         <div class="text-xs text-emerald-400 font-bold tracking-wide mt-2">
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="text-[10px] text-slate-500 italic flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-ping"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
                         {{ __('Updating automatically every 10 seconds...') }}
                     </div>
                 </div>
@@ -119,7 +119,7 @@
             {{-- CARD 3: NODE & CONFIGURATION --}}
             <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors p-6">
                 <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
                 
                 <div class="relative z-10 space-y-4">
                     <div class="flex items-center justify-between">
@@ -138,7 +138,7 @@
                         <div class="flex flex-wrap gap-2">
                             <a href="https://solscan.io/account/{{ $address }}" target="_blank"
                                class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[9px] font-bold text-slate-300 uppercase tracking-wider hover:bg-white/10 hover:text-white transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>
                                 </svg>
                                 {{ __('Solscan') }}
@@ -164,13 +164,13 @@
                 function getTokenColors($symbol) {
                     $symbol = strtoupper($symbol);
                     if (str_starts_with($symbol, 'USDC')) {
-                        return ['bg' => 'bg-blue-500/10', 'border' => 'border-blue-500/20', 'text' => 'text-blue-400', 'blur' => 'bg-blue-500/10'];
+                        return ['bg' => 'bg-amber-500/10', 'border' => 'border-amber-500/20', 'text' => 'text-amber-400', 'blur' => 'bg-amber-500/10'];
                     } elseif ($symbol === 'USDT') {
                         return ['bg' => 'bg-emerald-500/10', 'border' => 'border-emerald-500/20', 'text' => 'text-emerald-400', 'blur' => 'bg-emerald-500/10'];
                     } elseif ($symbol === 'DAI') {
                         return ['bg' => 'bg-amber-500/10', 'border' => 'border-amber-500/20', 'text' => 'text-amber-400', 'blur' => 'bg-amber-500/10'];
                     } else {
-                        return ['bg' => 'bg-purple-500/10', 'border' => 'border-purple-500/20', 'text' => 'text-purple-400', 'blur' => 'bg-purple-500/10'];
+                        return ['bg' => 'bg-orange-500/10', 'border' => 'border-orange-500/20', 'text' => 'text-orange-400', 'blur' => 'bg-orange-500/10'];
                     }
                 }
             }
@@ -231,7 +231,7 @@
                         <p class="text-xs text-slate-500 mt-0.5">{{ __('Displaying the 20 most recent transactions on the blockchain.') }}</p>
                     </div>
                     <div class="text-[10px] font-bold text-slate-500 uppercase font-mono flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-purple-500 animate-ping" id="auto-refresh-ping"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping" id="auto-refresh-ping"></span>
                         {{ __('Parsed Balance Changes') }}
                     </div>
                 </div>
@@ -275,7 +275,7 @@
                                             <td class="py-4 px-4 font-mono">
                                                 <div class="flex items-center gap-2">
                                                     <a href="https://solscan.io/tx/{{ $tx['signature'] }}" target="_blank"
-                                                       class="text-indigo-400 hover:text-indigo-300 hover:underline break-all truncate max-w-[150px] sm:max-w-[250px]">
+                                                       class="text-orange-400 hover:text-orange-300 hover:underline break-all truncate max-w-[150px] sm:max-w-[250px]">
                                                         {{ $tx['signature'] }}
                                                     </a>
                                                     <button type="button" onclick="copyToClipboard('{{ $tx['signature'] }}', 'Signature copied to clipboard')"
@@ -310,7 +310,7 @@
                                                         {{ __('Outgoing') }}
                                                     </span>
                                                 @elseif ($tx['type'] === 'Contract Interaction')
-                                                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 uppercase tracking-wide">
+                                                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 uppercase tracking-wide">
                                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                             <path d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                                         </svg>
@@ -387,7 +387,7 @@
                                 {{-- Next Button --}}
                                 @if ($hasMore)
                                     <a href="{{ route('admin.solana-master-wallet.history', ['before' => $nextBefore, 'stack' => $nextStackStr]) }}"
-                                       class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 border border-indigo-500/20 text-xs font-bold text-white uppercase tracking-wider hover:bg-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all cursor-pointer"
+                                       class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-orange-600 border border-orange-500/20 text-xs font-bold text-white uppercase tracking-wider hover:bg-orange-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all cursor-pointer"
                                        id="btn-next-page">
                                         {{ __('Next') }}
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -434,7 +434,7 @@
         isRefreshing = true;
         
         // Visual indicator on auto-refresh ping
-        $('#auto-refresh-ping').removeClass('bg-purple-500').addClass('bg-indigo-400 animate-ping');
+        $('#auto-refresh-ping').removeClass('bg-orange-500').addClass('bg-orange-400 animate-ping');
 
         $.ajax({
             url: window.location.href,
@@ -444,7 +444,7 @@
                 isRefreshing = false;
                 $('#refresh-button-text').text('{{ __('Refresh') }}');
                 $('#btn-balance-refresh svg').removeClass('animate-spin');
-                $('#auto-refresh-ping').removeClass('bg-indigo-400 animate-ping').addClass('bg-purple-500');
+                $('#auto-refresh-ping').removeClass('bg-orange-400 animate-ping').addClass('bg-orange-500');
 
                 if (response.status === 'success') {
                     // Update Balances
@@ -479,7 +479,7 @@
                 isRefreshing = false;
                 $('#refresh-button-text').text('{{ __('Refresh') }}');
                 $('#btn-balance-refresh svg').removeClass('animate-spin');
-                $('#auto-refresh-ping').removeClass('bg-indigo-400 animate-ping').addClass('bg-purple-500');
+                $('#auto-refresh-ping').removeClass('bg-orange-400 animate-ping').addClass('bg-orange-500');
                 console.error('Failed to load wallet telemetry: ', xhr);
             }
         });
@@ -551,7 +551,7 @@
                 `;
             } else if (tx.type === 'Contract Interaction') {
                 typeBadge = `
-                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 uppercase tracking-wide">
+                    <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 uppercase tracking-wide">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                         </svg>
@@ -604,7 +604,7 @@
                     <td class="py-4 px-4 font-mono">
                         <div class="flex items-center gap-2">
                             <a href="https://solscan.io/tx/${tx.signature}" target="_blank"
-                               class="text-indigo-400 hover:text-indigo-300 hover:underline break-all truncate max-w-[150px] sm:max-w-[250px]">
+                               class="text-orange-400 hover:text-orange-300 hover:underline break-all truncate max-w-[150px] sm:max-w-[250px]">
                                 ${tx.signature}
                             </a>
                             <button type="button" onclick="copyToClipboard('${tx.signature}', 'Signature copied to clipboard')"
@@ -700,7 +700,7 @@
             const nextUrl = `{{ route("admin.solana-master-wallet.history") }}?before=${res.next_before}&stack=${res.next_stack}`;
             nextBtnHtml = `
                 <a href="${nextUrl}"
-                   class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-indigo-600 border border-indigo-500/20 text-xs font-bold text-white uppercase tracking-wider hover:bg-indigo-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all cursor-pointer"
+                   class="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-orange-600 border border-orange-500/20 text-xs font-bold text-white uppercase tracking-wider hover:bg-orange-500 hover:shadow-[0_0_15px_rgba(99,102,241,0.4)] transition-all cursor-pointer"
                    id="btn-next-page">
                     ${'{{ __('Next') }}'}
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

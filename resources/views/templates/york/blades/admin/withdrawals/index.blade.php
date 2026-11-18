@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('WITHDRAWALS') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     @if (request('status') == 'pending')
                         {{ __('Pending Withdrawals') }}
                     @elseif(request('status') == 'completed')
@@ -48,9 +48,9 @@
                         data-status="{{ $stKey }}"
                         class="status-tab-btn px-3.5 py-1.5 rounded-xl font-bold uppercase tracking-wider transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer
                         {{ $isActive 
-                            ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab' 
+                            ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab'
                             : 'text-slate-400 hover:text-white hover:bg-white/[0.04]' }}">
-                        <span class="w-1.5 h-1.5 rounded-full tab-dot {{ $isActive ? 'bg-cyan-400 animate-pulse' : 'bg-slate-600' }}"></span>
+                        <span class="w-1.5 h-1.5 rounded-full tab-dot {{ $isActive ? 'bg-amber-400 animate-pulse' : 'bg-slate-600' }}"></span>
                         <span>{{ __($tab['label']) }}</span>
                     </a>
                 @endforeach
@@ -62,12 +62,12 @@
         {{-- ==================================================================================== --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {{-- Card 1: Total Withdrawn --}}
-            <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-cyan-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
-                <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+            <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
+                <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Total Withdrawn') }}</span>
-                        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                        <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
@@ -77,7 +77,7 @@
                         <div class="text-2xl font-black font-mono text-white tracking-tight">
                             {{ showAmount($stats['total_withdrawn']) }}
                         </div>
-                        <div class="text-[9px] font-mono text-cyan-400/80 mt-1 uppercase tracking-wider">
+                        <div class="text-[9px] font-mono text-amber-400/80 mt-1 uppercase tracking-wider">
                             {{ __('Total money withdrawn across all accounts') }}
                         </div>
                     </div>
@@ -87,7 +87,7 @@
             {{-- Card 2: Settled Total --}}
             <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-emerald-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Completed Withdrawals') }}</span>
                         <div class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
@@ -110,7 +110,7 @@
             {{-- Card 3: Pending Queue --}}
             <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Pending Withdrawals') }}</span>
                         <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
@@ -135,7 +135,7 @@
             {{-- Card 4: Failed / Rejected --}}
             <div class="p-1.5 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-rose-400/40 backdrop-blur-xl transition-all duration-300 relative overflow-hidden group">
                 <div class="absolute top-0 left-8 right-8 h-[1px] bg-gradient-to-r from-transparent via-rose-400 to-transparent"></div>
-                <div class="rounded-[1.6rem] bg-[#090c14]/95 p-5 flex flex-col justify-between h-full">
+                <div class="rounded-[1.6rem] bg-[#151a21]/95 p-5 flex flex-col justify-between h-full">
                     <div class="flex items-center justify-between mb-3">
                         <span class="text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">{{ __('Failed / Cancelled') }}</span>
                         <div class="w-8 h-8 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center">
@@ -164,12 +164,12 @@
 
             {{-- Outflow Trend Chart (2/3 width) --}}
             <div class="lg:col-span-2 p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-7 h-full flex flex-col justify-between">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-7 h-full flex flex-col justify-between">
                     <div>
                         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-4">
                             <div>
                                 <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></span>
+                                    <span class="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></span>
                                     <span>{{ __('Withdrawal Activity Over Time') }}</span>
                                 </h3>
                                 <p class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mt-0.5">
@@ -182,7 +182,7 @@
                                 @foreach (['7d' => '7D', '30d' => '30D', '60d' => '60D', '90d' => '90D', '1y' => '1Y', 'ytd' => 'YTD'] as $periodKey => $periodLabel)
                                     <button type="button" data-period="{{ $periodKey }}"
                                         class="graph-period-btn px-2.5 py-1 rounded-lg font-bold transition-all cursor-pointer
-                                        {{ $periodKey === '7d' ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'text-slate-500 hover:text-slate-300' }}">
+                                        {{ $periodKey === '7d' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'text-slate-500 hover:text-slate-300' }}">
                                         {{ $periodLabel }}
                                     </button>
                                 @endforeach
@@ -202,10 +202,10 @@
 
             {{-- Status Distribution (1/3 width) --}}
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-7 h-full flex flex-col justify-between">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-7 h-full flex flex-col justify-between">
                     <div>
                         <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#a855f7]"></span>
+                            <span class="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_8px_#a855f7]"></span>
                             <span>{{ __('Withdrawal Breakdown') }}</span>
                         </h3>
                         <p class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mt-0.5">
@@ -242,17 +242,17 @@
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden" id="withdrawals-wrapper">
             
             {{-- Loading Spinner Overlay --}}
-            <div id="loading-spinner" class="hidden absolute inset-0 bg-[#090c14]/85 backdrop-blur-md z-50 flex flex-col items-center justify-center transition-all duration-300">
-                <div class="w-10 h-10 border-2 border-cyan-400 border-t-transparent rounded-full animate-spin"></div>
-                <p class="mt-3 text-cyan-300 font-mono text-xs tracking-widest uppercase">{{ __('Loading withdrawals...') }}</p>
+            <div id="loading-spinner" class="hidden absolute inset-0 bg-[#151a21]/85 backdrop-blur-md z-50 flex flex-col items-center justify-center transition-all duration-300">
+                <div class="w-10 h-10 border-2 border-amber-400 border-t-transparent rounded-full animate-spin"></div>
+                <p class="mt-3 text-amber-300 font-mono text-xs tracking-widest uppercase">{{ __('Loading withdrawals...') }}</p>
             </div>
 
-            <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
+            <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
                 
                 {{-- Table Control Bar --}}
                 <div class="p-6 border-b border-white/[0.06] flex flex-col lg:flex-row lg:items-center justify-between gap-4 bg-white/[0.01]">
                     <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0">
+                        <div class="w-10 h-10 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                             </svg>
@@ -260,7 +260,7 @@
                         <div>
                             <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide flex items-center gap-2">
                                 <span>{{ __('Withdrawals List') }}</span>
-                                <span class="px-2 py-0.5 rounded-full bg-cyan-500/15 text-cyan-300 border border-cyan-500/30 text-[10px]">
+                                <span class="px-2 py-0.5 rounded-full bg-amber-500/15 text-amber-300 border border-amber-500/30 text-[10px]">
                                     {{ $withdrawals->total() }}
                                 </span>
                             </h3>
@@ -278,15 +278,15 @@
                         <div class="relative min-w-[220px]">
                             <input type="text" name="search" placeholder="{{ __('Search user, transaction ID...') }}"
                                 value="{{ request('search') }}"
-                                class="w-full bg-white/[0.03] border border-white/[0.1] focus:border-cyan-400/60 rounded-xl px-4 py-2 text-white text-xs placeholder-slate-500 focus:outline-none transition-all">
+                                class="w-full bg-white/[0.03] border border-white/[0.1] focus:border-amber-400/60 rounded-xl px-4 py-2 text-white text-xs placeholder-slate-500 focus:outline-none transition-all">
                         </div>
 
                         {{-- Custom Status Dropdown --}}
                         <div class="relative custom-dropdown" id="status-filter-dropdown">
                             <input type="hidden" name="status" id="status-input" value="{{ request('status', 'all') }}">
                             <button type="button"
-                                class="dropdown-btn flex items-center justify-between gap-3 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-cyan-400/50 transition-all cursor-pointer min-w-[130px]">
-                                <span class="selected-label font-bold text-cyan-300">
+                                class="dropdown-btn flex items-center justify-between gap-3 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-amber-400/50 transition-all cursor-pointer min-w-[130px]">
+                                <span class="selected-label font-bold text-amber-300">
                                     @if (request('status') == 'pending')
                                         {{ __('Pending') }}
                                     @elseif(request('status') == 'completed')
@@ -302,30 +302,30 @@
                                 </svg>
                             </button>
                             <div class="dropdown-menu absolute right-0 z-[120] mt-2 w-44 bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="all">{{ __('All Status') }}</div>
-                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="pending">{{ __('Pending') }}</div>
-                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="completed">{{ __('Completed') }}</div>
-                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer" data-value="failed">{{ __('Failed') }}</div>
+                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="all">{{ __('All Status') }}</div>
+                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="pending">{{ __('Pending') }}</div>
+                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="completed">{{ __('Completed') }}</div>
+                                <div class="dropdown-option px-4 py-2.5 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer" data-value="failed">{{ __('Failed') }}</div>
                             </div>
                         </div>
 
                         {{-- Export Dropdown --}}
                         <div class="relative custom-dropdown" id="export-dropdown">
                             <button type="button"
-                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-cyan-400/50 transition-all cursor-pointer">
+                                class="dropdown-btn flex items-center justify-between gap-2.5 px-3.5 py-2 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs hover:border-amber-400/50 transition-all cursor-pointer">
                                 <span>{{ __('Export') }}</span>
                                 <svg class="w-3.5 h-3.5 text-slate-500 dropdown-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                 </svg>
                             </button>
                             <div class="dropdown-menu absolute right-0 z-[120] mt-2 w-36 bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200">
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-2" data-export="csv">
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2" data-export="csv">
                                     <span>CSV</span>
                                 </div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-2" data-export="sql">
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2" data-export="sql">
                                     <span>SQL</span>
                                 </div>
-                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer flex items-center gap-2" data-export="pdf">
+                                <div class="dropdown-option px-4 py-2 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer flex items-center gap-2" data-export="pdf">
                                     <span>PDF</span>
                                 </div>
                             </div>
@@ -333,7 +333,7 @@
 
                         {{-- Submit Button --}}
                         <button type="submit"
-                            class="p-2 bg-cyan-400 hover:bg-cyan-300 text-[#050507] rounded-xl transition-all cursor-pointer shadow-[0_0_15px_rgba(0,245,255,0.25)]">
+                            class="p-2 bg-amber-400 hover:bg-amber-300 text-[#0b0e11] rounded-xl transition-all cursor-pointer shadow-[0_0_15px_rgba(247,166,0,0.25)]">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                             </svg>
@@ -367,14 +367,14 @@
                                                         alt="{{ $withdrawal->user->username }}" class="w-full h-full object-cover">
                                                 </div>
                                             @else
-                                                <div class="w-9 h-9 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-xs font-bold font-mono text-cyan-400 shrink-0">
+                                                <div class="w-9 h-9 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-xs font-bold font-mono text-amber-400 shrink-0">
                                                     {{ strtoupper(substr($withdrawal->user->username ?? 'NA', 0, 2)) }}
                                                 </div>
                                             @endif
                                             <div>
                                                 @if ($withdrawal->user)
                                                     <a href="{{ route('admin.users.detail', $withdrawal->user_id) }}"
-                                                        class="text-xs font-bold font-mono text-white hover:text-cyan-400 transition-colors block">
+                                                        class="text-xs font-bold font-mono text-white hover:text-amber-400 transition-colors block">
                                                         {{ $withdrawal->user->username }}
                                                     </a>
                                                     <span class="text-[10px] text-slate-400 font-mono block mt-0.5">{{ $withdrawal->user->email }}</span>
@@ -387,8 +387,8 @@
 
                                     {{-- Blockchain Network --}}
                                     <td class="px-6 py-4">
-                                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs font-mono font-bold">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-300 text-xs font-mono font-bold">
+                                            <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                                             <span>{{ $withdrawal->gatewayName() }}</span>
                                         </div>
                                     </td>
@@ -400,7 +400,7 @@
                                         </div>
                                         <div class="text-[10px] text-slate-400 flex items-center gap-1 mt-0.5">
                                             <span>{{ __('Net') }}:</span>
-                                            <span class="text-cyan-300 font-bold">{{ showAmount($withdrawal->amount_payable) }}</span>
+                                            <span class="text-amber-300 font-bold">{{ showAmount($withdrawal->amount_payable) }}</span>
                                             @if ($withdrawal->fee_amount > 0)
                                                 <span class="text-rose-400/80">(-{{ showAmount($withdrawal->fee_amount) }})</span>
                                             @endif
@@ -454,7 +454,7 @@
                                         <div class="flex items-center justify-end gap-1.5">
                                             {{-- View Details --}}
                                             <a href="{{ route('admin.withdrawals.view', $withdrawal->id) }}"
-                                                class="p-2 rounded-xl bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-300 border border-cyan-500/20 transition-all cursor-pointer"
+                                                class="p-2 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/20 transition-all cursor-pointer"
                                                 title="{{ __('View Withdrawal Details') }}">
                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -464,7 +464,7 @@
 
                                             {{-- Edit Status --}}
                                             <button type="button"
-                                                class="edit-withdrawal-btn p-2 rounded-xl bg-purple-500/10 hover:bg-purple-500/20 text-purple-300 border border-purple-500/20 transition-all cursor-pointer"
+                                                class="edit-withdrawal-btn p-2 rounded-xl bg-orange-500/10 hover:bg-orange-500/20 text-orange-300 border border-orange-500/20 transition-all cursor-pointer"
                                                 data-id="{{ $withdrawal->id }}" data-status="{{ $withdrawal->status }}"
                                                 title="{{ __('Update Status') }}">
                                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -513,10 +513,10 @@
     {{-- 1. Edit / Process Status Modal --}}
     <div id="edit-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-left">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 relative">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 relative">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wide">{{ __('Update Withdrawal Status') }}</h3>
@@ -537,8 +537,8 @@
                             </label>
                             <div class="relative custom-dropdown" id="edit-status-dropdown">
                                 <button type="button"
-                                    class="dropdown-btn w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs font-mono focus:border-cyan-400 transition-all cursor-pointer">
-                                    <span class="selected-label font-bold text-cyan-300">{{ __('Select Status') }}</span>
+                                    class="dropdown-btn w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs font-mono focus:border-amber-400 transition-all cursor-pointer">
+                                    <span class="selected-label font-bold text-amber-300">{{ __('Select Status') }}</span>
                                     <svg class="w-4 h-4 text-slate-500 dropdown-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                     </svg>
@@ -566,7 +566,7 @@
                                 {{ __('Cancel') }}
                             </button>
                             <button type="submit"
-                                class="flex-1 px-4 py-2.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer">
+                                class="flex-1 px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer">
                                 {{ __('Update Status') }}
                             </button>
                         </div>
@@ -579,10 +579,10 @@
     {{-- 2. Delete Confirmation Modal --}}
     <div id="delete-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-rose-500/20 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-center">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8">
                     <div class="w-14 h-14 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -613,10 +613,10 @@
     {{-- 3. Export Modal --}}
     <div id="export-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close cursor-pointer"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close cursor-pointer"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-left">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wide">{{ __('Export Withdrawals') }}</h3>
@@ -648,10 +648,10 @@
                                     ];
                                 @endphp
                                 @foreach ($columns as $key => $col)
-                                    <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-cyan-400/40 transition-all cursor-pointer group">
+                                    <label class="flex items-center gap-2.5 p-2.5 rounded-xl border border-white/[0.06] bg-white/[0.02] hover:border-amber-400/40 transition-all cursor-pointer group">
                                         <input type="checkbox" name="export_cols[]" value="{{ $key }}"
                                             {{ $col['default'] ? 'checked' : '' }}
-                                            class="w-4 h-4 rounded border-white/20 bg-white/5 text-cyan-400 focus:ring-cyan-400 focus:ring-offset-0 cursor-pointer accent-cyan-400">
+                                            class="w-4 h-4 rounded border-white/20 bg-white/5 text-amber-400 focus:ring-amber-400 focus:ring-offset-0 cursor-pointer accent-amber-400">
                                         <span class="text-xs font-mono text-slate-300 group-hover:text-white transition-colors">{{ __($col['label']) }}</span>
                                     </label>
                                 @endforeach
@@ -665,7 +665,7 @@
                                 {{ __('Cancel') }}
                             </button>
                             <button type="button" id="confirm-export"
-                                class="flex-1 px-4 py-2.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer">
+                                class="flex-1 px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer">
                                 {{ __('Download File') }}
                             </button>
                         </div>
@@ -827,7 +827,7 @@
                         borderColor: cfg.color,
                         backgroundColor: cfg.bg,
                         borderWidth: 2,
-                        pointBackgroundColor: '#090c14',
+                        pointBackgroundColor: '#151a21',
                         pointBorderColor: cfg.color,
                         pointBorderWidth: 2,
                         pointRadius: 3,
@@ -871,8 +871,8 @@
             updateTrendChart('7d');
 
             $('.graph-period-btn').on('click', function() {
-                $('.graph-period-btn').removeClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/30').addClass('text-slate-500 hover:text-slate-300');
-                $(this).removeClass('text-slate-500 hover:text-slate-300').addClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/30');
+                $('.graph-period-btn').removeClass('bg-amber-500/20 text-amber-300 border border-amber-500/30').addClass('text-slate-500 hover:text-slate-300');
+                $(this).removeClass('text-slate-500 hover:text-slate-300').addClass('bg-amber-500/20 text-amber-300 border border-amber-500/30');
 
                 const period = $(this).data('period');
                 updateTrendChart(period);
@@ -943,15 +943,15 @@
                 $('#status-filter-dropdown .selected-label').text(label);
 
                 // Sync status ribbon tabs
-                $('.status-tab-btn').removeClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                $('.status-tab-btn').removeClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                                     .addClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                $('.status-tab-btn .tab-dot').removeClass('bg-cyan-400 animate-pulse').addClass('bg-slate-600');
+                $('.status-tab-btn .tab-dot').removeClass('bg-amber-400 animate-pulse').addClass('bg-slate-600');
                 
                 const $matchingTab = $(`.status-tab-btn[data-status="${val}"]`);
                 if ($matchingTab.length) {
-                    $matchingTab.addClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                    $matchingTab.addClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                                 .removeClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                    $matchingTab.find('.tab-dot').removeClass('bg-slate-600').addClass('bg-cyan-400 animate-pulse');
+                    $matchingTab.find('.tab-dot').removeClass('bg-slate-600').addClass('bg-amber-400 animate-pulse');
                 }
 
                 $('#filter-form').submit();
@@ -964,13 +964,13 @@
                 const status = $(this).data('status');
 
                 // Update tab styling
-                $('.status-tab-btn').removeClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                $('.status-tab-btn').removeClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                                     .addClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                $('.status-tab-btn .tab-dot').removeClass('bg-cyan-400 animate-pulse').addClass('bg-slate-600');
+                $('.status-tab-btn .tab-dot').removeClass('bg-amber-400 animate-pulse').addClass('bg-slate-600');
                 
-                $(this).addClass('bg-cyan-500/20 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(0,245,255,0.2)] active-tab')
+                $(this).addClass('bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-[0_0_15px_rgba(247,166,0,0.2)] active-tab')
                        .removeClass('text-slate-400 hover:text-white hover:bg-white/[0.04]');
-                $(this).find('.tab-dot').removeClass('bg-slate-600').addClass('bg-cyan-400 animate-pulse');
+                $(this).find('.tab-dot').removeClass('bg-slate-600').addClass('bg-amber-400 animate-pulse');
 
                 $('#status-input').val(status);
 

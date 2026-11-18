@@ -28,12 +28,12 @@
         }
     </style>
 
-    <div class="relative bg-[#050507] isolate overflow-hidden min-h-screen">
+    <div class="relative bg-[#0b0e11] isolate overflow-hidden min-h-screen">
         
         {{-- Ambient Mesh Glow Elements --}}
         <div class="absolute top-10 left-1/4 -translate-x-1/2 w-[650px] h-[650px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
-        <div class="absolute top-1/2 right-0 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 12s;"></div>
-        <div class="absolute bottom-20 left-10 w-[500px] h-[500px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
+        <div class="absolute top-1/2 right-0 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 12s;"></div>
+        <div class="absolute bottom-20 left-10 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none -z-10"></div>
         <div class="fixed inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.025] pointer-events-none -z-20"></div>
 
         {{-- ==================================================================================== --}}
@@ -49,12 +49,12 @@
                             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
                             <span>{{ __('AUTOMATED COPY TRADING') }}</span>
                             <span class="text-slate-600">•</span>
-                            <span class="text-cyan-400">{{ __('VERIFIED RESULTS') }}</span>
+                            <span class="text-amber-400">{{ __('VERIFIED RESULTS') }}</span>
                         </div>
 
                         <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.05]">
                             {{ __('Copy Top Traders') }}<br>
-                            <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 bg-clip-text text-transparent">
+                            <span class="bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-clip-text text-transparent">
                                 {{ __('Automatically 24/7') }}
                             </span>
                         </h1>
@@ -65,21 +65,21 @@
 
                         {{-- Metric Chips in Everyday Language --}}
                         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 font-mono">
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Total Profit Paid') }}</span>
                                 <div class="text-2xl font-black text-emerald-400">{{ showAmount($stats['total_profit']) }}</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Volume Traded') }}</span>
                                 <div class="text-2xl font-black text-white">{{ showAmount($stats['total_volume']) }}</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Win Rate') }}</span>
-                                <div class="text-2xl font-black text-cyan-300">{{ $stats['success_rate'] }}%</div>
+                                <div class="text-2xl font-black text-amber-300">{{ $stats['success_rate'] }}%</div>
                             </div>
-                            <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] backdrop-blur-xl">
+                            <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] backdrop-blur-xl">
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest block mb-1">{{ __('Active Traders') }}</span>
-                                <div class="text-2xl font-black text-indigo-300">{{ number_format($stats['active_traders']) }}</div>
+                                <div class="text-2xl font-black text-orange-300">{{ number_format($stats['active_traders']) }}</div>
                             </div>
                         </div>
 
@@ -97,8 +97,8 @@
 
                     {{-- Right Column: Live Copy Trading Console --}}
                     <div class="lg:col-span-5 relative">
-                        <div class="relative rounded-3xl p-[1px] bg-gradient-to-b from-emerald-500/30 via-white/[0.08] to-cyan-500/20 shadow-[0_0_50px_rgba(16,185,129,0.1)]">
-                            <div class="bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 backdrop-blur-2xl font-mono relative overflow-hidden">
+                        <div class="relative rounded-3xl p-[1px] bg-gradient-to-b from-emerald-500/30 via-white/[0.08] to-amber-500/20 shadow-[0_0_50px_rgba(16,185,129,0.1)]">
+                            <div class="bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 backdrop-blur-2xl font-mono relative overflow-hidden">
                                 
                                 {{-- Console Header --}}
                                 <div class="flex items-center justify-between pb-4 mb-5 border-b border-white/[0.08]">
@@ -129,7 +129,7 @@
                                     </div>
                                     <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]">
                                         <div class="flex items-center gap-2.5">
-                                            <div class="w-8 h-8 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center font-bold text-cyan-400 text-xs">
+                                            <div class="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/20 flex items-center justify-center font-bold text-amber-400 text-xs">
                                                 ST
                                             </div>
                                             <div>
@@ -141,7 +141,7 @@
                                     </div>
                                     <div class="flex items-center justify-between p-3 rounded-xl bg-white/[0.02] border border-white/[0.04]">
                                         <div class="flex items-center gap-2.5">
-                                            <div class="w-8 h-8 rounded-lg bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center font-bold text-indigo-400 text-xs">
+                                            <div class="w-8 h-8 rounded-lg bg-orange-500/10 border border-orange-500/20 flex items-center justify-center font-bold text-orange-400 text-xs">
                                                 MW
                                             </div>
                                             <div>
@@ -208,7 +208,7 @@
                         @endforeach
                     </div>
                 @else
-                    <div class="text-center py-20 bg-[#090c14]/90 border border-white/[0.08] rounded-3xl font-mono text-sm text-slate-400">
+                    <div class="text-center py-20 bg-[#151a21]/90 border border-white/[0.08] rounded-3xl font-mono text-sm text-slate-400">
                         {{ __('Recent completed trades will display here automatically in real time.') }}
                     </div>
                 @endif
@@ -218,10 +218,10 @@
         {{-- ==================================================================================== --}}
         {{-- SECTION 3: HOW COPY TRADING WORKS (3 STEPS) --}}
         {{-- ==================================================================================== --}}
-        <section class="relative py-20 sm:py-28 border-b border-white/[0.06] bg-[#090c14]/60">
+        <section class="relative py-20 sm:py-28 border-b border-white/[0.06] bg-[#151a21]/60">
             <div class="max-w-7xl mx-auto px-4 lg:px-8">
                 <div class="max-w-3xl mx-auto text-center mb-16">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-3">
                         {{ __('SIMPLE 3-STEP PROCESS') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -231,7 +231,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 font-mono">
                     {{-- Step 1 --}}
-                    <div class="p-8 rounded-3xl bg-[#090c14]/95 border border-white/[0.08] relative group hover:border-emerald-500/40 transition-all shadow-xl">
+                    <div class="p-8 rounded-3xl bg-[#151a21]/95 border border-white/[0.08] relative group hover:border-emerald-500/40 transition-all shadow-xl">
                         <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center font-black text-base mb-6 group-hover:bg-emerald-400 group-hover:text-slate-950 transition-all">
                             01
                         </div>
@@ -242,8 +242,8 @@
                     </div>
 
                     {{-- Step 2 --}}
-                    <div class="p-8 rounded-3xl bg-[#090c14]/95 border border-white/[0.08] relative group hover:border-cyan-500/40 transition-all shadow-xl">
-                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-black text-base mb-6 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-all">
+                    <div class="p-8 rounded-3xl bg-[#151a21]/95 border border-white/[0.08] relative group hover:border-amber-500/40 transition-all shadow-xl">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-black text-base mb-6 group-hover:bg-amber-400 group-hover:text-slate-950 transition-all">
                             02
                         </div>
                         <h3 class="text-lg font-bold text-white mb-3">{{ __('Set Your Investment Amount') }}</h3>
@@ -253,8 +253,8 @@
                     </div>
 
                     {{-- Step 3 --}}
-                    <div class="p-8 rounded-3xl bg-[#090c14]/95 border border-white/[0.08] relative group hover:border-indigo-500/40 transition-all shadow-xl">
-                        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 flex items-center justify-center font-black text-base mb-6 group-hover:bg-indigo-400 group-hover:text-slate-950 transition-all">
+                    <div class="p-8 rounded-3xl bg-[#151a21]/95 border border-white/[0.08] relative group hover:border-orange-500/40 transition-all shadow-xl">
+                        <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center font-black text-base mb-6 group-hover:bg-orange-400 group-hover:text-slate-950 transition-all">
                             03
                         </div>
                         <h3 class="text-lg font-bold text-white mb-3">{{ __('Earn Automatically') }}</h3>
@@ -273,7 +273,7 @@
             <div class="max-w-7xl mx-auto px-4 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4">
                             {{ __('SECURITY & CONTROL') }}
                         </div>
                         <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight mb-6">
@@ -309,8 +309,8 @@
                     </div>
 
                     {{-- Right Security Box --}}
-                    <div class="p-8 rounded-3xl bg-[#090c14]/95 border border-white/[0.08] font-mono relative overflow-hidden shadow-2xl">
-                        <div class="absolute top-0 right-0 w-36 h-36 bg-cyan-500/10 blur-2xl rounded-full pointer-events-none"></div>
+                    <div class="p-8 rounded-3xl bg-[#151a21]/95 border border-white/[0.08] font-mono relative overflow-hidden shadow-2xl">
+                        <div class="absolute top-0 right-0 w-36 h-36 bg-amber-500/10 blur-2xl rounded-full pointer-events-none"></div>
                         <div class="space-y-6">
                             <div class="flex items-center justify-between pb-4 border-b border-white/[0.08]">
                                 <span class="text-white font-bold text-sm">{{ __('Safety Verification') }}</span>
@@ -342,8 +342,8 @@
         {{-- ==================================================================================== --}}
         <section class="relative py-20 sm:py-28">
             <div class="max-w-5xl mx-auto px-4 lg:px-8 text-center">
-                <div class="rounded-3xl p-[1px] bg-gradient-to-r from-emerald-500/40 via-cyan-500/30 to-indigo-500/40 shadow-[0_0_50px_rgba(16,185,129,0.15)]">
-                    <div class="bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-10 sm:p-16 backdrop-blur-2xl space-y-6">
+                <div class="rounded-3xl p-[1px] bg-gradient-to-r from-emerald-500/40 via-amber-500/30 to-orange-500/40 shadow-[0_0_50px_rgba(16,185,129,0.15)]">
+                    <div class="bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-10 sm:p-16 backdrop-blur-2xl space-y-6">
                         <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[10px] font-bold uppercase tracking-widest">
                             <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                             {{ __('START IN UNDER 2 MINUTES') }}

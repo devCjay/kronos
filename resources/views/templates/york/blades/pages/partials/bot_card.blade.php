@@ -9,7 +9,7 @@
     $tradingDays = is_array($bot->trading_days) ? $bot->trading_days : [];
 @endphp
 
-<div class="bot-card group relative rounded-3xl p-[1px] bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent hover:from-cyan-500/40 hover:via-cyan-500/10 hover:to-transparent transition-all duration-500 transform hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(0,245,255,0.08)] flex flex-col h-full"
+<div class="bot-card group relative rounded-3xl p-[1px] bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent hover:from-amber-500/40 hover:via-amber-500/10 hover:to-transparent transition-all duration-500 transform hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(247,166,0,0.08)] flex flex-col h-full"
     data-type="{{ strtolower($bot->type) }}" 
     data-roi="{{ $avgRoi }}"
     data-markets='{{ json_encode($pairs) }}' 
@@ -17,18 +17,18 @@
     data-id="{{ $bot->id }}">
 
     {{-- Internal Double-Bezel Hardened Surface --}}
-    <div class="relative bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 h-full flex flex-col justify-between overflow-hidden backdrop-blur-2xl">
+    <div class="relative bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 h-full flex flex-col justify-between overflow-hidden backdrop-blur-2xl">
         
         {{-- Ambient Corner Glow --}}
-        <div class="absolute -top-16 -right-16 w-36 h-36 bg-cyan-500/10 group-hover:bg-cyan-500/20 rounded-full blur-2xl pointer-events-none transition-all duration-700"></div>
+        <div class="absolute -top-16 -right-16 w-36 h-36 bg-amber-500/10 group-hover:bg-amber-500/20 rounded-full blur-2xl pointer-events-none transition-all duration-700"></div>
         <div class="absolute -bottom-16 -left-16 w-32 h-32 bg-emerald-500/5 group-hover:bg-emerald-500/15 rounded-full blur-2xl pointer-events-none transition-all duration-700"></div>
 
         <div>
             {{-- Top HUD Bar: Category, ID & Live Status --}}
             <div class="flex items-center justify-between gap-2 mb-5 relative z-10">
                 <div class="flex items-center gap-2">
-                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono font-bold uppercase tracking-widest text-slate-300 group-hover:text-cyan-300 group-hover:border-cyan-500/30 transition-colors">
-                        <span class="w-1.5 h-1.5 rounded-full {{ $bot->type === 'crypto' ? 'bg-cyan-400' : 'bg-emerald-400' }}"></span>
+                    <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono font-bold uppercase tracking-widest text-slate-300 group-hover:text-amber-300 group-hover:border-amber-500/30 transition-colors">
+                        <span class="w-1.5 h-1.5 rounded-full {{ $bot->type === 'crypto' ? 'bg-amber-400' : 'bg-emerald-400' }}"></span>
                         {{ $bot->type }}
                     </span>
                     <span class="text-[9px] font-mono font-bold text-slate-500 uppercase tracking-widest">
@@ -44,8 +44,8 @@
 
             {{-- Bot Avatar & Name Header --}}
             <div class="flex items-start gap-4 mb-5 relative z-10">
-                <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.02] p-[1px] shrink-0 group-hover:from-cyan-500/50 group-hover:to-indigo-500/50 transition-all duration-500">
-                    <div class="w-full h-full rounded-[15px] bg-[#050507] p-2 flex items-center justify-center overflow-hidden">
+                <div class="relative w-12 h-12 rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.02] p-[1px] shrink-0 group-hover:from-amber-500/50 group-hover:to-orange-500/50 transition-all duration-500">
+                    <div class="w-full h-full rounded-[15px] bg-[#0b0e11] p-2 flex items-center justify-center overflow-hidden">
                         <img src="{{ asset('assets/images/bots/' . $bot->logo) }}" 
                              alt="{{ $bot->name }}" 
                              loading="lazy"
@@ -55,7 +55,7 @@
                 </div>
 
                 <div class="flex-1 min-w-0">
-                    <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors truncate tracking-tight mb-1">
+                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors truncate tracking-tight mb-1">
                         {{ $bot->name }}
                     </h3>
                     <p class="text-xs text-slate-400 line-clamp-2 leading-relaxed">
@@ -89,14 +89,14 @@
 
             {{-- Core Metrics Grid (HUD Matrix) --}}
             <div class="grid grid-cols-2 gap-2.5 mb-5 font-mono text-xs relative z-10">
-                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] group-hover:border-cyan-500/20 transition-colors">
+                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] group-hover:border-amber-500/20 transition-colors">
                     <span class="text-[9px] uppercase tracking-wider text-slate-500 block mb-1">{{ __('Daily Profit') }}</span>
-                    <span class="text-sm font-black text-cyan-300">
+                    <span class="text-sm font-black text-amber-300">
                         {{ $minRoi }}% - {{ $maxRoi }}%
                     </span>
                 </div>
 
-                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] group-hover:border-cyan-500/20 transition-colors">
+                <div class="p-3 rounded-xl bg-white/[0.02] border border-white/[0.06] group-hover:border-amber-500/20 transition-colors">
                     <span class="text-[9px] uppercase tracking-wider text-slate-500 block mb-1">{{ __('Min / Max Deposit') }}</span>
                     <span class="text-sm font-black text-white">
                         ${{ number_format($bot->min_amount, 0) }} - ${{ number_format($bot->max_amount, 0) }}
@@ -125,7 +125,7 @@
                         <div class="text-[9px] font-mono uppercase tracking-widest text-slate-500 mb-1.5">{{ __('Traded Pairs') }}</div>
                         <div class="flex flex-wrap gap-1.5">
                             @foreach (array_slice($pairs, 0, 4) as $pair)
-                                <span class="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono font-bold text-slate-300 group-hover:text-white group-hover:border-cyan-500/30 transition-all">
+                                <span class="px-2 py-0.5 rounded bg-white/[0.04] border border-white/[0.08] text-[10px] font-mono font-bold text-slate-300 group-hover:text-white group-hover:border-amber-500/30 transition-all">
                                     {{ $pair }}
                                 </span>
                             @endforeach
@@ -143,7 +143,7 @@
                         <div class="text-[9px] font-mono uppercase tracking-widest text-slate-500 mb-1.5">{{ __('Supported Exchanges') }}</div>
                         <div class="flex items-center gap-1.5 flex-wrap">
                             @foreach (array_slice($exchanges, 0, 4) as $exch)
-                                <span class="px-2 py-0.5 rounded-md bg-cyan-500/5 border border-cyan-500/15 text-[9px] font-mono text-cyan-400">
+                                <span class="px-2 py-0.5 rounded-md bg-amber-500/5 border border-amber-500/15 text-[9px] font-mono text-amber-400">
                                     {{ $exch }}
                                 </span>
                             @endforeach
@@ -161,7 +161,7 @@
         {{-- Action CTA Bar --}}
         <div class="pt-4 border-t border-white/[0.06] relative z-10">
             <a href="{{ route('user.trading-bots.index') }}" 
-               class="group/btn relative flex items-center justify-between w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-slate-950 font-mono font-bold text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(0,245,255,0.2)] hover:shadow-[0_0_30px_rgba(0,245,255,0.4)] transition-all duration-300 active:scale-[0.98]">
+               class="group/btn relative flex items-center justify-between w-full px-5 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-400 hover:to-orange-500 text-slate-950 font-mono font-bold text-xs uppercase tracking-widest shadow-[0_0_20px_rgba(247,166,0,0.2)] hover:shadow-[0_0_30px_rgba(247,166,0,0.4)] transition-all duration-300 active:scale-[0.98]">
                 <span>{{ __('Start Bot') }}</span>
                 <span class="w-7 h-7 rounded-full bg-black/20 flex items-center justify-center transform group-hover/btn:translate-x-1 transition-transform">
                     <svg class="w-3.5 h-3.5 text-black stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

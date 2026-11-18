@@ -735,7 +735,7 @@
                         },
                         series: distValues,
                         labels: distLabels,
-                        colors: ['#e2b13c', '#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#f43f5e'],
+                        colors: ['#f7a600', '#10b981', '#f59e0b', '#3b82f6', '#ec4899', '#8b5cf6', '#f43f5e'],
                         stroke: {
                             show: false
                         },
@@ -1027,7 +1027,7 @@
                         stroke: {
                             curve: 'smooth',
                             width: 2,
-                            colors: ['#e2b13c']
+                            colors: ['#f7a600']
                         },
                         fill: {
                             type: 'gradient',
@@ -1038,12 +1038,12 @@
                                 stops: [0, 90, 100],
                                 colorStops: [{
                                         offset: 0,
-                                        color: '#e2b13c',
+                                        color: '#f7a600',
                                         opacity: 0.4
                                     },
                                     {
                                         offset: 100,
-                                        color: '#e2b13c',
+                                        color: '#f7a600',
                                         opacity: 0
                                     }
                                 ]
@@ -1058,7 +1058,7 @@
                         theme: {
                             mode: 'dark'
                         },
-                        colors: ['#e2b13c']
+                        colors: ['#f7a600']
                     };
                     yieldChart = new ApexCharts(document.querySelector("#earningsChart"), earningsOptions);
                     yieldChart.render();

@@ -40,7 +40,7 @@
 
                     <a href="{{ route('user.copy-trading.history') }}"
                        class="px-5 py-2.5 rounded-full hover:bg-white/10 text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider transition-all flex items-center gap-2">
-                        <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+                        <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                         <span>{{ __('History') }}</span>
                     </a>
                 </div>
@@ -61,7 +61,7 @@
                         </button>
 
                         <div id="pairDropdownMenu"
-                            class="absolute top-full left-0 mt-2 w-64 rounded-2xl border border-white/10 shadow-2xl overflow-hidden hidden z-50 bg-[#08090e]">
+                            class="absolute top-full left-0 mt-2 w-64 rounded-2xl border border-white/10 shadow-2xl overflow-hidden hidden z-50 bg-[#0f1217]">
                             <div class="p-3 border-b border-white/10">
                                 <input type="text" placeholder="{{ __('Search Ticker...') }}" id="pairSearch"
                                     class="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white outline-none focus:border-accent-primary transition-all">
@@ -112,8 +112,8 @@
                     <div id="chartTime" class="text-[10px] font-mono text-slate-500">--:--:--</div>
                 </div>
 
-                <div class="relative h-[320px] sm:h-[420px] rounded-2xl border border-white/10 bg-[#08090e] overflow-hidden">
-                    <div id="chartLoader" class="absolute inset-0 z-20 flex items-center justify-center bg-[#08090e]/80 backdrop-blur-sm">
+                <div class="relative h-[320px] sm:h-[420px] rounded-2xl border border-white/10 bg-[#0f1217] overflow-hidden">
+                    <div id="chartLoader" class="absolute inset-0 z-20 flex items-center justify-center bg-[#0f1217]/80 backdrop-blur-sm">
                         <div class="w-8 h-8 border-2 border-accent-primary border-t-transparent rounded-full animate-spin"></div>
                     </div>
                     <div id="chartContainer" class="absolute inset-0 z-10 w-full h-full"></div>

@@ -10,7 +10,7 @@
 
     {{-- Indexing --}}
     <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#050507">
+    <meta name="theme-color" content="#0b0e11">
     <meta name="author" content="{{ getSetting('name') }} Team">
 
     {{-- Typography --}}
@@ -44,19 +44,19 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(0, 245, 255, 0.2);
+            background: rgba(247, 166, 0, 0.2);
             border-radius: 10px;
             transition: background 0.3s ease;
             cursor: pointer;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 245, 255, 0.5);
+            background: rgba(247, 166, 0, 0.5);
         }
 
         * {
             scrollbar-width: thin;
-            scrollbar-color: rgba(0, 245, 255, 0.2) transparent;
+            scrollbar-color: rgba(247, 166, 0, 0.2) transparent;
         }
 
         /* 1. Sidebar width and items alignment */
@@ -153,15 +153,15 @@
     @stack('css')
 </head>
 
-<body class="bg-[#050507] text-slate-200 antialiased min-h-screen flex selection:bg-[#00f5ff] selection:text-[#050507] overflow-hidden">
+<body class="bg-[#0b0e11] text-slate-200 antialiased min-h-screen flex selection:bg-[#f7a600] selection:text-[#0b0e11] overflow-hidden">
 
     {{-- Admin Preloader --}}
     @include('templates.york.blades.partials.dashoard-preloader')
 
     {{-- Ambient Lighting Orbs --}}
     <div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
-        <div class="absolute top-[-15%] left-[20%] w-[650px] h-[650px] bg-cyan-500/5 rounded-full blur-[180px] pointer-events-none animate-pulse" style="animation-duration: 9s;"></div>
-        <div class="absolute bottom-[-15%] right-[20%] w-[650px] h-[650px] bg-purple-600/5 rounded-full blur-[180px] pointer-events-none animate-pulse" style="animation-duration: 11s;"></div>
+        <div class="absolute top-[-15%] left-[20%] w-[650px] h-[650px] bg-amber-500/5 rounded-full blur-[180px] pointer-events-none animate-pulse" style="animation-duration: 9s;"></div>
+        <div class="absolute bottom-[-15%] right-[20%] w-[650px] h-[650px] bg-orange-600/5 rounded-full blur-[180px] pointer-events-none animate-pulse" style="animation-duration: 11s;"></div>
     </div>
 
     <!-- ==================================================================================== -->
@@ -179,7 +179,7 @@
                             alt="{{ getSetting('name') }}"
                             class="max-w-[40px] max-h-[40px] w-auto h-auto object-contain rounded-xl">
                     @else
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-400 to-purple-600 flex items-center justify-center text-[#050507] font-black text-lg shadow-inner shrink-0">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-600 flex items-center justify-center text-[#0b0e11] font-black text-lg shadow-inner shrink-0">
                             {{ substr(getSetting('name', 'F'), 0, 1) }}
                         </div>
                     @endif
@@ -197,12 +197,12 @@
                                 alt="{{ getSetting('name') }}"
                                 class="max-w-[36px] max-h-[36px] w-auto h-auto object-contain rounded-xl shrink-0">
                             <span class="text-white font-bold text-lg tracking-tight whitespace-nowrap truncate font-mono">
-                                {{ getSetting('name') }}<span class="text-cyan-400">_ADM</span>
+                                {{ getSetting('name') }}<span class="text-amber-400">_ADM</span>
                             </span>
                         </div>
                     @else
                         <span class="text-white font-bold text-lg tracking-tight whitespace-nowrap truncate font-mono">
-                            {{ getSetting('name', 'FOYANA') }}<span class="text-cyan-400">_ADM</span>
+                            {{ getSetting('name', 'FOYANA') }}<span class="text-amber-400">_ADM</span>
                         </span>
                     @endif
                 </div>
@@ -240,7 +240,7 @@
 
                 @if ($item->children->isNotEmpty())
                     <div class="submenu-container w-full flex flex-col items-center group-hover/sidebar:items-stretch relative shrink-0" data-expanded="{{ $isActive ? 'true' : 'false' }}">
-                        <button class="submenu-toggle flex items-center justify-center group-hover/sidebar:justify-start w-12 group-hover/sidebar:w-full h-12 group-hover/sidebar:px-4 rounded-xl transition-all duration-300 border {{ $isActive ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400 shadow-[0_0_20px_rgba(0,245,255,0.15)]' : 'border-white/[0.06] hover:border-white/20 text-slate-400 hover:text-white hover:bg-white/[0.03]' }} cursor-pointer z-10 relative">
+                        <button class="submenu-toggle flex items-center justify-center group-hover/sidebar:justify-start w-12 group-hover/sidebar:w-full h-12 group-hover/sidebar:px-4 rounded-xl transition-all duration-300 border {{ $isActive ? 'border-amber-500/40 bg-amber-500/10 text-amber-400 shadow-[0_0_20px_rgba(247,166,0,0.15)]' : 'border-white/[0.06] hover:border-white/20 text-slate-400 hover:text-white hover:bg-white/[0.03]' }} cursor-pointer z-10 relative">
                             <div class="flex items-center shrink-0">
                                 {{-- Icon --}}
                                 <div class="w-5 h-5 flex items-center justify-center shrink-0 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-[1.8] [&>svg]:fill-none">
@@ -252,7 +252,7 @@
                                 </span>
                             </div>
                             {{-- Arrow --}}
-                            <svg class="submenu-arrow w-4 h-4 ml-auto text-slate-500 opacity-0 w-0 group-hover/sidebar:opacity-100 group-hover/sidebar:w-4 transition-all duration-200 {{ $isActive ? 'rotate-180 text-cyan-400' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="submenu-arrow w-4 h-4 ml-auto text-slate-500 opacity-0 w-0 group-hover/sidebar:opacity-100 group-hover/sidebar:w-4 transition-all duration-200 {{ $isActive ? 'rotate-180 text-amber-400' : '' }}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
@@ -275,8 +275,8 @@
                                     }
                                 @endphp
                                 <a href="{{ $child->link }}"
-                                    class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-mono transition-all {{ $isChildActive ? 'bg-cyan-500/10 text-cyan-300 font-bold border-l-2 border-cyan-400' : 'text-slate-400 hover:text-white hover:bg-white/[0.03]' }}">
-                                    <span class="w-1.5 h-1.5 rounded-full {{ $isChildActive ? 'bg-cyan-400 shadow-[0_0_8px_#00f5ff]' : 'bg-slate-600' }}"></span>
+                                    class="flex items-center gap-2.5 px-3 py-2 rounded-lg text-xs font-mono transition-all {{ $isChildActive ? 'bg-amber-500/10 text-amber-300 font-bold border-l-2 border-amber-400' : 'text-slate-400 hover:text-white hover:bg-white/[0.03]' }}">
+                                    <span class="w-1.5 h-1.5 rounded-full {{ $isChildActive ? 'bg-amber-400 shadow-[0_0_8px_#f7a600]' : 'bg-slate-600' }}"></span>
                                     <span>{{ __($child->label) }}</span>
                                 </a>
                             @endforeach
@@ -284,7 +284,7 @@
                     </div>
                 @else
                     <a href="{{ $item->link }}"
-                        class="flex items-center justify-center group-hover/sidebar:justify-start w-12 group-hover/sidebar:w-full h-12 group-hover/sidebar:px-4 rounded-xl transition-all duration-300 border {{ $isActive ? 'border-cyan-500/40 bg-cyan-500/10 text-cyan-400 shadow-[0_0_20px_rgba(0,245,255,0.15)] font-bold' : 'border-white/[0.06] hover:border-white/20 text-slate-400 hover:text-white hover:bg-white/[0.03]' }} shrink-0">
+                        class="flex items-center justify-center group-hover/sidebar:justify-start w-12 group-hover/sidebar:w-full h-12 group-hover/sidebar:px-4 rounded-xl transition-all duration-300 border {{ $isActive ? 'border-amber-500/40 bg-amber-500/10 text-amber-400 shadow-[0_0_20px_rgba(247,166,0,0.15)] font-bold' : 'border-white/[0.06] hover:border-white/20 text-slate-400 hover:text-white hover:bg-white/[0.03]' }} shrink-0">
                         <div class="w-5 h-5 flex items-center justify-center shrink-0 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:stroke-[1.8] [&>svg]:fill-none">
                             {!! $item->icon !!}
                         </div>
@@ -299,7 +299,7 @@
         <!-- Admin Profile Footer Dock -->
         <div class="p-3 border-t border-white/[0.08] w-full shrink-0">
             <div class="flex items-center justify-center group-hover/sidebar:justify-start p-2 rounded-2xl bg-white/[0.02] border border-white/[0.06] overflow-hidden">
-                <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-cyan-500/20 to-purple-600/20 border border-cyan-500/30 flex items-center justify-center text-cyan-400 font-mono font-bold text-sm shrink-0 shadow-[0_0_15px_rgba(0,245,255,0.2)]">
+                <div class="h-10 w-10 rounded-xl bg-gradient-to-br from-amber-500/20 to-orange-600/20 border border-amber-500/30 flex items-center justify-center text-amber-400 font-mono font-bold text-sm shrink-0 shadow-[0_0_15px_rgba(247,166,0,0.2)]">
                     @if (Auth::guard('admin')->user() && Auth::guard('admin')->user()->image)
                         <img src="{{ asset('storage/profile/' . Auth::guard('admin')->user()->image) }}"
                             alt="{{ Auth::guard('admin')->user()->name }}" class="w-full h-full object-cover rounded-xl">
@@ -313,7 +313,7 @@
                         <p class="text-xs font-bold text-white truncate">{{ Auth::guard('admin')->user()->name ?? 'Admin' }}</p>
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                     </div>
-                    <span class="text-[9px] font-mono text-cyan-400 block truncate">SUPER_ADMIN</span>
+                    <span class="text-[9px] font-mono text-amber-400 block truncate">SUPER_ADMIN</span>
                 </div>
 
                 <a href="{{ route('admin.account.profile') }}"
@@ -331,7 +331,7 @@
     <!-- ==================================================================================== -->
     <!-- MAIN CONTENT WRAPPER -->
     <!-- ==================================================================================== -->
-    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-[#050507] relative">
+    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-[#0b0e11] relative">
 
         @php
             $locale = app()->getLocale();
@@ -340,11 +340,11 @@
         @endphp
 
         <!-- Desktop Cyber-Command Top Bar -->
-        <header class="hidden lg:flex h-16 items-center justify-between px-8 border-b border-white/[0.08] bg-[#090c14]/80 backdrop-blur-xl z-20 shrink-0">
+        <header class="hidden lg:flex h-16 items-center justify-between px-8 border-b border-white/[0.08] bg-[#151a21]/80 backdrop-blur-xl z-20 shrink-0">
             {{-- Breadcrumb & Route Telemetry --}}
             <div class="flex items-center gap-3 font-mono text-xs">
                 <span class="px-2.5 py-1 rounded-full bg-white/[0.03] border border-white/[0.08] text-slate-400">
-                    ADMIN_CONSOLE // <strong class="text-cyan-400">{{ strtoupper($page_title ?? 'DASHBOARD') }}</strong>
+                    ADMIN_CONSOLE // <strong class="text-amber-400">{{ strtoupper($page_title ?? 'DASHBOARD') }}</strong>
                 </span>
                 <span class="text-slate-600">/</span>
                 <div class="flex items-center gap-2 text-emerald-400 font-bold text-[10px]">
@@ -357,8 +357,8 @@
             <div class="flex items-center gap-3">
                 {{-- View Frontend Live Preview Button --}}
                 <a href="{{ route('home') }}" target="_blank"
-                    class="px-3.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] hover:border-cyan-400/40 text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-2">
-                    <span class="text-cyan-400">↗</span>
+                    class="px-3.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] hover:border-amber-400/40 text-xs font-mono text-slate-300 hover:text-white transition-all flex items-center gap-2">
+                    <span class="text-amber-400">↗</span>
                     <span>{{ __('View Site') }}</span>
                 </a>
 
@@ -374,10 +374,10 @@
                     </button>
 
                     @if(count($languages) > 1)
-                    <div class="absolute right-0 top-full mt-2 w-40 bg-[#090c14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden p-1 z-50">
+                    <div class="absolute right-0 top-full mt-2 w-40 bg-[#151a21]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden p-1 z-50">
                         @foreach ($languages as $code => $lang)
                             <a href="{{ route('lang.switch', $code) }}"
-                                class="flex items-center gap-2.5 px-3 py-2 text-xs font-mono text-slate-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors {{ app()->getLocale() == $code ? 'bg-cyan-500/10 text-cyan-400 font-bold' : '' }}">
+                                class="flex items-center gap-2.5 px-3 py-2 text-xs font-mono text-slate-300 hover:text-white hover:bg-white/10 rounded-xl transition-colors {{ app()->getLocale() == $code ? 'bg-amber-500/10 text-amber-400 font-bold' : '' }}">
                                 <img src="{{ asset('assets/flags/' . ($lang['flag'] ?? 'us') . '.svg') }}"
                                     alt="{{ $lang['name'] }}" class="w-3.5 h-3.5 rounded-full object-cover">
                                 {{ $lang['name'] }}
@@ -392,7 +392,7 @@
                     $unreadNotificationsCount = isset($admin_unread_notifications) ? $admin_unread_notifications->count() : 0;
                 @endphp
                 <div class="relative">
-                    <button type="button" class="notification-btn relative w-9 h-9 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-cyan-400/40 text-slate-300 hover:text-white transition-all cursor-pointer">
+                    <button type="button" class="notification-btn relative w-9 h-9 flex items-center justify-center rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-amber-400/40 text-slate-300 hover:text-white transition-all cursor-pointer">
                         <span class="notification-badge absolute -top-1 -right-1 flex min-w-[16px] h-4 items-center justify-center rounded-full bg-rose-500 px-1 text-[9px] font-mono font-black text-white shadow-[0_0_10px_rgba(244,63,94,0.5)] {{ $unreadNotificationsCount > 0 ? '' : 'hidden' }}">
                             {{ $unreadNotificationsCount }}
                         </span>
@@ -401,17 +401,17 @@
                         </svg>
                     </button>
 
-                    <div class="notification-dropdown hidden absolute right-0 top-full mt-2 w-80 sm:w-96 bg-[#090c14]/98 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50 origin-top-right">
+                    <div class="notification-dropdown hidden absolute right-0 top-full mt-2 w-80 sm:w-96 bg-[#151a21]/98 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden z-50 origin-top-right">
                         <!-- List View -->
                         <div class="notification-list-view">
                             <div class="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between bg-white/[0.02]">
                                 <div class="flex items-center gap-2">
-                                    <svg class="w-3.5 h-3.5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-3.5 h-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path>
                                     </svg>
                                     <h3 class="text-xs font-mono font-bold text-white tracking-wider">{{ __('NOTIFICATIONS') }}</h3>
                                 </div>
-                                <span class="notification-count-text text-[10px] font-mono px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                                <span class="notification-count-text text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
                                     {{ $unreadNotificationsCount }} {{ __('New') }}
                                 </span>
                             </div>
@@ -421,13 +421,13 @@
                                     @foreach ($admin_unread_notifications as $notification)
                                         <div class="notification-item-trigger p-3.5 hover:bg-white/[0.03] transition-colors cursor-pointer group" data-id="{{ $notification->id }}">
                                             <div class="flex items-start gap-2.5">
-                                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 mt-1.5 shrink-0 animate-pulse"></span>
+                                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-1.5 shrink-0 animate-pulse"></span>
                                                 <div class="flex-1 min-w-0">
                                                     <div class="flex items-center justify-between gap-2 mb-1">
                                                         <div class="flex items-center gap-1.5 min-w-0">
                                                             @if ($notification->user)
                                                                 <a href="{{ route('admin.users.detail', ['id' => $notification->user_id]) }}"
-                                                                   class="text-xs font-mono font-bold text-cyan-400 hover:text-cyan-300 hover:underline truncate transition-colors z-10"
+                                                                   class="text-xs font-mono font-bold text-amber-400 hover:text-amber-300 hover:underline truncate transition-colors z-10"
                                                                    onclick="event.stopPropagation();"
                                                                    title="{{ __('View user profile') }}">
                                                                     {{ '@' . ($notification->user->username ?: ($notification->user->first_name ?: 'User')) }}
@@ -438,7 +438,7 @@
                                                         </div>
                                                         <span class="text-[10px] font-mono text-slate-500 shrink-0">{{ $notification->created_at->diffForHumans() }}</span>
                                                     </div>
-                                                    <p class="text-xs font-semibold text-white group-hover:text-cyan-300 transition-colors line-clamp-2 leading-relaxed">
+                                                    <p class="text-xs font-semibold text-white group-hover:text-amber-300 transition-colors line-clamp-2 leading-relaxed">
                                                         {{ __($notification->title) }}
                                                     </p>
                                                 </div>
@@ -458,7 +458,7 @@
                         <!-- Detail Views -->
                         @if(isset($admin_unread_notifications) && $admin_unread_notifications->count() > 0)
                             @foreach ($admin_unread_notifications as $notification)
-                                <div class="notification-detail-view hidden bg-[#090c14] flex flex-col h-80" data-id="{{ $notification->id }}">
+                                <div class="notification-detail-view hidden bg-[#151a21] flex flex-col h-80" data-id="{{ $notification->id }}">
                                     <div class="px-4 py-3 border-b border-white/[0.06] flex items-center justify-between shrink-0 bg-white/[0.02]">
                                         <div class="flex items-center gap-2">
                                             <button type="button" class="notification-back-btn p-1.5 -ml-1 text-slate-400 hover:text-white transition-colors hover:bg-white/10 rounded-lg">
@@ -470,7 +470,7 @@
                                         </div>
                                         @if ($notification->user)
                                             <a href="{{ route('admin.users.detail', ['id' => $notification->user_id]) }}"
-                                               class="text-xs font-mono text-cyan-400 hover:text-cyan-300 hover:underline flex items-center gap-1"
+                                               class="text-xs font-mono text-amber-400 hover:text-amber-300 hover:underline flex items-center gap-1"
                                                onclick="event.stopPropagation();"
                                                title="{{ __('View user profile') }}">
                                                 <span>{{ '@' . ($notification->user->username ?: ($notification->user->first_name ?: 'User')) }}</span>
@@ -503,8 +503,8 @@
 
                 {{-- Admin Profile Menu --}}
                 <div class="relative group">
-                    <button class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-cyan-400/40 text-white transition-all">
-                        <div class="w-6 h-6 rounded-full bg-cyan-500/20 text-cyan-400 font-mono font-bold text-xs flex items-center justify-center">
+                    <button class="flex items-center gap-2.5 pl-2 pr-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-amber-400/40 text-white transition-all">
+                        <div class="w-6 h-6 rounded-full bg-amber-500/20 text-amber-400 font-mono font-bold text-xs flex items-center justify-center">
                             {{ strtoupper(substr(Auth::guard('admin')->user()->name ?? 'A', 0, 1)) }}
                         </div>
                         <span class="text-xs font-bold">{{ Auth::guard('admin')->user()->name ?? 'Admin' }}</span>
@@ -513,13 +513,13 @@
                         </svg>
                     </button>
 
-                    <div class="absolute right-0 top-full mt-2 w-48 bg-[#090c14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden p-1.5 z-50 font-mono text-xs">
+                    <div class="absolute right-0 top-full mt-2 w-48 bg-[#151a21]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden p-1.5 z-50 font-mono text-xs">
                         <a href="{{ route('admin.account.profile') }}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 transition-colors">
-                            <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
+                            <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg>
                             <span>{{ __('Profile & Security') }}</span>
                         </a>
                         <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/10 transition-colors">
-                            <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
+                            <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/></svg>
                             <span>{{ __('System Settings') }}</span>
                         </a>
                         <div class="h-[1px] bg-white/[0.06] my-1"></div>
@@ -536,12 +536,12 @@
         </header>
 
         <!-- Mobile Header -->
-        <header class="lg:hidden h-16 flex items-center justify-between px-4 bg-[#090c14]/90 border-b border-white/[0.08] backdrop-blur-xl z-20 shrink-0">
+        <header class="lg:hidden h-16 flex items-center justify-between px-4 bg-[#151a21]/90 border-b border-white/[0.08] backdrop-blur-xl z-20 shrink-0">
             <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-2">
                 @if (getSetting('logo_square'))
                     <img src="{{ asset('assets/images/' . getSetting('logo_square')) }}" alt="{{ getSetting('name') }}" class="h-8 w-auto">
                 @else
-                    <span class="font-mono font-bold text-white text-lg">{{ substr(getSetting('name', 'F'), 0, 1) }}<span class="text-cyan-400">_ADM</span></span>
+                    <span class="font-mono font-bold text-white text-lg">{{ substr(getSetting('name', 'F'), 0, 1) }}<span class="text-amber-400">_ADM</span></span>
                 @endif
             </a>
 
@@ -556,7 +556,7 @@
 
         <!-- Mobile Drawer Navigation -->
         <div id="admin-mobile-drawer" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden lg:hidden flex-col">
-            <div class="p-4 bg-[#090c14] border-b border-white/10 flex items-center justify-between">
+            <div class="p-4 bg-[#151a21] border-b border-white/10 flex items-center justify-between">
                 <span class="font-mono font-bold text-white text-sm">{{ __('ADMIN MENU') }}</span>
                 <button onclick="toggleAdminMobileNav()" class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
@@ -564,7 +564,7 @@
                 @foreach ($admin_menu_items as $item)
                     @if ($item->children->isNotEmpty())
                         <div class="p-2 rounded-xl bg-white/[0.02] border border-white/[0.06]">
-                            <p class="text-xs font-bold text-cyan-400 mb-2">{{ __($item->label) }}</p>
+                            <p class="text-xs font-bold text-amber-400 mb-2">{{ __($item->label) }}</p>
                             <div class="pl-3 space-y-1">
                                 @foreach ($item->children as $child)
                                     <a href="{{ $child->link }}" class="block py-1.5 text-xs text-slate-300 font-mono">{{ __($child->label) }}</a>
@@ -598,7 +598,7 @@
         </main>
 
         <!-- Footer Bar -->
-        <footer class="h-10 border-t border-white/[0.06] bg-[#090c14]/40 flex items-center justify-between px-8 shrink-0 font-mono text-[10px] text-slate-500 z-10">
+        <footer class="h-10 border-t border-white/[0.06] bg-[#151a21]/40 flex items-center justify-between px-8 shrink-0 font-mono text-[10px] text-slate-500 z-10">
             <span>FOYANA PHP Script</span>
             <span>© {{ date('Y') }} {{ getSetting('name', 'FOYANA') }} · ALL_RIGHTS_RESERVED</span>
         </footer>
@@ -618,7 +618,7 @@
                     title: message,
                     showConfirmButton: false,
                     timer: 2000,
-                    background: '#090c14',
+                    background: '#151a21',
                     color: '#fff'
                 });
             } else {
@@ -638,7 +638,7 @@
                             title: successMsg,
                             showConfirmButton: false,
                             timer: 1500,
-                            background: '#090c14',
+                            background: '#151a21',
                             color: '#fff'
                         });
                     } else {
@@ -668,7 +668,7 @@
                         title: msg,
                         showConfirmButton: false,
                         timer: 1500,
-                        background: '#090c14',
+                        background: '#151a21',
                         color: '#fff'
                     });
                 }
@@ -728,13 +728,13 @@
                 html: `
                     <div class="flex flex-col items-center gap-3 py-3">
                         <div id="${containerId}" class="p-3 bg-white rounded-2xl shadow-2xl flex items-center justify-center"></div>
-                        <div class="w-full bg-black/50 p-2.5 rounded-xl border border-white/10 font-mono text-xs text-cyan-300 break-all select-all text-center mt-2">
+                        <div class="w-full bg-black/50 p-2.5 rounded-xl border border-white/10 font-mono text-xs text-amber-300 break-all select-all text-center mt-2">
                             ${address}
                         </div>
                         <p class="text-[11px] text-slate-400 font-mono">{{ __('Scan with your mobile wallet to send funds or transaction fees') }}</p>
                     </div>
                 `,
-                background: '#090c14',
+                background: '#151a21',
                 color: '#fff',
                 showCloseButton: true,
                 showCancelButton: true,
@@ -742,7 +742,7 @@
                 confirmButtonText: '{{ __('Copy Address') }}',
                 customClass: {
                     popup: 'border border-white/10 rounded-3xl shadow-2xl font-mono',
-                    confirmButton: 'px-4 py-2 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-xs tracking-wider transition-all cursor-pointer mr-2',
+                    confirmButton: 'px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-xs tracking-wider transition-all cursor-pointer mr-2',
                     cancelButton: 'px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold uppercase text-xs tracking-wider transition-all cursor-pointer'
                 },
                 didOpen: () => {

@@ -4,7 +4,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         .select2-container--default .select2-selection--single {
-            background: #05070d !important;
+            background: #0b0e11 !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             border-radius: 0.75rem !important;
             height: 46px !important;
@@ -12,8 +12,8 @@
             align-items: center !important;
         }
         .select2-container--default.select2-container--focus .select2-selection--single {
-            border-color: #00f5ff !important;
-            box-shadow: 0 0 10px rgba(0, 245, 255, 0.2) !important;
+            border-color: #f7a600 !important;
+            box-shadow: 0 0 10px rgba(247, 166, 0, 0.2) !important;
         }
         .select2-container--default .select2-selection--single .select2-selection__rendered {
             color: #fff !important;
@@ -22,14 +22,14 @@
             font-size: 12px !important;
         }
         .select2-dropdown {
-            background: #090c14 !important;
+            background: #151a21 !important;
             border: 1px solid rgba(255, 255, 255, 0.15) !important;
             border-radius: 0.75rem !important;
             color: #fff !important;
             z-index: 9999 !important;
         }
         .select2-search--dropdown .select2-search__field {
-            background: #05070d !important;
+            background: #0b0e11 !important;
             border: 1px solid rgba(255, 255, 255, 0.1) !important;
             border-radius: 0.5rem !important;
             color: #fff !important;
@@ -41,8 +41,8 @@
             padding: 8px 12px !important;
         }
         .select2-results__option--highlighted[aria-selected] {
-            background: rgba(0, 245, 255, 0.15) !important;
-            color: #00f5ff !important;
+            background: rgba(247, 166, 0, 0.15) !important;
+            color: #f7a600 !important;
         }
     </style>
 @endpush
@@ -55,11 +55,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('FINANCIAL SETTINGS') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Financial Settings & Limits') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -69,7 +69,7 @@
 
             <div class="flex items-center gap-3 text-xs">
                 <button type="button" onclick="$('#financial-settings-form').submit()"
-                    class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(0,245,255,0.3)] flex items-center gap-2 cursor-pointer">
+                    class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(247,166,0,0.3)] flex items-center gap-2 cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                     </svg>
@@ -86,7 +86,7 @@
             {{-- Left Navigation Deck --}}
             <div class="lg:col-span-4 xl:col-span-3">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                         @include("templates.$template.blades.admin.settings.partials.sidebar")
                     </div>
                 </div>
@@ -98,13 +98,13 @@
                     @csrf
 
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-10 space-y-10 text-xs">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-10 space-y-10 text-xs">
                             
                             {{-- SECTION 1: CURRENCY PREFERENCES --}}
                             <div class="space-y-6">
                                 <div class="pb-3 border-b border-white/[0.06] flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold">
+                                        <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-bold">
                                             01
                                         </div>
                                         <div>
@@ -131,7 +131,7 @@
 
                                     <div class="space-y-2">
                                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Symbol Position') }}</label>
-                                        <select name="currency_position" class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                        <select name="currency_position" class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                             <option value="before" {{ getSetting('currency_symbol_position') == 'before' ? 'selected' : '' }}>{{ __('Prefix: $100.00') }}</option>
                                             <option value="after" {{ getSetting('currency_symbol_position') == 'after' ? 'selected' : '' }}>{{ __('Suffix: 100.00$') }}</option>
                                         </select>
@@ -140,7 +140,7 @@
                                     <div class="space-y-2">
                                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Decimal Places') }}</label>
                                         <input type="number" name="decimal_places" value="{{ getSetting('decimal_places', 2) }}" min="0" max="8" required
-                                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                     </div>
                                 </div>
                             </div>
@@ -149,7 +149,7 @@
                             <div class="space-y-6 pt-6 border-t border-white/[0.06]">
                                 <div class="pb-3 border-b border-white/[0.06] flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold">
+                                        <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-bold">
                                             02
                                         </div>
                                         <div>
@@ -165,7 +165,7 @@
                                         <div class="relative">
                                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dynamic-currency-symbol font-bold">{{ getSetting('currency_symbol') }}</span>
                                             <input type="number" name="min_deposit" value="{{ getSetting('min_deposit', 1) }}" step="0.01" min="0" required
-                                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
+                                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
                                         </div>
                                     </div>
 
@@ -174,20 +174,20 @@
                                         <div class="relative">
                                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dynamic-currency-symbol font-bold">{{ getSetting('currency_symbol') }}</span>
                                             <input type="number" name="max_deposit" value="{{ getSetting('max_deposit', 60000) }}" step="0.01" min="0" required
-                                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
+                                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
                                         </div>
                                     </div>
 
                                     <div class="space-y-2">
                                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Deposit Fee (%)') }}</label>
                                         <input type="number" name="deposit_fee" value="{{ getSetting('deposit_fee', 0) }}" step="0.01" min="0" required
-                                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                     </div>
 
                                     <div class="space-y-2">
                                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Deposit Expiry (Hours)') }}</label>
                                         <input type="number" name="deposit_expires_at" value="{{ getSetting('deposit_expires_at', 24) }}" step="1" min="1" required
-                                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                     </div>
                                 </div>
                             </div>
@@ -196,7 +196,7 @@
                             <div class="space-y-6 pt-6 border-t border-white/[0.06]">
                                 <div class="pb-3 border-b border-white/[0.06] flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 flex items-center justify-center font-bold">
+                                        <div class="w-8 h-8 rounded-xl bg-amber-500/10 text-amber-400 border border-amber-500/20 flex items-center justify-center font-bold">
                                             03
                                         </div>
                                         <div>
@@ -212,7 +212,7 @@
                                         <div class="relative">
                                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dynamic-currency-symbol font-bold">{{ getSetting('currency_symbol') }}</span>
                                             <input type="number" name="min_withdrawal" value="{{ getSetting('min_withdrawal', 10) }}" step="0.01" min="0" required
-                                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
+                                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
                                         </div>
                                     </div>
 
@@ -221,14 +221,14 @@
                                         <div class="relative">
                                             <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 dynamic-currency-symbol font-bold">{{ getSetting('currency_symbol') }}</span>
                                             <input type="number" name="max_withdrawal" value="{{ getSetting('max_withdrawal', 50000) }}" step="0.01" min="0" required
-                                                class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
+                                                class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl pl-10 pr-4 py-3 text-xs focus:outline-none">
                                         </div>
                                     </div>
 
                                     <div class="space-y-2">
                                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Withdrawal Fee (%)') }}</label>
                                         <input type="number" name="withdrawal_fee" value="{{ getSetting('withdrawal_fee', 0) }}" step="0.01" min="0" required
-                                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                     </div>
                                 </div>
                             </div>
@@ -236,7 +236,7 @@
                             {{-- SUBMIT BUTTON --}}
                             <div class="pt-6 border-t border-white/[0.06] flex items-center justify-end">
                                 <button type="submit" id="submit-btn"
-                                    class="px-8 py-3.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-xs tracking-wider transition-all shadow-[0_0_20px_rgba(0,245,255,0.3)] flex items-center gap-2 cursor-pointer">
+                                    class="px-8 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-xs tracking-wider transition-all shadow-[0_0_20px_rgba(247,166,0,0.3)] flex items-center gap-2 cursor-pointer">
                                     <svg class="w-4 h-4 submit-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
@@ -278,7 +278,7 @@
                 return $(`
                     <div class="flex items-center justify-between gap-4 py-0.5">
                         <span class="text-xs font-bold text-white">${curr.text}</span>
-                        <span class="text-[10px] text-cyan-400 font-bold bg-white/5 px-2 py-0.5 rounded">${$el.data('symbol')}</span>
+                        <span class="text-[10px] text-amber-400 font-bold bg-white/5 px-2 py-0.5 rounded">${$el.data('symbol')}</span>
                     </div>
                 `);
             }
@@ -314,7 +314,7 @@
                             title: response.message || '{{ __('Financial rules updated.') }}',
                             showConfirmButton: false,
                             timer: 2000,
-                            customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                            customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                         });
                     },
                     error: function(xhr) {
@@ -322,7 +322,7 @@
                             icon: 'error',
                             title: '{{ __('Error') }}',
                             text: xhr.responseJSON?.message || '{{ __('Failed to save financial settings.') }}',
-                            customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                            customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                         });
                     },
                     complete: function() {

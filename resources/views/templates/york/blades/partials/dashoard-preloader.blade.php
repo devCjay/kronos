@@ -1,10 +1,10 @@
 @if (getSetting('preloader', 'enabled') === 'enabled')
     <div id="dashboard-preloader"
-        class="fixed inset-0 z-[99999] bg-[#050507]/95 backdrop-blur-2xl flex flex-col items-center justify-center font-mono select-none overflow-hidden transition-all duration-500 ease-out">
+        class="fixed inset-0 z-[99999] bg-[#0b0e11]/95 backdrop-blur-2xl flex flex-col items-center justify-center font-mono select-none overflow-hidden transition-all duration-500 ease-out">
         
         {{-- Ambient Glow Orbs --}}
-        <div class="absolute w-96 h-96 bg-cyan-500/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 4s;"></div>
-        <div class="absolute w-80 h-80 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 6s;"></div>
+        <div class="absolute w-96 h-96 bg-amber-500/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 4s;"></div>
+        <div class="absolute w-80 h-80 bg-orange-600/10 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 6s;"></div>
 
         {{-- Center Emblem Container --}}
         <div class="relative flex flex-col items-center justify-center z-10">
@@ -30,8 +30,8 @@
                 </svg>
 
                 {{-- Center Glowing Medallion --}}
-                <div class="relative w-20 h-20 rounded-2xl bg-[#090c14] border border-white/[0.12] p-3 flex items-center justify-center shadow-[0_0_35px_rgba(6,182,212,0.25)] ring-1 ring-cyan-400/20 backdrop-blur-xl group">
-                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-400/10 via-transparent to-purple-500/10 rounded-2xl"></div>
+                <div class="relative w-20 h-20 rounded-2xl bg-[#151a21] border border-white/[0.12] p-3 flex items-center justify-center shadow-[0_0_35px_rgba(6,182,212,0.25)] ring-1 ring-amber-400/20 backdrop-blur-xl group">
+                    <div class="absolute inset-0 bg-gradient-to-br from-amber-400/10 via-transparent to-orange-500/10 rounded-2xl"></div>
                     @php
                         $favicon = getSetting('favicon');
                         $logo = getSetting('logo_rectangle');
@@ -41,7 +41,7 @@
                     @elseif ($logo)
                         <img src="{{ asset('assets/images/' . $logo) }}" alt="{{ getSetting('name') }}" class="w-10 h-10 object-contain relative z-10 drop-shadow-[0_0_12px_rgba(6,182,212,0.6)]">
                     @else
-                        <span class="text-xl font-bold font-mono text-cyan-400 relative z-10 drop-shadow-[0_0_10px_rgba(6,182,212,0.8)]">
+                        <span class="text-xl font-bold font-mono text-amber-400 relative z-10 drop-shadow-[0_0_10px_rgba(6,182,212,0.8)]">
                             {{ substr(getSetting('name', 'F'), 0, 1) }}
                         </span>
                     @endif
@@ -57,13 +57,13 @@
 
                 {{-- Precision Horizontal Micro Progress Bar --}}
                 <div class="w-44 h-[2px] bg-white/[0.08] rounded-full overflow-hidden relative">
-                    <div id="preloader-progress-bar" class="h-full bg-gradient-to-r from-cyan-400 via-cyan-500 to-blue-600 w-0 rounded-full transition-all duration-300 ease-out shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
+                    <div id="preloader-progress-bar" class="h-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 w-0 rounded-full transition-all duration-300 ease-out shadow-[0_0_10px_rgba(6,182,212,0.8)]"></div>
                 </div>
 
                 <div class="flex items-center gap-1.5 text-[10px] font-mono text-slate-400 pt-1 tracking-widest uppercase">
                     <span>{{ getSetting('name') }}</span>
                     <span class="text-slate-600">•</span>
-                    <span class="text-cyan-400/90">{{ __('Encrypted Session') }}</span>
+                    <span class="text-amber-400/90">{{ __('Encrypted Session') }}</span>
                 </div>
             </div>
         </div>

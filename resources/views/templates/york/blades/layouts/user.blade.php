@@ -31,7 +31,7 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: rgba(0, 245, 255, 0.2);
+            background: rgba(247, 166, 0, 0.2);
             /* cyan with low opacity */
             border-radius: 10px;
             transition: background 0.3s ease;
@@ -39,14 +39,14 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: rgba(0, 245, 255, 0.5);
+            background: rgba(247, 166, 0, 0.5);
             /* brighter on hover */
         }
 
         /* Firefox support */
         * {
             scrollbar-width: thin;
-            scrollbar-color: rgba(0, 245, 255, 0.2) transparent;
+            scrollbar-color: rgba(247, 166, 0, 0.2) transparent;
         }
 
         /* 1. Sidebar width and items alignment */

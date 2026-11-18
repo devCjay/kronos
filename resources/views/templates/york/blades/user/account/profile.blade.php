@@ -4,8 +4,8 @@
 <div class="min-h-screen relative space-y-12 pb-24">
 
     {{-- Global Ethereal Ambient Mesh Gradients --}}
-    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-purple-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-cyan-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-orange-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
+    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-amber-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto space-y-10">
 
@@ -57,7 +57,7 @@
                                 @if ($user->photo)
                                     <img id="image-preview" src="{{ asset('storage/profile/' . $user->photo) }}" class="w-full h-full object-cover rounded-[1.75rem]">
                                 @else
-                                    <div id="image-placeholder" class="w-full h-full bg-gradient-to-br from-accent-primary/30 to-purple-600/20 rounded-[1.75rem] flex items-center justify-center text-accent-primary font-black text-4xl">
+                                    <div id="image-placeholder" class="w-full h-full bg-gradient-to-br from-accent-primary/30 to-orange-600/20 rounded-[1.75rem] flex items-center justify-center text-accent-primary font-black text-4xl">
                                         {{ strtoupper(substr($user->first_name, 0, 1)) }}
                                     </div>
                                     <img id="image-preview" class="w-full h-full object-cover rounded-[1.75rem] hidden">

@@ -13,7 +13,7 @@
 
     {{-- Global Ethereal Ambient Mesh Gradients --}}
     <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-emerald-500/10 via-accent-primary/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-purple-500/5 via-cyan-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-orange-500/5 via-amber-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto space-y-12">
 
@@ -87,7 +87,7 @@
             <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
                 <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Total Trades') }}</span>
-                    <div class="text-3xl font-black text-purple-400 font-mono tracking-tight">{{ number_format($stats['total_trades']) }}</div>
+                    <div class="text-3xl font-black text-orange-400 font-mono tracking-tight">{{ number_format($stats['total_trades']) }}</div>
                 </div>
             </div>
 
@@ -133,7 +133,7 @@
                                 <h4 class="text-lg font-black text-white tracking-tight">{{ __('Exchanges') }}</h4>
                                 <p class="text-[9px] font-bold uppercase tracking-widest text-slate-500 mt-0.5">{{ __('Profit by Exchange') }}</p>
                             </div>
-                            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-purple-400">
+                            <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-orange-400">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 01-2-2m14 0V9a2 2 0 01-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>
                             </div>
                         </div>
@@ -251,7 +251,7 @@ $(document).ready(function() {
         ...donutBaseOptions,
         series: @json(array_values($stats['distribution_by_pair'] ?? [])),
         labels: @json(array_keys($stats['distribution_by_pair'] ?? [])),
-        colors: ['#e2b13c', '#10b981', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']
+        colors: ['#f7a600', '#10b981', '#3b82f6', '#8b5cf6', '#ec4899', '#f59e0b']
     });
     pairChart.render();
 
@@ -260,7 +260,7 @@ $(document).ready(function() {
         ...donutBaseOptions,
         series: @json(array_values($stats['distribution_by_exchange'] ?? [])),
         labels: @json(array_keys($stats['distribution_by_exchange'] ?? [])),
-        colors: ['#8b5cf6', '#3b82f6', '#10b981', '#e2b13c', '#06b6d4', '#f43f5e']
+        colors: ['#8b5cf6', '#3b82f6', '#10b981', '#f7a600', '#06b6d4', '#f43f5e']
     });
     exchangeChart.render();
 
@@ -269,7 +269,7 @@ $(document).ready(function() {
         ...donutBaseOptions,
         series: @json(array_values($stats['distribution_by_type'] ?? [])),
         labels: @json(array_keys($stats['distribution_by_type'] ?? [])),
-        colors: ['#10b981', '#e2b13c', '#8b5cf6', '#06b6d4', '#3b82f6']
+        colors: ['#10b981', '#f7a600', '#8b5cf6', '#06b6d4', '#3b82f6']
     });
     typeChart.render();
 

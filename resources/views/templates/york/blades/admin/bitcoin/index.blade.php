@@ -90,8 +90,8 @@
                         </div>
 
                         {{-- 1. Private Key Encryption Security Notice (Cyan) --}}
-                        <div class="p-4 bg-cyan-500/[0.04] border border-cyan-500/20 rounded-xl flex items-start gap-3.5 font-mono text-xs">
-                            <div class="p-2 rounded-lg bg-cyan-500/10 text-cyan-400 shrink-0 mt-0.5">
+                        <div class="p-4 bg-amber-500/[0.04] border border-amber-500/20 rounded-xl flex items-start gap-3.5 font-mono text-xs">
+                            <div class="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0 mt-0.5">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg>
@@ -124,9 +124,9 @@
                         </div>
 
                         {{-- 3. Blockchain Settings & RPC Notice (Indigo) --}}
-                        <div class="p-4 bg-indigo-500/[0.04] border border-indigo-500/20 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
+                        <div class="p-4 bg-orange-500/[0.04] border border-orange-500/20 rounded-xl flex flex-col sm:flex-row sm:items-center justify-between gap-3 font-mono text-xs">
                             <div class="flex items-start gap-3.5">
-                                <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400 shrink-0 mt-0.5">
+                                <div class="p-2 rounded-lg bg-orange-500/10 text-orange-400 shrink-0 mt-0.5">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
@@ -141,7 +141,7 @@
                                 </div>
                             </div>
                             <a href="{{ route('admin.settings.blockchain.index') }}"
-                               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-indigo-500/10 hover:bg-indigo-500/25 text-indigo-300 hover:text-white border border-indigo-500/30 text-[9px] font-bold uppercase tracking-wider transition-all shrink-0 self-end sm:self-auto cursor-pointer">
+                               class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-orange-500/10 hover:bg-orange-500/25 text-orange-300 hover:text-white border border-orange-500/30 text-[9px] font-bold uppercase tracking-wider transition-all shrink-0 self-end sm:self-auto cursor-pointer">
                                 <span>{{ __('Blockchain Settings') }}</span>
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
                             </a>
@@ -173,7 +173,7 @@
                                             <span>{{ __('Copy') }}</span>
                                         </button>
                                         <button type="button" onclick="toggleWalletQr('bitcoin-qr-panel', 'bitcoin-qr-canvas', '{{ addslashes($masterAddress) }}')"
-                                                class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold text-slate-300 uppercase tracking-wider hover:bg-white/10 hover:text-cyan-400 hover:border-cyan-500/30 transition-all active:scale-95 cursor-pointer"
+                                                class="flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-[10px] font-bold text-slate-300 uppercase tracking-wider hover:bg-white/10 hover:text-amber-400 hover:border-amber-500/30 transition-all active:scale-95 cursor-pointer"
                                                 title="{{ __('Show QR Code') }}">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                 <rect x="3" y="3" width="7" height="7" rx="1"></rect>
@@ -197,8 +197,8 @@
                                         </div>
                                         <div class="space-y-1.5 text-center sm:text-left min-w-0 flex-1">
                                             <div class="flex items-center justify-center sm:justify-between gap-2">
-                                                <span class="text-[10px] font-bold uppercase tracking-wider text-cyan-400 flex items-center gap-1.5 font-mono">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                                                <span class="text-[10px] font-bold uppercase tracking-wider text-amber-400 flex items-center gap-1.5 font-mono">
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                                                     {{ __('Bitcoin Master Address') }}
                                                 </span>
                                                 <button type="button" onclick="toggleWalletQr('bitcoin-qr-panel')" class="text-slate-500 hover:text-white p-1 text-xs cursor-pointer" title="{{ __('Close') }}">✕</button>
@@ -305,7 +305,7 @@
             confirmButtonText: '{{ __('Proceed') }}',
             confirmButtonColor: force ? '#d33' : '#3085d6',
             cancelButtonColor: '#1e293b',
-            background: '#12131a',
+            background: '#1a1f27',
             color: '#fff'
         }).then((result) => {
             if (result.isConfirmed) {
@@ -313,7 +313,7 @@
                     title: '{{ __('Processing...') }}',
                     text: '{{ __('Generating keys...') }}',
                     allowOutsideClick: false,
-                    background: '#12131a',
+                    background: '#1a1f27',
                     color: '#fff',
                     didOpen: () => {
                         Swal.showLoading();
@@ -333,7 +333,7 @@
                                 icon: 'success',
                                 title: '{{ __('Success!') }}',
                                 text: res.message,
-                                background: '#12131a',
+                                background: '#1a1f27',
                                 color: '#fff'
                             }).then(() => {
                                 window.location.reload();
@@ -349,7 +349,7 @@
                             icon: 'error',
                             title: '{{ __('Error') }}',
                             text: msg,
-                            background: '#12131a',
+                            background: '#1a1f27',
                             color: '#fff'
                         });
                     }
@@ -371,7 +371,7 @@
             confirmButtonText: '{{ __('Confirm') }}',
             confirmButtonColor: '#10b981',
             cancelButtonColor: '#1e293b',
-            background: '#12131a',
+            background: '#1a1f27',
             color: '#fff',
             showLoaderOnConfirm: true,
             preConfirm: (password) => {

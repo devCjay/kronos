@@ -7,11 +7,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('TRADE HISTORY') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Trading Bot History') }}
                 </h1>
                 <p class="text-slate-400 font-mono text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -23,14 +23,14 @@
             <div class="flex flex-wrap items-center gap-2.5 font-mono text-xs">
                 <a href="{{ route('admin.trading-bots.index') }}"
                     class="px-4 py-2.5 rounded-xl bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.1] text-slate-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer">
-                    <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
                     </svg>
                     <span>{{ __('Trading Bots') }}</span>
                 </a>
 
                 <button type="button" onclick="openExportModal()"
-                    class="px-4 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(0,245,255,0.3)] cursor-pointer">
+                    class="px-4 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(247,166,0,0.3)] cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -44,12 +44,12 @@
         {{-- ==================================================================================== --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between font-mono">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Total Trading Volume') }}</span>
                         <span class="text-xl font-black text-white">{{ showAmount($stats['total_volume']) }}</span>
                     </div>
-                    <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                    <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
                         </svg>
@@ -58,7 +58,7 @@
             </div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between font-mono">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Total Profit Generated') }}</span>
                         <span class="text-xl font-black text-emerald-400">+{{ showAmount($stats['total_profit']) }}</span>
@@ -72,12 +72,12 @@
             </div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between font-mono">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Total Trades') }}</span>
-                        <span class="text-xl font-black text-purple-400">{{ number_format($stats['total_trades']) }}</span>
+                        <span class="text-xl font-black text-orange-400">{{ number_format($stats['total_trades']) }}</span>
                     </div>
-                    <div class="w-11 h-11 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center">
+                    <div class="w-11 h-11 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
                         </svg>
@@ -86,12 +86,12 @@
             </div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-5 flex items-center justify-between font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-5 flex items-center justify-between font-mono">
                     <div>
                         <span class="text-[9px] uppercase font-bold text-slate-400 tracking-wider block mb-1">{{ __('Win Rate') }}</span>
-                        <span class="text-xl font-black text-cyan-300">{{ $stats['win_rate'] }}</span>
+                        <span class="text-xl font-black text-amber-300">{{ $stats['win_rate'] }}</span>
                     </div>
-                    <div class="w-11 h-11 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center">
+                    <div class="w-11 h-11 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -104,15 +104,15 @@
         {{-- DATA TABLE CHASSIS (Double-Bezel) --}}
         {{-- ==================================================================================== --}}
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-            <div class="rounded-[2rem] bg-[#090c14]/95 overflow-hidden font-mono">
+            <div class="rounded-[2rem] bg-[#151a21]/95 overflow-hidden font-mono">
 
                 {{-- Table Toolbar --}}
                 <div class="p-6 border-b border-white/[0.06] flex flex-col lg:flex-row justify-between items-center gap-4 text-xs">
                     <form action="{{ route('admin.trading-bots.logs.index') }}" method="GET" class="flex flex-wrap items-center gap-2.5 w-full lg:w-auto">
                         <input type="text" name="search" value="{{ request('search') }}" placeholder="{{ __('Search pair, bot or user...') }}" 
-                            class="bg-[#05070d] border border-white/[0.1] focus:border-cyan-400 text-white rounded-xl px-4 py-2 text-xs focus:outline-none transition-all w-full sm:w-64">
+                            class="bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-2 text-xs focus:outline-none transition-all w-full sm:w-64">
 
-                        <button type="submit" class="p-2 rounded-xl bg-cyan-400 text-black hover:bg-cyan-300 font-bold transition-all cursor-pointer">
+                        <button type="submit" class="p-2 rounded-xl bg-amber-400 text-black hover:bg-amber-300 font-bold transition-all cursor-pointer">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                             </svg>
@@ -139,11 +139,11 @@
                                     {{-- User --}}
                                     <td class="p-5">
                                         <div class="flex items-center gap-3">
-                                            <div class="w-8 h-8 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center font-bold text-xs shrink-0">
+                                            <div class="w-8 h-8 rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-xs shrink-0">
                                                 {{ substr($log->user?->username ?? 'U', 0, 2) }}
                                             </div>
                                             <div>
-                                                <a href="{{ route('admin.users.detail', $log->user_id) }}" class="text-white hover:text-cyan-300 font-bold block leading-tight">
+                                                <a href="{{ route('admin.users.detail', $log->user_id) }}" class="text-white hover:text-amber-300 font-bold block leading-tight">
                                                     {{ $log->user?->fullname ?? $log->user?->username ?? 'N/A' }}
                                                 </a>
                                                 <span class="text-[10px] text-slate-500 block">@<span>{{ $log->user?->username ?? 'user' }}</span></span>
@@ -160,7 +160,7 @@
                                     {{-- Pair & Venue --}}
                                     <td class="p-5">
                                         <div class="flex items-center gap-2">
-                                            <span class="px-2 py-0.5 rounded-md bg-cyan-500/10 text-cyan-300 border border-cyan-500/20 text-[10px] font-bold uppercase">
+                                            <span class="px-2 py-0.5 rounded-md bg-amber-500/10 text-amber-300 border border-amber-500/20 text-[10px] font-bold uppercase">
                                                 {{ $log->pair }}
                                             </span>
                                             @if($log->exchange)
@@ -209,9 +209,9 @@
     </div>
 
     {{-- Export Modal --}}
-    <div id="exportModal" class="hidden fixed inset-0 bg-[#05070d]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
+    <div id="exportModal" class="hidden fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.05] border border-white/[0.1] w-full max-w-md">
-            <div class="rounded-[2rem] bg-[#090c14] p-8 space-y-6 font-mono">
+            <div class="rounded-[2rem] bg-[#151a21] p-8 space-y-6 font-mono">
                 <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                     <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Export Trade History') }}</h3>
                     <button type="button" onclick="closeExportModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -228,9 +228,9 @@
                         'profit_percentage' => 'Profit Percentage (%)',
                         'created_at' => 'Trade Date',
                     ] as $key => $label)
-                        <label class="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.02] border border-white/[0.08] cursor-pointer hover:border-cyan-400/40">
+                        <label class="flex items-center gap-2.5 p-2 rounded-xl bg-white/[0.02] border border-white/[0.08] cursor-pointer hover:border-amber-400/40">
                             <input type="checkbox" name="export_cols[]" value="{{ $key }}" checked 
-                                class="w-3.5 h-3.5 rounded border-white/20 bg-white/5 text-cyan-400 accent-cyan-400 cursor-pointer">
+                                class="w-3.5 h-3.5 rounded border-white/20 bg-white/5 text-amber-400 accent-amber-400 cursor-pointer">
                             <span class="text-slate-300 text-[11px]">{{ __($label) }}</span>
                         </label>
                     @endforeach
@@ -239,7 +239,7 @@
                 <div class="pt-4 border-t border-white/[0.06] grid grid-cols-3 gap-2 text-xs">
                     @foreach(['pdf' => 'PDF', 'csv' => 'CSV', 'sql' => 'SQL'] as $type => $label)
                         <button type="button" onclick="handleExport('{{ $type }}')" 
-                            class="py-3 rounded-xl bg-white/[0.04] hover:bg-cyan-400 hover:text-black border border-white/[0.1] text-white font-bold uppercase tracking-wider transition-all cursor-pointer">
+                            class="py-3 rounded-xl bg-white/[0.04] hover:bg-amber-400 hover:text-black border border-white/[0.1] text-white font-bold uppercase tracking-wider transition-all cursor-pointer">
                             {{ $label }}
                         </button>
                     @endforeach

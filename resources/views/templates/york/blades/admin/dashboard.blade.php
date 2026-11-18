@@ -6,11 +6,11 @@
         {{-- Top Header --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('OVERVIEW') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Admin Dashboard') }}
                 </h1>
                 <p class="text-slate-400 font-mono text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -30,7 +30,7 @@
             <div class="space-y-3">
                 @foreach ($master_wallet_warnings as $warning)
                     <div class="p-1 rounded-[2rem] bg-rose-500/5 border border-rose-500/20 backdrop-blur-xl group hover:border-rose-500/40 transition-all duration-300 relative overflow-hidden">
-                        <div class="rounded-[1.75rem] bg-[#090c14]/90 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="rounded-[1.75rem] bg-[#151a21]/90 p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div class="flex items-center gap-3.5">
                                 <div class="w-11 h-11 rounded-2xl bg-rose-500/10 border border-rose-500/20 text-rose-400 flex items-center justify-center shrink-0">
                                     @if ($warning['type'] === 'missing')
@@ -53,7 +53,7 @@
                                 </div>
                             </div>
                             <a href="{{ $warning['url'] }}"
-                                class="px-5 py-2.5 rounded-full bg-rose-500 hover:bg-rose-400 text-[#050507] font-black text-xs uppercase tracking-wider transition-all duration-300 font-mono shrink-0 shadow-[0_0_20px_rgba(244,63,94,0.3)]">
+                                class="px-5 py-2.5 rounded-full bg-rose-500 hover:bg-rose-400 text-[#0b0e11] font-black text-xs uppercase tracking-wider transition-all duration-300 font-mono shrink-0 shadow-[0_0_20px_rgba(244,63,94,0.3)]">
                                 {{ __('Configure Master Wallet') }} ↗
                             </a>
                         </div>
@@ -69,19 +69,19 @@
 
             {{-- ══ CARD 1 · USERS CARD ══ --}}
             @php $u = $top_cards['users']; @endphp
-            <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] hover:border-cyan-400/40 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+            <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] hover:border-amber-400/40 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden group">
                 {{-- Laser Top Accent --}}
-                <div class="absolute top-0 left-12 right-12 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+                <div class="absolute top-0 left-12 right-12 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
-                <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                     <div>
                         {{-- Sub-Header --}}
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></span>
                                 <span class="text-xs font-mono font-bold text-white uppercase tracking-widest">{{ __('Users') }}</span>
                             </div>
-                            <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold">
+                            <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold">
                                 <span>TODAY</span>
                                 <span class="text-white font-black">+{{ number_format($u['new_users_today']) }}</span>
                             </div>
@@ -89,7 +89,7 @@
 
                         {{-- Metric Counter --}}
                         <div class="mb-6">
-                            <div class="text-5xl sm:text-6xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-br from-white via-cyan-100 to-slate-400 tracking-tight leading-none">
+                            <div class="text-5xl sm:text-6xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-br from-white via-amber-100 to-slate-400 tracking-tight leading-none">
                                 {{ number_format($u['total']) }}
                             </div>
                             <div class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mt-2">
@@ -109,7 +109,7 @@
                             </div>
                             <div class="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-3 text-center hover:bg-white/[0.04] transition-all">
                                 <span class="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 block mb-1">{{ __('Joined Today') }}</span>
-                                <span class="text-base font-bold font-mono text-cyan-400">{{ number_format($u['new_users_today']) }}</span>
+                                <span class="text-base font-bold font-mono text-amber-400">{{ number_format($u['new_users_today']) }}</span>
                             </div>
                         </div>
 
@@ -139,10 +139,10 @@
                     {{-- Action Button --}}
                     <div class="mt-6 pt-4 border-t border-white/[0.06]">
                         <a href="{{ route('admin.users.index') }}"
-                            class="w-full pl-6 pr-2 py-2.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-between group/btn">
+                            class="w-full pl-6 pr-2 py-2.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 hover:border-amber-400 text-amber-300 font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-between group/btn">
                             <span>{{ __('View All Users') }}</span>
-                            <span class="w-8 h-8 rounded-full bg-cyan-400/20 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
-                                <svg class="w-4 h-4 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            <span class="w-8 h-8 rounded-full bg-amber-400/20 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                <svg class="w-4 h-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </span>
                         </a>
                     </div>
@@ -151,16 +151,16 @@
 
             {{-- ══ CARD 2 · PLATFORM BALANCE CARD ══ --}}
             @php $eq = $top_cards['system_equity']; @endphp
-            <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] hover:border-purple-400/40 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden group">
+            <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] hover:border-orange-400/40 backdrop-blur-2xl transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden group">
                 {{-- Laser Top Accent --}}
-                <div class="absolute top-0 left-12 right-12 h-[1.5px] bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
+                <div class="absolute top-0 left-12 right-12 h-[1.5px] bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
 
-                <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                     <div>
                         {{-- Sub-Header --}}
                         <div class="flex items-center justify-between mb-6">
                             <div class="flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#a855f7]"></span>
+                                <span class="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_8px_#a855f7]"></span>
                                 <span class="text-xs font-mono font-bold text-white uppercase tracking-widest">{{ __('Platform Money') }}</span>
                             </div>
                             <div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold">
@@ -171,7 +171,7 @@
 
                         {{-- Metric Counter --}}
                         <div class="mb-6">
-                            <div class="text-5xl sm:text-6xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-br from-white via-purple-100 to-slate-400 tracking-tight leading-none">
+                            <div class="text-5xl sm:text-6xl font-black font-mono text-transparent bg-clip-text bg-gradient-to-br from-white via-orange-100 to-slate-400 tracking-tight leading-none">
                                 {{ showAmount($eq['total']) }}
                             </div>
                             <div class="text-[10px] text-slate-500 uppercase tracking-widest font-mono mt-2">
@@ -194,10 +194,10 @@
                     {{-- Action Button --}}
                     <div class="mt-6 pt-4 border-t border-white/[0.06]">
                         <a href="{{ route('admin.transactions.index') }}"
-                            class="w-full pl-6 pr-2 py-2.5 rounded-full bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/30 hover:border-purple-400 text-purple-300 font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-between group/btn">
+                            class="w-full pl-6 pr-2 py-2.5 rounded-full bg-orange-500/10 hover:bg-orange-500/20 border border-orange-500/30 hover:border-orange-400 text-orange-300 font-bold text-xs uppercase tracking-wider transition-all duration-300 flex items-center justify-between group/btn">
                             <span>{{ __('View All Transactions') }}</span>
-                            <span class="w-8 h-8 rounded-full bg-purple-400/20 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
-                                <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            <span class="w-8 h-8 rounded-full bg-orange-400/20 flex items-center justify-center group-hover/btn:translate-x-1 transition-transform">
+                                <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </span>
                         </a>
                     </div>
@@ -245,18 +245,18 @@
                     $href = $exists ? route($btn['route_name']) : '#';
                 @endphp
                 <a href="{{ $href }}"
-                    class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-cyan-400/40 hover:bg-white/[0.04] transition-all duration-300 flex items-center justify-between group cursor-pointer {{ !$exists ? 'opacity-40 pointer-events-none' : '' }}">
+                    class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/40 hover:bg-white/[0.04] transition-all duration-300 flex items-center justify-between group cursor-pointer {{ !$exists ? 'opacity-40 pointer-events-none' : '' }}">
                     <div class="flex items-center gap-3">
-                        <div class="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] group-hover:border-cyan-400/30 text-slate-300 group-hover:text-cyan-400 flex items-center justify-center transition-colors">
+                        <div class="w-9 h-9 rounded-xl bg-white/[0.04] border border-white/[0.08] group-hover:border-amber-400/30 text-slate-300 group-hover:text-amber-400 flex items-center justify-center transition-colors">
                             <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 {!! $btn['icon'] !!}
                             </svg>
                         </div>
-                        <span class="text-xs font-mono font-bold text-white group-hover:text-cyan-300 transition-colors uppercase tracking-wider">
+                        <span class="text-xs font-mono font-bold text-white group-hover:text-amber-300 transition-colors uppercase tracking-wider">
                             {{ __($btn['name']) }}
                         </span>
                     </div>
-                    <span class="text-slate-600 group-hover:text-cyan-400 group-hover:translate-x-0.5 transition-all text-xs font-mono">→</span>
+                    <span class="text-slate-600 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all text-xs font-mono">→</span>
                 </a>
             @endforeach
         </div>
@@ -265,13 +265,13 @@
         {{-- MASTER WALLETS DECK --}}
         {{-- ==================================================================================== --}}
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-            <div class="absolute top-0 left-16 right-16 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+            <div class="absolute top-0 left-16 right-16 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
-            <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8">
+            <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8">
                 {{-- Header --}}
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-white/[0.06]">
                     <div class="flex items-center gap-3.5">
-                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(0,245,255,0.15)]">
+                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center shrink-0 shadow-[0_0_20px_rgba(247,166,0,0.15)]">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
                                 <line x1="2" y1="10" x2="22" y2="10"></line>
@@ -283,7 +283,7 @@
                         </div>
                     </div>
                     <a href="{{ route('admin.deposits.master-wallets') }}"
-                        class="px-5 py-2.5 rounded-full bg-cyan-500/10 hover:bg-cyan-500/20 border border-cyan-500/30 hover:border-cyan-400 text-cyan-300 font-bold text-xs uppercase tracking-wider transition-all duration-300 font-mono flex items-center gap-2 self-start sm:self-auto">
+                        class="px-5 py-2.5 rounded-full bg-amber-500/10 hover:bg-amber-500/20 border border-amber-500/30 hover:border-amber-400 text-amber-300 font-bold text-xs uppercase tracking-wider transition-all duration-300 font-mono flex items-center gap-2 self-start sm:self-auto">
                         <span>{{ __('Manage Master Wallets') }}</span>
                         <span>↗</span>
                     </a>
@@ -324,7 +324,7 @@
                                              alt="{{ $wallet->name }}"
                                              class="w-full h-full object-contain rounded-xl"
                                              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                                        <span style="display:none" class="w-full h-full items-center justify-center text-cyan-400 font-mono text-xs font-black uppercase">
+                                        <span style="display:none" class="w-full h-full items-center justify-center text-amber-400 font-mono text-xs font-black uppercase">
                                             {{ substr($wallet->name, 0, 2) }}
                                         </span>
                                     </div>
@@ -364,7 +364,7 @@
                                 <div class="flex items-center gap-2 flex-1 max-w-full lg:max-w-xl justify-end">
                                     @if ($isConfigured)
                                         <div class="flex items-center gap-2 bg-black/40 rounded-xl px-3.5 py-2 border border-white/[0.08] flex-1 min-w-0 justify-between">
-                                            <code class="font-mono text-xs text-cyan-300 truncate select-all flex-1 pr-2">{{ $address }}</code>
+                                            <code class="font-mono text-xs text-amber-300 truncate select-all flex-1 pr-2">{{ $address }}</code>
                                             <div class="flex items-center gap-1 shrink-0">
                                                 {{-- Copy --}}
                                                 <button onclick="navigator.clipboard.writeText('{{ $address }}'); Swal.fire({toast:true, position:'top-end', icon:'success', title:'{{ __('Address copied to clipboard') }}', showConfirmButton:false, timer:1500});"
@@ -376,7 +376,7 @@
                                                 </button>
                                                 {{-- QR Code --}}
                                                 <button onclick="toggleAdminQr('{{ $qrId }}', '{{ $qrTargetId }}', '{{ addslashes($address) }}')"
-                                                        class="text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer p-1.5 rounded-lg hover:bg-white/[0.06]" title="{{ __('Show QR code') }}">
+                                                        class="text-slate-400 hover:text-amber-400 transition-colors cursor-pointer p-1.5 rounded-lg hover:bg-white/[0.06]" title="{{ __('Show QR code') }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                         <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                                                         <rect x="14" y="3" width="7" height="7" rx="1"></rect>
@@ -388,7 +388,7 @@
                                                     </svg>
                                                 </button>
                                                 {{-- Direct Individual Master Wallet Link --}}
-                                                <a href="{{ $manageLink }}" class="text-slate-400 hover:text-cyan-400 transition-colors p-1.5 rounded-lg hover:bg-white/[0.06]" title="{{ __('Manage :name Master Wallet', ['name' => $wallet->name]) }}">
+                                                <a href="{{ $manageLink }}" class="text-slate-400 hover:text-amber-400 transition-colors p-1.5 rounded-lg hover:bg-white/[0.06]" title="{{ __('Manage :name Master Wallet', ['name' => $wallet->name]) }}">
                                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                                         <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                                                     </svg>
@@ -409,12 +409,12 @@
                             <div id="{{ $qrId }}" class="hidden border-t border-white/[0.06] bg-black/40">
                                 <div class="flex flex-col items-center gap-3 py-6 px-4">
                                     <div id="{{ $qrTargetId }}" class="p-3.5 bg-white rounded-2xl shadow-2xl shadow-black/80"></div>
-                                    <p class="font-mono text-xs text-cyan-300 break-all text-center max-w-md select-all leading-relaxed bg-white/[0.03] p-2.5 rounded-xl border border-white/[0.06]">
+                                    <p class="font-mono text-xs text-amber-300 break-all text-center max-w-md select-all leading-relaxed bg-white/[0.03] p-2.5 rounded-xl border border-white/[0.06]">
                                         {{ $address }}
                                     </p>
                                     <div class="flex items-center gap-3">
                                         <p class="text-[10px] font-mono text-slate-400 uppercase tracking-widest">{{ $wallet->name }} {{ __('Master Wallet Address') }}</p>
-                                        <a href="{{ $manageLink }}" class="text-[10px] font-mono text-cyan-400 hover:underline uppercase tracking-wider">{{ __('Manage Master Wallet') }} ↗</a>
+                                        <a href="{{ $manageLink }}" class="text-[10px] font-mono text-amber-400 hover:underline uppercase tracking-wider">{{ __('Manage Master Wallet') }} ↗</a>
                                     </div>
                                 </div>
                             </div>
@@ -435,12 +435,12 @@
 
             {{-- ── Left: Activity Graph (8 cols) ── --}}
             <div class="lg:col-span-8 p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8">
+                <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8">
                     {{-- Header row --}}
                     <div class="flex flex-wrap items-start justify-between gap-4 mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <div class="flex items-center gap-2 mb-1">
-                                <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></span>
                                 <h3 id="graph-title" class="text-base font-bold text-white font-mono tracking-wide">
                                     {{ __('Money Activity Over Time') }}
                                 </h3>
@@ -456,7 +456,7 @@
                                 @foreach (['transactions' => 'Transactions', 'deposits' => 'Deposits', 'withdrawals' => 'Withdrawals'] as $key => $label)
                                     <button data-dataset="{{ $key }}"
                                         class="graph-dataset-btn cursor-pointer px-3 py-1 rounded-lg text-[10px] font-mono font-bold uppercase tracking-wider transition-all
-                                            {{ $key === 'transactions' ? 'bg-cyan-500/20 text-cyan-300 border border-cyan-500/30' : 'text-slate-400 hover:text-white' }}">
+                                            {{ $key === 'transactions' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30' : 'text-slate-400 hover:text-white' }}">
                                         {{ __($label) }}
                                     </button>
                                 @endforeach
@@ -487,10 +487,10 @@
 
             {{-- ── Right: Balance Breakdown (4 cols) ── --}}
             <div class="lg:col-span-4 p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                     <div>
                         <div class="flex items-center gap-2 mb-1">
-                            <span class="w-2 h-2 rounded-full bg-purple-400 shadow-[0_0_8px_#a855f7]"></span>
+                            <span class="w-2 h-2 rounded-full bg-orange-400 shadow-[0_0_8px_#a855f7]"></span>
                             <h3 class="text-base font-bold text-white font-mono tracking-wide">{{ __('Balance Breakdown') }}</h3>
                         </div>
                         <p class="text-[10px] text-slate-400 uppercase tracking-widest font-mono mb-6">
@@ -514,7 +514,7 @@
                     <div class="pt-4 border-t border-white/[0.06] space-y-2 font-mono">
                         @php
                             $donutItems = [
-                                'account_balance' => ['label' => 'User Balances', 'color' => '#00f5ff'],
+                                'account_balance' => ['label' => 'User Balances', 'color' => '#f7a600'],
                             ];
                             $donutTotal = array_sum(array_values($chart_data)) ?: 1;
                         @endphp
@@ -545,20 +545,20 @@
         @endphp
 
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-            <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
+            <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
                 {{-- Card Header --}}
                 <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.06] bg-white/[0.01]">
                     <div class="flex items-center gap-3">
-                        <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></span>
-                        <span class="text-xs font-mono font-bold text-cyan-400 uppercase tracking-widest">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></span>
+                        <span class="text-xs font-mono font-bold text-amber-400 uppercase tracking-widest">
                             {{ __('Recent Activity') }}
                         </span>
-                        <span class="text-[10px] font-mono bg-cyan-500/15 text-cyan-300 border-cyan-500/30 px-2 py-0.5 rounded-full border">
+                        <span class="text-[10px] font-mono bg-amber-500/15 text-amber-300 border-amber-500/30 px-2 py-0.5 rounded-full border">
                             {{ $transactionRows->count() }}
                         </span>
                     </div>
                     <a href="{{ route('admin.transactions.index') }}"
-                        class="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 hover:text-white transition-colors cursor-pointer">
+                        class="flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-amber-400 hover:text-white transition-colors cursor-pointer">
                         <span>{{ __('View All') }}</span>
                         <span>↗</span>
                     </a>
@@ -690,7 +690,7 @@
                     series: {
                         completed: {
                             label: 'Completed',
-                            color: '#00f5ff'
+                            color: '#f7a600'
                         },
                         pending: {
                             label: 'Pending',
@@ -729,7 +729,7 @@
                 },
             };
 
-            const DONUT_COLORS = ['#00f5ff'];
+            const DONUT_COLORS = ['#f7a600'];
             const DONUT_LABELS = ['User Accounts'];
             const DONUT_KEYS = ['account_balance'];
 
@@ -881,11 +881,11 @@
                 btn.addEventListener('click', () => {
                     activeDataset = btn.dataset.dataset;
                     document.querySelectorAll('.graph-dataset-btn').forEach(b => {
-                        b.classList.remove('bg-cyan-500/20', 'text-cyan-300', 'border', 'border-cyan-500/30');
+                        b.classList.remove('bg-amber-500/20', 'text-amber-300', 'border', 'border-amber-500/30');
                         b.classList.add('text-slate-400');
                     });
                     btn.classList.remove('text-slate-400');
-                    btn.classList.add('bg-cyan-500/20', 'text-cyan-300', 'border', 'border-cyan-500/30');
+                    btn.classList.add('bg-amber-500/20', 'text-amber-300', 'border', 'border-amber-500/30');
                     updateLineChart();
                 });
             });

@@ -52,7 +52,7 @@
                                     </svg>
                                 </button>
                                 <button type="button" onclick="showMasterWalletQrModal('Bitcoin', '{{ addslashes($address) }}')"
-                                        class="text-slate-400 hover:text-cyan-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
+                                        class="text-slate-400 hover:text-amber-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                                         <rect x="14" y="3" width="7" height="7" rx="1"></rect>

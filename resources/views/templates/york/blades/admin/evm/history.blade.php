@@ -13,17 +13,17 @@
                         </svg>
                     </a>
                     <div>
-                        <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-200 to-indigo-400 tracking-tight leading-tight">
+                        <h2 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-200 to-orange-400 tracking-tight leading-tight">
                             {{ __(':blockchain Master Wallet Details', ['blockchain' => $blockchain->name]) }}
                         </h2>
-                        <p class="text-indigo-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
+                        <p class="text-orange-200/60 font-mono text-[9px] md:text-xs mt-0.5 tracking-widest uppercase">
                             {{ __('Real-time On-chain Wallet Telemetry') }}
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="flex items-center gap-2 text-[10px] text-indigo-400/80 font-mono bg-indigo-500/5 border border-indigo-500/10 px-3 py-1.5 rounded-xl">
-                <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse"></span>
+            <div class="flex items-center gap-2 text-[10px] text-orange-400/80 font-mono bg-orange-500/5 border border-orange-500/10 px-3 py-1.5 rounded-xl">
+                <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse"></span>
                 {{ __('CONNECTED TO :blockchain NETWORK', ['blockchain' => strtoupper($blockchain->name)]) }}
             </div>
         </div>
@@ -33,7 +33,7 @@
             {{-- CARD 1: WALLET METADATA --}}
             <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors p-6">
                 <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-indigo-600/10 rounded-full blur-2xl pointer-events-none z-0"></div>
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-orange-600/10 rounded-full blur-2xl pointer-events-none z-0"></div>
                 
                 <div class="relative z-10 space-y-4">
                     <div class="flex items-center justify-between">
@@ -55,7 +55,7 @@
                                     </svg>
                                 </button>
                                 <button type="button" onclick="showMasterWalletQrModal('{{ addslashes($blockchain->name) }}', '{{ addslashes($address) }}')"
-                                        class="text-slate-400 hover:text-cyan-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
+                                        class="text-slate-400 hover:text-amber-400 p-1 hover:bg-white/5 rounded transition-colors cursor-pointer" title="{{ __('Show QR Code') }}">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <rect x="3" y="3" width="7" height="7" rx="1"></rect>
                                         <rect x="14" y="3" width="7" height="7" rx="1"></rect>
@@ -77,7 +77,7 @@
                         </div>
                         <div class="p-3 bg-white/[0.02] border border-white/[0.05] rounded-xl">
                             <div class="text-[8px] font-bold uppercase tracking-wider text-slate-500 mb-1">{{ __('Blockchain') }}</div>
-                            <div class="text-xs font-bold text-indigo-400 uppercase">{{ __('EVM (Secp256k1)') }}</div>
+                            <div class="text-xs font-bold text-orange-400 uppercase">{{ __('EVM (Secp256k1)') }}</div>
                         </div>
                     </div>
                 </div>
@@ -92,7 +92,7 @@
                     <div class="flex items-center justify-between">
                         <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Wallet Balance') }}</span>
                         <button type="button" onclick="triggerManualRefresh()" id="btn-balance-refresh"
-                                class="flex items-center gap-1 text-[9px] font-bold text-indigo-400 hover:text-indigo-300 transition-colors uppercase tracking-wider cursor-pointer">
+                                class="flex items-center gap-1 text-[9px] font-bold text-orange-400 hover:text-orange-300 transition-colors uppercase tracking-wider cursor-pointer">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 7.89M9 11l3-3 3 3m-3-3v12" />
                             </svg>
@@ -101,7 +101,7 @@
                     </div>
 
                     <div class="my-auto py-2">
-                        <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-indigo-100 to-indigo-300 tracking-tight leading-none font-mono">
+                        <div class="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-orange-100 to-orange-300 tracking-tight leading-none font-mono">
                             <span id="evm-balance-text">{{ number_format($balance, 4) }}</span> <span class="text-sm font-black text-slate-400 font-sans">{{ $nativeSymbol }}</span>
                         </div>
                         <div class="text-xs text-emerald-400 font-bold tracking-wide mt-2">
@@ -110,7 +110,7 @@
                     </div>
 
                     <div class="text-[10px] text-slate-500 italic flex items-center gap-1.5">
-                        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-ping"></span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-orange-500 animate-ping"></span>
                         {{ __('Updating automatically every 10 seconds...') }}
                     </div>
                 </div>
@@ -119,7 +119,7 @@
             {{-- CARD 3: NODE & CONFIGURATION --}}
             <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors p-6">
                 <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-32 h-32 bg-orange-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
                 
                 <div class="relative z-10 space-y-4">
                     <div class="flex items-center justify-between">
@@ -141,7 +141,7 @@
                             @endphp
                             <a href="{{ $liveExplorer }}" target="_blank"
                                class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-[9px] font-bold text-slate-300 uppercase tracking-wider hover:bg-white/10 hover:text-white transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-indigo-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-orange-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14 21 3"/>
                                 </svg>
                                 {{ __('Block Explorer') }}
@@ -159,10 +159,10 @@
                 @foreach ($tokenBalances as $symbol => $bal)
                     <div class="relative bg-secondary border border-white/5 rounded-2xl overflow-hidden hover:border-white/10 transition-colors p-5 flex items-center justify-between gap-4">
                         <div class="absolute inset-0 bg-[url('{{ asset('/assets/images/noise.svg') }}')] opacity-10 pointer-events-none"></div>
-                        <div class="absolute top-0 right-0 -mt-8 -mr-8 w-24 h-24 bg-indigo-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
+                        <div class="absolute top-0 right-0 -mt-8 -mr-8 w-24 h-24 bg-orange-500/10 rounded-full blur-2xl pointer-events-none z-0"></div>
                         
                         <div class="relative z-10 flex items-center gap-3">
-                            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center font-bold text-xs text-indigo-400">
+                            <div class="w-10 h-10 rounded-xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center font-bold text-xs text-orange-400">
                                 {{ $symbol }}
                             </div>
                             <div>
@@ -210,7 +210,7 @@
                                             @php
                                                 $txExplorer = str_replace('address/{address}', 'tx/' . $tx['signature'], $blockchain->explorer_url_live);
                                             @endphp
-                                            <a href="{{ $txExplorer }}" target="_blank" class="text-indigo-400 hover:text-indigo-300 transition-colors hover:underline">
+                                            <a href="{{ $txExplorer }}" target="_blank" class="text-orange-400 hover:text-orange-300 transition-colors hover:underline">
                                                 {{ substr($tx['signature'], 0, 10) }}...{{ substr($tx['signature'], -10) }}
                                             </a>
                                             <button type="button" onclick="copyToClipboard('{{ $tx['signature'] }}', 'Transaction hash copied')" class="text-slate-500 hover:text-slate-300 p-0.5 rounded transition-colors cursor-pointer">

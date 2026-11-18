@@ -1,7 +1,7 @@
 <div class="group relative rounded-3xl p-[1px] bg-gradient-to-b from-white/[0.12] via-white/[0.04] to-transparent hover:from-emerald-500/40 hover:via-emerald-500/10 hover:to-transparent transition-all duration-500 transform hover:-translate-y-1.5 hover:shadow-[0_20px_50px_rgba(16,185,129,0.1)] flex flex-col h-full overflow-hidden">
     
     {{-- Internal Double-Bezel Hardened Surface --}}
-    <div class="relative bg-[#090c14]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 h-full flex flex-col justify-between overflow-hidden backdrop-blur-2xl">
+    <div class="relative bg-[#151a21]/95 rounded-[calc(1.5rem-1px)] p-6 sm:p-7 h-full flex flex-col justify-between overflow-hidden backdrop-blur-2xl">
         
         {{-- Ambient Corner Glow --}}
         <div class="absolute -top-16 -right-16 w-36 h-36 bg-emerald-500/10 group-hover:bg-emerald-500/25 rounded-full blur-2xl pointer-events-none transition-all duration-700"></div>
@@ -11,7 +11,7 @@
             <div class="flex items-center justify-between gap-3 mb-5 relative z-10">
                 <div class="flex items-center gap-3">
                     <div class="w-10 h-10 rounded-2xl bg-gradient-to-br from-white/10 to-white/[0.02] p-[1px] shrink-0 group-hover:from-emerald-500/50 group-hover:to-teal-500/50 transition-all duration-500">
-                        <div class="w-full h-full rounded-[15px] bg-[#050507] flex items-center justify-center font-mono font-black text-xs text-white">
+                        <div class="w-full h-full rounded-[15px] bg-[#0b0e11] flex items-center justify-center font-mono font-black text-xs text-white">
                             {{ substr($trade->pair, 0, 3) }}
                         </div>
                     </div>

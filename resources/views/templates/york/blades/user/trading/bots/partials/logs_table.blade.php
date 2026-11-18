@@ -25,7 +25,7 @@
                                     class="text-sm font-black text-white group-hover:text-accent-primary transition-colors flex items-center gap-1.5">
                                     {{ $log->trading_pair }}
                                     <span
-                                        class="px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-tighter {{ $log->type == 'forex' ? 'bg-blue-400/10 text-blue-400 border border-blue-400/20' : 'bg-purple-400/10 text-purple-400 border border-purple-400/20' }}">
+                                        class="px-1.5 py-0.5 rounded text-[8px] font-black uppercase tracking-tighter {{ $log->type == 'forex' ? 'bg-amber-400/10 text-amber-400 border border-amber-400/20' : 'bg-orange-400/10 text-orange-400 border border-orange-400/20' }}">
                                         {{ $log->type }}
                                     </span>
                                 </div>

@@ -3,7 +3,7 @@
 @section('content')
     <div class="space-y-6 mb-12 font-mono">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-            <div class="rounded-[2rem] bg-[#090c14]/95 overflow-hidden flex flex-col min-h-[calc(100vh-180px)]">
+            <div class="rounded-[2rem] bg-[#151a21]/95 overflow-hidden flex flex-col min-h-[calc(100vh-180px)]">
                 
                 {{-- Editor Header --}}
                 <div class="px-6 py-4 border-b border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white/[0.01]">
@@ -16,11 +16,11 @@
                         </a>
                         <div>
                             <div class="flex items-center gap-2">
-                                <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                                 <h2 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Code Editor') }}</h2>
                             </div>
                             <div class="flex items-center gap-2 text-xs mt-0.5">
-                                <code class="text-cyan-300 font-bold bg-cyan-500/10 px-2 py-0.5 rounded text-[11px]">{{ basename($path) }}</code>
+                                <code class="text-amber-300 font-bold bg-amber-500/10 px-2 py-0.5 rounded text-[11px]">{{ basename($path) }}</code>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                             {{ __('Writing to Disk...') }}
                         </div>
                         <button type="button" id="save-btn"
-                            class="px-5 py-2.5 bg-cyan-400 hover:bg-cyan-300 text-[#050507] text-xs font-black uppercase tracking-wider rounded-xl shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all flex items-center gap-2 cursor-pointer">
+                            class="px-5 py-2.5 bg-amber-400 hover:bg-amber-300 text-[#0b0e11] text-xs font-black uppercase tracking-wider rounded-xl shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all flex items-center gap-2 cursor-pointer">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                             </svg>
@@ -46,8 +46,8 @@
 
                     {{-- Loading Overlay --}}
                     <div id="editor-loading"
-                        class="absolute inset-0 bg-[#090c14] flex flex-col items-center justify-center z-50 transition-opacity duration-300">
-                        <div class="w-10 h-10 border-2 border-cyan-500/20 border-t-cyan-400 rounded-full animate-spin mb-3"></div>
+                        class="absolute inset-0 bg-[#151a21] flex flex-col items-center justify-center z-50 transition-opacity duration-300">
+                        <div class="w-10 h-10 border-2 border-amber-500/20 border-t-amber-400 rounded-full animate-spin mb-3"></div>
                         <p class="text-xs font-bold text-slate-400 uppercase tracking-widest animate-pulse">{{ __('Initializing Monaco Engine...') }}</p>
                     </div>
                 </div>
@@ -112,12 +112,12 @@
                         { token: 'variable', foreground: 'a855f7' }
                     ],
                     colors: {
-                        'editor.background': '#090c14',
+                        'editor.background': '#151a21',
                         'editor.lineHighlightBackground': '#ffffff05',
-                        'editorCursor.foreground': '#00f5ff',
-                        'editor.selectionBackground': '#00f5ff33',
+                        'editorCursor.foreground': '#f7a600',
+                        'editor.selectionBackground': '#f7a60033',
                         'editorLineNumber.foreground': '#475569',
-                        'editorLineNumber.activeForeground': '#00f5ff'
+                        'editorLineNumber.activeForeground': '#f7a600'
                     }
                 });
 
@@ -172,7 +172,7 @@
                                 title: response.message || '{{ __('File saved successfully!') }}',
                                 showConfirmButton: false,
                                 timer: 1500,
-                                customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                                customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                             });
                         },
                         error: function(xhr) {
@@ -182,7 +182,7 @@
                                 icon: 'error',
                                 title: '{{ __('Save Error') }}',
                                 text: msg,
-                                customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                                customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                             });
                         },
                         complete: function() {

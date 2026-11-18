@@ -4,8 +4,8 @@
 <div class="min-h-screen relative space-y-12 pb-24">
 
     {{-- Global Ethereal Ambient Mesh Gradients --}}
-    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-purple-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-cyan-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-orange-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
+    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-amber-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
 
     <div class="relative z-10 max-w-7xl mx-auto space-y-12">
 
@@ -79,8 +79,8 @@
             <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
                 <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Direct Referrals') }}</span>
-                    <div class="text-3xl font-black text-purple-400 font-mono tracking-tight">{{ $referrals->total() }} <span class="text-xs text-slate-500 font-sans">{{ __('Users') }}</span></div>
-                    <div class="text-[10px] text-purple-400/80 font-medium pt-1">{{ __('Direct Referrals') }}</div>
+                    <div class="text-3xl font-black text-orange-400 font-mono tracking-tight">{{ $referrals->total() }} <span class="text-xs text-slate-500 font-sans">{{ __('Users') }}</span></div>
+                    <div class="text-[10px] text-orange-400/80 font-medium pt-1">{{ __('Direct Referrals') }}</div>
                 </div>
             </div>
 
@@ -88,8 +88,8 @@
             <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
                 <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
                     <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Total Referrals') }}</span>
-                    <div class="text-3xl font-black text-blue-400 font-mono tracking-tight">{{ $network_count }} <span class="text-xs text-slate-500 font-sans">{{ __('Users') }}</span></div>
-                    <div class="text-[10px] text-blue-400/80 font-medium pt-1">{{ __('All Referral Levels') }}</div>
+                    <div class="text-3xl font-black text-amber-400 font-mono tracking-tight">{{ $network_count }} <span class="text-xs text-slate-500 font-sans">{{ __('Users') }}</span></div>
+                    <div class="text-[10px] text-amber-400/80 font-medium pt-1">{{ __('All Referral Levels') }}</div>
                 </div>
             </div>
 

@@ -23,15 +23,15 @@
             {{-- Action Cluster --}}
             <div class="flex flex-wrap items-center gap-2.5 font-mono text-xs">
                 <a href="{{ route('admin.copy-trading.history') }}"
-                    class="px-4 py-2.5 rounded-xl bg-purple-500/15 hover:bg-purple-500/25 border border-purple-500/30 text-purple-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.15)] cursor-pointer">
-                    <svg class="w-4 h-4 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    class="px-4 py-2.5 rounded-xl bg-orange-500/15 hover:bg-orange-500/25 border border-orange-500/30 text-orange-300 hover:text-white font-bold uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_15px_rgba(168,85,247,0.15)] cursor-pointer">
+                    <svg class="w-4 h-4 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     <span>{{ __('Copy Trade History') }}</span>
                 </a>
 
                 <a href="{{ route('admin.copy-trading.create') }}"
-                    class="px-5 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-[#050507] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer">
+                    class="px-5 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-[#0b0e11] font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
                     </svg>
@@ -49,7 +49,7 @@
                     $isExpired = $strategy->expires_at && $strategy->expires_at < time();
                 @endphp
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] hover:border-emerald-400/40 backdrop-blur-2xl transition-all duration-300 relative overflow-hidden group flex flex-col justify-between">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 flex flex-col justify-between h-full relative space-y-6">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 flex flex-col justify-between h-full relative space-y-6">
 
                         {{-- Card Header --}}
                         <div class="flex items-start justify-between gap-4 pb-4 border-b border-white/[0.06]">
@@ -132,7 +132,7 @@
                 </div>
             @empty
                 <div class="col-span-full p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1]">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-12 text-center font-mono">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-12 text-center font-mono">
                         <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto mb-4">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <rect width="14" height="14" x="8" y="8" rx="2" ry="2" />
@@ -144,7 +144,7 @@
                             {{ __('Create your first copy trade signal for users to follow.') }}
                         </p>
                         <a href="{{ route('admin.copy-trading.create') }}"
-                            class="px-8 py-3 rounded-full bg-emerald-400 hover:bg-emerald-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all">
+                            class="px-8 py-3 rounded-full bg-emerald-400 hover:bg-emerald-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(16,185,129,0.3)] transition-all">
                             {{ __('Create Copy Trade') }}
                         </a>
                     </div>
@@ -162,9 +162,9 @@
     </div>
 
     {{-- Signal Message Modal --}}
-    <div id="signalModal" class="hidden fixed inset-0 bg-[#05070d]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
+    <div id="signalModal" class="hidden fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.05] border border-white/[0.1] w-full max-w-lg">
-            <div class="rounded-[2rem] bg-[#090c14] p-8 space-y-6 font-mono">
+            <div class="rounded-[2rem] bg-[#151a21] p-8 space-y-6 font-mono">
                 <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                     <div>
                         <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Share Signal') }}</h3>
@@ -179,7 +179,7 @@
                 {{-- Textbox Preview --}}
                 <div>
                     <textarea id="signal-message-text" rows="8" readonly
-                        class="w-full bg-[#05070d] border border-white/[0.1] rounded-2xl p-4 text-xs text-emerald-300 font-mono focus:outline-none select-all"></textarea>
+                        class="w-full bg-[#0b0e11] border border-white/[0.1] rounded-2xl p-4 text-xs text-emerald-300 font-mono focus:outline-none select-all"></textarea>
                 </div>
 
                 <div class="flex items-center gap-3">
@@ -266,7 +266,7 @@
                     cancelButtonColor: '#334155',
                     confirmButtonText: '{{ __('Yes, Delete') }}',
                     customClass: {
-                        popup: 'bg-[#090c14] border border-white/10 text-white rounded-3xl font-mono',
+                        popup: 'bg-[#151a21] border border-white/10 text-white rounded-3xl font-mono',
                         title: 'text-white font-mono',
                         htmlContainer: 'text-slate-400 font-mono',
                     }

@@ -4,23 +4,23 @@
     {{-- ════════════════════════════════════════════════════════════════════════════════
          HERO DECK: ALGORITHMIC COMMAND CENTER & KINETIC TERMINAL
     ════════════════════════════════════════════════════════════════════════════════ --}}
-    <section class="relative min-h-[100dvh] pt-32 pb-[340px] sm:pb-[410px] flex flex-col justify-between overflow-hidden bg-[#050507] isolate">
+    <section class="relative min-h-[100dvh] pt-32 pb-[340px] sm:pb-[410px] flex flex-col justify-between overflow-hidden bg-[#0b0e11] isolate">
         {{-- SVG Laser Dash Tracers Overlay (Effects 1 & 2: Moon Arc Edge Tracer + Data Pipeline Circuit) --}}
         <div class="absolute inset-0 pointer-events-none -z-10">
             <svg class="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
                 <defs>
                     {{-- Cyan Laser Beam Gradient --}}
-                    <linearGradient id="cyan-laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="rgba(0, 245, 255, 0)"/>
-                        <stop offset="70%" stop-color="rgba(0, 245, 255, 0.6)"/>
-                        <stop offset="100%" stop-color="#00f5ff"/>
+                    <linearGradient id="amber-laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="rgba(247, 166, 0, 0)"/>
+                        <stop offset="70%" stop-color="rgba(247, 166, 0, 0.6)"/>
+                        <stop offset="100%" stop-color="#f7a600"/>
                     </linearGradient>
 
                     {{-- Gold Laser Beam Gradient --}}
                     <linearGradient id="gold-laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
                         <stop offset="0%" stop-color="rgba(226, 177, 60, 0)"/>
                         <stop offset="70%" stop-color="rgba(226, 177, 60, 0.6)"/>
-                        <stop offset="100%" stop-color="#e2b13c"/>
+                        <stop offset="100%" stop-color="#f7a600"/>
                     </linearGradient>
 
                     {{-- Laser Glow Filter --}}
@@ -35,7 +35,7 @@
 
                 {{-- Effect 2: Data Pipeline Connections (Left Content -> Right Terminal) --}}
                 <path d="M 520 280 L 680 280 Q 740 280 740 330 L 740 410 Q 740 440 790 440 L 920 440" 
-                      stroke="url(#cyan-laser-grad)" stroke-width="1.5" fill="none"
+                      stroke="url(#amber-laser-grad)" stroke-width="1.5" fill="none"
                       class="circuit-laser-beam-1" style="filter: url(#laser-glow);"/>
                 <path d="M 520 380 L 640 380 Q 700 380 700 420 L 700 480 Q 700 510 750 510 L 920 510" 
                       stroke="url(#gold-laser-grad)" stroke-width="1.5" fill="none"
@@ -45,15 +45,15 @@
 
         {{-- Full-Screen Upside-Down Moon Arc Backdrop --}}
         <div class="absolute inset-x-0 bottom-0 pointer-events-none -z-10 flex justify-center overflow-hidden">
-            <div class="relative w-[150vw] sm:w-[130vw] md:w-[120vw] h-[300px] sm:h-[360px] bg-white/[0.015] border-t border-white/10 rounded-[50%_50%_0_0/100%_100%_0_0] shadow-[0_-20px_60px_rgba(0,245,255,0.08),inset_0_2px_0_rgba(255,255,255,0.12)] backdrop-blur-md flex flex-col justify-center items-center">
+            <div class="relative w-[150vw] sm:w-[130vw] md:w-[120vw] h-[300px] sm:h-[360px] bg-white/[0.015] border-t border-white/10 rounded-[50%_50%_0_0/100%_100%_0_0] shadow-[0_-20px_60px_rgba(247,166,0,0.08),inset_0_2px_0_rgba(255,255,255,0.12)] backdrop-blur-md flex flex-col justify-center items-center">
                 
                 {{-- SVG Laser Beam Tracing the Moon Arc Curve --}}
                 <svg class="absolute inset-0 w-full h-full pointer-events-none overflow-visible" viewBox="0 0 1000 300" preserveAspectRatio="none">
                     <defs>
                         <linearGradient id="moon-arc-laser-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stop-color="rgba(0, 245, 255, 0)"/>
-                            <stop offset="70%" stop-color="rgba(0, 245, 255, 0.7)"/>
-                            <stop offset="100%" stop-color="#00f5ff"/>
+                            <stop offset="0%" stop-color="rgba(247, 166, 0, 0)"/>
+                            <stop offset="70%" stop-color="rgba(247, 166, 0, 0.7)"/>
+                            <stop offset="100%" stop-color="#f7a600"/>
                         </linearGradient>
                         <filter id="arc-glow" x="-20%" y="-20%" width="140%" height="140%">
                             <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -68,18 +68,18 @@
                 </svg>
                 
                 {{-- Glowing Arc Top Edge Accent --}}
-                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00f5ff]/60 to-transparent"></div>
+                <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7a600]/60 to-transparent"></div>
                 
                 {{-- Concept 2: The SUPPORTED BLOCKCHAINS --}}
                 <div class="pointer-events-auto max-w-6xl w-full px-4 pt-6 pb-6 relative z-10 flex flex-col items-center justify-center">
                     
                     {{-- Central Quantum Core Status Badge --}}
                     <div class="relative flex items-center justify-center mb-4">
-                        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-cyan-500/20 via-indigo-500/30 to-purple-500/20 blur-xl fusion-core-pulse"></div>
-                        <div class="relative inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#090c14]/90 border border-cyan-500/40 text-[10px] font-mono font-bold text-cyan-400 uppercase tracking-widest shadow-[0_0_20px_rgba(0,245,255,0.25)]">
+                        <div class="absolute -inset-2 rounded-full bg-gradient-to-r from-amber-500/20 via-orange-500/30 to-orange-500/20 blur-xl fusion-core-pulse"></div>
+                        <div class="relative inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-[#151a21]/90 border border-amber-500/40 text-[10px] font-mono font-bold text-amber-400 uppercase tracking-widest shadow-[0_0_20px_rgba(247,166,0,0.25)]">
                             <span class="relative flex h-2 w-2">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
                             </span>
                             SUPPORTED BLOCKCHAINS · ON-CHAIN SETTLEMENT
                         </div>
@@ -89,8 +89,8 @@
                     <div class="relative w-full max-w-5xl flex items-center justify-center py-2">
                         
                         {{-- Horizontal Energy Beams behind capsules --}}
-                        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-cyan-400/40 to-transparent pointer-events-none"></div>
-                        <div class="absolute inset-x-12 top-1/2 -translate-y-1/2 h-8 bg-cyan-500/5 blur-xl pointer-events-none"></div>
+                        <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent pointer-events-none"></div>
+                        <div class="absolute inset-x-12 top-1/2 -translate-y-1/2 h-8 bg-amber-500/5 blur-xl pointer-events-none"></div>
 
                         {{-- Liquid Glass Quantum Token Capsules Deck --}}
                         <div class="relative z-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
@@ -102,17 +102,17 @@
                                     $chainName = strtoupper($chain->name);
                                     $chainSymbol = strtoupper($chain->symbol ?? $chain->code);
                                 @endphp
-                                <div class="group relative flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#090c14]/95 border border-cyan-500/20 hover:border-cyan-400/60 hover:bg-cyan-500/10 backdrop-blur-2xl shadow-[0_0_15px_rgba(0,245,255,0.1)] hover:shadow-[0_0_25px_rgba(0,245,255,0.35)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 cursor-pointer select-none">
+                                <div class="group relative flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-[#151a21]/95 border border-amber-500/20 hover:border-amber-400/60 hover:bg-amber-500/10 backdrop-blur-2xl shadow-[0_0_15px_rgba(247,166,0,0.1)] hover:shadow-[0_0_25px_rgba(247,166,0,0.35)] transition-all duration-300 transform hover:-translate-y-1 hover:scale-105 cursor-pointer select-none">
                                     <img src="{{ $chainLogo }}" 
                                          alt="{{ $chainName }}" 
                                          loading="lazy" 
                                          onerror="this.src='{{ asset('assets/images/tokens/' . strtolower($chainSymbol) . '.png') }}'"
-                                         class="w-6 h-6 object-contain rounded-full shadow-[0_0_10px_rgba(0,245,255,0.3)] group-hover:scale-110 transition-transform duration-300">
+                                         class="w-6 h-6 object-contain rounded-full shadow-[0_0_10px_rgba(247,166,0,0.3)] group-hover:scale-110 transition-transform duration-300">
                                     <div class="flex items-center gap-1.5">
-                                        <span class="text-xs font-bold text-white tracking-wide group-hover:text-cyan-300 transition-colors">{{ $chainName }}</span>
-                                        <span class="text-[9px] font-mono font-bold text-cyan-400/90 group-hover:text-cyan-300 transition-colors">({{ $chainSymbol }})</span>
+                                        <span class="text-xs font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">{{ $chainName }}</span>
+                                        <span class="text-[9px] font-mono font-bold text-amber-400/90 group-hover:text-amber-300 transition-colors">({{ $chainSymbol }})</span>
                                     </div>
-                                    <div class="w-1.5 h-1.5 rounded-full bg-cyan-500/40 group-hover:bg-cyan-400 group-hover:shadow-[0_0_8px_#00f5ff] transition-all duration-300"></div>
+                                    <div class="w-1.5 h-1.5 rounded-full bg-amber-500/40 group-hover:bg-amber-400 group-hover:shadow-[0_0_8px_#f7a600] transition-all duration-300"></div>
                                 </div>
                             @endforeach
                         </div>
@@ -124,8 +124,8 @@
         </div>
 
         {{-- Vibrant Ambient Background Color Blobs --}}
-        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-[#e2b13c]/35 to-amber-500/20 rounded-full blur-[120px] pointer-events-none -z-20 animate-pulse" style="animation-duration: 8s;"></div>
-        <div class="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-indigo-600/30 via-purple-600/20 to-transparent rounded-full blur-[140px] pointer-events-none -z-20 animate-pulse" style="animation-duration: 12s;"></div>
+        <div class="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-gradient-to-tr from-[#f7a600]/35 to-amber-500/20 rounded-full blur-[120px] pointer-events-none -z-20 animate-pulse" style="animation-duration: 8s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-[600px] h-[600px] bg-gradient-to-br from-orange-600/30 via-orange-600/20 to-transparent rounded-full blur-[140px] pointer-events-none -z-20 animate-pulse" style="animation-duration: 12s;"></div>
         <div class="absolute bottom-10 left-1/3 w-[450px] h-[450px] bg-emerald-500/20 rounded-full blur-[130px] pointer-events-none -z-20"></div>
         <div class="fixed inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none -z-20"></div>
 
@@ -136,12 +136,12 @@
                 <div class="lg:col-span-7 space-y-8">
                     
                     {{-- Live Telemetry Status Pill (Dashboard Accent Primary Gold) --}}
-                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#e2b13c]/10 border border-[#e2b13c]/20 backdrop-blur-xl">
+                    <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-[#f7a600]/10 border border-[#f7a600]/20 backdrop-blur-xl">
                         <span class="relative flex h-2 w-2">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#e2b13c] opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#e2b13c]"></span>
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#f7a600] opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-2 w-2 bg-[#f7a600]"></span>
                         </span>
-                        <span class="text-xs font-mono font-bold text-[#e2b13c] tracking-wider uppercase">
+                        <span class="text-xs font-mono font-bold text-[#f7a600] tracking-wider uppercase">
                             {{ __('Automated Trading Engine Active · 99.98% Uptime') }}
                         </span>
                     </div>
@@ -231,8 +231,8 @@
                         
                         {{-- Main Layer: AI Bot Execution Workspace --}}
                         <div class="relative group double-bezel-outer p-1 overflow-hidden shadow-2xl backdrop-blur-2xl">
-                            <div class="absolute top-0 right-0 -mt-12 -mr-12 w-48 h-48 bg-[#e2b13c]/10 rounded-full blur-3xl pointer-events-none z-0"></div>
-                            <div class="absolute bottom-0 left-0 -mb-12 -ml-12 w-48 h-48 bg-purple-600/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+                            <div class="absolute top-0 right-0 -mt-12 -mr-12 w-48 h-48 bg-[#f7a600]/10 rounded-full blur-3xl pointer-events-none z-0"></div>
+                            <div class="absolute bottom-0 left-0 -mb-12 -ml-12 w-48 h-48 bg-orange-600/10 rounded-full blur-3xl pointer-events-none z-0"></div>
 
                             <div class="relative z-10 double-bezel-inner p-5 flex flex-col h-full justify-between overflow-hidden">
                                 
@@ -266,7 +266,7 @@
                                 <div class="mt-3.5 space-y-3">
                                     <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
                                         <div class="flex items-center gap-3">
-                                            <div class="w-9 h-9 rounded-xl bg-[#e2b13c]/10 border border-[#e2b13c]/20 flex items-center justify-center text-[#e2b13c] font-bold text-sm">
+                                            <div class="w-9 h-9 rounded-xl bg-[#f7a600]/10 border border-[#f7a600]/20 flex items-center justify-center text-[#f7a600] font-bold text-sm">
                                                 ⚡
                                             </div>
                                             <div>
@@ -296,16 +296,16 @@
                         </div>
 
                         {{-- Secondary Peeking Layer: Master Trader Copy Network Card --}}
-                        <div class="relative rounded-2xl bg-[#090c14]/90 border border-cyan-500/20 p-4 shadow-xl backdrop-blur-xl translate-x-6 sm:translate-x-10 hover:translate-x-4 transition-transform duration-300">
+                        <div class="relative rounded-2xl bg-[#151a21]/90 border border-amber-500/20 p-4 shadow-xl backdrop-blur-xl translate-x-6 sm:translate-x-10 hover:translate-x-4 transition-transform duration-300">
                             <div class="flex items-center justify-between">
                                 <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-xs font-mono">
+                                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xs font-mono">
                                         SQ
                                     </div>
                                     <div>
                                         <div class="flex items-center gap-2">
                                             <h4 class="text-xs font-bold text-white">Satoshi Trading Systems</h4>
-                                            <span class="px-2 py-0.5 rounded-full bg-cyan-500/10 text-cyan-400 text-[9px] font-mono font-bold uppercase">COPY CODE: SATO-QUANT-01</span>
+                                            <span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[9px] font-mono font-bold uppercase">COPY CODE: SATO-QUANT-01</span>
                                         </div>
                                         <p class="text-[10px] text-slate-400 font-mono mt-0.5">1,420 Active Copiers · Instant Copy Sync</p>
                                     </div>
@@ -327,10 +327,10 @@
     {{-- ==================================================================================== --}}
     {{-- CONNECTED EXCHANGES & LIQUIDITY VENUES: INFINITE MARQUEE RAIL --}}
     {{-- ==================================================================================== --}}
-    <section class="relative py-12 sm:py-16 border-y border-white/[0.06] bg-gradient-to-b from-[#050507] via-[#080b12] to-[#050507] overflow-hidden isolate">
+    <section class="relative py-12 sm:py-16 border-y border-white/[0.06] bg-gradient-to-b from-[#0b0e11] via-[#12161c] to-[#0b0e11] overflow-hidden isolate">
         {{-- Ambient Corner Glows --}}
-        <div class="absolute -top-24 left-1/4 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-        <div class="absolute -bottom-24 right-1/4 w-80 h-80 bg-[#e2b13c]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div class="absolute -top-24 left-1/4 w-80 h-80 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+        <div class="absolute -bottom-24 right-1/4 w-80 h-80 bg-[#f7a600]/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 mb-8">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -378,14 +378,14 @@
                         $hasLogo = file_exists($logoPath);
                     @endphp
 
-                    <div class="inline-flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-cyan-500/40 backdrop-blur-xl shadow-lg hover:shadow-[0_0_25px_rgba(0,245,255,0.15)] transition-all duration-300 transform hover:-translate-y-1 shrink-0 select-none group cursor-pointer">
-                        <div class="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center p-1.5 overflow-hidden group-hover:border-cyan-500/30 group-hover:bg-cyan-500/10 transition-colors">
+                    <div class="inline-flex items-center gap-3 px-5 py-3.5 rounded-2xl bg-white/[0.02] hover:bg-white/[0.06] border border-white/[0.06] hover:border-amber-500/40 backdrop-blur-xl shadow-lg hover:shadow-[0_0_25px_rgba(247,166,0,0.15)] transition-all duration-300 transform hover:-translate-y-1 shrink-0 select-none group cursor-pointer">
+                        <div class="w-8 h-8 rounded-xl bg-white/[0.04] border border-white/10 flex items-center justify-center p-1.5 overflow-hidden group-hover:border-amber-500/30 group-hover:bg-amber-500/10 transition-colors">
                             @if ($hasLogo)
                                 <img src="{{ asset('assets/images/exchanges/' . $logoFile) }}" 
                                      alt="{{ $exchange }}" 
                                      class="w-full h-full object-contain filter grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-300">
                             @else
-                                <span class="text-[10px] font-mono font-black text-slate-300 group-hover:text-cyan-400">
+                                <span class="text-[10px] font-mono font-black text-slate-300 group-hover:text-amber-400">
                                     {{ strtoupper(substr($exchange, 0, 2)) }}
                                 </span>
                             @endif
@@ -393,7 +393,7 @@
 
                         <div class="flex flex-col">
                             <div class="flex items-center gap-1.5">
-                                <span class="text-xs font-bold text-white group-hover:text-cyan-300 tracking-wide transition-colors">
+                                <span class="text-xs font-bold text-white group-hover:text-amber-300 tracking-wide transition-colors">
                                     {{ $exchange }}
                                 </span>
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400/60 group-hover:bg-emerald-400 group-hover:shadow-[0_0_8px_#10b981] transition-all"></span>
@@ -427,18 +427,18 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 2: PRODUCT PILLAR 1 — AUTONOMOUS AI BOT FLEET (BENTO GRID 2.0) --}}
     {{-- ==================================================================================== --}}
-    <section class="relative py-24 sm:py-32 bg-[#050507] isolate overflow-hidden">
+    <section class="relative py-24 sm:py-32 bg-[#0b0e11] isolate overflow-hidden">
         {{-- Ambient Layered Glow Blobs --}}
-        <div class="absolute top-1/4 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
-        <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-indigo-600/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 12s;"></div>
+        <div class="absolute top-1/4 left-0 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
+        <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-orange-600/15 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 12s;"></div>
         <div class="absolute top-1/2 right-1/3 w-[350px] h-[350px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 w-full" x-data="{ activeFilter: 'all' }">
             
             {{-- Section Header & Filter Tabs --}}
             <div class="max-w-4xl mx-auto text-center mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-5 shadow-[0_0_20px_rgba(0,245,255,0.15)]">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-5 shadow-[0_0_20px_rgba(247,166,0,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('AUTOMATED TRADING BOTS') }}
                 </div>
                 <h2 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] mb-6">
@@ -449,19 +449,19 @@
                 </p>
 
                 {{-- Interactive Filter Pill Bar --}}
-                <div class="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-[#090c14] border border-white/[0.08] backdrop-blur-xl shadow-2xl">
+                <div class="inline-flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl bg-[#151a21] border border-white/[0.08] backdrop-blur-xl shadow-2xl">
                     <button @click="activeFilter = 'all'" 
-                            :class="activeFilter === 'all' ? 'bg-[#00f5ff] text-[#050507] font-black shadow-[0_0_20px_rgba(0,245,255,0.4)]' : 'text-slate-400 hover:text-white font-bold'"
+                            :class="activeFilter === 'all' ? 'bg-[#f7a600] text-[#0b0e11] font-black shadow-[0_0_20px_rgba(247,166,0,0.4)]' : 'text-slate-400 hover:text-white font-bold'"
                             class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300">
                         {{ __('All Trading Bots') }}
                     </button>
                     <button @click="activeFilter = 'crypto'" 
-                            :class="activeFilter === 'crypto' ? 'bg-[#00f5ff] text-[#050507] font-black shadow-[0_0_20px_rgba(0,245,255,0.4)]' : 'text-slate-400 hover:text-white font-bold'"
+                            :class="activeFilter === 'crypto' ? 'bg-[#f7a600] text-[#0b0e11] font-black shadow-[0_0_20px_rgba(247,166,0,0.4)]' : 'text-slate-400 hover:text-white font-bold'"
                             class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300">
                         {{ __('Crypto Bots') }}
                     </button>
                     <button @click="activeFilter = 'forex'" 
-                            :class="activeFilter === 'forex' ? 'bg-[#00f5ff] text-[#050507] font-black shadow-[0_0_20px_rgba(0,245,255,0.4)]' : 'text-slate-400 hover:text-white font-bold'"
+                            :class="activeFilter === 'forex' ? 'bg-[#f7a600] text-[#0b0e11] font-black shadow-[0_0_20px_rgba(247,166,0,0.4)]' : 'text-slate-400 hover:text-white font-bold'"
                             class="px-5 py-2.5 rounded-xl text-xs uppercase tracking-wider transition-all duration-300">
                         {{ __('Forex & Commodities') }}
                     </button>
@@ -485,7 +485,7 @@
                         $strokeColor = $isPos ? '#10b981' : '#f43f5e';
                         $pillBg = $isPos ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' : 'bg-rose-500/10 text-rose-400 border-rose-500/20';
                     @endphp
-                    <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] hover:border-cyan-400/40 backdrop-blur-xl transition-all duration-300 group shadow-lg">
+                    <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/40 backdrop-blur-xl transition-all duration-300 group shadow-lg">
                         <div class="flex items-center justify-between mb-2">
                             <div class="flex items-center gap-2">
                                 <img src="{{ $card['logo'] }}" 
@@ -540,7 +540,7 @@
                                  x-transition:enter="transition ease-out duration-300 transform" 
                                  x-transition:enter-start="opacity-0 scale-95" 
                                  x-transition:enter-end="opacity-100 scale-100"
-                                 class="lg:col-span-2 group relative flex flex-col justify-between rounded-3xl bg-[#090c14]/95 border border-white/[0.1] hover:border-cyan-400/50 p-7 sm:p-9 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_50px_rgba(0,245,255,0.2)]">
+                                 class="lg:col-span-2 group relative flex flex-col justify-between rounded-3xl bg-[#151a21]/95 border border-white/[0.1] hover:border-amber-400/50 p-7 sm:p-9 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_50px_rgba(247,166,0,0.2)]">
                                 
                                 {{-- Cybernetic Corner Reticles --}}
                                 <div class="absolute top-3 left-3 text-slate-600 font-mono text-[9px] pointer-events-none select-none">+</div>
@@ -553,7 +553,7 @@
                                     <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
                                         <div class="flex items-center gap-2.5">
                                             <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#10b981]"></span>
-                                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-wider">
+                                            <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-wider">
                                                 {{ __('FEATURED BOT · ') }} {{ $typeBadge }}
                                             </span>
                                         </div>
@@ -568,7 +568,7 @@
                                         {{-- Left Info Block --}}
                                         <div class="md:col-span-6 space-y-5">
                                             <div class="flex items-center gap-4">
-                                                <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center p-1.5 shadow-[0_0_20px_rgba(0,245,255,0.2)] shrink-0 overflow-hidden">
+                                                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center p-1.5 shadow-[0_0_20px_rgba(247,166,0,0.2)] shrink-0 overflow-hidden">
                                                     <img src="{{ $botLogoUrl }}" 
                                                          alt="{{ $bot->name }}" 
                                                          loading="lazy" 
@@ -576,9 +576,9 @@
                                                          class="w-full h-full object-cover rounded-xl">
                                                 </div>
                                                 <div>
-                                                    <h3 class="text-2xl font-black text-white group-hover:text-cyan-300 transition-colors tracking-tight">{{ $bot->name }}</h3>
-                                                    <p class="text-xs font-mono text-cyan-400/90 mt-1 flex items-center gap-1.5">
-                                                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                                                    <h3 class="text-2xl font-black text-white group-hover:text-amber-300 transition-colors tracking-tight">{{ $bot->name }}</h3>
+                                                    <p class="text-xs font-mono text-amber-400/90 mt-1 flex items-center gap-1.5">
+                                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                                                         {{ $pairsList }}
                                                     </p>
                                                 </div>
@@ -609,7 +609,7 @@
                                                 </div>
                                                 <div class="flex justify-between items-center">
                                                     <span class="text-slate-400">{{ __('Order Execution') }}</span>
-                                                    <span class="font-bold text-cyan-400">{{ __('Instant Market Orders') }}</span>
+                                                    <span class="font-bold text-amber-400">{{ __('Instant Market Orders') }}</span>
                                                 </div>
                                             </div>
                                         </div>
@@ -618,14 +618,14 @@
                                         <div class="md:col-span-6 p-5 rounded-2xl bg-black/60 border border-white/[0.08] space-y-4">
                                             <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
                                                 <span class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-widest flex items-center gap-1.5">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                                                     {{ __('LIVE PERFORMANCE TRACKER') }}
                                                 </span>
                                                 <span class="text-[10px] font-mono text-emerald-400 font-bold">+99.98% Win Rate</span>
                                             </div>
 
                                             {{-- Animated SVG Performance Curve --}}
-                                            <div class="relative h-28 w-full overflow-hidden rounded-xl bg-gradient-to-b from-cyan-500/10 via-transparent to-transparent border border-cyan-500/20 p-2">
+                                            <div class="relative h-28 w-full overflow-hidden rounded-xl bg-gradient-to-b from-amber-500/10 via-transparent to-transparent border border-amber-500/20 p-2">
                                                 <svg class="w-full h-full overflow-visible" viewBox="0 0 300 80" preserveAspectRatio="none">
                                                     <defs>
                                                         <linearGradient id="featured-yield-grad-{{ $bot->id }}" x1="0" y1="0" x2="0" y2="1">
@@ -635,7 +635,7 @@
                                                     </defs>
                                                     <path d="M0 65 Q 40 55, 80 40 T 160 30 T 240 15 T 300 8 L 300 80 L 0 80 Z" fill="url(#featured-yield-grad-{{ $bot->id }})" />
                                                     <path d="M0 65 Q 40 55, 80 40 T 160 30 T 240 15 T 300 8" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" />
-                                                    <circle cx="300" cy="8" r="4" fill="#00f5ff" class="animate-pulse" />
+                                                    <circle cx="300" cy="8" r="4" fill="#f7a600" class="animate-pulse" />
                                                 </svg>
                                             </div>
 
@@ -646,7 +646,7 @@
                                                     <span class="text-slate-500">0.04s ago</span>
                                                 </div>
                                                 <div class="flex items-center justify-between p-2 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                                                    <span class="text-cyan-400 font-bold">[PROFIT] SPREAD CAPTURED</span>
+                                                    <span class="text-amber-400 font-bold">[PROFIT] SPREAD CAPTURED</span>
                                                     <span class="text-slate-500">1.2s ago</span>
                                                 </div>
                                             </div>
@@ -657,10 +657,10 @@
 
                                 {{-- Deploy Contract CTA Button (Button-in-Button Architecture) --}}
                                 <a href="{{ auth()->check() ? route('user.trading-bots.index') : route('user.register') }}" 
-                                   class="w-full pl-8 pr-2.5 py-2.5 rounded-full bg-[#00f5ff] hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_35px_rgba(0,245,255,0.4)] hover:shadow-[0_0_50px_rgba(0,245,255,0.7)] group">
+                                   class="w-full pl-8 pr-2.5 py-2.5 rounded-full bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_35px_rgba(247,166,0,0.4)] hover:shadow-[0_0_50px_rgba(247,166,0,0.7)] group">
                                     <span>{{ __('Start Featured Bot Now') }}</span>
-                                    <span class="w-10 h-10 rounded-full bg-[#050507]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
-                                        <svg class="w-4 h-4 text-[#050507]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <span class="w-10 h-10 rounded-full bg-[#0b0e11]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
+                                        <svg class="w-4 h-4 text-[#0b0e11]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                         </svg>
                                     </span>
@@ -672,10 +672,10 @@
                                  x-transition:enter="transition ease-out duration-300 transform" 
                                  x-transition:enter-start="opacity-0 scale-95" 
                                  x-transition:enter-end="opacity-100 scale-100"
-                                 class="group relative flex flex-col justify-between rounded-3xl bg-[#090c14]/90 border border-white/[0.08] hover:border-cyan-400/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(0,245,255,0.15)]">
+                                 class="group relative flex flex-col justify-between rounded-3xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(247,166,0,0.15)]">
                                 <div>
                                     <div class="flex items-center justify-between gap-3 mb-6">
-                                        <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[9px] font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[9px] font-bold uppercase tracking-wider">
                                             {{ $typeBadge }}
                                         </span>
                                         <span class="text-[10px] font-mono text-slate-400">
@@ -684,7 +684,7 @@
                                     </div>
 
                                     <div class="flex items-center gap-3.5 mb-5">
-                                        <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-bold text-lg shrink-0 shadow-inner overflow-hidden p-1">
+                                        <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-lg shrink-0 shadow-inner overflow-hidden p-1">
                                             <img src="{{ $botLogoUrl }}" 
                                                  alt="{{ $bot->name }}" 
                                                  loading="lazy" 
@@ -692,7 +692,7 @@
                                                  class="w-full h-full object-cover rounded-xl">
                                         </div>
                                         <div>
-                                            <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">{{ $bot->name }}</h3>
+                                            <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">{{ $bot->name }}</h3>
                                             <p class="text-xs font-mono text-slate-400 mt-0.5">{{ $pairsList }}</p>
                                         </div>
                                     </div>
@@ -724,9 +724,9 @@
                                 </div>
 
                                 <a href="{{ auth()->check() ? route('user.trading-bots.index') : route('user.register') }}" 
-                                   class="w-full py-3.5 px-4 rounded-xl bg-white/[0.03] hover:bg-[#00f5ff] border border-white/[0.1] hover:border-[#00f5ff] text-white hover:text-[#050507] font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-[0_0_25px_rgba(0,245,255,0.4)]">
+                                   class="w-full py-3.5 px-4 rounded-xl bg-white/[0.03] hover:bg-[#f7a600] border border-white/[0.1] hover:border-[#f7a600] text-white hover:text-[#0b0e11] font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-[0_0_25px_rgba(247,166,0,0.4)]">
                                     <span>{{ __('Start Trading Bot') }}</span>
-                                    <svg class="w-4 h-4 text-slate-400 group-hover/btn:text-[#050507] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-4 h-4 text-slate-400 group-hover/btn:text-[#0b0e11] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                     </svg>
                                 </a>
@@ -743,7 +743,7 @@
                          x-transition:enter="transition ease-out duration-300 transform" 
                          x-transition:enter-start="opacity-0 scale-95" 
                          x-transition:enter-end="opacity-100 scale-100"
-                         class="lg:col-span-2 group relative flex flex-col justify-between rounded-3xl bg-[#090c14]/95 border border-white/[0.1] hover:border-cyan-400/50 p-7 sm:p-9 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_50px_rgba(0,245,255,0.2)]">
+                         class="lg:col-span-2 group relative flex flex-col justify-between rounded-3xl bg-[#151a21]/95 border border-white/[0.1] hover:border-amber-400/50 p-7 sm:p-9 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_50px_rgba(247,166,0,0.2)]">
                         
                         {{-- Cybernetic Corner Reticles --}}
                         <div class="absolute top-3 left-3 text-slate-600 font-mono text-[9px] pointer-events-none select-none">+</div>
@@ -756,7 +756,7 @@
                             <div class="flex flex-wrap items-center justify-between gap-3 mb-6 pb-4 border-b border-white/[0.06]">
                                 <div class="flex items-center gap-2.5">
                                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse shadow-[0_0_10px_#10b981]"></span>
-                                    <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-wider">
+                                    <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-wider">
                                         {{ __('FEATURED BOT · FAST SCALPING') }}
                                     </span>
                                 </div>
@@ -771,15 +771,15 @@
                                 {{-- Left Info Block --}}
                                 <div class="md:col-span-6 space-y-5">
                                     <div class="flex items-center gap-4">
-                                        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center p-1.5 shadow-[0_0_20px_rgba(0,245,255,0.2)] shrink-0 overflow-hidden">
+                                        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center p-1.5 shadow-[0_0_20px_rgba(247,166,0,0.2)] shrink-0 overflow-hidden">
                                             <img src="{{ asset('assets/images/bots/bot-1.png') }}" alt="Apex Scalper Pro" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                         </div>
                                         <div>
-                                            <h3 class="text-2xl font-black text-white group-hover:text-cyan-300 transition-colors tracking-tight">Apex Scalper Pro v4</h3>
+                                            <h3 class="text-2xl font-black text-white group-hover:text-amber-300 transition-colors tracking-tight">Apex Scalper Pro v4</h3>
                                             <div class="flex items-center gap-2 mt-1">
-                                                <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[10px] font-mono text-cyan-400 border border-white/[0.06]">BTC/USDT</span>
-                                                <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[10px] font-mono text-cyan-400 border border-white/[0.06]">ETH/USDT</span>
-                                                <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[10px] font-mono text-cyan-400 border border-white/[0.06]">SOL/USDT</span>
+                                                <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[10px] font-mono text-amber-400 border border-white/[0.06]">BTC/USDT</span>
+                                                <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[10px] font-mono text-amber-400 border border-white/[0.06]">ETH/USDT</span>
+                                                <span class="px-2 py-0.5 rounded bg-white/[0.04] text-[10px] font-mono text-amber-400 border border-white/[0.06]">SOL/USDT</span>
                                             </div>
                                         </div>
                                     </div>
@@ -809,7 +809,7 @@
                                         </div>
                                         <div class="flex justify-between items-center">
                                             <span class="text-slate-400">{{ __('Trading Strategy') }}</span>
-                                            <span class="font-bold text-cyan-400">{{ __('Fast Short-Term Scalping') }}</span>
+                                            <span class="font-bold text-amber-400">{{ __('Fast Short-Term Scalping') }}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -818,14 +818,14 @@
                                 <div class="md:col-span-6 p-5 rounded-2xl bg-black/60 border border-white/[0.08] space-y-4">
                                     <div class="flex items-center justify-between pb-2 border-b border-white/[0.08]">
                                         <span class="text-[10px] font-mono text-slate-400 uppercase font-bold tracking-widest flex items-center gap-1.5">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                                             {{ __('LIVE PERFORMANCE TRACKER') }}
                                         </span>
                                         <span class="text-[10px] font-mono text-emerald-400 font-bold">99.98% Win Rate</span>
                                     </div>
 
                                     {{-- Animated SVG Performance Curve --}}
-                                    <div class="relative h-28 w-full overflow-hidden rounded-xl bg-gradient-to-b from-cyan-500/10 via-transparent to-transparent border border-cyan-500/20 p-2">
+                                    <div class="relative h-28 w-full overflow-hidden rounded-xl bg-gradient-to-b from-amber-500/10 via-transparent to-transparent border border-amber-500/20 p-2">
                                         <svg class="w-full h-full overflow-visible" viewBox="0 0 300 80" preserveAspectRatio="none">
                                             <defs>
                                                 <linearGradient id="curated-yield-grad" x1="0" y1="0" x2="0" y2="1">
@@ -835,7 +835,7 @@
                                             </defs>
                                             <path d="M0 65 Q 40 55, 80 40 T 160 30 T 240 15 T 300 8 L 300 80 L 0 80 Z" fill="url(#curated-yield-grad)" />
                                             <path d="M0 65 Q 40 55, 80 40 T 160 30 T 240 15 T 300 8" fill="none" stroke="#10b981" stroke-width="2.5" stroke-linecap="round" />
-                                            <circle cx="300" cy="8" r="4" fill="#00f5ff" class="animate-pulse" />
+                                            <circle cx="300" cy="8" r="4" fill="#f7a600" class="animate-pulse" />
                                         </svg>
                                     </div>
 
@@ -846,7 +846,7 @@
                                             <span class="text-slate-500">0.04s ago</span>
                                         </div>
                                         <div class="flex items-center justify-between p-2 rounded-lg bg-white/[0.02] border border-white/[0.04]">
-                                            <span class="text-cyan-400 font-bold">[PROFIT] SOL/USDT +2.18%</span>
+                                            <span class="text-amber-400 font-bold">[PROFIT] SOL/USDT +2.18%</span>
                                             <span class="text-slate-500">1.2s ago</span>
                                         </div>
                                     </div>
@@ -856,9 +856,9 @@
 
                             {{-- Action CTA --}}
                             <a href="{{ auth()->check() ? route('user.trading-bots.index') : route('user.register') }}" 
-                               class="w-full py-4 px-6 rounded-2xl bg-[#00f5ff] hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(0,245,255,0.4)] hover:shadow-[0_0_45px_rgba(0,245,255,0.7)] transform hover:-translate-y-0.5">
+                               class="w-full py-4 px-6 rounded-2xl bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3 shadow-[0_0_30px_rgba(247,166,0,0.4)] hover:shadow-[0_0_45px_rgba(247,166,0,0.7)] transform hover:-translate-y-0.5">
                                 <span>{{ __('Start Apex Scalper Bot') }}</span>
-                                <svg class="w-4 h-4 text-[#050507]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-4 h-4 text-[#0b0e11]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                 </svg>
                             </a>
@@ -870,10 +870,10 @@
                          x-transition:enter="transition ease-out duration-300 transform" 
                          x-transition:enter-start="opacity-0 scale-95" 
                          x-transition:enter-end="opacity-100 scale-100"
-                         class="group relative flex flex-col justify-between rounded-3xl bg-[#090c14]/90 border border-white/[0.08] hover:border-cyan-400/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(0,245,255,0.15)]">
+                         class="group relative flex flex-col justify-between rounded-3xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(247,166,0,0.15)]">
                         <div>
                             <div class="flex items-center justify-between gap-3 mb-6">
-                                <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[9px] font-bold uppercase tracking-wider">
+                                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[9px] font-bold uppercase tracking-wider">
                                     {{ __('GRID TRADING') }}
                                 </span>
                                 <span class="text-[10px] font-mono text-slate-400">
@@ -882,11 +882,11 @@
                             </div>
 
                             <div class="flex items-center gap-3.5 mb-5">
-                                <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center p-1.5 shadow-inner overflow-hidden shrink-0">
+                                <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 flex items-center justify-center p-1.5 shadow-inner overflow-hidden shrink-0">
                                     <img src="{{ asset('assets/images/bots/bot-2.png') }}" alt="Grid Matrix Alpha" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">Grid Matrix Alpha</h3>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Grid Matrix Alpha</h3>
                                     <p class="text-xs font-mono text-slate-400 mt-0.5">BNB/USDT · AVAX/USDT · POL/USDT</p>
                                 </div>
                             </div>
@@ -918,9 +918,9 @@
                         </div>
 
                         <a href="{{ auth()->check() ? route('user.trading-bots.index') : route('user.register') }}" 
-                           class="w-full py-3.5 px-4 rounded-xl bg-white/[0.03] hover:bg-[#00f5ff] border border-white/[0.1] hover:border-[#00f5ff] text-white hover:text-[#050507] font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-[0_0_25px_rgba(0,245,255,0.4)]">
+                           class="w-full py-3.5 px-4 rounded-xl bg-white/[0.03] hover:bg-[#f7a600] border border-white/[0.1] hover:border-[#f7a600] text-white hover:text-[#0b0e11] font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-[0_0_25px_rgba(247,166,0,0.4)]">
                             <span>{{ __('Start Grid Bot') }}</span>
-                            <svg class="w-4 h-4 text-slate-400 group-hover/btn:text-[#050507] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-slate-400 group-hover/btn:text-[#0b0e11] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
                         </a>
@@ -931,10 +931,10 @@
                          x-transition:enter="transition ease-out duration-300 transform" 
                          x-transition:enter-start="opacity-0 scale-95" 
                          x-transition:enter-end="opacity-100 scale-100"
-                         class="group relative flex flex-col justify-between rounded-3xl bg-[#090c14]/90 border border-white/[0.08] hover:border-cyan-400/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(0,245,255,0.15)]">
+                         class="group relative flex flex-col justify-between rounded-3xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/40 p-6 sm:p-8 backdrop-blur-xl shadow-2xl transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_0_35px_rgba(247,166,0,0.15)]">
                         <div>
                             <div class="flex items-center justify-between gap-3 mb-6">
-                                <span class="px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[9px] font-bold uppercase tracking-wider">
+                                <span class="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[9px] font-bold uppercase tracking-wider">
                                     {{ __('BALANCED ARBITRAGE') }}
                                 </span>
                                 <span class="text-[10px] font-mono text-slate-400">
@@ -947,7 +947,7 @@
                                     <img src="{{ asset('assets/images/bots/bot-3.png') }}" alt="Sentinel Yield Vault" loading="lazy" class="w-full h-full object-cover rounded-xl">
                                 </div>
                                 <div>
-                                    <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">Sentinel Yield Vault</h3>
+                                    <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Sentinel Yield Vault</h3>
                                     <p class="text-xs font-mono text-slate-400 mt-0.5">USDT · USDC · EUR/USD</p>
                                 </div>
                             </div>
@@ -979,9 +979,9 @@
                         </div>
 
                         <a href="{{ auth()->check() ? route('user.trading-bots.index') : route('user.register') }}" 
-                           class="w-full py-3.5 px-4 rounded-xl bg-white/[0.03] hover:bg-[#00f5ff] border border-white/[0.1] hover:border-[#00f5ff] text-white hover:text-[#050507] font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-[0_0_25px_rgba(0,245,255,0.4)]">
+                           class="w-full py-3.5 px-4 rounded-xl bg-white/[0.03] hover:bg-[#f7a600] border border-white/[0.1] hover:border-[#f7a600] text-white hover:text-[#0b0e11] font-bold text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-md hover:shadow-[0_0_25px_rgba(247,166,0,0.4)]">
                             <span>{{ __('Start Sentinel Bot') }}</span>
-                            <svg class="w-4 h-4 text-slate-400 group-hover/btn:text-[#050507] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 text-slate-400 group-hover/btn:text-[#0b0e11] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                             </svg>
                         </a>
@@ -996,19 +996,19 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION: INTERACTIVE STRATEGY COMPARISON MATRIX --}}
     {{-- ==================================================================================== --}}
-    <section id="comparison" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="comparison" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Ambient Lighting Orbs --}}
-        <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
+        <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('COMPARE TRADING BOTS') }}
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-4">
                     {{ __('Compare Trading Bot') }} <br class="hidden sm:inline">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('Strategies.') }}</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Strategies.') }}</span>
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                     {{ __('Choose the trading strategy that best fits your goals, budget, and preferred investment term.') }}
@@ -1018,9 +1018,9 @@
             {{-- Cyber-Terminal Comparison Container --}}
             <div class="max-w-6xl mx-auto p-2 sm:p-3 rounded-[2.5rem] sm:rounded-[3rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] overflow-hidden relative group">
                 {{-- Laser top accent line --}}
-                <div class="absolute top-0 left-1/4 right-1/4 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+                <div class="absolute top-0 left-1/4 right-1/4 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
-                <div class="rounded-[2rem] sm:rounded-[2.5rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
+                <div class="rounded-[2rem] sm:rounded-[2.5rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
                     {{-- Terminal Top Bar --}}
                     <div class="flex items-center justify-between px-6 py-4 border-b border-white/[0.08] bg-white/[0.02]">
                         <div class="flex items-center gap-2.5">
@@ -1030,7 +1030,7 @@
                             <span class="text-[10px] font-mono text-slate-400 ml-2 hidden sm:inline">BOT_COMPARISON_MATRIX.SYS</span>
                         </div>
                         <div class="flex items-center gap-3">
-                            <span class="px-2.5 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[9px] font-bold">
+                            <span class="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[9px] font-bold">
                                 ● REAL-TIME DATA
                             </span>
                         </div>
@@ -1042,20 +1042,20 @@
                             <thead>
                                 <tr class="border-b border-white/[0.08] text-xs font-mono uppercase text-slate-400">
                                     <th class="py-4 px-4">{{ __('Features & Terms') }}</th>
-                                    <th class="py-4 px-4 text-cyan-400 font-bold tracking-wider">
+                                    <th class="py-4 px-4 text-amber-400 font-bold tracking-wider">
                                         <div class="flex items-center gap-1.5">
-                                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                                             {{ __('Apex Scalper Pro') }}
                                         </div>
                                     </th>
-                                    <th class="py-4 px-4 text-purple-400 font-bold tracking-wider">{{ __('Grid Matrix Alpha') }}</th>
+                                    <th class="py-4 px-4 text-orange-400 font-bold tracking-wider">{{ __('Grid Matrix Alpha') }}</th>
                                     <th class="py-4 px-4 text-amber-400 font-bold tracking-wider">{{ __('Sentinel Yield') }}</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-white/[0.04] text-xs font-mono text-slate-300">
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="py-4 px-4 font-bold text-white flex items-center gap-2">
-                                        <span class="text-cyan-400 font-mono">01.</span> {{ __('Target Daily Return') }}
+                                        <span class="text-amber-400 font-mono">01.</span> {{ __('Target Daily Return') }}
                                     </td>
                                     <td class="py-4 px-4 font-bold text-emerald-400">+1.80% – 3.20%</td>
                                     <td class="py-4 px-4 font-bold text-emerald-400">+0.90% – 1.60%</td>
@@ -1063,7 +1063,7 @@
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="py-4 px-4 font-bold text-white">
-                                        <span class="text-cyan-400 font-mono">02.</span> {{ __('Trading Strategy') }}
+                                        <span class="text-amber-400 font-mono">02.</span> {{ __('Trading Strategy') }}
                                     </td>
                                     <td class="py-4 px-4">{{ __('Fast Short-Term Scalping') }}</td>
                                     <td class="py-4 px-4">{{ __('Price Range Grid Trading') }}</td>
@@ -1071,15 +1071,15 @@
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="py-4 px-4 font-bold text-white">
-                                        <span class="text-cyan-400 font-mono">03.</span> {{ __('Risk Profile') }}
+                                        <span class="text-amber-400 font-mono">03.</span> {{ __('Risk Profile') }}
                                     </td>
                                     <td class="py-4 px-4"><span class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold text-[10px]">{{ __('MODERATE RISK') }}</span></td>
-                                    <td class="py-4 px-4"><span class="px-2.5 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-bold text-[10px]">{{ __('BALANCED RISK') }}</span></td>
+                                    <td class="py-4 px-4"><span class="px-2.5 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-bold text-[10px]">{{ __('BALANCED RISK') }}</span></td>
                                     <td class="py-4 px-4"><span class="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-[10px]">{{ __('LOWER RISK') }}</span></td>
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="py-4 px-4 font-bold text-white">
-                                        <span class="text-cyan-400 font-mono">04.</span> {{ __('Minimum Deposit') }}
+                                        <span class="text-amber-400 font-mono">04.</span> {{ __('Minimum Deposit') }}
                                     </td>
                                     <td class="py-4 px-4 font-bold text-white">$100.00</td>
                                     <td class="py-4 px-4 font-bold text-white">$50.00</td>
@@ -1087,7 +1087,7 @@
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="py-4 px-4 font-bold text-white">
-                                        <span class="text-cyan-400 font-mono">05.</span> {{ __('Plan Duration') }}
+                                        <span class="text-amber-400 font-mono">05.</span> {{ __('Plan Duration') }}
                                     </td>
                                     <td class="py-4 px-4">30 {{ __('Days') }}</td>
                                     <td class="py-4 px-4">15 {{ __('Days') }}</td>
@@ -1095,7 +1095,7 @@
                                 </tr>
                                 <tr class="hover:bg-white/[0.02] transition-colors">
                                     <td class="py-4 px-4 font-bold text-white">
-                                        <span class="text-cyan-400 font-mono">06.</span> {{ __('Principal Return') }}
+                                        <span class="text-amber-400 font-mono">06.</span> {{ __('Principal Return') }}
                                     </td>
                                     <td class="py-4 px-4 text-emerald-400 font-bold">{{ __('100% Capital Returned') }}</td>
                                     <td class="py-4 px-4 text-emerald-400 font-bold">{{ __('100% Capital Returned') }}</td>
@@ -1112,7 +1112,7 @@
     {{-- ==================================================================================== --}}
     {{-- TRADINGVIEW CRYPTO TICKER TAPE BANNER --}}
     {{-- ==================================================================================== --}}
-    <div class="relative w-full bg-[#050507]/90 border-y border-white/[0.08] overflow-hidden py-2 backdrop-blur-2xl z-20 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
+    <div class="relative w-full bg-[#0b0e11]/90 border-y border-white/[0.08] overflow-hidden py-2 backdrop-blur-2xl z-20 [mask-image:linear-gradient(to_right,transparent,#000_8%,#000_92%,transparent)]">
         <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -1172,7 +1172,7 @@
     {{-- ==================================================================================== --}}
     {{-- LIVE ON-CHAIN DEPOSIT & WITHDRAWAL STREAM MARQUEE --}}
     {{-- ==================================================================================== --}}
-    <div class="relative w-full bg-[#090c14]/95 border-y border-white/[0.08] overflow-hidden py-3.5 backdrop-blur-2xl z-20 isolate">
+    <div class="relative w-full bg-[#151a21]/95 border-y border-white/[0.08] overflow-hidden py-3.5 backdrop-blur-2xl z-20 isolate">
         {{-- Marquee Track with Left/Right Fading Edge Masks --}}
         <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)] tx-marquee-wrapper group/txmarquee">
             <div class="flex gap-4 sm:gap-6 items-center whitespace-nowrap animate-tx-marquee py-1">
@@ -1244,13 +1244,13 @@
                             <span class="text-slate-500 text-[10px]">{{ $tx['time'] }}</span>
                         </div>
                     @else
-                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-cyan-500/[0.04] hover:bg-cyan-500/[0.1] border border-cyan-500/20 hover:border-cyan-500/40 text-cyan-400 font-mono text-xs shadow-sm hover:shadow-[0_0_15px_rgba(0,245,255,0.2)] transition-all duration-300 transform hover:-translate-y-0.5 shrink-0 select-none group cursor-pointer">
+                        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-2xl bg-amber-500/[0.04] hover:bg-amber-500/[0.1] border border-amber-500/20 hover:border-amber-500/40 text-amber-400 font-mono text-xs shadow-sm hover:shadow-[0_0_15px_rgba(247,166,0,0.2)] transition-all duration-300 transform hover:-translate-y-0.5 shrink-0 select-none group cursor-pointer">
                             <span class="relative flex h-2 w-2 shrink-0">
-                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
                             </span>
                             <strong class="text-white text-[11px] font-bold tracking-wider">[{{ $tx['type'] }}]</strong>
-                            <span class="text-cyan-300 font-black">{{ $tx['amount'] }} {{ $tx['asset'] }}</span>
+                            <span class="text-amber-300 font-black">{{ $tx['amount'] }} {{ $tx['asset'] }}</span>
                             <span class="text-slate-400 text-[10px]">via <span class="text-slate-300 font-bold">{{ $tx['via'] }}</span></span>
                             <span class="text-slate-600 text-[10px]">•</span>
                             <span class="text-slate-500 text-[10px]">{{ $tx['time'] }}</span>
@@ -1280,17 +1280,17 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 3: INTERACTIVE YIELD & PROFIT SIMULATOR (CALCULATOR CONSOLE) --}}
     {{-- ==================================================================================== --}}
-    <section class="relative py-24 sm:py-32 bg-[#050507] isolate overflow-hidden">
+    <section class="relative py-24 sm:py-32 bg-[#0b0e11] isolate overflow-hidden">
         {{-- Ambient Layered Glow Blobs --}}
-        <div class="absolute top-1/3 left-0 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
+        <div class="absolute top-1/3 left-0 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[150px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
         <div class="absolute bottom-10 right-0 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 10s;"></div>
 
         <div class="max-w-7xl mx-auto px-4 lg:px-8 w-full">
             
             {{-- Section Header --}}
             <div class="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(0,245,255,0.15)]">
-                    <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono text-[10px] font-bold uppercase tracking-widest mb-4 shadow-[0_0_20px_rgba(247,166,0,0.15)]">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('PROFIT CALCULATOR') }}
                 </div>
                 <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-[1.12] mb-5">
@@ -1311,7 +1311,7 @@
             @endphp
 
             {{-- Split Simulator Console (Alpine.js State) --}}
-            <div class="max-w-6xl mx-auto rounded-3xl bg-[#090c14]/95 border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] p-6 sm:p-10 lg:p-12 relative overflow-hidden"
+            <div class="max-w-6xl mx-auto rounded-3xl bg-[#151a21]/95 border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] p-6 sm:p-10 lg:p-12 relative overflow-hidden"
                  x-data="{
                     selectedBotId: {{ $defaultBotId }},
                     depositAmount: {{ $defaultDeposit }},
@@ -1341,7 +1341,7 @@
                         {{-- Crypto Market Sentiment Speedometer HUD Widget --}}
                         <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-mono font-bold text-xs">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-bold text-xs">
                                     78
                                 </div>
                                 <div>
@@ -1356,9 +1356,9 @@
                             <div class="w-28 h-9 relative flex items-center justify-center shrink-0">
                                 <svg class="w-full h-full" viewBox="0 0 100 50">
                                     <path d="M 10 45 A 35 35 0 0 1 90 45" fill="none" stroke="#ffffff15" stroke-width="8" stroke-linecap="round"/>
-                                    <path d="M 10 45 A 35 35 0 0 1 78 18" fill="none" stroke="#00f5ff" stroke-width="8" stroke-linecap="round"/>
-                                    <circle cx="50" cy="45" r="4" fill="#00f5ff" />
-                                    <line x1="50" y1="45" x2="72" y2="22" stroke="#00f5ff" stroke-width="2.5" stroke-linecap="round"/>
+                                    <path d="M 10 45 A 35 35 0 0 1 78 18" fill="none" stroke="#f7a600" stroke-width="8" stroke-linecap="round"/>
+                                    <circle cx="50" cy="45" r="4" fill="#f7a600" />
+                                    <line x1="50" y1="45" x2="72" y2="22" stroke="#f7a600" stroke-width="2.5" stroke-linecap="round"/>
                                 </svg>
                             </div>
                         </div>
@@ -1367,10 +1367,10 @@
                         <div class="space-y-4">
                             <div class="flex justify-between items-center">
                                 <label class="text-xs font-mono font-bold uppercase text-slate-300 tracking-wider flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                                     {{ __('1. SELECT INVESTMENT AMOUNT') }}
                                 </label>
-                                <div class="px-4 py-1.5 rounded-xl bg-white/[0.04] border border-cyan-500/30 text-emerald-400 font-mono font-black text-lg shadow-inner">
+                                <div class="px-4 py-1.5 rounded-xl bg-white/[0.04] border border-amber-500/30 text-emerald-400 font-mono font-black text-lg shadow-inner">
                                     $<span x-text="Number(depositAmount).toLocaleString()">1,000</span>
                                 </div>
                             </div>
@@ -1380,22 +1380,22 @@
                                    max="50000" 
                                    step="50" 
                                    x-model="depositAmount"
-                                   class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#00f5ff] focus:outline-none shadow-inner">
+                                   class="w-full h-2.5 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-[#f7a600] focus:outline-none shadow-inner">
 
                             {{-- Preset Quick Select Buttons --}}
                             <div class="flex flex-wrap gap-2 pt-1">
-                                <button @click="depositAmount = 500" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-cyan-500/20 border border-white/[0.08] hover:border-cyan-500/40 text-slate-300 text-xs font-mono transition-all">$500</button>
-                                <button @click="depositAmount = 1000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-cyan-500/20 border border-white/[0.08] hover:border-cyan-500/40 text-slate-300 text-xs font-mono transition-all">$1,000</button>
-                                <button @click="depositAmount = 5000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-cyan-500/20 border border-white/[0.08] hover:border-cyan-500/40 text-slate-300 text-xs font-mono transition-all">$5,000</button>
-                                <button @click="depositAmount = 10000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-cyan-500/20 border border-white/[0.08] hover:border-cyan-500/40 text-slate-300 text-xs font-mono transition-all">$10,000</button>
-                                <button @click="depositAmount = 25000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-cyan-500/20 border border-white/[0.08] hover:border-cyan-500/40 text-slate-300 text-xs font-mono transition-all">$25,000</button>
+                                <button @click="depositAmount = 500" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/20 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 text-xs font-mono transition-all">$500</button>
+                                <button @click="depositAmount = 1000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/20 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 text-xs font-mono transition-all">$1,000</button>
+                                <button @click="depositAmount = 5000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/20 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 text-xs font-mono transition-all">$5,000</button>
+                                <button @click="depositAmount = 10000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/20 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 text-xs font-mono transition-all">$10,000</button>
+                                <button @click="depositAmount = 25000" class="px-3 py-1.5 rounded-lg bg-white/[0.03] hover:bg-amber-500/20 border border-white/[0.08] hover:border-amber-500/40 text-slate-300 text-xs font-mono transition-all">$25,000</button>
                             </div>
                         </div>
 
                         {{-- Control 2: Strategy Selector Cards --}}
                         <div class="space-y-4">
                             <label class="text-xs font-mono font-bold uppercase text-slate-300 tracking-wider flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                                 {{ __('2. CHOOSE TRADING BOT') }}
                             </label>
 
@@ -1410,11 +1410,11 @@
                                                 : asset('assets/images/bots/bot-1.png');
                                         @endphp
                                         <div @click="selectedBotId = {{ $bot->id }}; selectedRoi = {{ $roiDecimal }}; strategyName = '{{ addslashes($bot->name) }}'; termDays = {{ $bot->duration }}; if (depositAmount < {{ $bot->min_amount }}) depositAmount = {{ $bot->min_amount }};"
-                                             :class="selectedBotId === {{ $bot->id }} ? 'border-cyan-400 bg-cyan-500/10 shadow-[0_0_20px_rgba(0,245,255,0.2)]' : 'border-white/[0.08] bg-white/[0.02] hover:border-white/20'"
+                                             :class="selectedBotId === {{ $bot->id }} ? 'border-amber-400 bg-amber-500/10 shadow-[0_0_20px_rgba(247,166,0,0.2)]' : 'border-white/[0.08] bg-white/[0.02] hover:border-white/20'"
                                              class="p-3.5 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col justify-between group">
                                             <div class="flex items-center gap-2.5 mb-2">
                                                 <img src="{{ $botLogoUrl }}" alt="{{ $bot->name }}" loading="lazy" class="w-6 h-6 object-cover rounded-lg shrink-0">
-                                                <h4 class="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors line-clamp-1">{{ $bot->name }}</h4>
+                                                <h4 class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors line-clamp-1">{{ $bot->name }}</h4>
                                             </div>
                                             <div class="flex items-center justify-between font-mono text-[10px]">
                                                 <span class="text-slate-400">{{ strtoupper($bot->type ?? 'CRYPTO') }}</span>
@@ -1424,10 +1424,10 @@
                                     @endforeach
                                 @else
                                     <div @click="selectedRoi = 0.024; strategyName = 'Apex Scalper Pro v4'; termDays = 30;"
-                                         :class="selectedRoi === 0.024 ? 'border-cyan-400 bg-cyan-500/10 shadow-[0_0_20px_rgba(0,245,255,0.2)]' : 'border-white/[0.08] bg-white/[0.02] hover:border-white/20'"
+                                         :class="selectedRoi === 0.024 ? 'border-amber-400 bg-amber-500/10 shadow-[0_0_20px_rgba(247,166,0,0.2)]' : 'border-white/[0.08] bg-white/[0.02] hover:border-white/20'"
                                          class="p-4 rounded-2xl border cursor-pointer transition-all duration-300 flex flex-col justify-between">
                                         <div>
-                                            <span class="text-[9px] font-mono font-bold text-cyan-400 uppercase tracking-widest block mb-1">Scalping</span>
+                                            <span class="text-[9px] font-mono font-bold text-amber-400 uppercase tracking-widest block mb-1">Scalping</span>
                                             <h4 class="text-xs font-bold text-white mb-2">Apex Scalper Pro</h4>
                                         </div>
                                         <div class="text-sm font-mono font-black text-emerald-400">+2.40% / day</div>
@@ -1439,14 +1439,14 @@
                         {{-- Control 3: Lockup Term Duration --}}
                         <div class="space-y-4">
                             <label class="text-xs font-mono font-bold uppercase text-slate-300 tracking-wider flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                                 {{ __('3. CHOOSE PLAN DURATION') }}
                             </label>
 
                             <div class="flex flex-wrap gap-2.5">
                                 <template x-for="days in [7, 15, 30, 60, 90]">
                                     <button @click="termDays = days" 
-                                            :class="termDays === days ? 'bg-[#00f5ff] text-[#050507] font-black shadow-[0_0_20px_rgba(0,245,255,0.4)]' : 'bg-white/[0.03] text-slate-300 border-white/[0.08] hover:bg-white/[0.08]'"
+                                            :class="termDays === days ? 'bg-[#f7a600] text-[#0b0e11] font-black shadow-[0_0_20px_rgba(247,166,0,0.4)]' : 'bg-white/[0.03] text-slate-300 border-white/[0.08] hover:bg-white/[0.08]'"
                                             class="px-5 py-2.5 rounded-xl border text-xs font-mono uppercase tracking-wider transition-all duration-300">
                                         <span x-text="days + ' Days'"></span>
                                     </button>
@@ -1480,7 +1480,7 @@
 
                             <div class="flex justify-between items-center pb-3 border-b border-white/[0.04]">
                                 <span class="text-slate-400">{{ __('Selected Bot') }}</span>
-                                <span class="font-bold text-cyan-400" x-text="strategyName">Apex Scalper Pro</span>
+                                <span class="font-bold text-amber-400" x-text="strategyName">Apex Scalper Pro</span>
                             </div>
 
                             <div class="flex justify-between items-center pb-3 border-b border-white/[0.04]">
@@ -1509,10 +1509,10 @@
 
                             {{-- Deploy Contract CTA Button (Button-in-Button Architecture) --}}
                             <a href="{{ auth()->check() ? route('user.trading-bots.index') : route('user.register') }}" 
-                               class="w-full pl-8 pr-2.5 py-2.5 rounded-full bg-[#00f5ff] hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_35px_rgba(0,245,255,0.4)] hover:shadow-[0_0_50px_rgba(0,245,255,0.7)] group">
+                               class="w-full pl-8 pr-2.5 py-2.5 rounded-full bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_35px_rgba(247,166,0,0.4)] hover:shadow-[0_0_50px_rgba(247,166,0,0.7)] group">
                                 <span>{{ __('Start Trading Bot Now') }}</span>
-                                <span class="w-10 h-10 rounded-full bg-[#050507]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
-                                    <svg class="w-4 h-4 text-[#050507]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <span class="w-10 h-10 rounded-full bg-[#0b0e11]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
+                                    <svg class="w-4 h-4 text-[#0b0e11]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                     </svg>
                                 </span>
@@ -1528,24 +1528,24 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 4: MARKET MOMENTUM (INSTITUTIONAL SCREENER) --}}
     {{-- ==================================================================================== --}}
-    <section id="momentum" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate">
+    <section id="momentum" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate">
         {{-- Background Ambient Blobs --}}
-        <div class="absolute top-0 right-10 w-[500px] h-[500px] bg-[#00f5ff]/[0.03] rounded-full blur-[140px] -z-10 pointer-events-none select-none"></div>
-        <div class="absolute bottom-10 left-10 w-[400px] h-[400px] bg-purple-600/[0.03] rounded-full blur-[120px] -z-10 animate-pulse pointer-events-none select-none"></div>
+        <div class="absolute top-0 right-10 w-[500px] h-[500px] bg-[#f7a600]/[0.03] rounded-full blur-[140px] -z-10 pointer-events-none select-none"></div>
+        <div class="absolute bottom-10 left-10 w-[400px] h-[400px] bg-orange-600/[0.03] rounded-full blur-[120px] -z-10 animate-pulse pointer-events-none select-none"></div>
 
         {{-- SVG Laser Accent Circuit Line --}}
-        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00f5ff]/40 to-transparent pointer-events-none select-none"></div>
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7a600]/40 to-transparent pointer-events-none select-none"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12 sm:mb-16">
                 <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00f5ff]/10 border border-[#00f5ff]/20 text-[#00f5ff] text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#00f5ff] animate-ping"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f7a600]/10 border border-[#f7a600]/20 text-[#f7a600] text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#f7a600] animate-ping"></span>
                         {{ __('LIVE MARKET PRICES') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
                         {{ __('Live Market') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('Overview.') }}</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Overview.') }}</span>
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
@@ -1555,7 +1555,7 @@
 
             {{-- Bento Screener Double-Bezel Container Frame --}}
             <div class="max-w-7xl mx-auto p-3 rounded-[3rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] relative overflow-hidden group">
-                <div class="rounded-[2.5rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-4 sm:p-6 lg:p-8 h-[650px] flex flex-col relative overflow-hidden">
+                <div class="rounded-[2.5rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-4 sm:p-6 lg:p-8 h-[650px] flex flex-col relative overflow-hidden">
                     {{-- Corner Reticles --}}
                     <div class="absolute top-4 left-4 text-slate-700 font-mono text-[10px] pointer-events-none select-none hidden sm:block">+ MARKET_SCREENER // LIVE_FEED</div>
                     <div class="absolute top-4 right-4 text-slate-700 font-mono text-[10px] pointer-events-none select-none hidden sm:block">REAL-TIME</div>
@@ -1589,22 +1589,22 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 5: PRODUCT PILLAR 02 — REAL-TIME COPY TRADING NETWORK --}}
     {{-- ==================================================================================== --}}
-    <section id="copy-trading" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="copy-trading" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Background Accents --}}
-        <div class="absolute top-1/3 left-0 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
-        <div class="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/3 left-0 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
+        <div class="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             {{-- Header --}}
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
                 <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                         {{ __('COPY TRADING') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
                         {{ __('Follow Verified Top Traders') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('with One-Click Copy Trading.') }}</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('with One-Click Copy Trading.') }}</span>
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
@@ -1617,10 +1617,10 @@
                 
                 {{-- Left: Copy Code Activation Bar (Double-Bezel Architecture) --}}
                 <div class="lg:col-span-4 p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col justify-between h-full">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                         <div>
                             <div class="flex items-center gap-3 mb-6">
-                                <div class="w-10 h-10 rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400">
+                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 012-2v-8a2 2 0 01-2-2h-8a2 2 0 01-2 2v8a2 2 0 012 2z"/>
                                     </svg>
@@ -1635,14 +1635,14 @@
                                 <div>
                                     <label class="text-[10px] font-mono font-bold text-slate-300 uppercase tracking-widest block mb-2">{{ __('ENTER TRADER COPY CODE') }}</label>
                                     <div class="relative">
-                                        <input type="text" name="copy_code" placeholder="e.g. SATO-QUANT-01" class="w-full bg-white/[0.03] border border-white/[0.12] focus:border-cyan-400 rounded-xl py-3.5 px-4 font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-cyan-400 transition-all uppercase">
-                                        <span class="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[10px] text-cyan-400 font-bold bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">SYNC</span>
+                                        <input type="text" name="copy_code" placeholder="e.g. SATO-QUANT-01" class="w-full bg-white/[0.03] border border-white/[0.12] focus:border-amber-400 rounded-xl py-3.5 px-4 font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-all uppercase">
+                                        <span class="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[10px] text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">SYNC</span>
                                     </div>
                                 </div>
-                                <button type="submit" class="w-full pl-6 pr-2 py-2 rounded-full bg-[#00f5ff] hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_25px_rgba(0,245,255,0.35)] group">
+                                <button type="submit" class="w-full pl-6 pr-2 py-2 rounded-full bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_25px_rgba(247,166,0,0.35)] group">
                                     <span>{{ __('Follow Trader Now') }}</span>
-                                    <span class="w-8 h-8 rounded-full bg-[#050507]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
-                                        <svg class="w-4 h-4 text-[#050507]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                                    <span class="w-8 h-8 rounded-full bg-[#0b0e11]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
+                                        <svg class="w-4 h-4 text-[#0b0e11]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                                     </span>
                                 </button>
                             </form>
@@ -1659,7 +1659,7 @@
                             </div>
                             <div class="flex items-center justify-between">
                                 <span>{{ __('Settlement Engine') }}</span>
-                                <span class="text-cyan-400 font-bold">100% Direct Crypto</span>
+                                <span class="text-amber-400 font-bold">100% Direct Crypto</span>
                             </div>
                         </div>
                     </div>
@@ -1672,13 +1672,13 @@
                         {{-- Laser Gold Top Accent --}}
                         <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
 
-                        <div class="rounded-[2rem] bg-[#090c14]/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                        <div class="rounded-[2rem] bg-[#151a21]/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                             <div class="flex items-center gap-4">
                                 <div class="relative">
                                     <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/30 text-amber-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-[0_0_20px_rgba(245,158,11,0.2)]">
                                         SQ
                                     </div>
-                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-amber-400 text-[#050507] text-[8px] font-mono font-black uppercase tracking-wider shadow">#1 RANK</span>
+                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-amber-400 text-[#0b0e11] text-[8px] font-mono font-black uppercase tracking-wider shadow">#1 RANK</span>
                                 </div>
                                 <div>
                                     <div class="flex items-center gap-2">
@@ -1702,23 +1702,23 @@
                     </div>
 
                     {{-- Master 2 (#2 Silver Leaderboard) --}}
-                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-cyan-500/20 hover:border-cyan-400/50 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
-                        <div class="rounded-[2rem] bg-[#090c14]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-amber-500/20 hover:border-amber-400/50 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
+                        <div class="rounded-[2rem] bg-[#151a21]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                             <div class="flex items-center gap-4">
                                 <div class="relative">
-                                    <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                                         AM
                                     </div>
-                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-cyan-400 text-[#050507] text-[8px] font-mono font-black uppercase tracking-wider shadow">#2 RANK</span>
+                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-amber-400 text-[#0b0e11] text-[8px] font-mono font-black uppercase tracking-wider shadow">#2 RANK</span>
                                 </div>
                                 <div>
                                     <div class="flex items-center gap-2">
-                                        <h4 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">Alpha Momentum Fund</h4>
+                                        <h4 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Alpha Momentum Fund</h4>
                                         <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold">VERIFIED</span>
                                     </div>
                                     <p class="text-xs text-slate-400 mt-0.5">Top Crypto Momentum & Breakout Strategy</p>
                                     <div class="flex items-center gap-2 mt-2">
-                                        <span class="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">CODE: ALPHA-FUND-99</span>
+                                        <span class="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">CODE: ALPHA-FUND-99</span>
                                         <span class="text-xs text-slate-500">·</span>
                                         <span class="text-xs text-slate-400 font-mono">980 Copiers</span>
                                     </div>
@@ -1727,29 +1727,29 @@
                             <div class="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 pt-4 sm:pt-0 border-white/[0.08]">
                                 <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{{ __('30d Return') }}</span>
                                 <div class="text-2xl font-mono font-black text-emerald-400">+98.4%</div>
-                                <span class="text-[10px] font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20 mt-1">84.1% Win Rate</span>
+                                <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 mt-1">84.1% Win Rate</span>
                             </div>
                         </div>
                     </div>
 
                     {{-- Master 3 (#3 Bronze Leaderboard) --}}
-                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-purple-500/20 hover:border-purple-400/50 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
-                        <div class="rounded-[2rem] bg-[#090c14]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-orange-500/20 hover:border-orange-400/50 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
+                        <div class="rounded-[2rem] bg-[#151a21]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
                             <div class="flex items-center gap-4">
                                 <div class="relative">
-                                    <div class="w-14 h-14 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                                    <div class="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
                                         NA
                                     </div>
-                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-purple-400 text-white text-[8px] font-mono font-black uppercase tracking-wider shadow">#3 RANK</span>
+                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-orange-400 text-white text-[8px] font-mono font-black uppercase tracking-wider shadow">#3 RANK</span>
                                 </div>
                                 <div>
                                     <div class="flex items-center gap-2">
-                                        <h4 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">Nexus Arbitrage Vault</h4>
+                                        <h4 class="text-lg font-bold text-white group-hover:text-orange-300 transition-colors">Nexus Arbitrage Vault</h4>
                                         <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold">VERIFIED</span>
                                     </div>
                                     <p class="text-xs text-slate-400 mt-0.5">Multi-Exchange Arbitrage & Risk-Balanced Trading</p>
                                     <div class="flex items-center gap-2 mt-2">
-                                        <span class="text-[10px] font-mono font-bold text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20">CODE: NEXUS-VAULT-04</span>
+                                        <span class="text-[10px] font-mono font-bold text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20">CODE: NEXUS-VAULT-04</span>
                                         <span class="text-xs text-slate-500">·</span>
                                         <span class="text-xs text-slate-400 font-mono">640 Copiers</span>
                                     </div>
@@ -1758,7 +1758,7 @@
                             <div class="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 pt-4 sm:pt-0 border-white/[0.08]">
                                 <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{{ __('30d Return') }}</span>
                                 <div class="text-2xl font-mono font-black text-emerald-400">+76.2%</div>
-                                <span class="text-[10px] font-mono text-purple-400 bg-purple-500/10 px-2 py-0.5 rounded border border-purple-500/20 mt-1">81.5% Win Rate</span>
+                                <span class="text-[10px] font-mono text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 mt-1">81.5% Win Rate</span>
                             </div>
                         </div>
                     </div>
@@ -1771,19 +1771,19 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 6: NATIVE ON-CHAIN INFRASTRUCTURE --}}
     {{-- ==================================================================================== --}}
-    <section id="infrastructure" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="infrastructure" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Background Accents --}}
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-cyan-500/5 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-amber-500/5 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('SUPPORTED CRYPTO NETWORKS') }}
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-4">
                     {{ __('Direct Crypto') }} <br class="hidden sm:inline">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('Deposits & Withdrawals.') }}</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Deposits & Withdrawals.') }}</span>
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                     {{ __('No third-party payment middlemen or unnecessary delays. Fast deposits and automatic payouts settled directly on your chosen blockchain network.') }}
@@ -1810,11 +1810,11 @@
                 @endphp
 
                 @foreach ($supportedChains as $chain)
-                    <div class="p-4 rounded-2xl bg-[#090c14]/90 border border-white/[0.08] hover:border-cyan-400/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-xl transition-all duration-300 group hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_15px_30px_rgba(0,245,255,0.2)] flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.1] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-cyan-500/10 group-hover:border-cyan-500/30 transition-all shadow-inner">
+                    <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-xl transition-all duration-300 group hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_15px_30px_rgba(247,166,0,0.2)] flex flex-col items-center text-center">
+                        <div class="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.1] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-amber-500/10 group-hover:border-amber-500/30 transition-all shadow-inner">
                             <img src="{{ asset('assets/images/tokens/' . $chain['icon']) }}" alt="{{ $chain['name'] }}" loading="lazy" class="w-7 h-7 object-contain">
                         </div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-cyan-300 transition-colors">{{ $chain['name'] }}</h4>
+                        <h4 class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors">{{ $chain['name'] }}</h4>
                         <span class="text-[9px] font-mono text-slate-500 uppercase tracking-wider mt-1">{{ $chain['symbol'] }} · {{ $chain['type'] }}</span>
                     </div>
                 @endforeach
@@ -1825,19 +1825,19 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION: INSTITUTIONAL SECURITY & CAPITAL PROTECTION --}}
     {{-- ==================================================================================== --}}
-    <section id="security" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="security" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Background Glow Blobs --}}
-        <div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/2 left-1/3 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('SECURITY & ACCOUNT PROTECTION') }}
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-4">
                     {{ __('Built with Strong Security') }} <br class="hidden sm:inline">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('to Protect Your Funds.') }}</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('to Protect Your Funds.') }}</span>
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                     {{ __('We prioritize the safety of your funds with multi-layer security, dedicated Master Wallets, and automated risk protection.') }}
@@ -1847,52 +1847,52 @@
             {{-- 4-Card Double-Bezel Grid --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {{-- Card 1 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/40 transition-all duration-300">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">{{ __('Master Wallets & Safe Storage') }}</h3>
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">{{ __('Master Wallets & Safe Storage') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Your funds are held securely in dedicated Master Wallets with transparent transaction tracking and direct withdrawal access.') }}</p>
                         </div>
                     </div>
                 </div>
 
                 {{-- Card 2 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/40 transition-all duration-300">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">{{ __('Isolated Trading Balances') }}</h3>
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">{{ __('Isolated Trading Balances') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Each active bot operates with dedicated balance limits to protect the rest of your portfolio from market volatility.') }}</p>
                         </div>
                     </div>
                 </div>
 
                 {{-- Card 3 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/40 transition-all duration-300">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">{{ __('Automated Risk Protection') }}</h3>
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">{{ __('Automated Risk Protection') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Built-in stop-loss and safety triggers automatically protect your capital during sharp market downturns.') }}</p>
                         </div>
                     </div>
                 </div>
 
                 {{-- Card 4 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/40 transition-all duration-300">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                         <div>
-                            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
                             </div>
-                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">{{ __('Verified Asset Backing') }}</h3>
+                            <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-300 transition-colors">{{ __('Verified Asset Backing') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Transparent transaction records verify that all user balances and returns are fully backed 24/7.') }}</p>
                         </div>
                     </div>
@@ -1904,19 +1904,19 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 7: HOW IT WORKS — 3-STEP EXECUTION PIPELINE --}}
     {{-- ==================================================================================== --}}
-    <section id="how-it-works" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="how-it-works" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Background Glow Blobs --}}
-        <div class="absolute top-1/3 right-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/3 right-0 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('HOW IT WORKS') }}
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-4">
                     {{ __('Start Automated Trading') }} <br class="hidden sm:inline">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('in 3 Simple Steps.') }}</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('in 3 Simple Steps.') }}</span>
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                     {{ __('Start earning with automated bots or copying top traders in just a few minutes.') }}
@@ -1926,43 +1926,43 @@
             {{-- 3-Step Double-Bezel Grid with Connecting Laser Beam --}}
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
                 {{-- Desktop Kinetic Laser Connector Beam --}}
-                <div class="hidden md:block absolute top-16 left-1/6 right-1/6 h-[2px] bg-gradient-to-r from-cyan-500/40 via-purple-500/60 to-cyan-500/40 -z-0"></div>
+                <div class="hidden md:block absolute top-16 left-1/6 right-1/6 h-[2px] bg-gradient-to-r from-amber-500/40 via-orange-500/60 to-amber-500/40 -z-0"></div>
 
                 {{-- Step 1 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/40 transition-all duration-300 relative">
-                    <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300 relative">
+                    <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
                         <div>
                             <div class="flex items-center justify-between mb-8">
-                                <span class="text-3xl font-mono font-black text-cyan-400/40 group-hover:text-cyan-400 transition-colors">01</span>
-                                <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(0,245,255,0.2)]">
+                                <span class="text-3xl font-mono font-black text-amber-400/40 group-hover:text-amber-400 transition-colors">01</span>
+                                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(247,166,0,0.2)]">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-cyan-300 transition-colors">{{ __('1. Deposit Funds') }}</h3>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-300 transition-colors">{{ __('1. Deposit Funds') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Easily deposit USDT, BTC, ETH, SOL, or other supported cryptocurrencies into your account.') }}</p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-cyan-400 font-bold uppercase tracking-widest">
+                        <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-amber-400 font-bold uppercase tracking-widest">
                             + FAST CRYPTO DEPOSIT
                         </div>
                     </div>
                 </div>
 
                 {{-- Step 2 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-purple-400/40 transition-all duration-300 relative">
-                    <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-purple-400 to-transparent"></div>
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-orange-400/40 transition-all duration-300 relative">
+                    <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-orange-400 to-transparent"></div>
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
                         <div>
                             <div class="flex items-center justify-between mb-8">
-                                <span class="text-3xl font-mono font-black text-purple-400/40 group-hover:text-purple-400 transition-colors">02</span>
-                                <div class="w-12 h-12 rounded-2xl bg-purple-500/10 border border-purple-500/20 text-purple-400 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                                <span class="text-3xl font-mono font-black text-orange-400/40 group-hover:text-orange-400 transition-colors">02</span>
+                                <div class="w-12 h-12 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(168,85,247,0.2)]">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-purple-300 transition-colors">{{ __('2. Choose a Bot or Trader') }}</h3>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">{{ __('2. Choose a Bot or Trader') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Select an automated trading bot plan or enter a trader copy code to start copying trades.') }}</p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-purple-400 font-bold uppercase tracking-widest">
+                        <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-orange-400 font-bold uppercase tracking-widest">
                             + ONE-CLICK START
                         </div>
                     </div>
@@ -1971,7 +1971,7 @@
                 {{-- Step 3 --}}
                 <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-emerald-400/40 transition-all duration-300 relative">
                     <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
                         <div>
                             <div class="flex items-center justify-between mb-8">
                                 <span class="text-3xl font-mono font-black text-emerald-400/40 group-hover:text-emerald-400 transition-colors">03</span>
@@ -1994,20 +1994,20 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 8: LIVE EXECUTION LEDGER & VERIFIED AUDIT STREAM --}}
     {{-- ==================================================================================== --}}
-    <section id="ledger" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="ledger" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Background Accents --}}
-        <div class="absolute bottom-0 left-1/3 w-[600px] h-[300px] bg-cyan-500/5 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute bottom-0 left-1/3 w-[600px] h-[300px] bg-amber-500/5 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
                 <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                         {{ __('LIVE ACTIVITY') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
                         {{ __('Live Trades & Payouts') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('in Real Time.') }}</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('in Real Time.') }}</span>
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
@@ -2017,7 +2017,7 @@
 
             {{-- Live Execution Ledger Stream Double-Bezel --}}
             <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 relative overflow-hidden">
+                <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 relative overflow-hidden">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.08] font-mono text-xs text-slate-400">
                         <div class="flex items-center gap-2">
                             <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -2027,7 +2027,7 @@
                     </div>
 
                     <div class="space-y-3 font-mono text-xs">
-                        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-cyan-400/30 transition-colors">
+                        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-amber-400/30 transition-colors">
                             <div class="flex items-center gap-3">
                                 <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-bold">[BUY_ORDER]</span>
                                 <span class="text-white font-bold">BTC/USDT</span>
@@ -2040,9 +2040,9 @@
                             </div>
                         </div>
 
-                        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-cyan-400/30 transition-colors">
+                        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-amber-400/30 transition-colors">
                             <div class="flex items-center gap-3">
-                                <span class="px-2 py-0.5 rounded bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold">[COPY_SYNC]</span>
+                                <span class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold">[COPY_SYNC]</span>
                                 <span class="text-white font-bold">SOL/USDT</span>
                                 <span class="text-slate-500">· Satoshi Trading Systems</span>
                             </div>
@@ -2053,7 +2053,7 @@
                             </div>
                         </div>
 
-                        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-cyan-400/30 transition-colors">
+                        <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex flex-col sm:flex-row sm:items-center justify-between gap-3 hover:border-amber-400/30 transition-colors">
                             <div class="flex items-center gap-3">
                                 <span class="px-2 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold">[TARGET_HIT]</span>
                                 <span class="text-white font-bold">ETH/USDT</span>
@@ -2071,13 +2071,13 @@
 
             {{-- Cross-Exchange Arbitrage Spread Matrix Widget --}}
             <div class="mt-8 p-3 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6">
+                <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6">
                     <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/[0.08] font-mono text-xs">
                         <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                             <span class="text-white font-bold">{{ __('LIVE EXCHANGE PRICE DIFFERENCES') }}</span>
                         </div>
-                        <span class="text-[#00f5ff] font-bold text-[10px]">{{ __('LIVE ARBITRAGE') }}</span>
+                        <span class="text-[#f7a600] font-bold text-[10px]">{{ __('LIVE ARBITRAGE') }}</span>
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 font-mono text-xs">
                         <div class="p-3.5 rounded-xl bg-white/[0.02] border border-white/[0.06] flex items-center justify-between">
@@ -2113,7 +2113,7 @@
     {{-- SECTION: REGULATORY COMPLIANCE & OFFICIAL CERTIFICATION --}}
     {{-- ==================================================================================== --}}
     @if (!empty($regulatoryCompliance))
-    <section id="compliance" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="compliance" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Ambient Depth Blobs --}}
         <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[550px] h-[550px] bg-emerald-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
 
@@ -2122,7 +2122,7 @@
                 
                 {{-- Left: Regulatory Bodies & Standards (7 cols) --}}
                 <div class="lg:col-span-7 p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col justify-between">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 sm:p-10 flex flex-col justify-between h-full">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 sm:p-10 flex flex-col justify-between h-full">
                         <div>
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-6">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
@@ -2130,7 +2130,7 @@
                             </div>
                             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white leading-tight tracking-tight mb-6">
                                 {{ __('Regulated &') }} <br class="hidden sm:inline">
-                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-cyan-400">{{ __('Transparent.') }}</span>
+                                <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-200 to-amber-400">{{ __('Transparent.') }}</span>
                             </h2>
                             <p class="text-slate-400 text-sm sm:text-base leading-relaxed mb-8">
                                 {{ __('We adhere to high regulatory and compliance standards to protect your account, funds, and personal data at all times.') }}
@@ -2155,7 +2155,7 @@
 
                 {{-- Right: Official Public PDF Certificates (5 cols) --}}
                 <div class="lg:col-span-5 p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col justify-between">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 sm:p-10 flex flex-col justify-between h-full">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 sm:p-10 flex flex-col justify-between h-full">
                         <div>
                             <div class="flex items-center justify-between mb-8 pb-4 border-b border-white/[0.08]">
                                 <div>
@@ -2185,7 +2185,7 @@
                                                     <span class="text-[9px] font-mono text-slate-500 uppercase tracking-wider block mt-0.5">{{ __('VERIFIED PDF DOCUMENT') }}</span>
                                                 </div>
                                             </div>
-                                            <div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-[#050507] text-slate-300 transition-all shrink-0">
+                                            <div class="w-8 h-8 rounded-full border border-white/10 flex items-center justify-center bg-white/5 group-hover:bg-emerald-400 group-hover:border-emerald-400 group-hover:text-[#0b0e11] text-slate-300 transition-all shrink-0">
                                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                                                 </svg>
@@ -2211,20 +2211,20 @@
     {{-- SECTION: EXECUTIVE & QUANTITATIVE LEADERSHIP TEAM BENTO --}}
     {{-- ==================================================================================== --}}
     @if ($management_team && $management_team->count() > 0)
-    <section id="team" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="team" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Background Ambient Orbs --}}
-        <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
+        <div class="absolute top-1/3 left-1/4 w-[500px] h-[500px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 9s;"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
                 <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                         {{ __('EXECUTIVE TEAM') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
                         {{ __('Experienced Leadership') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('& Financial Experts.') }}</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('& Financial Experts.') }}</span>
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
@@ -2235,8 +2235,8 @@
             {{-- Leadership Bento Grid --}}
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 @foreach ($management_team as $member)
-                    <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/50 transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col justify-between">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                    <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/50 transition-all duration-500 shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden flex flex-col justify-between">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                             <div>
                                 <div class="relative h-64 w-full overflow-hidden rounded-2xl mb-6 border border-white/[0.08] bg-white/[0.02]">
                                     <img src="{{ asset('assets/images/team/' . $member->image) }}" 
@@ -2244,15 +2244,15 @@
                                          loading="lazy" 
                                          onerror="this.src='{{ asset('assets/images/bots/bot-1.png') }}'"
                                          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                                    <div class="absolute inset-0 bg-gradient-to-t from-[#090c14] via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute inset-0 bg-gradient-to-t from-[#151a21] via-transparent to-transparent opacity-80"></div>
                                     <div class="absolute bottom-3 left-3">
-                                        <span class="px-3 py-1 rounded-full bg-[#00f5ff]/10 border border-[#00f5ff]/20 text-[#00f5ff] text-[10px] font-mono font-bold uppercase tracking-wider">
+                                        <span class="px-3 py-1 rounded-full bg-[#f7a600]/10 border border-[#f7a600]/20 text-[#f7a600] text-[10px] font-mono font-bold uppercase tracking-wider">
                                             {{ __($member->designation ?? $member->role) }}
                                         </span>
                                     </div>
                                 </div>
 
-                                <h3 class="text-2xl font-bold text-white group-hover:text-cyan-300 transition-colors mb-2">{{ __($member->name) }}</h3>
+                                <h3 class="text-2xl font-bold text-white group-hover:text-amber-300 transition-colors mb-2">{{ __($member->name) }}</h3>
                                 <p class="text-xs text-slate-400 leading-relaxed font-body line-clamp-3">
                                     {{ __($member->description, ['site_name' => getSetting('name')]) }}
                                 </p>
@@ -2260,7 +2260,7 @@
 
                             <div class="mt-6 pt-4 border-t border-white/[0.08] flex items-center justify-between font-mono text-[10px] text-slate-500">
                                 <span>VERIFIED TEAM</span>
-                                <span class="text-cyan-400 font-bold">● ACTIVE</span>
+                                <span class="text-amber-400 font-bold">● ACTIVE</span>
                             </div>
                         </div>
                     </div>
@@ -2274,7 +2274,7 @@
     {{-- SECTION: VERIFIED CLIENT & MASTER TRADER REVIEWS CAROUSEL --}}
     {{-- ==================================================================================== --}}
     @if ($reviews && $reviews->count() > 0)
-    <section id="reviews" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]"
+    <section id="reviews" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]"
              x-data="{ 
                 activeSlide: 0, 
                 totalSlides: {{ $reviews->count() }},
@@ -2282,29 +2282,29 @@
                 prev() { this.activeSlide = (this.activeSlide - 1 + this.totalSlides) % this.totalSlides; }
              }">
         {{-- Ambient Blobs --}}
-        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[550px] h-[550px] bg-cyan-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/2 left-0 -translate-y-1/2 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mb-12 sm:mb-16">
                 <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                         {{ __('USER REVIEWS') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
                         {{ __('Trusted by Traders') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('Worldwide.') }}</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Worldwide.') }}</span>
                     </h2>
                 </div>
 
                 {{-- Carousel Controls (Prev/Next Buttons) --}}
                 <div class="flex items-center gap-3">
                     <button @click="prev()" 
-                            class="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-cyan-400/50 hover:bg-cyan-500/10 flex items-center justify-center text-white transition-all duration-300">
+                            class="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-amber-400/50 hover:bg-amber-500/10 flex items-center justify-center text-white transition-all duration-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
                     </button>
                     <button @click="next()" 
-                            class="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-cyan-400/50 hover:bg-cyan-500/10 flex items-center justify-center text-white transition-all duration-300">
+                            class="w-12 h-12 rounded-full bg-white/[0.03] border border-white/[0.1] hover:border-amber-400/50 hover:bg-amber-500/10 flex items-center justify-center text-white transition-all duration-300">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                     </button>
                 </div>
@@ -2318,8 +2318,8 @@
                              x-transition:enter="transition ease-out duration-500 transform"
                              x-transition:enter-start="opacity-0 scale-95"
                              x-transition:enter-end="opacity-100 scale-100"
-                             class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-cyan-400/40 transition-all duration-300 flex flex-col justify-between h-full">
-                            <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
+                             class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300 flex flex-col justify-between h-full">
+                            <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
                                 <div>
                                     <div class="flex items-center gap-1 text-amber-400 text-xs mb-4">
                                         ★★★★★
@@ -2330,9 +2330,9 @@
                                 </div>
                                 <div class="flex items-center gap-3 pt-4 border-t border-white/[0.08]">
                                     @if(!empty($review->image))
-                                        <img src="{{ asset('assets/images/team/' . $review->image) }}" alt="{{ $review->name }}" class="w-10 h-10 rounded-full object-cover border border-cyan-500/20">
+                                        <img src="{{ asset('assets/images/team/' . $review->image) }}" alt="{{ $review->name }}" class="w-10 h-10 rounded-full object-cover border border-amber-500/20">
                                     @else
-                                        <div class="w-10 h-10 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 font-mono font-bold flex items-center justify-center text-xs">
+                                        <div class="w-10 h-10 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono font-bold flex items-center justify-center text-xs">
                                             {{ strtoupper(substr($review->name, 0, 2)) }}
                                         </div>
                                     @endif
@@ -2351,7 +2351,7 @@
             <div class="flex items-center justify-center gap-2 mt-8">
                 @foreach ($reviews as $index => $review)
                     <button @click="activeSlide = {{ $index }}" 
-                            :class="activeSlide === {{ $index }} ? 'w-8 bg-[#00f5ff]' : 'w-2 bg-white/20 hover:bg-white/40'"
+                            :class="activeSlide === {{ $index }} ? 'w-8 bg-[#f7a600]' : 'w-2 bg-white/20 hover:bg-white/40'"
                             class="h-2 rounded-full transition-all duration-300"></button>
                 @endforeach
             </div>
@@ -2363,19 +2363,19 @@
     {{-- SECTION: INTERACTIVE FAQ ACCORDION --}}
     {{-- ==================================================================================== --}}
     @if ($faqs && $faqs->count() > 0)
-    <section id="faq" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]" x-data="{ activeFaq: 0 }">
+    <section id="faq" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]" x-data="{ activeFaq: 0 }">
         {{-- Background Glow Blobs --}}
-        <div class="absolute top-1/2 right-10 -translate-y-1/2 w-[550px] h-[550px] bg-purple-600/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/2 right-10 -translate-y-1/2 w-[550px] h-[550px] bg-orange-600/10 rounded-full blur-[160px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10 max-w-5xl">
             <div class="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                     {{ __('FREQUENTLY ASKED QUESTIONS') }}
                 </div>
                 <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-4">
                     {{ __('Frequently Asked') }} <br class="hidden sm:inline">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70">{{ __('Questions.') }}</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Questions.') }}</span>
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
                     {{ __('Everything you need to know about our trading bots, copy trading, deposits, and account security.') }}
@@ -2385,16 +2385,16 @@
             {{-- FAQ Double-Bezel Accordion Stack --}}
             <div class="space-y-4">
                 @foreach ($faqs as $index => $faq)
-                    <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-cyan-400/30 transition-all duration-300 backdrop-blur-2xl">
-                        <div class="rounded-[1.5rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
+                    <div class="p-2 rounded-[2rem] bg-white/[0.02] border border-white/[0.08] hover:border-amber-400/30 transition-all duration-300 backdrop-blur-2xl">
+                        <div class="rounded-[1.5rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] overflow-hidden">
                             <button @click="activeFaq = (activeFaq === {{ $index }} ? null : {{ $index }})"
                                     class="w-full p-6 text-left flex items-center justify-between gap-4 font-bold text-white text-base sm:text-lg focus:outline-none group">
-                                <span class="group-hover:text-cyan-300 transition-colors flex items-center gap-3">
-                                    <span class="text-cyan-400/50 font-mono text-xs">0{{ $index + 1 }}.</span>
+                                <span class="group-hover:text-amber-300 transition-colors flex items-center gap-3">
+                                    <span class="text-amber-400/50 font-mono text-xs">0{{ $index + 1 }}.</span>
                                     {{ $faq->parsed_question }}
                                 </span>
-                                <span class="w-8 h-8 rounded-full bg-white/[0.03] border border-white/[0.1] flex items-center justify-center text-slate-400 group-hover:text-cyan-400 group-hover:border-cyan-400/30 transition-all shrink-0">
-                                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="activeFaq === {{ $index }} ? 'rotate-180 text-cyan-400' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <span class="w-8 h-8 rounded-full bg-white/[0.03] border border-white/[0.1] flex items-center justify-center text-slate-400 group-hover:text-amber-400 group-hover:border-amber-400/30 transition-all shrink-0">
+                                    <svg class="w-4 h-4 transform transition-transform duration-300" :class="activeFaq === {{ $index }} ? 'rotate-180 text-amber-400' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
                                     </svg>
                                 </span>
@@ -2415,15 +2415,15 @@
     {{-- ==================================================================================== --}}
     {{-- SECTION 9: FINAL CONVERSION CTA DECK --}}
     {{-- ==================================================================================== --}}
-    <section id="cta" class="py-24 sm:py-36 relative overflow-hidden bg-[#050507] isolate border-t border-white/[0.06]">
+    <section id="cta" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
         {{-- Ambient Blobs --}}
-        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-cyan-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-orange-500/10 rounded-full blur-[180px] pointer-events-none select-none -z-10"></div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto p-3 rounded-[3rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] relative overflow-hidden">
-                <div class="rounded-[2.5rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-6">
-                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-ping"></span>
+                <div class="rounded-[2.5rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 sm:p-12 lg:p-16 text-center relative overflow-hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-6">
+                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
                         {{ __('GET STARTED TODAY') }}
                     </div>
                     <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight mb-6">
@@ -2433,10 +2433,10 @@
                         {{ __('Join thousands of members growing their crypto portfolio with automated bots and copy trading.') }}
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a href="{{ route('user.register') }}" class="w-full sm:w-auto pl-8 pr-2.5 py-2.5 rounded-full bg-[#00f5ff] hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-4 shadow-[0_0_35px_rgba(0,245,255,0.4)] hover:shadow-[0_0_50px_rgba(0,245,255,0.7)] group">
+                        <a href="{{ route('user.register') }}" class="w-full sm:w-auto pl-8 pr-2.5 py-2.5 rounded-full bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-4 shadow-[0_0_35px_rgba(247,166,0,0.4)] hover:shadow-[0_0_50px_rgba(247,166,0,0.7)] group">
                             <span>{{ __('Create Free Account') }}</span>
-                            <span class="w-10 h-10 rounded-full bg-[#050507]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
-                                <svg class="w-4 h-4 text-[#050507]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                            <span class="w-10 h-10 rounded-full bg-[#0b0e11]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
+                                <svg class="w-4 h-4 text-[#0b0e11]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                             </span>
                         </a>
                         <a href="{{ route('user.trading-bots.index') }}" class="w-full sm:w-auto px-8 py-4 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.1] text-white font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-2">
@@ -2505,7 +2505,7 @@
 FOYANA ADVANCED FRONTEND BLUEPRINT & DESIGN GUIDE: HOMEPAGE (index.blade.php)
 ====================================================================================================
 PRODUCT FOCUS: Autonomous AI Bot Trading, Real-Time Copy Trading, Direct On-Chain Settlement
-DESIGN SYSTEM: High-Agency Liquid Glass, Kinetic Physics, Motion Bento 2.0, Dark Mode (#050507)
+DESIGN SYSTEM: High-Agency Liquid Glass, Kinetic Physics, Motion Bento 2.0, Dark Mode (#0b0e11)
 ADVANCED BENCHMARK: Quantitative Ecosystem (Typewriter Dynamics, Live Terminal Frame,
                    Interactive Growth Calculator, Real-Time Bot Telemetry, Liquid Refraction)
 LAST UPDATED: 2026-08-07 — Reflects live hero implementation from session
@@ -2515,13 +2515,13 @@ LAST UPDATED: 2026-08-07 — Reflects live hero implementation from session
 GLOBAL DESIGN TOKENS & MATERIALITY SYSTEM
 ----------------------------------------------------------------------------------------------------
 Color Palette:
-  * Base Background: #050507
+  * Base Background: #0b0e11
   * Dot Grid Overlay: radial-gradient(#ffffff 1px, transparent 1px) @ 32px, opacity-[0.03]
-  * Panel Glass: bg-[#090c14]/90 or bg-white/[0.015-0.03], border-white/[0.06-0.10]
-  * Accent Cyan (Primary):  #00f5ff — used for nav CTA, arc glow, laser beams, copy trading
-  * Accent Gold (Platform):  #e2b13c — used for bot alerts, status badges, glow orbs
+  * Panel Glass: bg-[#151a21]/90 or bg-white/[0.015-0.03], border-white/[0.06-0.10]
+  * Accent Cyan (Primary):  #f7a600 — used for nav CTA, arc glow, laser beams, copy trading
+  * Accent Gold (Platform):  #f7a600 — used for bot alerts, status badges, glow orbs
   * Profit Emerald:          #10b981 — used for P/L values, live execution, success states
-  * Indigo/Purple (Depth):   indigo-600 / purple-600 — used for ambient blobs, blockchain layer
+  * Indigo/Purple (Depth):   orange-600 / orange-600 — used for ambient blobs, blockchain layer
   * Slate Text:              text-slate-400 (body) / text-slate-300 (labels) / text-white (headlines)
 
 Typography:
@@ -2530,9 +2530,9 @@ Typography:
   * Body / Subhead:    font-body leading-relaxed text-slate-400 (Inter)
 
 Navigation:
-  * Primary CTA (.top-cta-btn): background: #00f5ff; color: #050507; solid (NO gradient)
-  * Mobile Sheet Primary CTA: same #00f5ff solid
-  * Hover: background: #33f7ff; box-shadow: 0 0 25px rgba(0,245,255,0.45)
+  * Primary CTA (.top-cta-btn): background: #f7a600; color: #0b0e11; solid (NO gradient)
+  * Mobile Sheet Primary CTA: same #f7a600 solid
+  * Hover: background: #33f7ff; box-shadow: 0 0 25px rgba(247,166,0,0.45)
 
 
 ----------------------------------------------------------------------------------------------------
@@ -2548,7 +2548,7 @@ SECTION 1: HERO DECK — ALGORITHMIC COMMAND CENTER (IMPLEMENTED)
   Stats: $10B+ Volume | 99.98% Uptime | 100% On-Chain Settlement (Alpine.js count-up animation)
 
 [DESIGN GUIDE & VISUAL CONCEPT — IMPLEMENTED]:
-  Layout: <section> class="relative min-h-[100dvh] pt-32 pb-24 flex flex-col justify-between overflow-hidden bg-[#050507] isolate"
+  Layout: <section> class="relative min-h-[100dvh] pt-32 pb-24 flex flex-col justify-between overflow-hidden bg-[#0b0e11] isolate"
   Grid: grid-cols-1 lg:grid-cols-12  ->  Left: lg:col-span-7  |  Right: lg:col-span-5
 
   Z-STACK BACKGROUND LAYERS (back to front):
@@ -2565,14 +2565,14 @@ SECTION 1: HERO DECK — ALGORITHMIC COMMAND CENTER (IMPLEMENTED)
     Arc div: w-[150vw] sm:w-[130vw] md:w-[120vw]  h-[280px]/[340px]
              bg-white/[0.015]  border-t border-white/10
              rounded-[50%_50%_0_0/100%_100%_0_0]  (upside-down moon C-shape)
-             shadow-[0_-20px_60px_rgba(0,245,255,0.08),inset_0_2px_0_rgba(255,255,255,0.12)]
+             shadow-[0_-20px_60px_rgba(247,166,0,0.08),inset_0_2px_0_rgba(255,255,255,0.12)]
              backdrop-blur-md
-    Top edge glow: absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00f5ff]/60 to-transparent
+    Top edge glow: absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7a600]/60 to-transparent
     Inner SVG laser: viewBox="0 0 1000 300" path: M 0 300 Q 500 -20 1000 300
       class="moon-arc-laser-path" -> stroke-dasharray:260 1400, 4s ease-in-out infinite
 
   MULTI-CHAIN LOGO BADGE SHOWCASE (inside Moon Arc):
-    Status Badge: "NATIVE MULTI-CHAIN ON-CHAIN SETTLEMENT" (cyan-400 font-mono dot ping)
+    Status Badge: "NATIVE MULTI-CHAIN ON-CHAIN SETTLEMENT" (amber-400 font-mono dot ping)
     Local Token Logos with loading="lazy":
       - Bitcoin (BTC: btc.png)
       - Ethereum (ETH: eth.png)
@@ -2586,7 +2586,7 @@ SECTION 1: HERO DECK — ALGORITHMIC COMMAND CENTER (IMPLEMENTED)
       - Tether (USDT: usdt.png)
       - USD Coin (USDC: usdc.png)
       - Tron (TRX: trx.png)
-    Card Glass: bg-[#090c14]/90 border-white/10 hover:border-cyan-400/50 hover:shadow-[0_0_20px_rgba(0,245,255,0.25)]
+    Card Glass: bg-[#151a21]/90 border-white/10 hover:border-amber-400/50 hover:shadow-[0_0_20px_rgba(247,166,0,0.25)]
 
   SVG DATA PIPELINE LASERS (outer hero overlay, -z-10):
     Cyan circuit: M 520 280 L 680 280 Q 740 280 740 330 L 740 410 Q 740 440 790 440 L 920 440
@@ -2603,14 +2603,14 @@ SECTION 1: HERO DECK — ALGORITHMIC COMMAND CENTER (IMPLEMENTED)
                 Status pill: bg-emerald-500/10 border-emerald-500/20 text-emerald-400
                              "● LIVE ALGO EXECUTION" (1.5px dot animate-pulse)
       Metrics:  2-col grid — "$24,850.00 Total Deployed Capital" | "+$3,842.10 (+15.4%) Algo P/L"
-      Bot row:  icon (bg-[#e2b13c]/10 border-[#e2b13c]/20)
+      Bot row:  icon (bg-[#f7a600]/10 border-[#f7a600]/20)
                 "Apex Scalper Pro v4"  BTC/USDT · High Frequency Arbitrage  "+2.84% / 24h Yield"
       Order log (bg-black/60):
                 [ORDER_FILL] BUY BTC/USDT @ $94,280  ·  Just now
                 [TARGET_HIT] SOL/USDT arbitrage +2.15%  ·  1m ago
     Layer 2 (Peeking Copy Card — translate-x-10):
-      bg-[#090c14]/90 border border-cyan-500/20 rounded-2xl backdrop-blur-xl
-      Avatar: "SQ" (bg-cyan-500/10 border-cyan-500/20 text-cyan-400)
+      bg-[#151a21]/90 border border-amber-500/20 rounded-2xl backdrop-blur-xl
+      Avatar: "SQ" (bg-amber-500/10 border-amber-500/20 text-amber-400)
       "Satoshi Quant Systems"  +  pill "COPY CODE: SATO-QUANT-01"
       "1,420 Active Copiers · Zero Latency Sync"
       "+142.8%  30d PnL (88.4% Win Rate)"
@@ -2667,7 +2667,7 @@ SECTION 4: PRODUCT PILLAR 2 — REAL-TIME COPY TRADING NETWORK
 
 [DESIGN GUIDE & VISUAL CONCEPT]:
   Layout: Split (left activation widget / right master trader stack).
-  Peeking card style (match hero Layer 2): translate-x-10 bg-[#090c14] border-cyan-500/20.
+  Peeking card style (match hero Layer 2): translate-x-10 bg-[#151a21] border-amber-500/20.
   Cyan focus ring on input. Win-rate pill badges.
 
 
@@ -2728,7 +2728,7 @@ SECTION 8: FINAL CONVERSION CTA DECK
 
 [DESIGN GUIDE & VISUAL CONCEPT]:
   Centered high-contrast banner, ambient radial cyan + purple glow.
-  Button: solid #00f5ff background (NO gradient — matches nav CTA convention).
-  shadow-[0_0_40px_rgba(0,245,255,0.25)] spring hover scale.
+  Button: solid #f7a600 background (NO gradient — matches nav CTA convention).
+  shadow-[0_0_40px_rgba(247,166,0,0.25)] spring hover scale.
 ====================================================================================================
 --}}

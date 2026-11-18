@@ -7,20 +7,20 @@
         <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-white/[0.06]">
             <div class="flex items-center gap-4">
                 <a href="{{ route('admin.deposits.index') }}"
-                    class="w-11 h-11 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-cyan-400/40 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-lg">
+                    class="w-11 h-11 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-amber-400/40 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer shadow-lg">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                     </svg>
                 </a>
                 <div>
-                    <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-1">
+                    <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.2em] mb-1">
                         {{ __('DEPOSIT DETAILS') }}
                     </div>
                     <h1 class="text-2xl md:text-3xl font-black text-white tracking-tight flex items-center gap-3">
                         <span>{{ __('Deposit Details') }}</span>
                     </h1>
                     <p class="text-slate-400 font-mono text-xs mt-0.5 uppercase tracking-wider">
-                        {{ __('Transaction ID') }}: <span class="text-cyan-300">#{{ $deposit->transaction_reference }}</span>
+                        {{ __('Transaction ID') }}: <span class="text-amber-300">#{{ $deposit->transaction_reference }}</span>
                     </p>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         'pending' => 'bg-amber-500/10 text-amber-400 border-amber-500/20',
                         'completed' => 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
                         'failed' => 'bg-rose-500/10 text-rose-400 border-rose-500/20',
-                        'partial_payment' => 'bg-purple-500/10 text-purple-400 border-purple-500/20',
+                        'partial_payment' => 'bg-orange-500/10 text-orange-400 border-orange-500/20',
                     ];
                     $class = $statusClasses[$deposit->status] ?? 'bg-slate-500/10 text-slate-400 border-slate-500/20';
                     $statusLabel = $deposit->status === 'partial_payment' ? __('Partial Payment') : __($deposit->status);
@@ -42,7 +42,7 @@
                 </span>
 
                 <button type="button"
-                    class="btn-edit-status px-5 py-2 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer"
+                    class="btn-edit-status px-5 py-2 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer"
                     data-id="{{ $deposit->id }}" data-status="{{ $deposit->status }}">
                     {{ __('Update Status') }}
                 </button>
@@ -57,7 +57,7 @@
 
                 {{-- User Information Card --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-7 flex items-center justify-between">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-7 flex items-center justify-between">
                         <div class="flex items-center gap-4">
                             @if ($deposit->user?->photo)
                                 <div class="w-14 h-14 rounded-2xl border border-white/10 shadow-lg overflow-hidden shrink-0">
@@ -65,7 +65,7 @@
                                         alt="{{ $deposit->user->username }}" class="w-full h-full object-cover">
                                 </div>
                             @else
-                                <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 font-mono font-black text-lg shrink-0">
+                                <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-mono font-black text-lg shrink-0">
                                     {{ substr($deposit->user?->username ?? 'NA', 0, 2) }}
                                 </div>
                             @endif
@@ -75,7 +75,7 @@
                                 </span>
                                 @if ($deposit->user)
                                     <a href="{{ route('admin.users.detail', $deposit->user_id) }}"
-                                        class="text-lg font-bold text-white hover:text-cyan-400 transition-colors font-mono block">
+                                        class="text-lg font-bold text-white hover:text-amber-400 transition-colors font-mono block">
                                         {{ $deposit->user->fullname }}
                                         <span class="text-xs text-slate-400">({{ $deposit->user->username }})</span>
                                     </a>
@@ -87,7 +87,7 @@
                         </div>
                         @if ($deposit->user)
                             <a href="{{ route('admin.users.detail', $deposit->user_id) }}"
-                                class="w-11 h-11 bg-white/[0.04] hover:bg-cyan-500/10 border border-white/[0.08] hover:border-cyan-500/30 text-slate-300 hover:text-cyan-400 rounded-2xl flex items-center justify-center transition-all shadow-md"
+                                class="w-11 h-11 bg-white/[0.04] hover:bg-amber-500/10 border border-white/[0.08] hover:border-amber-500/30 text-slate-300 hover:text-amber-400 rounded-2xl flex items-center justify-center transition-all shadow-md"
                                 title="{{ __('View Profile') }}">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
@@ -99,9 +99,9 @@
 
                 {{-- Financial Summary Card --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8">
                         <div class="flex items-center gap-2 mb-6 pb-4 border-b border-white/[0.06]">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></span>
+                            <span class="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></span>
                             <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide">{{ __('Payment Summary') }}</h3>
                         </div>
 
@@ -132,7 +132,7 @@
                                     </div>
                                     <div class="flex justify-between items-center pt-3 border-t border-white/[0.06]">
                                         <span class="text-slate-300 font-bold text-xs">{{ __('Converted Amount') }}</span>
-                                        <span class="text-xl font-black text-cyan-300">
+                                        <span class="text-xl font-black text-amber-300">
                                             {{ number_format($deposit->converted_amount, 8) }} {{ $deposit->currency }}
                                         </span>
                                     </div>
@@ -144,9 +144,9 @@
 
                 {{-- Blockchain & Payload Details Card --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8">
                         <div class="flex items-center gap-2 mb-6 pb-4 border-b border-white/[0.06]">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></span>
+                            <span class="w-2 h-2 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></span>
                             <h3 class="text-base font-bold text-white font-mono uppercase tracking-wide">{{ __('Blockchain Details') }}</h3>
                         </div>
 
@@ -157,7 +157,7 @@
                                     {{ __('Network') }}
                                 </span>
                                 <div class="flex items-center gap-2">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                    <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                                     <span class="text-white font-bold font-mono text-sm">{{ $deposit->gatewayName() }}</span>
                                 </div>
                             </div>
@@ -166,7 +166,7 @@
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold font-mono block mb-1">
                                     {{ __('Currency') }}
                                 </span>
-                                <span class="px-2.5 py-1 rounded-md bg-purple-500/10 text-purple-300 border border-purple-500/20 font-mono font-bold text-xs">
+                                <span class="px-2.5 py-1 rounded-md bg-orange-500/10 text-orange-300 border border-orange-500/20 font-mono font-bold text-xs">
                                     {{ $deposit->currency }}
                                 </span>
                             </div>
@@ -180,7 +180,7 @@
                                         </span>
                                         @if ($depositTxUrl)
                                             <a href="{{ $depositTxUrl }}" target="_blank"
-                                                class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors uppercase tracking-wider">
+                                                class="inline-flex items-center gap-1 text-[10px] font-mono font-bold text-amber-400 hover:text-amber-300 transition-colors uppercase tracking-wider">
                                                 <span>{{ __('View on Explorer') }}</span>
                                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -191,18 +191,18 @@
                                     <div class="flex items-center justify-between gap-3 bg-black/40 p-2.5 rounded-xl border border-white/[0.04]">
                                         @if ($depositTxUrl)
                                             <a href="{{ $depositTxUrl }}" target="_blank"
-                                                class="text-cyan-300 hover:text-cyan-200 font-mono text-xs break-all select-all flex-1 underline decoration-cyan-500/30 underline-offset-2 hover:decoration-cyan-400 transition-colors">
+                                                class="text-amber-300 hover:text-amber-200 font-mono text-xs break-all select-all flex-1 underline decoration-amber-500/30 underline-offset-2 hover:decoration-amber-400 transition-colors">
                                                 {{ $deposit->transaction_hash }}
                                             </a>
                                         @else
-                                            <code class="text-cyan-300 font-mono text-xs break-all select-all flex-1">
+                                            <code class="text-amber-300 font-mono text-xs break-all select-all flex-1">
                                                 {{ $deposit->transaction_hash }}
                                             </code>
                                         @endif
                                         <div class="flex items-center gap-1.5 shrink-0">
                                             @if ($depositTxUrl)
                                                 <a href="{{ $depositTxUrl }}" target="_blank"
-                                                    class="p-1.5 bg-cyan-500/10 hover:bg-cyan-500/20 text-cyan-400 rounded-lg transition-colors"
+                                                    class="p-1.5 bg-amber-500/10 hover:bg-amber-500/20 text-amber-400 rounded-lg transition-colors"
                                                     title="{{ __('Open in Explorer') }}">
                                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -263,10 +263,10 @@
                             <div class="pt-6 border-t border-white/[0.06] space-y-4">
                                 <div class="flex items-center justify-between">
                                     <h4 class="text-xs font-mono font-bold text-slate-300 uppercase tracking-widest flex items-center gap-2">
-                                        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+                                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
                                         <span>{{ __('Raw Payment Data') }}</span>
                                     </h4>
-                                    <span class="text-[10px] font-mono text-cyan-400/70 uppercase tracking-wider">{{ __('Verified Event') }}</span>
+                                    <span class="text-[10px] font-mono text-amber-400/70 uppercase tracking-wider">{{ __('Verified Event') }}</span>
                                 </div>
 
                                 <div class="space-y-4 font-mono">
@@ -277,7 +277,7 @@
                                             {{-- Nested Category Group (e.g. crypto) --}}
                                             <div class="p-4 rounded-2xl bg-white/[0.02] border border-white/[0.08] space-y-3">
                                                 <div class="flex items-center gap-2 pb-2 border-b border-white/[0.04]">
-                                                    <span class="w-1.5 h-1.5 rounded-full bg-purple-400"></span>
+                                                    <span class="w-1.5 h-1.5 rounded-full bg-orange-400"></span>
                                                     <span class="text-xs font-bold text-white uppercase tracking-wider">
                                                         {{ ucwords(str_replace('_', ' ', $key)) }}
                                                     </span>
@@ -292,7 +292,7 @@
                                                             </span>
                                                             <div class="flex items-center justify-between gap-2">
                                                                 <div>
-                                                                    <span class="text-white text-xs font-semibold break-all select-all {{ $formatted['is_date'] ? 'text-cyan-300' : '' }}">
+                                                                    <span class="text-white text-xs font-semibold break-all select-all {{ $formatted['is_date'] ? 'text-amber-300' : '' }}">
                                                                         {{ $formatted['display'] }}
                                                                     </span>
                                                                     @if (!empty($formatted['sub']))
@@ -301,7 +301,7 @@
                                                                 </div>
                                                                 @if ($formatted['copyable'])
                                                                     <button type="button" onclick="navigator.clipboard.writeText('{{ $formatted['raw'] ?? $formatted['display'] }}'); Swal.fire({toast:true, position:'top-end', icon:'success', title:'{{ __('Copied') }}', showConfirmButton:false, timer:1500});"
-                                                                        class="p-1 text-slate-400 hover:text-cyan-300 transition-colors cursor-pointer shrink-0" title="{{ __('Copy value') }}">
+                                                                        class="p-1 text-slate-400 hover:text-amber-300 transition-colors cursor-pointer shrink-0" title="{{ __('Copy value') }}">
                                                                         <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                                                                     </button>
                                                                 @endif
@@ -319,7 +319,7 @@
                                                         {{ ucwords(str_replace('_', ' ', $key)) }}
                                                     </span>
                                                     <div class="flex items-center gap-2">
-                                                        <span class="text-white text-xs font-semibold break-all select-all {{ $formatted['is_date'] ? 'text-cyan-300' : '' }}">
+                                                        <span class="text-white text-xs font-semibold break-all select-all {{ $formatted['is_date'] ? 'text-amber-300' : '' }}">
                                                             {{ $formatted['display'] }}
                                                         </span>
                                                         @if (!empty($formatted['sub']))
@@ -329,7 +329,7 @@
                                                 </div>
                                                 @if ($formatted['copyable'])
                                                     <button type="button" onclick="navigator.clipboard.writeText('{{ $formatted['raw'] ?? $formatted['display'] }}'); Swal.fire({toast:true, position:'top-end', icon:'success', title:'{{ __('Copied to clipboard') }}', showConfirmButton:false, timer:1500});"
-                                                        class="self-start sm:self-center px-3 py-1 bg-white/[0.04] hover:bg-cyan-500/10 text-slate-300 hover:text-cyan-300 rounded-lg text-[10px] uppercase font-bold border border-white/[0.08] transition-all cursor-pointer flex items-center gap-1.5">
+                                                        class="self-start sm:self-center px-3 py-1 bg-white/[0.04] hover:bg-amber-500/10 text-slate-300 hover:text-amber-300 rounded-lg text-[10px] uppercase font-bold border border-white/[0.08] transition-all cursor-pointer flex items-center gap-1.5">
                                                         <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                                                         <span>{{ __('Copy') }}</span>
                                                     </button>
@@ -351,9 +351,9 @@
                 {{-- Payment Proof --}}
                 @if ($deposit->payment_proof)
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6">
                             <h3 class="text-xs font-bold text-white font-mono uppercase tracking-wide mb-4 flex items-center gap-2">
-                                <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                                 <span>{{ __('Payment Receipt / Proof') }}</span>
                             </h3>
                             <div class="rounded-2xl overflow-hidden border border-white/10 bg-black/40 group relative h-60">
@@ -361,7 +361,7 @@
                                     class="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                                 <div class="absolute inset-0 flex items-center justify-center bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-sm">
                                     <a href="{{ asset('storage/' . $deposit->payment_proof) }}" target="_blank"
-                                        class="px-5 py-2.5 bg-cyan-400 text-[#050507] font-mono font-black text-xs uppercase tracking-wider rounded-full shadow-[0_0_20px_rgba(0,245,255,0.4)] flex items-center gap-2">
+                                        class="px-5 py-2.5 bg-amber-400 text-[#0b0e11] font-mono font-black text-xs uppercase tracking-wider rounded-full shadow-[0_0_20px_rgba(247,166,0,0.4)] flex items-center gap-2">
                                         <span>{{ __('View Full Size') }}</span>
                                         <span>↗</span>
                                     </a>
@@ -373,16 +373,16 @@
 
                 {{-- Settlement Lifecycle Timeline --}}
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-6">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-6">
                         <h3 class="text-xs font-bold text-white font-mono uppercase tracking-wide mb-6 flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+                            <span class="w-2 h-2 rounded-full bg-amber-400"></span>
                             <span>{{ __('Timeline') }}</span>
                         </h3>
 
                         <div class="relative pl-6 border-l border-white/10 ml-2 space-y-6 font-mono">
                             {{-- Step 1: Created --}}
                             <div class="relative">
-                                <div class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-cyan-400 shadow-[0_0_8px_#00f5ff]"></div>
+                                <div class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full bg-amber-400 shadow-[0_0_8px_#f7a600]"></div>
                                 <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold block">{{ __('Deposit Created') }}</span>
                                 <p class="text-white font-bold text-xs mt-1">{{ $deposit->created_at->format('M d, Y') }}</p>
                                 <p class="text-slate-400 text-[10px]">{{ $deposit->created_at->format('H:i:s') }} UTC</p>
@@ -403,7 +403,7 @@
                             @else
                                 <div class="relative">
                                     @php
-                                        $dotColor = $deposit->status === 'completed' ? 'bg-emerald-400 shadow-[0_0_8px_#10b981]' : ($deposit->status === 'failed' ? 'bg-rose-400 shadow-[0_0_8px_#f43f5e]' : 'bg-cyan-400 shadow-[0_0_8px_#00f5ff]');
+                                        $dotColor = $deposit->status === 'completed' ? 'bg-emerald-400 shadow-[0_0_8px_#10b981]' : ($deposit->status === 'failed' ? 'bg-rose-400 shadow-[0_0_8px_#f43f5e]' : 'bg-amber-400 shadow-[0_0_8px_#f7a600]');
                                     @endphp
                                     <div class="absolute -left-[31px] top-1 w-3.5 h-3.5 rounded-full {{ $dotColor }}"></div>
                                     <span class="text-[10px] text-slate-500 uppercase tracking-widest font-bold block">{{ __('Last Updated') }}</span>
@@ -417,7 +417,7 @@
 
                 {{-- Danger Zone: Delete Record --}}
                 <div class="p-2 rounded-[2.5rem] bg-rose-500/5 border border-rose-500/20 backdrop-blur-xl relative overflow-hidden group">
-                    <div class="rounded-[2rem] bg-[#090c14]/90 p-5 flex items-center justify-between gap-3">
+                    <div class="rounded-[2rem] bg-[#151a21]/90 p-5 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
                             <div class="w-10 h-10 rounded-xl bg-rose-500/10 text-rose-400 border border-rose-500/20 flex items-center justify-center shrink-0">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -445,10 +445,10 @@
     {{-- 1. Edit Status Modal --}}
     <div id="edit-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-left">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8 relative">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8 relative">
                     <div class="flex items-center justify-between mb-6 pb-4 border-b border-white/[0.06]">
                         <div>
                             <h3 class="text-lg font-bold text-white font-mono uppercase tracking-wide">{{ __('Update Deposit Status') }}</h3>
@@ -469,8 +469,8 @@
                             </label>
                             <div class="relative custom-dropdown" id="edit-status-dropdown">
                                 <button type="button"
-                                    class="dropdown-btn w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs font-mono focus:border-cyan-400 transition-all cursor-pointer">
-                                    <span class="selected-label font-bold text-cyan-300">{{ __('Select Status') }}</span>
+                                    class="dropdown-btn w-full flex items-center justify-between gap-3 px-4 py-3 rounded-xl bg-white/[0.03] border border-white/[0.1] text-white text-xs font-mono focus:border-amber-400 transition-all cursor-pointer">
+                                    <span class="selected-label font-bold text-amber-300">{{ __('Select Status') }}</span>
                                     <svg class="w-4 h-4 text-slate-500 dropdown-icon transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                                     </svg>
@@ -478,7 +478,7 @@
                                 <input type="hidden" name="status" id="edit-status-value">
                                 <div class="dropdown-menu absolute z-[120] mt-2 w-full bg-[#0b0e17] border border-white/[0.1] rounded-2xl shadow-2xl py-2 hidden animate-in fade-in slide-in-from-top-2 duration-200 font-mono text-xs">
                                     @foreach (['pending', 'partial_payment', 'completed', 'failed'] as $st)
-                                        <div class="dropdown-option px-4 py-3 text-slate-300 hover:bg-cyan-500/10 hover:text-cyan-300 transition-colors cursor-pointer capitalize"
+                                        <div class="dropdown-option px-4 py-3 text-slate-300 hover:bg-amber-500/10 hover:text-amber-300 transition-colors cursor-pointer capitalize"
                                             data-value="{{ $st }}">
                                             @if ($st == 'partial_payment')
                                                 {{ __('Partial Payment') }}
@@ -497,7 +497,7 @@
                                 {{ __('Cancel') }}
                             </button>
                             <button type="submit"
-                                class="flex-1 px-4 py-2.5 rounded-full bg-cyan-400 hover:bg-cyan-300 text-[#050507] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(0,245,255,0.3)] transition-all cursor-pointer">
+                                class="flex-1 px-4 py-2.5 rounded-full bg-amber-400 hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(247,166,0,0.3)] transition-all cursor-pointer">
                                 {{ __('Save Status') }}
                             </button>
                         </div>
@@ -510,10 +510,10 @@
     {{-- 2. Delete Confirmation Modal --}}
     <div id="delete-modal" class="fixed inset-0 z-[100] hidden overflow-y-auto">
         <div class="flex min-h-screen items-center justify-center p-4 text-center">
-            <div class="fixed inset-0 bg-[#05070d]/80 backdrop-blur-xl transition-opacity modal-close"></div>
+            <div class="fixed inset-0 bg-[#0b0e11]/80 backdrop-blur-xl transition-opacity modal-close"></div>
 
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-rose-500/20 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.9)] relative w-full max-w-md transform transition-all text-center">
-                <div class="rounded-[2rem] bg-[#090c14] p-6 sm:p-8">
+                <div class="rounded-[2rem] bg-[#151a21] p-6 sm:p-8">
                     <div class="w-14 h-14 bg-rose-500/10 border border-rose-500/20 text-rose-400 rounded-2xl flex items-center justify-center mx-auto mb-4">
                         <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

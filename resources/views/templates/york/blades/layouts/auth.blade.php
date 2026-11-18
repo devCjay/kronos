@@ -8,7 +8,7 @@
     <title>{{ $page_title ?? 'User Portal' }} | {{ getSetting('name') }}</title>
     <link rel="icon" type="image/png" href="{{ asset('assets/images/' . getSetting('favicon')) }}">
     <meta name="robots" content="noindex, nofollow">
-    <meta name="theme-color" content="#050507">
+    <meta name="theme-color" content="#0b0e11">
     <meta name="author" content="{{ getSetting('name') }} Team">
     <meta name="publisher" content="{{ getSetting('name') }} Team">
 
@@ -21,14 +21,14 @@
     {!! getSetting('header_scripts') !!}
 </head>
 
-<body class="bg-[#050507] text-slate-200 font-sans antialiased min-h-screen relative isolate overflow-x-hidden flex flex-col justify-between selection:bg-cyan-500 selection:text-black">
+<body class="bg-[#0b0e11] text-slate-200 font-sans antialiased min-h-screen relative isolate overflow-x-hidden flex flex-col justify-between selection:bg-amber-500 selection:text-black">
     {{-- Animated Preloader --}}
     @include('templates.york.blades.partials.dashoard-preloader')
 
     {{-- Global Ambient Glows & Grid Pattern --}}
     <div class="fixed inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.025] pointer-events-none -z-20"></div>
-    <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-cyan-500/10 rounded-full blur-[180px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
-    <div class="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[180px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 10s;"></div>
+    <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
+    <div class="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[180px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 10s;"></div>
 
     {{-- Top Bar: Back to Home + Language Switcher --}}
     <div class="fixed top-5 inset-x-0 max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between z-50 pointer-events-none">
@@ -42,7 +42,7 @@
         {{-- Language Switcher Dropdown --}}
         <div class="pointer-events-auto relative group" id="lang-switcher">
             <button id="lang-btn"
-                class="flex items-center gap-2 text-slate-400 hover:text-white transition-all bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-cyan-500/30 rounded-full px-3.5 py-1.5 backdrop-blur-xl cursor-pointer text-xs font-mono shadow-lg"
+                class="flex items-center gap-2 text-slate-400 hover:text-white transition-all bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-amber-500/30 rounded-full px-3.5 py-1.5 backdrop-blur-xl cursor-pointer text-xs font-mono shadow-lg"
                 onclick="toggleLanguageMenu(event)">
                 @php
                     $locale = app()->getLocale();
@@ -58,10 +58,10 @@
             </button>
 
             <div id="lang-menu"
-                class="absolute right-0 top-full mt-2 w-40 bg-[#090c14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden z-50 p-1 font-mono text-xs">
+                class="absolute right-0 top-full mt-2 w-40 bg-[#151a21]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden z-50 p-1 font-mono text-xs">
                 @foreach ($languages as $code => $lang)
                     <a href="{{ route('lang.switch', $code) }}"
-                        class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors {{ app()->getLocale() == $code ? 'bg-cyan-500/10 text-cyan-400 font-bold' : '' }}">
+                        class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors {{ app()->getLocale() == $code ? 'bg-amber-500/10 text-amber-400 font-bold' : '' }}">
                         <img src="{{ asset('assets/flags/' . $lang['flag'] . '.svg') }}" alt="{{ $lang['name'] }}"
                             class="w-3.5 h-3.5 rounded-full object-cover">
                         <span>{{ $lang['name'] }}</span>
@@ -77,7 +77,7 @@
         {{-- Brand Header --}}
         <div class="mb-8 text-center">
             <a href="{{ route('home') }}" class="inline-block mb-3 group">
-                <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-white/[0.02] border border-white/[0.08] group-hover:border-cyan-500/30 transition-all backdrop-blur-xl shadow-inner">
+                <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-white/[0.02] border border-white/[0.08] group-hover:border-amber-500/30 transition-all backdrop-blur-xl shadow-inner">
                     @php
                         $logo = getSetting('logo_rectangle');
                         $logoPath = public_path('assets/images/' . $logo);
@@ -96,9 +96,9 @@
         {{-- Double-Bezel Glass Card --}}
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] relative overflow-hidden group">
             {{-- Laser Top Border Accent --}}
-            <div class="absolute top-0 inset-x-10 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent"></div>
+            <div class="absolute top-0 inset-x-10 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400/60 to-transparent"></div>
 
-            <div class="rounded-[2rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 relative">
+            <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 relative">
                 @yield('content')
             </div>
         </div>

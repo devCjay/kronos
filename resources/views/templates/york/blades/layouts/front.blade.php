@@ -70,13 +70,13 @@
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Inter', sans-serif;
-            background: #050507;
+            background: #0b0e11;
             color: #f1f5f9;
             overflow-x: hidden;
             margin: 0;
         }
         ::-webkit-scrollbar            { width: 6px; }
-        ::-webkit-scrollbar-track      { background: #050507; }
+        ::-webkit-scrollbar-track      { background: #0b0e11; }
         ::-webkit-scrollbar-thumb      { background: rgba(255,255,255,0.07); border-radius: 9999px; }
         ::-webkit-scrollbar-thumb:hover{ background: rgba(255,255,255,0.14); }
 
@@ -99,7 +99,7 @@
         }
         #cmd-top-bar.scrolled {
             background: rgba(3, 4, 7, 0.96);
-            border-bottom-color: rgba(0, 245, 255, 0.15);
+            border-bottom-color: rgba(247, 166, 0, 0.15);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
@@ -122,9 +122,9 @@
         }
         .cmd-trigger-btn:hover {
             background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(0, 245, 255, 0.35);
+            border-color: rgba(247, 166, 0, 0.35);
             color: #fff;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.15);
+            box-shadow: 0 0 20px rgba(247, 166, 0, 0.15);
         }
         .cmd-key-badge {
             font-family: 'JetBrains Mono', monospace;
@@ -150,7 +150,7 @@
             cursor: pointer; flex-shrink: 0;
             transition: background 0.2s, border-color 0.2s;
         }
-        #front-ham-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(0, 245, 255, 0.3); }
+        #front-ham-btn:hover { background: rgba(255, 255, 255, 0.12); border-color: rgba(247, 166, 0, 0.3); }
 
         .ham-line {
             stroke: rgba(255, 255, 255, 0.85);
@@ -188,19 +188,19 @@
             font-family: 'Outfit', sans-serif;
             font-size: 0.78rem;
             font-weight: 700;
-            color: #050507;
+            color: #0b0e11;
             text-decoration: none;
             padding: 0.45rem 0.95rem;
             border-radius: 9999px;
-            background: #00f5ff;
-            box-shadow: 0 0 20px rgba(0, 245, 255, 0.25);
+            background: #f7a600;
+            box-shadow: 0 0 20px rgba(247, 166, 0, 0.25);
             transition: all 0.25s cubic-bezier(0.32, 0.72, 0, 1);
             white-space: nowrap;
         }
         .top-cta-btn:hover {
             transform: scale(1.03);
             background: #33f7ff;
-            box-shadow: 0 0 25px rgba(0, 245, 255, 0.45);
+            box-shadow: 0 0 25px rgba(247, 166, 0, 0.45);
             color: #000;
         }
 
@@ -244,7 +244,7 @@
             transition: all 0.2s cubic-bezier(0.32, 0.72, 0, 1);
         }
         .sheet-nav-item:hover, .sheet-nav-item.active {
-            background: rgba(0, 245, 255, 0.08); color: #00f5ff;
+            background: rgba(247, 166, 0, 0.08); color: #f7a600;
         }
 
         .sheet-sub-item {
@@ -271,9 +271,9 @@
 
         .sheet-btn-primary {
             flex: 1; text-align: center; padding: 0.7rem; border-radius: 0.9rem;
-            background: #00f5ff;
+            background: #f7a600;
             font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-weight: 700;
-            color: #050507; text-decoration: none; box-shadow: 0 0 20px rgba(0, 245, 255, 0.25);
+            color: #0b0e11; text-decoration: none; box-shadow: 0 0 20px rgba(247, 166, 0, 0.25);
         }
 
         /* ── COMMAND K OVERLAY MODAL (DESKTOP) ─────────────────────────────── */
@@ -292,7 +292,7 @@
         .cmd-card-dialog {
             width: 100%; max-width: 40rem;
             background: rgba(10, 14, 24, 0.96);
-            border: 1px solid rgba(0, 245, 255, 0.25);
+            border: 1px solid rgba(247, 166, 0, 0.25);
             border-radius: 1.5rem;
             box-shadow: 0 25px 80px rgba(0, 0, 0, 0.9), inset 0 1px 0 rgba(255, 255, 255, 0.12);
             overflow: hidden;
@@ -324,7 +324,7 @@
         .cmd-group-label {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.62rem; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.12em; color: rgba(0, 245, 255, 0.65);
+            letter-spacing: 0.12em; color: rgba(247, 166, 0, 0.65);
             padding: 0.6rem 0.75rem 0.3rem;
         }
         .cmd-item-link {
@@ -335,7 +335,7 @@
             transition: all 0.15s;
         }
         .cmd-item-link:hover, .cmd-item-link:active {
-            background: rgba(0, 245, 255, 0.1);
+            background: rgba(247, 166, 0, 0.1);
             color: #fff; transform: translateX(3px);
         }
         .cmd-item-desc {
@@ -364,7 +364,7 @@
         }
         .f-orb-1 {
             width: 700px; height: 320px;
-            background: radial-gradient(ellipse, rgba(0,245,255,0.045), transparent 70%);
+            background: radial-gradient(ellipse, rgba(247,166,0,0.045), transparent 70%);
             top: 0; left: -8%;
         }
         .f-orb-2 {
@@ -434,7 +434,7 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.62rem; font-weight: 700;
             letter-spacing: 0.15em; text-transform: uppercase;
-            color: rgba(0,245,255,0.55);
+            color: rgba(247,166,0,0.55);
             margin-bottom: 1.1rem; display: block;
         }
         .f-nav-link {
@@ -483,7 +483,7 @@
     {!! getSetting('header_scripts') !!}
     @stack('css')
 </head>
-<body class="bg-[#050507] text-slate-100 antialiased" style="selection-color:#fff; selection-background:rgba(0,245,255,0.2);">
+<body class="bg-[#0b0e11] text-slate-100 antialiased" style="selection-color:#fff; selection-background:rgba(247,166,0,0.2);">
     {{-- Animated Preloader --}}
     @include('templates.york.blades.partials.dashoard-preloader')
 
@@ -498,7 +498,7 @@
 
         {{-- Desktop Center ⌘K Trigger Button --}}
         <button class="cmd-trigger-btn" id="open-cmd-btn" type="button" aria-label="{{ __('Open Command Palette') }}">
-            <svg style="width:14px; height:14px; stroke:rgba(0,245,255,0.85); fill:none; flex-shrink:0;" viewBox="0 0 24 24">
+            <svg style="width:14px; height:14px; stroke:rgba(247,166,0,0.85); fill:none; flex-shrink:0;" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
             <span>{{ __('Search or jump to...') }}</span>
@@ -518,7 +518,7 @@
             {{-- Language Switcher Dropdown --}}
             <div class="pointer-events-auto relative group" id="lang-switcher">
                 <button id="lang-btn"
-                    class="flex items-center gap-2 text-slate-400 hover:text-white transition-all bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-cyan-500/30 rounded-full px-3.5 py-1.5 backdrop-blur-xl cursor-pointer text-xs font-mono shadow-lg"
+                    class="flex items-center gap-2 text-slate-400 hover:text-white transition-all bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] hover:border-amber-500/30 rounded-full px-3.5 py-1.5 backdrop-blur-xl cursor-pointer text-xs font-mono shadow-lg"
                     onclick="toggleLanguageMenu(event)">
                     <img src="{{ asset('assets/flags/' . $currentLang['flag'] . '.svg') }}"
                         alt="{{ $currentLang['name'] }}" class="w-3.5 h-3.5 rounded-full object-cover">
@@ -529,10 +529,10 @@
                 </button>
 
                 <div id="lang-menu"
-                    class="absolute right-0 top-full mt-2 w-40 bg-[#090c14]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden z-50 p-1 font-mono text-xs max-h-80 overflow-y-auto">
+                    class="absolute right-0 top-full mt-2 w-40 bg-[#151a21]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right overflow-hidden z-50 p-1 font-mono text-xs max-h-80 overflow-y-auto">
                     @foreach ($languages as $code => $lang)
                         <a href="{{ route('lang.switch', $code) }}"
-                            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors {{ app()->getLocale() == $code ? 'bg-cyan-500/10 text-cyan-400 font-bold' : '' }}">
+                            class="flex items-center gap-2.5 px-3 py-2 rounded-xl text-slate-400 hover:text-white hover:bg-white/10 transition-colors {{ app()->getLocale() == $code ? 'bg-amber-500/10 text-amber-400 font-bold' : '' }}">
                             <img src="{{ asset('assets/flags/' . $lang['flag'] . '.svg') }}" alt="{{ $lang['name'] }}"
                                 class="w-3.5 h-3.5 rounded-full object-cover">
                             <span>{{ $lang['name'] }}</span>
@@ -574,15 +574,15 @@
 
             <div style="display:flex; flex-direction:column; gap:0.15rem;">
                 <a href="{{ route('about') }}" class="sheet-sub-item">
-                    <span style="color:#00f5ff; font-size:0.75rem;">•</span>
+                    <span style="color:#f7a600; font-size:0.75rem;">•</span>
                     <span>{{ __('About Us') }}</span>
                 </a>
                 <a href="{{ route('license') }}" class="sheet-sub-item">
-                    <span style="color:#00f5ff; font-size:0.75rem;">•</span>
+                    <span style="color:#f7a600; font-size:0.75rem;">•</span>
                     <span>{{ __('Licenses & Regulation') }}</span>
                 </a>
                 <a href="{{ route('contact') }}" class="sheet-sub-item">
-                    <span style="color:#00f5ff; font-size:0.75rem;">•</span>
+                    <span style="color:#f7a600; font-size:0.75rem;">•</span>
                     <span>{{ __('Contact Us') }}</span>
                 </a>
             </div>
@@ -593,7 +593,7 @@
             <div style="margin-bottom: 0.5rem;">
                 <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom: 0.4rem; padding: 0 0.25rem;">
                     <span style="font-size: 0.7rem; font-family:'JetBrains Mono', monospace; text-transform:uppercase; letter-spacing:0.05em; color:rgba(148, 163, 184, 0.6);">{{ __('Language') }}</span>
-                    <span style="display:flex; align-items:center; gap:0.35rem; font-size: 0.75rem; color:#00f5ff; font-family:'JetBrains Mono', monospace;">
+                    <span style="display:flex; align-items:center; gap:0.35rem; font-size: 0.75rem; color:#f7a600; font-family:'JetBrains Mono', monospace;">
                         <img src="{{ asset('assets/flags/' . $currentLang['flag'] . '.svg') }}" alt="{{ $currentLang['name'] }}" style="width:14px; height:14px; border-radius:9999px; object-fit:cover;">
                         {{ $currentLang['name'] }}
                     </span>
@@ -601,7 +601,7 @@
                 <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.35rem; max-height: 140px; overflow-y: auto; padding: 0.25rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 0.75rem;">
                     @foreach ($languages as $code => $lang)
                         <a href="{{ route('lang.switch', $code) }}"
-                            style="display:flex; align-items:center; gap:0.4rem; padding:0.4rem 0.5rem; border-radius:0.5rem; font-size:0.72rem; font-family:'JetBrains Mono', monospace; text-decoration:none; transition:all 0.15s; {{ app()->getLocale() == $code ? 'background:rgba(0,245,255,0.12); color:#00f5ff; font-weight:700;' : 'color:rgba(203,213,225,0.7);' }}">
+                            style="display:flex; align-items:center; gap:0.4rem; padding:0.4rem 0.5rem; border-radius:0.5rem; font-size:0.72rem; font-family:'JetBrains Mono', monospace; text-decoration:none; transition:all 0.15s; {{ app()->getLocale() == $code ? 'background:rgba(247,166,0,0.12); color:#f7a600; font-weight:700;' : 'color:rgba(203,213,225,0.7);' }}">
                             <img src="{{ asset('assets/flags/' . $lang['flag'] . '.svg') }}" alt="{{ $lang['name'] }}" style="width:14px; height:14px; border-radius:9999px; object-fit:cover; flex-shrink:0;">
                             <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ $lang['name'] }}</span>
                         </a>
@@ -628,7 +628,7 @@
     <div id="cmd-modal-backdrop" role="dialog" aria-modal="true">
         <div class="cmd-card-dialog">
             <div class="cmd-search-header">
-                <svg style="width:18px; height:18px; stroke:rgba(0,245,255,0.9); fill:none; flex-shrink:0;" viewBox="0 0 24 24">
+                <svg style="width:18px; height:18px; stroke:rgba(247,166,0,0.9); fill:none; flex-shrink:0;" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
                 </svg>
                 <input type="text" id="cmd-input" class="cmd-search-input" placeholder="{{ __('Search pages or explore features...') }}" autofocus autocomplete="off">

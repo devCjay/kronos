@@ -8,11 +8,11 @@
         {{-- ==================================================================================== --}}
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 pb-2 border-b border-white/[0.06]">
             <div>
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-bold uppercase tracking-[0.25em] mb-2">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
                     {{ __('LOGIN METHODS & OAUTH') }}
                 </div>
-                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-100 to-cyan-400/70 tracking-tight leading-tight">
+                <h1 class="text-2xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70 tracking-tight leading-tight">
                     {{ __('Login Methods & Social Login') }}
                 </h1>
                 <p class="text-slate-400 text-[10px] md:text-xs mt-0.5 tracking-widest uppercase">
@@ -29,7 +29,7 @@
             {{-- Left Navigation Deck --}}
             <div class="lg:col-span-4 xl:col-span-3">
                 <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl">
-                    <div class="rounded-[2rem] bg-[#090c14]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
+                    <div class="rounded-[2rem] bg-[#151a21]/95 p-4 max-h-[calc(100vh-200px)] overflow-y-auto">
                         @include("templates.$template.blades.admin.settings.partials.sidebar")
                     </div>
                 </div>
@@ -43,13 +43,13 @@
                         <input type="hidden" name="provider" value="{{ $key }}">
                         <input type="hidden" name="status" id="status_{{ $key }}" value="{{ $method['status'] }}">
 
-                        <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl transition-all duration-300 {{ $method['status'] === 'enabled' ? 'border-cyan-500/30' : '' }}" id="card_{{ $key }}">
-                            <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6 text-xs">
+                        <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.08] backdrop-blur-2xl transition-all duration-300 {{ $method['status'] === 'enabled' ? 'border-amber-500/30' : '' }}" id="card_{{ $key }}">
+                            <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6 text-xs">
                                 
                                 {{-- Card Header --}}
                                 <div class="flex items-center justify-between gap-4 pb-4 border-b border-white/[0.06]">
                                     <div class="flex items-center gap-4">
-                                        <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center p-2.5 text-cyan-400">
+                                        <div class="w-12 h-12 rounded-2xl bg-white/[0.03] border border-white/[0.08] flex items-center justify-center p-2.5 text-amber-400">
                                             {!! $method['icon'] ?? '' !!}
                                         </div>
                                         <div>
@@ -61,7 +61,7 @@
                                     </div>
 
                                     <div class="flex items-center gap-3">
-                                        <input type="checkbox" class="provider-toggle accent-cyan-400 w-5 h-5 cursor-pointer"
+                                        <input type="checkbox" class="provider-toggle accent-amber-400 w-5 h-5 cursor-pointer"
                                             data-provider="{{ $key }}" {{ $method['status'] === 'enabled' ? 'checked' : '' }}>
                                     </div>
                                 </div>
@@ -73,9 +73,9 @@
                                         <div class="p-4 rounded-2xl bg-white/[0.015] border border-white/[0.04] space-y-3">
                                             <div>
                                                 <span class="text-[9px] uppercase font-bold text-slate-500 block mb-1">{{ __('Authorized Redirect URL (User Login)') }}</span>
-                                                <div class="flex items-center gap-2 p-2.5 bg-[#05070d] rounded-xl border border-white/[0.06]">
-                                                    <code id="user_cb_{{ $key }}" class="text-[10px] text-cyan-300 break-all flex-1">{{ url("/login/$key/callback") }}</code>
-                                                    <button type="button" onclick="copyToClipboard('user_cb_{{ $key }}')" class="px-2 py-1 rounded bg-white/[0.04] hover:bg-cyan-400 hover:text-black text-slate-400 font-bold uppercase text-[9px] transition-all cursor-pointer">
+                                                <div class="flex items-center gap-2 p-2.5 bg-[#0b0e11] rounded-xl border border-white/[0.06]">
+                                                    <code id="user_cb_{{ $key }}" class="text-[10px] text-amber-300 break-all flex-1">{{ url("/login/$key/callback") }}</code>
+                                                    <button type="button" onclick="copyToClipboard('user_cb_{{ $key }}')" class="px-2 py-1 rounded bg-white/[0.04] hover:bg-amber-400 hover:text-black text-slate-400 font-bold uppercase text-[9px] transition-all cursor-pointer">
                                                         {{ __('Copy') }}
                                                     </button>
                                                 </div>
@@ -84,9 +84,9 @@
                                             @if ($key === 'google')
                                                 <div>
                                                     <span class="text-[9px] uppercase font-bold text-slate-500 block mb-1">{{ __('Authorized Redirect URL (Admin Login)') }}</span>
-                                                    <div class="flex items-center gap-2 p-2.5 bg-[#05070d] rounded-xl border border-white/[0.06]">
-                                                        <code id="admin_cb_{{ $key }}" class="text-[10px] text-cyan-300 break-all flex-1">{{ url('/admin/login/google/callback') }}</code>
-                                                        <button type="button" onclick="copyToClipboard('admin_cb_{{ $key }}')" class="px-2 py-1 rounded bg-white/[0.04] hover:bg-cyan-400 hover:text-black text-slate-400 font-bold uppercase text-[9px] transition-all cursor-pointer">
+                                                    <div class="flex items-center gap-2 p-2.5 bg-[#0b0e11] rounded-xl border border-white/[0.06]">
+                                                        <code id="admin_cb_{{ $key }}" class="text-[10px] text-amber-300 break-all flex-1">{{ url('/admin/login/google/callback') }}</code>
+                                                        <button type="button" onclick="copyToClipboard('admin_cb_{{ $key }}')" class="px-2 py-1 rounded bg-white/[0.04] hover:bg-amber-400 hover:text-black text-slate-400 font-bold uppercase text-[9px] transition-all cursor-pointer">
                                                             {{ __('Copy') }}
                                                         </button>
                                                     </div>
@@ -99,13 +99,13 @@
                                             <div class="space-y-1">
                                                 <label class="text-[9px] uppercase font-bold text-slate-400">{{ __('Client ID') }}</label>
                                                 <input type="text" name="env[{{ $prefix }}_CLIENT_ID]" value="{{ sandBoxCredentials(config("services.$key.client_id")) }}" placeholder="{{ __('Enter Client ID...') }}"
-                                                    class="w-full bg-[#05070d] border border-white/[0.08] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                                    class="w-full bg-[#0b0e11] border border-white/[0.08] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                             </div>
 
                                             <div class="space-y-1">
                                                 <label class="text-[9px] uppercase font-bold text-slate-400">{{ __('Client Secret') }}</label>
                                                 <input type="password" name="env[{{ $prefix }}_CLIENT_SECRET]" value="{{ sandBoxCredentials(config("services.$key.client_secret")) }}" placeholder="{{ __('Enter Client Secret...') }}"
-                                                    class="w-full bg-[#05070d] border border-white/[0.08] focus:border-cyan-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
+                                                    class="w-full bg-[#0b0e11] border border-white/[0.08] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                             </div>
                                         </div>
                                     </div>
@@ -113,7 +113,7 @@
 
                                 {{-- Footer Submit --}}
                                 <div class="pt-4 border-t border-white/[0.06] flex items-center justify-end">
-                                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-black font-black uppercase text-[10px] tracking-wider transition-all shadow-[0_0_15px_rgba(0,245,255,0.2)] cursor-pointer">
+                                    <button type="submit" class="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-black uppercase text-[10px] tracking-wider transition-all shadow-[0_0_15px_rgba(247,166,0,0.2)] cursor-pointer">
                                         {{ __('Save Settings') }}
                                     </button>
                                 </div>
@@ -142,7 +142,7 @@
                     title: '{{ __('Redirect URL copied.') }}',
                     showConfirmButton: false,
                     timer: 1500,
-                    customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                    customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                 });
             });
         }
@@ -155,10 +155,10 @@
                 
                 if (isEnabled) {
                     $('#details_' + provider).slideDown(200);
-                    $('#card_' + provider).addClass('border-cyan-500/30');
+                    $('#card_' + provider).addClass('border-amber-500/30');
                 } else {
                     $('#details_' + provider).slideUp(200);
-                    $('#card_' + provider).removeClass('border-cyan-500/30');
+                    $('#card_' + provider).removeClass('border-amber-500/30');
                     $(this).closest('form').submit();
                 }
             });
@@ -180,7 +180,7 @@
                             title: response.message || '{{ __('Provider updated.') }}',
                             showConfirmButton: false,
                             timer: 2000,
-                            customClass: { popup: 'bg-[#090c14] border border-cyan-500/20 text-white font-mono text-xs' }
+                            customClass: { popup: 'bg-[#151a21] border border-amber-500/20 text-white font-mono text-xs' }
                         });
                     },
                     error: function(xhr) {
@@ -188,7 +188,7 @@
                             icon: 'error',
                             title: '{{ __('Error') }}',
                             text: xhr.responseJSON?.message || '{{ __('Failed to save provider.') }}',
-                            customClass: { popup: 'bg-[#090c14] border border-rose-500/20 text-white font-mono' }
+                            customClass: { popup: 'bg-[#151a21] border border-rose-500/20 text-white font-mono' }
                         });
                     },
                     complete: function() {

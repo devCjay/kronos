@@ -1,6 +1,6 @@
 <!-- Onboarding Modal Overlay -->
 <div id="onboarding-modal"
-    class="fixed inset-0 bg-[#050507]/90 backdrop-blur-2xl z-[98] flex items-center justify-center p-2.5 sm:p-6 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto overflow-x-hidden">
+    class="fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-2xl z-[98] flex items-center justify-center p-2.5 sm:p-6 opacity-0 pointer-events-none transition-all duration-500 overflow-y-auto overflow-x-hidden">
 
     <!-- Modal Double-Bezel Hardened Container -->
     <div class="relative w-full max-w-3xl rounded-[1.75rem] sm:rounded-[2rem] p-[1px] bg-gradient-to-b from-white/[0.15] via-white/[0.05] to-transparent shadow-[0_25px_80px_rgba(0,0,0,0.95)] overflow-hidden transform scale-95 transition-all duration-500 flex flex-col my-auto max-h-[calc(100dvh-1.25rem)] sm:max-h-[min(88vh,820px)]"

@@ -6,7 +6,7 @@
         {{-- Disabled Warning --}}
         @if (!moduleEnabled('kyc_module'))
             <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                <div class="rounded-[2rem] bg-[#090c14]/95 p-8 text-center font-mono">
+                <div class="rounded-[2rem] bg-[#151a21]/95 p-8 text-center font-mono">
                     <h3 class="text-lg font-bold text-white uppercase">{{ __('KYC Verification is Disabled') }}</h3>
                     <p class="text-xs text-slate-400 mt-2 mb-4">{{ __('Turn on the KYC module in settings to review documents.') }}</p>
                     <a href="{{ route('admin.settings.modules.index') }}" class="px-6 py-2 rounded-full bg-amber-400 text-black font-black text-xs uppercase">{{ __('Settings') }}</a>
@@ -65,7 +65,7 @@
 
                     {{-- User Identity Box --}}
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                             <div class="flex items-center gap-4">
                                 <div class="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center font-black text-xl shadow-lg shrink-0">
                                     {{ substr($kyc->user->username, 0, 2) }}
@@ -95,7 +95,7 @@
 
                     {{-- Personal Information Grid --}}
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-4">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-4">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Personal Details') }}</h3>
                                 <p class="text-xs text-slate-400 font-sans mt-0.5">{{ __('Information submitted by the user') }}</p>
@@ -123,7 +123,7 @@
 
                     {{-- Uploaded Identity Document Gallery --}}
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-6">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-6">
                             <div class="flex items-center justify-between pb-3 border-b border-white/[0.06]">
                                 <div>
                                     <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Uploaded Documents') }}</h3>
@@ -209,7 +209,7 @@
 
                     {{-- Review Decision Card --}}
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-5">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-5">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Review Decision') }}</h3>
                                 <p class="text-xs text-slate-400 font-sans mt-0.5">{{ __('Approve or reject this verification request') }}</p>
@@ -217,7 +217,7 @@
 
                             <div class="space-y-3">
                                 <button type="button" onclick="openApproveModal()"
-                                    class="w-full py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-[#050507] font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer">
+                                    class="w-full py-3.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-[#0b0e11] font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(16,185,129,0.3)] cursor-pointer">
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                     </svg>
@@ -244,14 +244,14 @@
 
                     {{-- Timeline Card --}}
                     <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl">
-                        <div class="rounded-[2rem] bg-[#090c14]/95 p-6 sm:p-8 space-y-4">
+                        <div class="rounded-[2rem] bg-[#151a21]/95 p-6 sm:p-8 space-y-4">
                             <div class="pb-3 border-b border-white/[0.06]">
                                 <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Timeline') }}</h3>
                             </div>
 
                             <div class="space-y-4 text-xs">
                                 <div class="flex items-start gap-3">
-                                    <span class="w-2 h-2 rounded-full bg-cyan-400 mt-1"></span>
+                                    <span class="w-2 h-2 rounded-full bg-amber-400 mt-1"></span>
                                     <div>
                                         <span class="text-white font-bold block">{{ __('Submitted by User') }}</span>
                                         <span class="text-[10px] text-slate-500">{{ $kyc->created_at->format('M d, Y H:i') }} UTC</span>
@@ -292,9 +292,9 @@
     </div>
 
     {{-- Approve Confirmation Modal --}}
-    <div id="approveModal" class="hidden fixed inset-0 bg-[#05070d]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
+    <div id="approveModal" class="hidden fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.05] border border-white/[0.1] w-full max-w-md font-mono">
-            <div class="rounded-[2rem] bg-[#090c14] p-8 space-y-6">
+            <div class="rounded-[2rem] bg-[#151a21] p-8 space-y-6">
                 <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                     <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Approve KYC') }}</h3>
                     <button type="button" onclick="closeApproveModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -313,9 +313,9 @@
     </div>
 
     {{-- Reject Modal --}}
-    <div id="rejectModal" class="hidden fixed inset-0 bg-[#05070d]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
+    <div id="rejectModal" class="hidden fixed inset-0 bg-[#0b0e11]/90 backdrop-blur-xl z-[100] flex items-center justify-center p-4">
         <div class="p-2 rounded-[2.5rem] bg-white/[0.05] border border-white/[0.1] w-full max-w-md font-mono">
-            <div class="rounded-[2rem] bg-[#090c14] p-8 space-y-6">
+            <div class="rounded-[2rem] bg-[#151a21] p-8 space-y-6">
                 <div class="flex items-center justify-between pb-4 border-b border-white/[0.06]">
                     <h3 class="text-base font-bold text-white uppercase tracking-wide">{{ __('Reject KYC') }}</h3>
                     <button type="button" onclick="closeRejectModal()" class="text-slate-400 hover:text-white text-lg cursor-pointer">&times;</button>
@@ -326,7 +326,7 @@
                     <div>
                         <label for="rejection_reason" class="block font-bold text-slate-400 uppercase tracking-widest text-xs mb-1.5">{{ __('Rejection Reason') }}</label>
                         <textarea id="rejection_reason" name="rejection_reason" rows="4" required
-                            class="w-full bg-[#05070d] border border-white/[0.1] focus:border-rose-400 text-white rounded-xl p-3 text-xs focus:outline-none transition-all placeholder:text-slate-600"
+                            class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-rose-400 text-white rounded-xl p-3 text-xs focus:outline-none transition-all placeholder:text-slate-600"
                             placeholder="{{ __('Explain why this submission was rejected (e.g., photo is blurry or ID has expired)...') }}"></textarea>
                     </div>
                     <div class="flex gap-3">
