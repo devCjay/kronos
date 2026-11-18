@@ -1,0 +1,17 @@
+{
+  "resources/views/templates/york/css/app.css": {
+    "file": "assets/app-X_pDXEYM.css",
+    "src": "resources/views/templates/york/css/app.css",
+    "isEntry": true,
+    "name": "app",
+    "names": [
+      "app.css"
+    ]
+  },
+  "resources/views/templates/york/js/app.js": {
+    "file": "assets/app-CL6lSkgB.js",
+    "name": "app",
+    "src": "resources/views/templates/york/js/app.js",
+    "isEntry": true
+  }
+}
