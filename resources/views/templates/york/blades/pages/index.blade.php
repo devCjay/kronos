@@ -1582,38 +1582,7 @@
             </div>
 
             {{-- Crypto Coins Sector Heatmap Widget --}}
-            <div class="mt-12 max-w-7xl mx-auto p-3 rounded-[3rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] relative overflow-hidden group">
-                <div class="rounded-[2.5rem] bg-[#090c14]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-4 sm:p-6 lg:p-8 h-[550px] flex flex-col relative overflow-hidden">
-                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/[0.08]">
-                        <div class="flex items-center gap-2">
-                            <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                            <span class="text-xs font-mono font-bold text-white uppercase tracking-widest">{{ __('CRYPTO MARKET CAP & PERFORMANCE HEATMAP') }}</span>
-                        </div>
-                        <span class="text-[10px] font-mono text-slate-500 hidden sm:inline">+ SECTOR_HEATMAP // LIVE_TREEMAP</span>
-                    </div>
-
-                    <div class="flex-1 w-full rounded-2xl overflow-hidden bg-white/[0.015] border border-white/[0.08] min-h-[420px] relative">
-                        <div class="tradingview-widget-container w-full h-full min-h-[400px]">
-                            <div class="tradingview-widget-container__widget w-full h-full min-h-[400px]"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-crypto-coins-heatmap.js" async>
-                            {
-                              "dataSource": "Crypto",
-                              "blockSize": "market_cap_calc",
-                              "blockColor": "change",
-                              "locale": "en",
-                              "symbolUrl": "",
-                              "colorTheme": "dark",
-                              "hasTopBar": false,
-                              "isTransparent": true,
-                              "hasSymbolTooltip": true,
-                              "width": "100%",
-                              "height": "100%"
-                            }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </section>
 
