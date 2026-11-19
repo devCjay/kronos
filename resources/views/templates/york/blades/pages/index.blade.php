@@ -142,7 +142,7 @@
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-[#f7a600]"></span>
                         </span>
                         <span class="text-xs font-mono font-bold text-[#f7a600] tracking-wider uppercase">
-                            {{ __('Automated Trading Engine Active · 99.98% Uptime') }}
+                            {{ __('Automated Trading · 99.98% Uptime') }}
                         </span>
                     </div>
 
