@@ -152,8 +152,33 @@
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-400">
                                 {{ __('Automate Your Trading.') }}
                             </span> <br>
-                            <span class="text-white">
-                                {{ __('Grow Your Portfolio.') }}
+                            <span class="inline-flex items-baseline text-white"
+                                  data-phrase="{{ __('Grow Your Portfolio.') }}"
+                                  aria-label="{{ __('Grow Your Portfolio.') }}"
+                                  x-data="{ text: '', phrase: '', typing: true }"
+                                  x-init="
+                                    phrase = $el.dataset.phrase;
+                                    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                                        text = phrase;
+                                        typing = false;
+                                    } else {
+                                        setTimeout(() => {
+                                            let index = 0;
+                                            const timer = setInterval(() => {
+                                                text = phrase.slice(0, ++index);
+                                                if (index >= phrase.length) {
+                                                    clearInterval(timer);
+                                                    typing = false;
+                                                }
+                                            }, 65);
+                                        }, 350);
+                                    }
+                                  ">
+                                <span aria-hidden="true" x-text="text">{{ __('Grow Your Portfolio.') }}</span>
+                                <span aria-hidden="true"
+                                      class="ml-1 inline-block h-[0.9em] w-[3px] rounded-full bg-amber-400 align-[-0.05em] shadow-[0_0_12px_rgba(247,166,0,0.9)]"
+                                      :class="typing ? 'animate-pulse opacity-100' : 'opacity-0'">
+                                </span>
                             </span>
                         </h1>
                     </div>
