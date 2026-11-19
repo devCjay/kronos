@@ -1685,8 +1685,10 @@
                 </p>
             </div>
 
-            {{-- 3D Floating Glass Token Deck Grid --}}
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
+            {{-- Compact blockchain capsule rail, matching the hero asset treatment --}}
+            <div class="relative max-w-6xl mx-auto py-5">
+                <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-amber-400/40 to-transparent pointer-events-none"></div>
+                <div class="absolute inset-x-12 top-1/2 -translate-y-1/2 h-12 bg-amber-500/5 blur-2xl pointer-events-none"></div>
                 @php
                     $supportedChains = [
                         ['name' => 'Bitcoin', 'symbol' => 'BTC', 'icon' => 'btc.png', 'type' => 'L1 Chain'],
@@ -1704,15 +1706,22 @@
                     ];
                 @endphp
 
-                @foreach ($supportedChains as $chain)
-                    <div class="p-4 rounded-2xl bg-[#151a21]/90 border border-white/[0.08] hover:border-amber-400/50 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] backdrop-blur-xl transition-all duration-300 group hover:-translate-y-2 hover:scale-[1.03] hover:shadow-[0_15px_30px_rgba(247,166,0,0.2)] flex flex-col items-center text-center">
-                        <div class="w-12 h-12 rounded-xl bg-white/[0.03] border border-white/[0.1] flex items-center justify-center mb-3 group-hover:scale-110 group-hover:bg-amber-500/10 group-hover:border-amber-500/30 transition-all shadow-inner">
-                            <img src="{{ asset('assets/images/tokens/' . $chain['icon']) }}" alt="{{ $chain['name'] }}" loading="lazy" class="w-7 h-7 object-contain">
+                <div class="relative z-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                    @foreach ($supportedChains as $chain)
+                        <div class="group relative flex items-center gap-2 sm:gap-2.5 px-3 sm:px-3.5 py-2 rounded-2xl bg-[#151a21]/95 border border-amber-500/20 hover:border-amber-400/60 hover:bg-amber-500/10 backdrop-blur-2xl shadow-[0_0_15px_rgba(247,166,0,0.1)] hover:shadow-[0_0_25px_rgba(247,166,0,0.35)] transition-all duration-300 hover:-translate-y-1 hover:scale-105 cursor-default select-none"
+                             title="{{ $chain['type'] }}">
+                            <img src="{{ asset('assets/images/tokens/' . $chain['icon']) }}"
+                                 alt="{{ $chain['name'] }}"
+                                 loading="lazy"
+                                 class="w-6 h-6 object-contain rounded-full shadow-[0_0_10px_rgba(247,166,0,0.3)] group-hover:scale-110 transition-transform duration-300">
+                            <div class="flex items-center gap-1.5">
+                                <span class="text-[10px] sm:text-xs font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">{{ strtoupper($chain['name']) }}</span>
+                                <span class="text-[9px] font-mono font-bold text-amber-400/90 group-hover:text-amber-300 transition-colors">({{ $chain['symbol'] }})</span>
+                            </div>
+                            <div class="w-1.5 h-1.5 shrink-0 rounded-full bg-amber-500/40 group-hover:bg-amber-400 group-hover:shadow-[0_0_8px_#f7a600] transition-all duration-300"></div>
                         </div>
-                        <h4 class="text-xs font-bold text-white group-hover:text-amber-300 transition-colors">{{ $chain['name'] }}</h4>
-                        <span class="text-[9px] font-mono text-slate-500 uppercase tracking-wider mt-1">{{ $chain['symbol'] }} · {{ $chain['type'] }}</span>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>
