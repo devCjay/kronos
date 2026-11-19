@@ -219,6 +219,7 @@
                     </div>
 
                     {{-- Supported blockchains, positioned directly after the hero actions --}}
+                    {{-- Temporarily disabled
                     <div class="relative pt-2">
                         <div class="relative inline-flex max-w-full items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#151a21]/90 border border-amber-500/40 text-[8px] sm:text-[10px] font-mono font-bold text-amber-400 uppercase tracking-[0.12em] sm:tracking-widest shadow-[0_0_20px_rgba(247,166,0,0.2)]">
                             <span class="relative flex h-2 w-2 shrink-0">
@@ -250,6 +251,7 @@
                             @endforeach
                         </div>
                     </div>
+                    --}}
 
                     {{-- Micro Metric Bar with Interactive Counters --}}
                     <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-white/[0.08]"
