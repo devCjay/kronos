@@ -4,7 +4,7 @@
     {{-- ════════════════════════════════════════════════════════════════════════════════
          HERO DECK: ALGORITHMIC COMMAND CENTER & KINETIC TERMINAL
     ════════════════════════════════════════════════════════════════════════════════ --}}
-    <section class="relative min-h-[100dvh] pt-32 pb-[340px] sm:pb-[410px] flex flex-col justify-between overflow-hidden bg-[#0b0e11] isolate">
+    <section class="relative min-h-[100dvh] pt-28 sm:pt-32 pb-20 sm:pb-28 flex flex-col justify-between overflow-hidden bg-[#0b0e11] isolate">
         {{-- SVG Laser Dash Tracers Overlay (Effects 1 & 2: Moon Arc Edge Tracer + Data Pipeline Circuit) --}}
         <div class="absolute inset-0 pointer-events-none -z-10">
             <svg class="w-full h-full" viewBox="0 0 1440 900" fill="none" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
@@ -71,7 +71,7 @@
                 <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7a600]/60 to-transparent"></div>
                 
                 {{-- Concept 2: The SUPPORTED BLOCKCHAINS --}}
-                <div class="pointer-events-auto max-w-6xl w-full px-4 pt-6 pb-6 relative z-10 flex flex-col items-center justify-center">
+                <div class="hidden">
                     
                     {{-- Central Quantum Core Status Badge --}}
                     <div class="relative flex items-center justify-center mb-4">
@@ -202,7 +202,7 @@
                     {{-- Action CTA Group matching Dashboard Quick Action Buttons --}}
                     <div class="flex flex-wrap items-center gap-4 pt-2">
                         <a href="{{ route('user.register') }}"
-                           class="group flex items-center justify-center gap-2.5 px-7 py-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl transition-all hover:bg-emerald-500/20 hover:border-emerald-500/30 cursor-pointer shadow-lg">
+                           class="group flex w-full sm:w-auto items-center justify-center gap-2.5 px-7 py-3.5 bg-emerald-500/10 border border-emerald-500/20 rounded-xl transition-all hover:bg-emerald-500/20 hover:border-emerald-500/30 cursor-pointer shadow-lg">
                             <svg class="h-4 w-4 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4" />
                             </svg>
@@ -210,7 +210,7 @@
                         </a>
 
                         <a href="{{ route('copy-trading') }}"
-                           class="group flex items-center justify-center gap-2.5 px-7 py-3.5 bg-white/[0.02] border border-white/[0.08] rounded-xl transition-all hover:bg-white/[0.06] hover:border-white/20 cursor-pointer">
+                           class="group flex w-full sm:w-auto items-center justify-center gap-2.5 px-7 py-3.5 bg-white/[0.02] border border-white/[0.08] rounded-xl transition-all hover:bg-white/[0.06] hover:border-white/20 cursor-pointer">
                             <span class="text-slate-300 text-xs font-bold tracking-widest uppercase">{{ __('Explore Copy Trading') }}</span>
                             <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -218,8 +218,41 @@
                         </a>
                     </div>
 
+                    {{-- Supported blockchains, positioned directly after the hero actions --}}
+                    <div class="relative pt-2">
+                        <div class="relative inline-flex max-w-full items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#151a21]/90 border border-amber-500/40 text-[8px] sm:text-[10px] font-mono font-bold text-amber-400 uppercase tracking-[0.12em] sm:tracking-widest shadow-[0_0_20px_rgba(247,166,0,0.2)]">
+                            <span class="relative flex h-2 w-2 shrink-0">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-amber-400"></span>
+                            </span>
+                            <span class="leading-relaxed">SUPPORTED BLOCKCHAINS · ON-CHAIN SETTLEMENT</span>
+                        </div>
+
+                        <div class="relative mt-3 flex flex-wrap items-center gap-2">
+                            <div class="absolute inset-x-0 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-amber-400/35 to-transparent pointer-events-none"></div>
+                            @foreach ($heroBlockchains as $chain)
+                                @php
+                                    $chainLogo = !empty($chain->logo)
+                                        ? asset($chain->logo)
+                                        : asset('assets/images/tokens/' . strtolower($chain->code) . '.png');
+                                    $chainName = strtoupper($chain->name);
+                                    $chainSymbol = strtoupper($chain->symbol ?? $chain->code);
+                                @endphp
+                                <div class="group relative z-10 flex items-center gap-2 px-2.5 sm:px-3 py-1.5 rounded-xl bg-[#151a21]/95 border border-amber-500/20 hover:border-amber-400/60 hover:bg-amber-500/10 backdrop-blur-2xl shadow-[0_0_12px_rgba(247,166,0,0.08)] transition-all duration-300 select-none">
+                                    <img src="{{ $chainLogo }}"
+                                         alt="{{ $chainName }}"
+                                         loading="lazy"
+                                         onerror="this.src='{{ asset('assets/images/tokens/' . strtolower($chainSymbol) . '.png') }}'"
+                                         class="w-5 h-5 object-contain rounded-full shadow-[0_0_8px_rgba(247,166,0,0.25)]">
+                                    <span class="text-[10px] sm:text-xs font-bold text-white tracking-wide group-hover:text-amber-300 transition-colors">{{ $chainName }}</span>
+                                    <span class="hidden sm:inline text-[9px] font-mono font-bold text-amber-400/90">({{ $chainSymbol }})</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+
                     {{-- Micro Metric Bar with Interactive Counters --}}
-                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-white/[0.08]"
+                    <div class="grid grid-cols-3 gap-2 sm:gap-4 pt-6 border-t border-white/[0.08]"
                          x-data="{
                             vol: 0,
                             uptime: 0,
@@ -239,19 +272,19 @@
                             }
                          }">
                         <div>
-                            <div class="text-2xl font-heading font-black text-white font-mono flex items-center">
+                            <div class="text-xl sm:text-2xl font-heading font-black text-white font-mono flex items-center">
                                 <span>$</span><span x-text="vol">10</span><span>B+</span>
                             </div>
                             <div class="text-xs text-slate-400 font-medium mt-1">{{ __('Trading Volume') }}</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-heading font-black text-emerald-400 font-mono flex items-center">
+                            <div class="text-xl sm:text-2xl font-heading font-black text-emerald-400 font-mono flex items-center">
                                 <span x-text="uptime.toFixed(2)">99.98</span><span>%</span>
                             </div>
                             <div class="text-xs text-slate-400 font-medium mt-1">{{ __('Platform Uptime') }}</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-heading font-black text-white font-mono flex items-center">
+                            <div class="text-xl sm:text-2xl font-heading font-black text-white font-mono flex items-center">
                                 <span x-text="settle">100</span><span>%</span>
                             </div>
                             <div class="text-xs text-slate-400 font-medium mt-1">{{ __('Direct Crypto Payouts') }}</div>
@@ -260,7 +293,7 @@
                 </div>
 
                 {{-- Right Bleeding Multi-Layer Algorithmic Console Stack (Offset into Right Edge - Concept 1) --}}
-                <div class="lg:col-span-5 relative w-full lg:w-[130%] lg:-mr-[30%] [mask-image:linear-gradient(to_right,#000_75%,transparent_98%)] select-none">
+                <div class="lg:col-span-5 relative w-full lg:w-[130%] lg:-mr-[30%] lg:[mask-image:linear-gradient(to_right,#000_75%,transparent_98%)] select-none">
                     
                     {{-- Stack Container --}}
                     <div class="relative space-y-4">
@@ -273,12 +306,12 @@
                             <div class="relative z-10 double-bezel-inner p-5 flex flex-col h-full justify-between overflow-hidden">
                                 
                                 {{-- Window Header --}}
-                                <div class="flex items-center justify-between pb-3.5 border-b border-white/[0.08]">
+                                <div class="flex flex-wrap items-center justify-between gap-2 pb-3.5 border-b border-white/[0.08]">
                                     <div class="flex items-center gap-2">
                                         <div class="w-3 h-3 rounded-full bg-rose-500/80"></div>
                                         <div class="w-3 h-3 rounded-full bg-amber-500/80"></div>
                                         <div class="w-3 h-3 rounded-full bg-emerald-500/80"></div>
-                                        <span class="text-xs font-mono text-slate-400 ml-2">TRADING_BOT_ENGINE // ACTIVE</span>
+                                        <span class="hidden sm:inline text-xs font-mono text-slate-400 ml-2">TRADING_BOT_ENGINE // ACTIVE</span>
                                     </div>
                                     <span class="px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-mono text-[9px] font-bold uppercase tracking-widest flex items-center gap-1.5">
                                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
@@ -332,21 +365,21 @@
                         </div>
 
                         {{-- Secondary Peeking Layer: Master Trader Copy Network Card --}}
-                        <div class="relative rounded-2xl bg-[#151a21]/90 border border-amber-500/20 p-4 shadow-xl backdrop-blur-xl translate-x-6 sm:translate-x-10 hover:translate-x-4 transition-transform duration-300">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xs font-mono">
+                        <div class="relative rounded-2xl bg-[#151a21]/90 border border-amber-500/20 p-4 shadow-xl backdrop-blur-xl translate-x-0 sm:translate-x-10 sm:hover:translate-x-4 transition-transform duration-300">
+                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                                <div class="flex min-w-0 items-center gap-3">
+                                    <div class="w-10 h-10 shrink-0 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xs font-mono">
                                         SQ
                                     </div>
-                                    <div>
-                                        <div class="flex items-center gap-2">
+                                    <div class="min-w-0">
+                                        <div class="flex flex-wrap items-center gap-2">
                                             <h4 class="text-xs font-bold text-white">Satoshi Trading Systems</h4>
-                                            <span class="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[9px] font-mono font-bold uppercase">COPY CODE: SATO-QUANT-01</span>
+                                            <span class="hidden sm:inline px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[9px] font-mono font-bold uppercase">COPY CODE: SATO-QUANT-01</span>
                                         </div>
                                         <p class="text-[10px] text-slate-400 font-mono mt-0.5">1,420 Active Copiers · Instant Copy Sync</p>
                                     </div>
                                 </div>
-                                <div class="text-right">
+                                <div class="text-left sm:text-right">
                                     <div class="text-xs font-black font-mono text-emerald-400">+142.8%</div>
                                     <div class="text-[9px] text-slate-400 font-mono">30d Return (88.4% Win Rate)</div>
                                 </div>
