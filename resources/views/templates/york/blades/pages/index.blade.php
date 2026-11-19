@@ -1447,66 +1447,6 @@
             </div>
     </section>
 
-    {{-- ==================================================================================== --}}
-    {{-- SECTION 4: MARKET MOMENTUM (INSTITUTIONAL SCREENER) --}}
-    {{-- ==================================================================================== --}}
-    <section id="momentum" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate">
-        {{-- Background Ambient Blobs --}}
-        <div class="absolute top-0 right-10 w-[500px] h-[500px] bg-[#f7a600]/[0.03] rounded-full blur-[140px] -z-10 pointer-events-none select-none"></div>
-        <div class="absolute bottom-10 left-10 w-[400px] h-[400px] bg-orange-600/[0.03] rounded-full blur-[120px] -z-10 animate-pulse pointer-events-none select-none"></div>
-
-        {{-- SVG Laser Accent Circuit Line --}}
-        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7a600]/40 to-transparent pointer-events-none select-none"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-12 sm:mb-16">
-                <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#f7a600]/10 border border-[#f7a600]/20 text-[#f7a600] text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-[#f7a600] animate-ping"></span>
-                        {{ __('LIVE MARKET PRICES') }}
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
-                        {{ __('Live Market') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Overview.') }}</span>
-                    </h2>
-                </div>
-                <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
-                    {{ __('Track live prices, trends, and volume across major cryptocurrencies in real time.') }}
-                </p>
-            </div>
-
-            {{-- Bento Screener Double-Bezel Container Frame --}}
-            <div class="max-w-7xl mx-auto p-3 rounded-[3rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] relative overflow-hidden group">
-                <div class="rounded-[2.5rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-4 sm:p-6 lg:p-8 h-[650px] flex flex-col relative overflow-hidden">
-                    {{-- Corner Reticles --}}
-                    <div class="absolute top-4 left-4 text-slate-700 font-mono text-[10px] pointer-events-none select-none hidden sm:block">+ MARKET_SCREENER // LIVE_FEED</div>
-                    <div class="absolute top-4 right-4 text-slate-700 font-mono text-[10px] pointer-events-none select-none hidden sm:block">REAL-TIME</div>
-
-                    <div class="flex-1 w-full rounded-2xl overflow-hidden bg-white/[0.015] border border-white/[0.08] min-h-[520px] relative">
-                        {{-- TradingView Screener Widget --}}
-                        <div class="tradingview-widget-container w-full h-full min-h-[500px]">
-                            <div class="tradingview-widget-container__widget w-full h-full min-h-[500px]"></div>
-                            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-screener.js" async>
-                            {
-                              "width": "100%",
-                              "height": "100%",
-                              "defaultColumn": "overview",
-                              "screener_type": "crypto_mkt",
-                              "displayCurrency": "USD",
-                              "colorTheme": "dark",
-                              "locale": "en",
-                              "isTransparent": true
-                            }
-                            </script>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Crypto Coins Sector Heatmap Widget --}}
-            
-        </div>
-    </section>
 
     {{-- ==================================================================================== --}}
     {{-- SECTION 5: PRODUCT PILLAR 02 — REAL-TIME COPY TRADING NETWORK --}}
