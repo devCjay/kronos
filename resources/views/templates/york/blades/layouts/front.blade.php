@@ -535,7 +535,7 @@
     <header id="cmd-top-bar">
         {{-- Brand Logo --}}
         <a href="{{ route('home') }}" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; flex-shrink:0;">
-            <img src="{{ $logoRect }}" alt="{{ $siteName }}" style="max-height:26px; max-width:115px; object-fit:contain;">
+            <img src="{{ $logoRect }}" alt="{{ $siteName }}" style="max-height:150px; max-width:150px; object-fit:contain;">
         </a>
 
         {{-- Desktop and tablet navigation (mobile drawer remains unchanged) --}}
