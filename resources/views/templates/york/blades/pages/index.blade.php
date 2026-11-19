@@ -155,29 +155,40 @@
                             <span class="inline-flex items-baseline text-white"
                                   data-phrase="{{ __('Grow Your Portfolio.') }}"
                                   aria-label="{{ __('Grow Your Portfolio.') }}"
-                                  x-data="{ text: '', phrase: '', typing: true }"
+                                  x-data="{
+                                    text: '',
+                                    phrase: '',
+                                    animating: true,
+                                    type(index = 0) {
+                                        if (index < this.phrase.length) {
+                                            this.text = this.phrase.slice(0, index + 1);
+                                            setTimeout(() => this.type(index + 1), 125);
+                                        } else {
+                                            setTimeout(() => this.erase(this.phrase.length), 1800);
+                                        }
+                                    },
+                                    erase(index) {
+                                        if (index > 0) {
+                                            this.text = this.phrase.slice(0, index - 1);
+                                            setTimeout(() => this.erase(index - 1), 85);
+                                        } else {
+                                            setTimeout(() => this.type(), 650);
+                                        }
+                                    }
+                                  }"
                                   x-init="
                                     phrase = $el.dataset.phrase;
                                     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
                                         text = phrase;
-                                        typing = false;
+                                        animating = false;
                                     } else {
-                                        setTimeout(() => {
-                                            let index = 0;
-                                            const timer = setInterval(() => {
-                                                text = phrase.slice(0, ++index);
-                                                if (index >= phrase.length) {
-                                                    clearInterval(timer);
-                                                    typing = false;
-                                                }
-                                            }, 65);
-                                        }, 350);
+                                        setTimeout(() => type(), 500);
                                     }
                                   ">
                                 <span aria-hidden="true" x-text="text">{{ __('Grow Your Portfolio.') }}</span>
                                 <span aria-hidden="true"
                                       class="ml-1 inline-block h-[0.9em] w-[3px] rounded-full bg-amber-400 align-[-0.05em] shadow-[0_0_12px_rgba(247,166,0,0.9)]"
-                                      :class="typing ? 'animate-pulse opacity-100' : 'opacity-0'">
+                                      :class="animating ? 'animate-pulse opacity-100' : 'opacity-0'">
                                 </span>
                             </span>
                         </h1>
