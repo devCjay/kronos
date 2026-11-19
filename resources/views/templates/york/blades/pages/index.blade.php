@@ -1969,20 +1969,20 @@
                 </div>
 
                 {{-- Step 3 --}}
-                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-emerald-400/40 transition-all duration-300 relative">
-                    <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-emerald-400 to-transparent"></div>
+                <div class="p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl group hover:border-amber-400/40 transition-all duration-300 relative">
+                    <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
                     <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-8 flex flex-col justify-between h-full">
                         <div>
                             <div class="flex items-center justify-between mb-8">
-                                <span class="text-3xl font-mono font-black text-emerald-400/40 group-hover:text-emerald-400 transition-colors">03</span>
-                                <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(168,85,247,0.2)]">
+                                <span class="text-3xl font-mono font-black text-amber-400/40 group-hover:text-amber-400 transition-colors">03</span>
+                                <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center group-hover:scale-110 transition-transform shadow-[0_0_20px_rgba(247,166,0,0.2)]">
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-emerald-300 transition-colors">{{ __('3. Earn & Withdraw Anytime') }}</h3>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-amber-300 transition-colors">{{ __('3. Earn & Withdraw Anytime') }}</h3>
                             <p class="text-xs text-slate-400 leading-relaxed">{{ __('Daily returns and profits are added directly to your balance. Request withdrawals to your crypto wallet anytime.') }}</p>
                         </div>
-                        <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-emerald-400 font-bold uppercase tracking-widest">
+                        <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-amber-400 font-bold uppercase tracking-widest">
                             + FAST ON-CHAIN PAYOUTS
                         </div>
                     </div>
