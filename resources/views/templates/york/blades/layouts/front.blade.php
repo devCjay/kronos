@@ -103,6 +103,33 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
 
+        /* Desktop and tablet primary navigation */
+        .desktop-primary-nav {
+            display: flex;
+            align-items: center;
+            gap: 0.2rem;
+            flex-shrink: 0;
+        }
+        .desktop-primary-link {
+            position: relative;
+            padding: 0.5rem 0.65rem;
+            border-radius: 0.65rem;
+            color: rgba(203, 213, 225, 0.76);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.76rem;
+            font-weight: 600;
+            line-height: 1;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+        .desktop-primary-link:hover,
+        .desktop-primary-link.active {
+            color: #f7a600;
+            background: rgba(247, 166, 0, 0.08);
+            box-shadow: inset 0 0 0 1px rgba(247, 166, 0, 0.1), 0 0 18px rgba(247, 166, 0, 0.06);
+        }
+
         /* Desktop Command Trigger Button */
         .cmd-trigger-btn {
             display: flex;
@@ -117,7 +144,9 @@
             font-size: 0.78rem;
             font-weight: 500;
             cursor: pointer;
-            flex: 1; max-width: 22rem;
+            flex: 0 1 12rem;
+            width: 12rem;
+            min-width: 2.35rem;
             transition: all 0.22s cubic-bezier(0.32, 0.72, 0, 1);
         }
         .cmd-trigger-btn:hover {
@@ -166,9 +195,22 @@
 
         /* Responsive Desktop vs Mobile visibility */
         @media (max-width: 767px) {
+            .desktop-primary-nav { display: none !important; }
             .cmd-trigger-btn { display: none !important; }
             #front-ham-btn { display: flex !important; }
             .top-action-pill { display: none !important; }
+        }
+        @media (min-width: 768px) and (max-width: 1100px) {
+            #cmd-top-bar { gap: 0.4rem; padding-inline: 0.75rem; }
+            .desktop-primary-nav { gap: 0; }
+            .desktop-primary-link { padding-inline: 0.45rem; font-size: 0.7rem; }
+            .cmd-trigger-btn {
+                width: 2.35rem;
+                flex-basis: 2.35rem;
+                padding-inline: 0.6rem;
+                justify-content: center;
+            }
+            .cmd-trigger-btn > span { display: none; }
         }
 
         /* Action Buttons */
@@ -495,6 +537,22 @@
         <a href="{{ route('home') }}" style="display:flex; align-items:center; gap:0.5rem; text-decoration:none; flex-shrink:0;">
             <img src="{{ $logoRect }}" alt="{{ $siteName }}" style="max-height:26px; max-width:115px; object-fit:contain;">
         </a>
+
+        {{-- Desktop and tablet navigation (mobile drawer remains unchanged) --}}
+        <nav class="desktop-primary-nav" aria-label="{{ __('Primary navigation') }}">
+            <a href="{{ route('home') }}"
+               class="desktop-primary-link {{ request()->routeIs('home') ? 'active' : '' }}">
+                {{ __('Home') }}
+            </a>
+            <a href="{{ route('trading-bots') }}"
+               class="desktop-primary-link {{ request()->routeIs('trading-bots') ? 'active' : '' }}">
+                {{ __('AI Trading Bots') }}
+            </a>
+            <a href="{{ route('copy-trading') }}"
+               class="desktop-primary-link {{ request()->routeIs('copy-trading') ? 'active' : '' }}">
+                {{ __('Copy Trading') }}
+            </a>
+        </nav>
 
         {{-- Desktop Center ⌘K Trigger Button --}}
         <button class="cmd-trigger-btn" id="open-cmd-btn" type="button" aria-label="{{ __('Open Command Palette') }}">
