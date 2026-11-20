@@ -252,44 +252,7 @@ INSERT INTO `client_reviews` (`id`, `name`, `role`, `review`, `rating`, `image`,
 
 -- --------------------------------------------------------
 
---
--- Table structure for table `copy_tradings`
---
-
-CREATE TABLE `copy_tradings` (
-  `id` bigint UNSIGNED NOT NULL,
-  `code` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pair` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roi` decimal(18,2) NOT NULL,
-  `amount_type` enum('manual','percentage') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'manual',
-  `percentage` decimal(5,2) DEFAULT NULL,
-  `expires_at` bigint UNSIGNED DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
 -- --------------------------------------------------------
-
---
--- Table structure for table `copy_trading_histories`
---
-
-CREATE TABLE `copy_trading_histories` (
-  `id` bigint UNSIGNED NOT NULL,
-  `user_id` bigint UNSIGNED NOT NULL,
-  `copy_trading_id` bigint UNSIGNED NOT NULL,
-  `amount` decimal(24,2) NOT NULL,
-  `pair` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `copy_code` varchar(191) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `roi` decimal(12,2) NOT NULL,
-  `profit` decimal(24,2) DEFAULT NULL,
-  `status` enum('active','completed','cancelled') CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'active',
-  `completes_at` bigint UNSIGNED DEFAULT NULL,
-  `activated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `completed_at` timestamp NULL DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -320,7 +283,6 @@ INSERT INTO `cron_jobs` (`id`, `name`, `description`, `command`, `recommended`, 
 (9, 'System Log Cleaner', 'Trims large system log files to save server disk space and maintain performance.', 'log_cleaner', 3600, 1785771144, NULL, '2026-02-26 05:28:13', '2026-09-04 19:46:47'),
 (10, 'Market Rates & Sitemap Updater', 'Updates market prices and keeps your website sitemap fresh for search engines.', 'resource_indexer', 1800, 1785773635, NULL, '2026-02-26 05:28:13', '2026-09-04 19:46:47'),
 (11, 'Trading Bots Engine', 'Executes active trading bots and calculates daily profits for users.', 'trading_bots_engine', 60, 1784647124, 'trading_bot_module', '2026-07-27 16:18:44', '2026-09-04 19:46:47'),
-(12, 'Copy Trading Synchronizer', 'Settles completed copy trades and distributes profits to investors.', 'copy_trading_sync', 60, 1785773622, 'copy_trading_module', '2026-07-27 16:18:46', '2026-09-04 19:46:47'),
 (13, 'Crypto Deposit Monitor', 'Checks blockchains for incoming customer deposits and credits their accounts.', 'deposit_monitor', 30, 1786967453, NULL, '2026-08-17 12:50:53', '2026-09-04 19:46:47');
 
 -- --------------------------------------------------------
@@ -391,7 +353,6 @@ CREATE TABLE `faqs` (
 
 INSERT INTO `faqs` (`id`, `question`, `answer`, `category`, `sort_order`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'How does automated AI quantitative trading work on :name?', ':name deploys high-frequency quantitative algorithms that continuously analyze market order books, tick data, and cross-exchange arbitrage liquidity spreads 24/7. When algorithmic entry conditions are met, trades are executed automatically with zero emotional bias.', 'AI Bots', 1, 1, '2026-08-16 15:22:39', '2026-08-16 15:22:39'),
-(2, 'How does one-click Copy Trading operate?', 'With One-Click Copy Trading, you enter a Master Trader\'s verified copy code (e.g. SATO-QUANT-01) on :name. Every order entry, take-profit target, and stop-loss executed by the Master Trader is synchronized to your account in real-time with under 12ms latency.', 'Copy Trading', 2, 1, '2026-08-16 15:22:39', '2026-08-16 15:22:39'),
 (3, 'Are my funds locked, and how do I request withdrawals?', 'Your trading capital is held in isolated sub-accounts during the strategy lockup term (e.g. 7, 15, or 30 days). Daily yield profits are credited continuously, and on-chain withdrawal requests to your Web3 wallet are processed instantly via direct blockchain smart contracts.', 'Capital & Withdrawals', 3, 1, '2026-08-16 15:22:39', '2026-08-16 15:22:39'),
 (4, 'What risk management safeguards are built into :name?', ':name enforces strict quantitative risk controls including automated stop-loss thresholds, maximum drawdown circuit breakers, and 100% non-custodial capital settlement to ensure investor capital protection.', 'Security & Risk', 4, 1, '2026-08-16 15:22:39', '2026-08-16 15:22:39'),
 (5, 'Which cryptocurrencies and blockchain networks are supported for settlement?', ':name supports direct on-chain deposits and profit withdrawals across Bitcoin (BTC), Ethereum (ETH), Solana (SOL), BNB Chain, Polygon, Arbitrum, Avalanche, Optimism, Base, Tether (USDT), and USD Coin (USDC).', 'On-Chain Infrastructure', 5, 1, '2026-08-16 15:22:39', '2026-08-16 15:22:39');
@@ -565,13 +526,6 @@ INSERT INTO `menu_items` (`id`, `label`, `route_name`, `route_wildcard`, `params
 (104, 'My Activations', 'user.trading-bots.activations', 'user.trading-bots.*', NULL, NULL, NULL, 'user', 102, 2, 1, '2026-07-27 16:18:42', '2026-07-27 16:18:42'),
 (105, 'Trading Logs', 'user.trading-bots.logs', 'user.trading-bots.*', NULL, NULL, NULL, 'user', 102, 3, 1, '2026-07-27 16:18:42', '2026-07-27 16:18:42'),
 (106, 'Daily Summary', 'user.trading-bots.daily-summary', 'user.trading-bots.*', NULL, NULL, NULL, 'user', 102, 4, 1, '2026-07-27 16:18:42', '2026-07-27 16:18:42'),
-(107, 'Copy Trading', NULL, 'admin.copy-trading.*', NULL, '#', '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg>', 'admin', NULL, 7, 1, '2026-07-27 16:18:44', '2026-08-17 13:55:55'),
-(108, 'New Copy Trading', 'admin.copy-trading.create', 'admin.copy-trading.create', NULL, NULL, NULL, 'admin', 107, 1, 1, '2026-07-27 16:18:44', '2026-08-17 13:55:55'),
-(109, 'Trading Codes', 'admin.copy-trading.index', 'admin.copy-trading.index', NULL, NULL, NULL, 'admin', 107, 2, 1, '2026-07-27 16:18:44', '2026-07-27 16:18:44'),
-(110, 'Trading History', 'admin.copy-trading.history', 'admin.copy-trading.history', NULL, NULL, NULL, 'admin', 107, 3, 1, '2026-07-27 16:18:44', '2026-07-27 16:18:44'),
-(111, 'Copy Trading', NULL, 'user.copy-trading.*', NULL, '#', '<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"14\" height=\"14\" x=\"8\" y=\"8\" rx=\"2\" ry=\"2\"/><path d=\"M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2\"/></svg>', 'user', NULL, 8, 1, '2026-07-27 16:18:44', '2026-08-17 13:55:55'),
-(112, 'Trade Now', 'user.copy-trading.index', 'user.copy-trading.index', NULL, NULL, NULL, 'user', 111, 1, 1, '2026-07-27 16:18:44', '2026-07-27 16:18:44'),
-(113, 'Trading History', 'user.copy-trading.history', 'user.copy-trading.history', NULL, NULL, NULL, 'user', 111, 2, 1, '2026-07-27 16:18:44', '2026-07-27 16:18:44'),
 (114, 'User Wallets', 'admin.deposits.wallets', 'admin.deposits*', NULL, NULL, NULL, 'admin', 57, 5, 1, '2026-07-28 14:47:54', '2026-07-28 14:47:54'),
 (117, 'Master Wallets', 'admin.deposits.master-wallets', 'admin.deposits.*', NULL, NULL, NULL, 'admin', 57, 6, 1, '2026-07-28 15:22:15', '2026-07-28 15:22:15');
 
@@ -706,15 +660,15 @@ INSERT INTO `settings` (`id`, `key`, `value`, `created_at`, `updated_at`) VALUES
 (25, 'withdrawal_fee', '1.2', '2026-02-24 06:19:04', '2026-02-24 06:19:04'),
 (38, 'email_notification', '{\"append_date_to_subject\":\"enabled\",\"email_queue\":\"disabed\",\"notifications\":{\"deposit\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when they make deposits or when their deposit status changes.\",\"warning\":null},\"email_verification\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when they register.\",\"warning\":\"If you have enabled email verification in the security setting and disabled this notification, users won\'t be able to sign up as no verification link or code will be sent.\"},\"kyc\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when they carry out KYC verification or when their KYC status changes.\",\"warning\":null},\"otp_verification\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when they make attempt any action that requires an OTP code.\",\"warning\":\"If you have enabled OTP verification in the security setting and disabled this notification, users won\'t be able to login or carryout any action that requires otp verification as no OTP code will be sent.\"},\"referral\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when someone sign up with their referral link or code.\",\"warning\":null},\"transaction\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when any transaction occurs on their account.\",\"warning\":\"Sending too many emails can trigger email quota limit, blacklisting or spam. Consult your hosting provider.\"},\"welcome\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when their sign up is completed.\",\"warning\":null},\"withdrawal\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when they withdraw or when their withdrawal status changes.\",\"warning\":null},\"account_ban\":{\"status\":\"enabled\",\"tip\":\"If this is enabled, users will get email notification when their account is banned or unbanned.\",\"warning\":null}}}', '2026-02-24 06:19:05', '2026-02-24 06:19:05'),
 (39, 'regulatory_compliance', '{\"regulators\":[\"FinCEN Registered Money Services Business (MSB)\",\"Virtual Asset Regulatory Authority (VARA Compliance)\",\"European MiCA (Markets in Crypto-Assets) Framework\",\"Financial Conduct Authority (FCA Standards)\"],\"pdf_certificates\":[{\"name\":\"Digital Asset Custody & Settlement Certificate\",\"file\":\"digital_asset_custody_certificate.pdf\"},{\"name\":\"Algorithmic Trading & Technology License\",\"file\":\"algorithmic_trading_license.pdf\"},{\"name\":\"MSB Financial Operations Certificate\",\"file\":\"msb_financial_operations_certificate.pdf\"},{\"name\":\"Anti-Money Laundering (AML) Audit Verification\",\"file\":\"aml_audit_verification.pdf\"}]}', '2026-02-24 06:19:05', '2026-08-18 13:24:41'),
-(40, 'seo_description', 'Automate your crypto trading with algorithmic AI bots and mirror verified strategies in real time with copy trading on :site_name. Fast execution, total portfolio control.', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
-(41, 'seo_keywords', 'copy trading, AI trading bots, automated crypto trading, algorithmic trading, crypto copy trading, automated trading strategies, quantitative trading, :site_name', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
-(42, 'social_title', ':site_name | Automated AI Bot & Copy Trading Platform', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
-(43, 'social_description', 'Deploy automated AI trading bots and copy top-performing crypto traders in real time on :site_name. Institutional-grade execution built for modern digital asset traders.', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
+(40, 'seo_description', 'Automate your crypto trading with algorithmic AI bots on :site_name. Fast execution and total portfolio control.', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
+(41, 'seo_keywords', 'AI trading bots, automated crypto trading, algorithmic trading, automated trading strategies, quantitative trading, :site_name', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
+(42, 'social_title', ':site_name | Automated AI Trading Bot Platform', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
+(43, 'social_description', 'Deploy automated AI trading bots on :site_name. Institutional-grade execution built for modern digital asset traders.', '2026-02-24 06:19:05', '2026-08-17 14:07:03'),
 (44, 'seo_image', 'seo_banner_1787053883.png', '2026-02-24 06:19:05', '2026-08-18 12:51:23'),
 (45, 'social_media', '{\"twitter\":\"https:\\/\\/twitter.com\\/user\",\"facebook\":\"https:\\/\\/facebook.com\\/user\",\"instagram\":\"https:\\/\\/instagram.com\\/user\",\"linkedin\":\"https:\\/\\/linkedin.com\\/company\\/user\",\"youtube\":\"https:\\/\\/youtube.com\\/@user\",\"telegram\":\"https:\\/\\/t.me\\/user\",\"whatsapp\":\"https:\\/\\/wa.me\\/user\",\"tiktok\":\"https:\\/\\/tiktok.com\\/@user\",\"x\":\"https:\\/\\/x.com\\/user\"}', '2026-02-24 06:19:05', '2026-08-17 14:09:55'),
 (46, 'app_timezone', 'Europe/London', '2026-02-25 02:08:55', '2026-02-25 02:08:55'),
 (47, 'offices', '[]', '2026-02-25 02:08:56', '2026-08-18 11:31:44'),
-(52, 'modules', '{\"trading_bot_module\":{\"name\":\"Trading Bot\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"Trading Bots\",\"column\":\"label\"}],\"description\":\"Allows automated trading through administrator-managed or strategy-based bots. Users can deploy bots to execute trades continuously based on predefined market strategies.\"},\"file_manager_module\":{\"name\":\"File Manager\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"File Manager\",\"column\":\"label\"}],\"description\":\"Enables secure server-side file management for administrators, including file upload, code editing, archiving, extraction, and directory management within the platform environment.\"},\"kyc_module\":{\"name\":\"KYC\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"KYC\",\"column\":\"label\"}],\"description\":\"Provides identity verification workflows for user onboarding, document review, and compliance management.\"},\"copy_trading_module\":{\"name\":\"Copy Trading\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"Copy Trading\",\"column\":\"label\"}],\"description\":\"Enables copy trading for users.\"}}', '2026-02-25 10:02:51', '2026-08-17 13:55:55'),
+(52, 'modules', '{\"trading_bot_module\":{\"name\":\"Trading Bot\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"Trading Bots\",\"column\":\"label\"}],\"description\":\"Allows automated trading through administrator-managed or strategy-based bots. Users can deploy bots to execute trades continuously based on predefined market strategies.\"},\"file_manager_module\":{\"name\":\"File Manager\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"File Manager\",\"column\":\"label\"}],\"description\":\"Enables secure server-side file management for administrators, including file upload, code editing, archiving, extraction, and directory management within the platform environment.\"},\"kyc_module\":{\"name\":\"KYC\",\"status\":\"enabled\",\"menu_search\":[{\"term\":\"KYC\",\"column\":\"label\"}],\"description\":\"Provides identity verification workflows for user onboarding, document review, and compliance management.\"}}', '2026-02-25 10:02:51', '2026-08-17 13:55:55'),
 (53, 'kyc', '[{\"name\":\"Deposits\",\"route_wildcard\":\"user.deposits.*\",\"description\":\"When enabled, users must complete KYC verification before making deposits into their account.\",\"status\":\"disabled\"},{\"name\":\"Withdrawal\",\"route_wildcard\":\"user.withdrawals.*\",\"description\":\"When enabled, users must complete KYC verification before requesting or processing withdrawals.\",\"status\":\"disabled\"}]', '2026-02-25 10:02:51', '2026-07-28 21:44:32'),
 (54, 'livechat_scripts', '<script src=\"\"></script>', '2026-03-04 02:14:36', '2026-08-17 14:11:12'),
 (55, 'header_scripts', NULL, '2026-03-04 02:14:37', '2026-03-04 02:14:37'),
@@ -967,21 +921,6 @@ ALTER TABLE `client_reviews`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `copy_tradings`
---
-ALTER TABLE `copy_tradings`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `copy_trading_histories`
---
-ALTER TABLE `copy_trading_histories`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `copy_trading_histories_user_id_foreign` (`user_id`),
-  ADD KEY `copy_trading_histories_copy_trading_id_foreign` (`copy_trading_id`),
-  ADD KEY `copy_trading_histories_status_index` (`status`);
-
---
 -- Indexes for table `cron_jobs`
 --
 ALTER TABLE `cron_jobs`
@@ -1179,18 +1118,6 @@ ALTER TABLE `client_reviews`
   MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `copy_tradings`
---
-ALTER TABLE `copy_tradings`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `copy_trading_histories`
---
-ALTER TABLE `copy_trading_histories`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `cron_jobs`
 --
 ALTER TABLE `cron_jobs`
@@ -1319,13 +1246,6 @@ ALTER TABLE `withdrawals`
 --
 ALTER TABLE `blockchain_tokens`
   ADD CONSTRAINT `blockchain_tokens_blockchain_id_foreign` FOREIGN KEY (`blockchain_id`) REFERENCES `blockchains` (`id`) ON DELETE CASCADE;
-
---
--- Constraints for table `copy_trading_histories`
---
-ALTER TABLE `copy_trading_histories`
-  ADD CONSTRAINT `copy_trading_histories_copy_trading_id_foreign` FOREIGN KEY (`copy_trading_id`) REFERENCES `copy_tradings` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `copy_trading_histories_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `deposits`

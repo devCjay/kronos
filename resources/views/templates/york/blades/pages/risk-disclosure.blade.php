@@ -25,7 +25,7 @@
                     </span>
                 </h1>
                 <p class="text-base sm:text-xl text-slate-400 font-body leading-relaxed max-w-2xl mx-auto">
-                    {{ __('Trading cryptocurrencies involves risk. Please make sure you understand the risks involved before using automated trading bots or copy trading on :site_name.', ['site_name' => getSetting('name')]) }}
+                    {{ __('Trading cryptocurrencies involves risk. Please make sure you understand the risks involved before using automated trading bots on :site_name.', ['site_name' => getSetting('name')]) }}
                 </p>
             </div>
 
@@ -99,7 +99,7 @@
                         {{ __('3. Not Financial Advice') }}
                     </h2>
                     <div class="p-6 rounded-2xl bg-red-500/10 border border-red-500/20 text-slate-200 text-xs font-mono leading-relaxed italic">
-                        {{ __(':site_name provides automated trading tools and copy trading software. Nothing on this website constitutes financial or investment advice. Always evaluate your own risk tolerance.', ['site_name' => getSetting('name')]) }}
+                        {{ __(':site_name provides automated trading tools. Nothing on this website constitutes financial or investment advice. Always evaluate your own risk tolerance.', ['site_name' => getSetting('name')]) }}
                     </div>
                 </div>
 

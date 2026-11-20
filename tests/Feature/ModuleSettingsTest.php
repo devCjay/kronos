@@ -37,7 +37,7 @@ class ModuleSettingsTest extends TestCase
         $response->assertSee('id="module-card-trading_bot_module"', false);
         $response->assertSee('id="module-card-file_manager_module"', false);
         $response->assertSee('id="module-card-kyc_module"', false);
-        $response->assertSee('id="module-card-copy_trading_module"', false);
+        $response->assertDontSee('id="module-card-copy_trading_module"', false);
     }
 
     public function test_updating_modules_does_not_reintroduce_loan_or_p2p_transfer(): void
@@ -56,7 +56,6 @@ class ModuleSettingsTest extends TestCase
                     'trading_bot_module' => 'enabled',
                     'file_manager_module' => 'enabled',
                     'kyc_module' => 'enabled',
-                    'copy_trading_module' => 'enabled',
                     'loan_module' => 'enabled',
                     'p2p_transfer_module' => 'enabled',
                 ],
@@ -67,6 +66,7 @@ class ModuleSettingsTest extends TestCase
         $savedModules = json_decode(getSetting('modules'), true) ?? [];
         $this->assertArrayNotHasKey('loan_module', $savedModules);
         $this->assertArrayNotHasKey('p2p_transfer_module', $savedModules);
+        $this->assertArrayNotHasKey('copy_trading_module', $savedModules);
         $this->assertArrayHasKey('trading_bot_module', $savedModules);
         $this->assertArrayHasKey('kyc_module', $savedModules);
     }

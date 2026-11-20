@@ -8,20 +8,20 @@
     $seoImage    = asset('assets/images/' . getSetting('seo_image', 'seo-banner.png'));
 
     $title = request()->routeIs('home')
-        ? __(':site_name | Automated AI Bot & Copy Trading Platform', ['site_name' => $siteName])
+        ? __(':site_name | Automated AI Trading Bot Platform', ['site_name' => $siteName])
         : ($page_title ?? $siteName) . ' - ' . $siteName;
 
     $description = $page_description ?? __(getSetting('seo_description',
-        'Automate your crypto trading with algorithmic AI bots and mirror verified strategies in real time with copy trading on :site_name. Fast execution, total portfolio control.'
+        'Automate your crypto trading with algorithmic AI bots on :site_name. Fast execution and total portfolio control.'
     ), ['site_name' => $siteName]);
 
     $keywords = $page_keywords ?? __(getSetting('seo_keywords',
-        'copy trading, AI trading bots, automated crypto trading, algorithmic trading, crypto copy trading, automated trading strategies, quantitative trading, :site_name'
+        'AI trading bots, automated crypto trading, algorithmic trading, automated trading strategies, quantitative trading, :site_name'
     ), ['site_name' => $siteName]);
 
-    $socialTitle = $page_title ?? __(getSetting('social_title', ':site_name | Automated AI Bot & Copy Trading Platform'), ['site_name' => $siteName]);
+    $socialTitle = $page_title ?? __(getSetting('social_title', ':site_name | Automated AI Trading Bot Platform'), ['site_name' => $siteName]);
     $socialDescription = $page_description ?? __(getSetting('social_description',
-        'Deploy automated AI trading bots and copy top-performing crypto traders in real time on :site_name. Institutional-grade execution built for modern digital asset traders.'
+        'Deploy automated AI trading bots on :site_name. Institutional-grade execution built for modern digital asset traders.'
     ), ['site_name' => $siteName]);
 @endphp
 <!DOCTYPE html>
@@ -548,10 +548,6 @@
                class="desktop-primary-link {{ request()->routeIs('trading-bots') ? 'active' : '' }}">
                 {{ __('AI Trading Bots') }}
             </a>
-            <a href="{{ route('copy-trading') }}"
-               class="desktop-primary-link {{ request()->routeIs('copy-trading') ? 'active' : '' }}">
-                {{ __('Copy Trading') }}
-            </a>
         </nav>
 
         {{-- Desktop Center ⌘K Trigger Button --}}
@@ -620,10 +616,6 @@
                 </a>
                 <a href="{{ route('trading-bots') }}" class="sheet-nav-item {{ request()->routeIs('trading-bots') ? 'active' : '' }}">
                     <span>{{ __('AI Trading Bots') }}</span>
-                    <svg style="width:14px; height:14px; stroke:currentColor; fill:none;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                </a>
-                <a href="{{ route('copy-trading') }}" class="sheet-nav-item {{ request()->routeIs('copy-trading') ? 'active' : '' }}">
-                    <span>{{ __('Copy Trading') }}</span>
                     <svg style="width:14px; height:14px; stroke:currentColor; fill:none;" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </a>
             </div>
@@ -702,10 +694,6 @@
                 <a href="{{ route('trading-bots') }}" class="cmd-item-link">
                     <span>{{ __('AI Trading Bots') }}</span>
                     <span class="cmd-item-desc">{{ __('Automated Trading Strategies') }}</span>
-                </a>
-                <a href="{{ route('copy-trading') }}" class="cmd-item-link">
-                    <span>{{ __('Copy Trading') }}</span>
-                    <span class="cmd-item-desc">{{ __('Follow Verified Traders') }}</span>
                 </a>
 
                 <div class="cmd-group-label">{{ __('Company & Legal') }}</div>
@@ -794,7 +782,7 @@
                              style="max-width:138px; max-height:34px; object-fit:contain;">
                     </a>
                     <p style="font-size:0.78rem; line-height:1.8; color:rgba(100,116,139,0.72); max-width:24ch; margin:0;">
-                        {{ __('Automated crypto trading bots and copy trading, powered by fast and secure multi-chain blockchain settlement.') }}
+                        {{ __('Automated crypto trading bots powered by fast and secure multi-chain blockchain settlement.') }}
                     </p>
                     {{-- Chain mini-badges --}}
                     <div style="display:flex; flex-wrap:wrap; gap:0.3rem;">

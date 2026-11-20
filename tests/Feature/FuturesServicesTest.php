@@ -3,11 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Admin;
-use App\Models\User;
 use App\Services\FuturesServices;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Cache;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
 use Tests\TestCase;
 
@@ -114,25 +112,4 @@ class FuturesServicesTest extends TestCase
         $this->assertEquals(195.50, $response['data']['current_price']);
     }
 
-    public function test_copy_trading_terminal_loads_with_futures_service(): void
-    {
-        Http::fake([
-            '*' => Http::response([
-                'data' => ['converted_amount' => 1, 'exchange_rate' => 1],
-                'symbol' => 'BTCUSDT',
-                'lastPrice' => '96500.00',
-                'priceChangePercent' => '2.50',
-                'highPrice' => '97000.00',
-                'lowPrice' => '95000.00',
-                'volume' => '12000.5',
-            ], 200),
-        ]);
-
-        $user = User::factory()->create(['status' => 'active']);
-
-        $response = $this->actingAs($user)
-            ->get(route('user.copy-trading.index'));
-
-        $response->assertStatus(200);
-    }
 }

@@ -132,12 +132,6 @@ class User extends Authenticatable
         return $this->hasMany(Withdrawal::class);
     }
 
-    // relationship with copy trading history
-    public function copyTradingHistories()
-    {
-        return $this->hasMany(CopyTradingHistory::class);
-    }
-
     /**
      * Scope a query to only include active users.
      */

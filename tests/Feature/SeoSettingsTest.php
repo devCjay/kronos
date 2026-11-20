@@ -12,7 +12,7 @@ class SeoSettingsTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_seo_settings_page_loads_with_bot_and_copy_trading_copy(): void
+    public function test_seo_settings_page_loads_with_trading_bot_copy(): void
     {
         Http::fake([
             '*' => Http::response([
@@ -48,8 +48,8 @@ class SeoSettingsTest extends TestCase
         $response = $this->actingAs($admin, 'admin')
             ->post(route('admin.settings.seo.update'), [
                 'seo_description' => 'Automate your crypto trading with algorithmic AI bots on :site_name.',
-                'seo_keywords' => 'copy trading, AI trading bots, :site_name',
-                'social_title' => ':site_name | Automated AI Bot & Copy Trading Platform',
+                'seo_keywords' => 'AI trading bots, automated crypto trading, :site_name',
+                'social_title' => ':site_name | Automated AI Trading Bot Platform',
                 'social_description' => 'Deploy automated AI trading bots in real time on :site_name.',
                 'search_engine_indexing' => '1',
                 'social_media' => [
@@ -63,7 +63,7 @@ class SeoSettingsTest extends TestCase
         $response->assertRedirect();
 
         $this->assertEquals('Automate your crypto trading with algorithmic AI bots on :site_name.', \App\Models\Setting::where('key', 'seo_description')->value('value'));
-        $this->assertEquals(':site_name | Automated AI Bot & Copy Trading Platform', \App\Models\Setting::where('key', 'social_title')->value('value'));
+        $this->assertEquals(':site_name | Automated AI Trading Bot Platform', \App\Models\Setting::where('key', 'social_title')->value('value'));
 
         $savedSocial = json_decode(\App\Models\Setting::where('key', 'social_media')->value('value'), true) ?? [];
         $this->assertEquals('https://twitter.com/user', $savedSocial['twitter'] ?? null);

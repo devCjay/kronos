@@ -49,7 +49,7 @@
                                 <h3 class="text-sm font-black text-white uppercase tracking-wider">{{ __('Software Demonstration Notice') }}</h3>
                             </div>
                             <p class="text-slate-400 leading-relaxed">
-                                {{ __('This software is developed as a financial infrastructure and trading engine platform. It illustrates the capabilities, design, and workflows of a modern bot and copy trading system.') }}
+                                {{ __('This software is developed as a financial infrastructure and automated trading engine platform. It illustrates the capabilities, design, and workflows of a modern bot trading system.') }}
                             </p>
                         </div>
 

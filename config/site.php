@@ -148,9 +148,9 @@ return [
         ],
 
         // SEO
-        'seo_description' => 'Automate your crypto trading with algorithmic AI bots and mirror verified strategies in real time with copy trading on :site_name. Fast execution, total portfolio control.',
-        'seo_keywords' => 'copy trading, AI trading bots, automated crypto trading, algorithmic trading, crypto copy trading, automated trading strategies, quantitative trading, :site_name',
-        'social_title' => ':site_name | Automated AI Bot & Copy Trading Platform',
+        'seo_description' => 'Automate your crypto trading with algorithmic AI bots on :site_name. Fast execution and total portfolio control.',
+        'seo_keywords' => 'AI trading bots, automated crypto trading, algorithmic trading, automated trading strategies, quantitative trading, :site_name',
+        'social_title' => ':site_name | Automated AI Trading Bot Platform',
         'social_description' => 'Deploy automated AI trading bots and copy top-performing crypto traders in real time on :site_name. Institutional-grade execution built for modern digital asset traders.',
         'seo_image' => 'seo-banner.png',
 

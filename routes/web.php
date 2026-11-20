@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('trading-bots', [HomeController::class, 'tradingBots'])->name('trading-bots');
-Route::get('copy-trading', [HomeController::class, 'copyTrading'])->name('copy-trading');
-
 Route::get('about', [HomeController::class, 'aboutUs'])->name('about');
 Route::get('license', [HomeController::class, 'license'])->name('license');
 

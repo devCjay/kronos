@@ -85,7 +85,7 @@
 
                                     <div class="space-y-2">
                                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Meta Keywords') }}</label>
-                                        <input type="text" name="seo_keywords" value="{{ $seo['keywords'] }}" placeholder="crypto, trading, bot trading, copy trading, quant"
+                                        <input type="text" name="seo_keywords" value="{{ $seo['keywords'] }}" placeholder="crypto, trading, AI bots, algorithmic trading, quant"
                                             class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl px-4 py-3 text-xs focus:outline-none">
                                     </div>
                                 </div>
@@ -115,7 +115,7 @@
 
                                         <div class="space-y-2">
                                             <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Social Description') }}</label>
-                                            <textarea name="social_description" rows="4" placeholder="Automated bot trading and professional copy trading platform."
+                                            <textarea name="social_description" rows="4" placeholder="Automated AI bot trading platform."
                                                 class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none resize-none">{{ $seo['social_description'] }}</textarea>
                                         </div>
                                     </div>

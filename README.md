@@ -1,8 +1,8 @@
-# Foyana — Automated AI Trading Bots & Real-Time Copy Trading Platform
+# Foyana — Automated AI Trading Bot Platform
 
 ![Foyana Cover](https://foyana.com/assets/images/foyana-cover-image.png)
 
-Foyana is an institutional-grade, self-hosted PHP and Laravel software platform designed exclusively for **Algorithmic AI Bot Trading** and **Verified Copy Trading**. Built on Laravel 12 with direct on-chain blockchain infrastructure, Foyana operates entirely with **self-managed blockchain wallets**—allowing administrators to maintain full ownership of their private keys and settlement workflows without relying on 3rd-party custodial payment gateways.
+Foyana is an institutional-grade, self-hosted PHP and Laravel software platform designed for **Algorithmic AI Bot Trading**. Built on Laravel 12 with direct on-chain blockchain infrastructure, Foyana operates entirely with **self-managed blockchain wallets**—allowing administrators to maintain full ownership of their private keys and settlement workflows without relying on 3rd-party custodial payment gateways.
 
 ---
 
@@ -14,13 +14,7 @@ Foyana is an institutional-grade, self-hosted PHP and Laravel software platform 
 * **Automated Profit Distribution**: Background cron scheduler calculating and distributing bot profit yields directly to user balances.
 * **Flexible Bot Portfolio**: Users can activate, monitor, scale, and deactivate trading bots seamlessly across various market pairs.
 
-### 2. Real-Time Copy Trading System
-* **Verified Master Trader Directory**: Showcase vetted master traders complete with verified track records, win rates, historical ROI, risk levels, and total follower counts.
-* **Instant Strategy Mirroring**: Follow top-performing strategies with user-customized capital allocation and risk limits.
-* **Automated Profit Sharing**: Transparent profit-sharing mechanisms between master traders and copiers.
-* **Detailed Execution History**: Transparent logs of all executed copy trades, profit/loss records, and asset growth.
-
-### 3. Direct Self-Managed Blockchain Infrastructure (Zero 3rd-Party Fees)
+### 2. Direct Self-Managed Blockchain Infrastructure (Zero 3rd-Party Fees)
 * **Native Self-Custodial Architecture**: Administrators maintain full custody and control over private keys, master wallets, and signing processes.
 * **Multi-Chain Native Deposit Support**:
   * **EVM Networks**: Ethereum, BNB Smart Chain, Polygon, Arbitrum, Optimism, Base, Avalanche, Linea, Scroll, and more.
@@ -29,7 +23,7 @@ Foyana is an institutional-grade, self-hosted PHP and Laravel software platform 
 * **Real-Time Blockchain Monitoring Daemon**: Background listeners scanning blocks and transactions in real-time for instant deposit confirmation and automatic wallet sweeping.
 * **Direct On-Chain Withdrawals**: Secure on-chain transaction signing and broadcast directly via RPC nodes.
 
-### 4. Enterprise Security & Regulatory Compliance
+### 3. Enterprise Security & Regulatory Compliance
 * **Regulatory Compliance Showcase**: Built-in compliance module featuring certificates and disclosures (FinCEN MSB, VARA, MiCA, FCA standards).
 * **Multi-Tier KYC Verification**: Identity document upload, review, and status validation for compliance.
 * **Account Security & 2FA**: Email verification, session management, and login OTP authentication.

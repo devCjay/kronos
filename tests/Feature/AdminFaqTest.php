@@ -30,9 +30,9 @@ class AdminFaqTest extends TestCase
         ]);
 
         Faq::create([
-            'question' => 'How does copy trading work?',
-            'answer' => 'Copy trading allows you to automatically mirror trades from vetted lead traders.',
-            'category' => 'Copy Trading',
+            'question' => 'How do trading bots work?',
+            'answer' => 'Trading bots automatically execute configured market strategies.',
+            'category' => 'Trading Bots',
             'sort_order' => 1,
             'status' => 1,
         ]);
@@ -41,6 +41,6 @@ class AdminFaqTest extends TestCase
             ->get(route('admin.settings.faq.index'));
 
         $response->assertStatus(200);
-        $response->assertSee('How does copy trading work?');
+        $response->assertSee('How do trading bots work?');
     }
 }

@@ -25,7 +25,7 @@
                     </span>
                 </h1>
                 <p class="text-base sm:text-xl text-slate-400 font-body leading-relaxed max-w-2xl mx-auto mb-4">
-                    {{ __('Please review the rules and guidelines governing the use of :site_name, trading bots, and copy trading services.', ['site_name' => getSetting('name')]) }}
+                    {{ __('Please review the rules and guidelines governing the use of :site_name and its automated trading bot services.', ['site_name' => getSetting('name')]) }}
                 </p>
                 <div class="flex items-center justify-center gap-4 text-xs font-mono text-slate-500">
                     <span>{{ __('Effective Date') }}: {{ date('F d, Y') }}</span>
@@ -50,10 +50,10 @@
                 <div class="space-y-4">
                     <h2 class="text-2xl font-black text-white font-mono uppercase tracking-wide flex items-center gap-3">
                         <span class="w-2 h-6 bg-[#f7a600] rounded-full"></span>
-                        {{ __('2. Trading Bots & Copy Trading Plans') }}
+                        {{ __('2. Automated Trading Bot Plans') }}
                     </h2>
                     <p class="text-slate-300 text-sm font-body leading-relaxed pl-5">
-                        {{ __('Funds allocated to automated trading bots or copy trading plans remain active for the selected plan duration. Daily returns and profits are credited directly to your account balance.') }}
+                        {{ __('Funds allocated to automated trading bots remain active for the selected plan duration. Daily returns and profits are credited directly to your account balance.') }}
                     </p>
                 </div>
 

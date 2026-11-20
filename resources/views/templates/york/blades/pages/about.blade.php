@@ -47,7 +47,7 @@
                     </h2>
                     <div class="space-y-4 text-slate-400 text-sm font-body leading-relaxed">
                         <p>
-                            {{ __('Built to break down the barrier between complex trading tools and everyday investors, :site_name makes automated AI bots and copy trading accessible to all.', ['site_name' => getSetting('name')]) }}
+                            {{ __('Built to break down the barrier between complex trading tools and everyday investors, :site_name makes automated AI trading bots accessible to all.', ['site_name' => getSetting('name')]) }}
                         </p>
                         <p>
                             {{ __('Our platform connects directly with leading cryptocurrency exchanges to execute trades reliably with fast, secure blockchain deposits and withdrawals.') }}
@@ -222,7 +222,7 @@
                     {{ __('Start Trading Smarter Today') }}
                 </h2>
                 <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8 font-body">
-                    {{ __('Join thousands of investors using automated bots and copy trading to build their portfolios.') }}
+                    {{ __('Join thousands of investors using automated trading bots to build their portfolios.') }}
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="{{ route('user.register') }}"

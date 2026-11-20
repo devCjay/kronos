@@ -154,7 +154,7 @@
 
                     <div class="space-y-2">
                         <label class="text-[10px] uppercase font-bold text-slate-400">{{ __('Review Text') }}</label>
-                        <textarea name="review" rows="3" required placeholder="The bot copy-trading infrastructure generated consistent alpha..."
+                        <textarea name="review" rows="3" required placeholder="The automated bot infrastructure generated consistent results..."
                             class="w-full bg-[#0b0e11] border border-white/[0.1] focus:border-amber-400 text-white rounded-xl p-3 text-xs focus:outline-none resize-none"></textarea>
                     </div>
 

@@ -8,7 +8,6 @@ use App\Http\Controllers\User\DepositController;
 
 use App\Http\Controllers\User\ReferralController;
 use App\Http\Controllers\User\Trading\TradingBotController;
-use App\Http\Controllers\User\Trading\CopyTradingController;
 use App\Http\Controllers\User\TransactionController;
 use App\Http\Controllers\User\WithdrawalController;
 use Illuminate\Support\Facades\Route;
@@ -76,18 +75,6 @@ Route::prefix('user')->middleware(['auth', 'otp.verified', 'user.status', 'user.
         Route::get('daily-summary', [TradingBotController::class, 'dailySummary'])->name('daily-summary');
         Route::post('/activate', [TradingBotController::class, 'activate'])->name('activate');
     });
-
-    // Copy Trading
-    Route::prefix('copy-trading')->name('copy-trading.')->group(function () {
-        Route::get('/history', [CopyTradingController::class, 'history'])->name('history');
-        Route::get('/', [CopyTradingController::class, 'index'])->name('index');
-        Route::post('/check-code', [CopyTradingController::class, 'checkCode'])->name('check-code');
-        Route::post('/activate', [CopyTradingController::class, 'activate'])->name('activate');
-        Route::get('/chart-data', [CopyTradingController::class, 'chartData'])->name('chart-data');
-    });
-
-
-
 
     // Transactions
     Route::get('transactions', [TransactionController::class, 'index'])->name('transactions');

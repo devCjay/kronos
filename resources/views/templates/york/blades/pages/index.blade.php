@@ -208,14 +208,6 @@
                             </svg>
                             <span class="text-emerald-400 text-xs font-bold tracking-widest uppercase">{{ __('Start Trading Bots') }}</span>
                         </a>
-
-                        <a href="{{ route('copy-trading') }}"
-                           class="group flex w-full sm:w-auto items-center justify-center gap-2.5 px-7 py-3.5 bg-white/[0.02] border border-white/[0.08] rounded-xl transition-all hover:bg-white/[0.06] hover:border-white/20 cursor-pointer">
-                            <span class="text-slate-300 text-xs font-bold tracking-widest uppercase">{{ __('Explore Copy Trading') }}</span>
-                            <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                            </svg>
-                        </a>
                     </div>
 
                     {{-- Supported blockchains, positioned directly after the hero actions --}}
@@ -366,27 +358,6 @@
                             </div>
                         </div>
 
-                        {{-- Secondary Peeking Layer: Master Trader Copy Network Card --}}
-                        <div class="relative rounded-2xl bg-[#151a21]/90 border border-amber-500/20 p-4 shadow-xl backdrop-blur-xl translate-x-0 sm:translate-x-10 sm:hover:translate-x-4 transition-transform duration-300">
-                            <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                                <div class="flex min-w-0 items-center gap-3">
-                                    <div class="w-10 h-10 shrink-0 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400 font-bold text-xs font-mono">
-                                        SQ
-                                    </div>
-                                    <div class="min-w-0">
-                                        <div class="flex flex-wrap items-center gap-2">
-                                            <h4 class="text-xs font-bold text-white">Satoshi Trading Systems</h4>
-                                            <span class="hidden sm:inline px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-400 text-[9px] font-mono font-bold uppercase">COPY CODE: SATO-QUANT-01</span>
-                                        </div>
-                                        <p class="text-[10px] text-slate-400 font-mono mt-0.5">1,420 Active Copiers · Instant Copy Sync</p>
-                                    </div>
-                                </div>
-                                <div class="text-left sm:text-right">
-                                    <div class="text-xs font-black font-mono text-emerald-400">+142.8%</div>
-                                    <div class="text-[9px] text-slate-400 font-mono">30d Return (88.4% Win Rate)</div>
-                                </div>
-                            </div>
-                        </div>
 
                     </div>
                 </div>
@@ -1484,188 +1455,6 @@
 
 
     {{-- ==================================================================================== --}}
-    {{-- SECTION 5: PRODUCT PILLAR 02 — REAL-TIME COPY TRADING NETWORK --}}
-    {{-- ==================================================================================== --}}
-    <section id="copy-trading" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
-        {{-- Background Accents --}}
-        <div class="absolute top-1/3 left-0 w-[550px] h-[550px] bg-amber-500/10 rounded-full blur-[160px] pointer-events-none select-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
-        <div class="absolute bottom-0 right-1/4 w-[450px] h-[450px] bg-orange-600/10 rounded-full blur-[140px] pointer-events-none select-none -z-10"></div>
-
-        <div class="container mx-auto px-4 relative z-10">
-            {{-- Header --}}
-            <div class="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-8 mb-16">
-                <div class="max-w-2xl">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 text-[10px] font-mono font-bold uppercase tracking-[0.25em] mb-4">
-                        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
-                        {{ __('COPY TRADING') }}
-                    </div>
-                    <h2 class="text-3xl sm:text-5xl font-black text-white leading-tight tracking-tight">
-                        {{ __('Follow Verified Top Traders') }} <br class="hidden sm:inline">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('with One-Click Copy Trading.') }}</span>
-                    </h2>
-                </div>
-                <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
-                    {{ __('Every trade opened and closed by top verified traders is automatically copied to your account in real time.') }}
-                </p>
-            </div>
-
-            {{-- Grid Container --}}
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                
-                {{-- Left: Copy Code Activation Bar (Double-Bezel Architecture) --}}
-                <div class="lg:col-span-4 p-2.5 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.8)] flex flex-col justify-between h-full">
-                    <div class="rounded-[2rem] bg-[#151a21]/95 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col justify-between h-full">
-                        <div>
-                            <div class="flex items-center gap-3 mb-6">
-                                <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-amber-400">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 012-2v-8a2 2 0 01-2-2h-8a2 2 0 01-2 2v8a2 2 0 012 2z"/>
-                                    </svg>
-                                </div>
-                                <div>
-                                    <h3 class="text-lg font-bold text-white">{{ __('Copy Trader by Code') }}</h3>
-                                    <span class="text-xs text-slate-400">{{ __('Follow trader instantly') }}</span>
-                                </div>
-                            </div>
-
-                            <form action="{{ route('user.register') }}" method="GET" class="space-y-4">
-                                <div>
-                                    <label class="text-[10px] font-mono font-bold text-slate-300 uppercase tracking-widest block mb-2">{{ __('ENTER TRADER COPY CODE') }}</label>
-                                    <div class="relative">
-                                        <input type="text" name="copy_code" placeholder="e.g. SATO-QUANT-01" class="w-full bg-white/[0.03] border border-white/[0.12] focus:border-amber-400 rounded-xl py-3.5 px-4 font-mono text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-amber-400 transition-all uppercase">
-                                        <span class="absolute right-3.5 top-1/2 -translate-y-1/2 font-mono text-[10px] text-amber-400 font-bold bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">SYNC</span>
-                                    </div>
-                                </div>
-                                <button type="submit" class="w-full pl-6 pr-2 py-2 rounded-full bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-between shadow-[0_0_25px_rgba(247,166,0,0.35)] group">
-                                    <span>{{ __('Follow Trader Now') }}</span>
-                                    <span class="w-8 h-8 rounded-full bg-[#0b0e11]/20 flex items-center justify-center group-hover:translate-x-1 group-hover:-translate-y-[1px] transition-transform">
-                                        <svg class="w-4 h-4 text-[#0b0e11]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                                    </span>
-                                </button>
-                            </form>
-                        </div>
-
-                        <div class="mt-8 pt-6 border-t border-white/[0.08] space-y-3 font-mono text-[11px] text-slate-400">
-                            <div class="flex items-center justify-between">
-                                <span>{{ __('Active Copiers') }}</span>
-                                <span class="text-white font-bold">3,040+</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span>{{ __('Avg Sync Latency') }}</span>
-                                <span class="text-emerald-400 font-bold">&lt; 12ms</span>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <span>{{ __('Settlement Engine') }}</span>
-                                <span class="text-amber-400 font-bold">100% Direct Crypto</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {{-- Right: Top Master Trader Leaderboard Cards (Double-Bezel & Peeking Stack) --}}
-                <div class="lg:col-span-8 space-y-4">
-                    {{-- Master 1 (#1 Gold Leaderboard) --}}
-                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-amber-500/30 hover:border-amber-400/60 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
-                        {{-- Laser Gold Top Accent --}}
-                        <div class="absolute top-0 left-10 right-10 h-[1.5px] bg-gradient-to-r from-transparent via-amber-400 to-transparent"></div>
-
-                        <div class="rounded-[2rem] bg-[#151a21]/90 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                            <div class="flex items-center gap-4">
-                                <div class="relative">
-                                    <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/30 text-amber-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform shadow-[0_0_20px_rgba(245,158,11,0.2)]">
-                                        SQ
-                                    </div>
-                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-amber-400 text-[#0b0e11] text-[8px] font-mono font-black uppercase tracking-wider shadow">#1 RANK</span>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <h4 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Satoshi Trading Systems</h4>
-                                        <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold">VERIFIED</span>
-                                    </div>
-                                    <p class="text-xs text-slate-400 mt-0.5">High-Win-Rate BTC & ETH Trend Trading</p>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <span class="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">CODE: SATO-QUANT-01</span>
-                                        <span class="text-xs text-slate-500">·</span>
-                                        <span class="text-xs text-slate-400 font-mono">1,420 Copiers</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 pt-4 sm:pt-0 border-white/[0.08]">
-                                <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{{ __('30d Return') }}</span>
-                                <div class="text-2xl font-mono font-black text-emerald-400">+142.8%</div>
-                                <span class="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 mt-1">88.4% Win Rate</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Master 2 (#2 Silver Leaderboard) --}}
-                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-amber-500/20 hover:border-amber-400/50 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
-                        <div class="rounded-[2rem] bg-[#151a21]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                            <div class="flex items-center gap-4">
-                                <div class="relative">
-                                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/20 text-amber-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                        AM
-                                    </div>
-                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-amber-400 text-[#0b0e11] text-[8px] font-mono font-black uppercase tracking-wider shadow">#2 RANK</span>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <h4 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Alpha Momentum Fund</h4>
-                                        <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold">VERIFIED</span>
-                                    </div>
-                                    <p class="text-xs text-slate-400 mt-0.5">Top Crypto Momentum & Breakout Strategy</p>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <span class="text-[10px] font-mono font-bold text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20">CODE: ALPHA-FUND-99</span>
-                                        <span class="text-xs text-slate-500">·</span>
-                                        <span class="text-xs text-slate-400 font-mono">980 Copiers</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 pt-4 sm:pt-0 border-white/[0.08]">
-                                <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{{ __('30d Return') }}</span>
-                                <div class="text-2xl font-mono font-black text-emerald-400">+98.4%</div>
-                                <span class="text-[10px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/20 mt-1">84.1% Win Rate</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    {{-- Master 3 (#3 Bronze Leaderboard) --}}
-                    <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-orange-500/20 hover:border-orange-400/50 backdrop-blur-xl transition-all duration-500 shadow-[0_15px_40px_rgba(0,0,0,0.6)] group relative overflow-hidden hover:translate-x-2">
-                        <div class="rounded-[2rem] bg-[#151a21]/80 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-                            <div class="flex items-center gap-4">
-                                <div class="relative">
-                                    <div class="w-14 h-14 rounded-2xl bg-orange-500/10 border border-orange-500/20 text-orange-400 font-mono font-bold text-lg flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                                        NA
-                                    </div>
-                                    <span class="absolute -top-2 -right-2 px-2 py-0.5 rounded-full bg-orange-400 text-white text-[8px] font-mono font-black uppercase tracking-wider shadow">#3 RANK</span>
-                                </div>
-                                <div>
-                                    <div class="flex items-center gap-2">
-                                        <h4 class="text-lg font-bold text-white group-hover:text-orange-300 transition-colors">Nexus Arbitrage Vault</h4>
-                                        <span class="px-2 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-[10px] font-mono font-bold">VERIFIED</span>
-                                    </div>
-                                    <p class="text-xs text-slate-400 mt-0.5">Multi-Exchange Arbitrage & Risk-Balanced Trading</p>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <span class="text-[10px] font-mono font-bold text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20">CODE: NEXUS-VAULT-04</span>
-                                        <span class="text-xs text-slate-500">·</span>
-                                        <span class="text-xs text-slate-400 font-mono">640 Copiers</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="flex sm:flex-col items-center sm:items-end justify-between border-t sm:border-t-0 pt-4 sm:pt-0 border-white/[0.08]">
-                                <span class="text-[10px] font-mono font-bold text-slate-400 uppercase tracking-widest">{{ __('30d Return') }}</span>
-                                <div class="text-2xl font-mono font-black text-emerald-400">+76.2%</div>
-                                <span class="text-[10px] font-mono text-orange-400 bg-orange-500/10 px-2 py-0.5 rounded border border-orange-500/20 mt-1">81.5% Win Rate</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    {{-- ==================================================================================== --}}
     {{-- SECTION 6: NATIVE ON-CHAIN INFRASTRUCTURE --}}
     {{-- ==================================================================================== --}}
     <section id="infrastructure" class="py-24 sm:py-36 relative overflow-hidden bg-[#0b0e11] isolate border-t border-white/[0.06]">
@@ -1865,8 +1654,8 @@
                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                                 </div>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">{{ __('2. Choose a Bot or Trader') }}</h3>
-                            <p class="text-xs text-slate-400 leading-relaxed">{{ __('Select an automated trading bot plan or enter a trader copy code to start copying trades.') }}</p>
+                            <h3 class="text-xl font-bold text-white mb-3 group-hover:text-orange-300 transition-colors">{{ __('2. Choose a Trading Bot') }}</h3>
+                            <p class="text-xs text-slate-400 leading-relaxed">{{ __('Select an automated trading bot plan that matches your goals and preferred duration.') }}</p>
                         </div>
                         <div class="mt-8 pt-4 border-t border-white/[0.08] font-mono text-[10px] text-orange-400 font-bold uppercase tracking-widest">
                             + ONE-CLICK START
@@ -1917,7 +1706,7 @@
                     </h2>
                 </div>
                 <p class="text-slate-400 text-sm sm:text-base max-w-md lg:text-right leading-relaxed">
-                    {{ __('See live trading orders, bot profits, and copy trading returns as they happen.') }}
+                    {{ __('See live trading orders and bot profit distributions as they happen.') }}
                 </p>
             </div>
 
@@ -2284,7 +2073,7 @@
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-white via-amber-100 to-amber-400/70">{{ __('Questions.') }}</span>
                 </h2>
                 <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
-                    {{ __('Everything you need to know about our trading bots, copy trading, deposits, and account security.') }}
+                    {{ __('Everything you need to know about our trading bots, deposits, withdrawals, and account security.') }}
                 </p>
             </div>
 
@@ -2336,7 +2125,7 @@
                         {{ __('Ready to Start Automated Trading?') }}
                     </h2>
                     <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10">
-                        {{ __('Join thousands of members growing their crypto portfolio with automated bots and copy trading.') }}
+                        {{ __('Join thousands of members growing their crypto portfolio with automated trading bots.') }}
                     </p>
                     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                         <a href="{{ route('user.register') }}" class="w-full sm:w-auto pl-8 pr-2.5 py-2.5 rounded-full bg-[#f7a600] hover:bg-amber-300 text-[#0b0e11] font-black text-xs uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-4 shadow-[0_0_35px_rgba(247,166,0,0.4)] hover:shadow-[0_0_50px_rgba(247,166,0,0.7)] group">
@@ -2405,236 +2194,3 @@
             }
         </style>
 @endpush
-
-{{--
-====================================================================================================
-FOYANA ADVANCED FRONTEND BLUEPRINT & DESIGN GUIDE: HOMEPAGE (index.blade.php)
-====================================================================================================
-PRODUCT FOCUS: Autonomous AI Bot Trading, Real-Time Copy Trading, Direct On-Chain Settlement
-DESIGN SYSTEM: High-Agency Liquid Glass, Kinetic Physics, Motion Bento 2.0, Dark Mode (#0b0e11)
-ADVANCED BENCHMARK: Quantitative Ecosystem (Typewriter Dynamics, Live Terminal Frame,
-                   Interactive Growth Calculator, Real-Time Bot Telemetry, Liquid Refraction)
-LAST UPDATED: 2026-08-07 — Reflects live hero implementation from session
-====================================================================================================
-
-----------------------------------------------------------------------------------------------------
-GLOBAL DESIGN TOKENS & MATERIALITY SYSTEM
-----------------------------------------------------------------------------------------------------
-Color Palette:
-  * Base Background: #0b0e11
-  * Dot Grid Overlay: radial-gradient(#ffffff 1px, transparent 1px) @ 32px, opacity-[0.03]
-  * Panel Glass: bg-[#151a21]/90 or bg-white/[0.015-0.03], border-white/[0.06-0.10]
-  * Accent Cyan (Primary):  #f7a600 — used for nav CTA, arc glow, laser beams, copy trading
-  * Accent Gold (Platform):  #f7a600 — used for bot alerts, status badges, glow orbs
-  * Profit Emerald:          #10b981 — used for P/L values, live execution, success states
-  * Indigo/Purple (Depth):   orange-600 / orange-600 — used for ambient blobs, blockchain layer
-  * Slate Text:              text-slate-400 (body) / text-slate-300 (labels) / text-white (headlines)
-
-Typography:
-  * Display Headline:  font-black tracking-tight leading-[1.08] (Outfit)
-  * Monospace Data:    font-mono (JetBrains Mono) — used for all financial figures & terminal feeds
-  * Body / Subhead:    font-body leading-relaxed text-slate-400 (Inter)
-
-Navigation:
-  * Primary CTA (.top-cta-btn): background: #f7a600; color: #0b0e11; solid (NO gradient)
-  * Mobile Sheet Primary CTA: same #f7a600 solid
-  * Hover: background: #33f7ff; box-shadow: 0 0 25px rgba(247,166,0,0.45)
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 1: HERO DECK — ALGORITHMIC COMMAND CENTER (IMPLEMENTED)
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Headline Line 1: "Automate Your Trading."              (gradient: from-white via-slate-200 to-slate-400)
-  Headline Line 2: "Multiply Your Alpha."                (text-white)
-  Subheadline: "Deploy quantitative bots or copy top master traders with instant on-chain settlement."
-  Live Telemetry Badge: "• Algorithmic Execution Engine v4.8 Active · 99.98% Uptime"
-  CTA 1: "+ DEPLOY TRADING BOT NOW"  ->  bg-emerald-500/10 border-emerald-500/20 text-emerald-400
-  CTA 2: "EXPLORE COPY TRADING >"   ->  bg-white/[0.02] border-white/[0.08] text-slate-300
-  Stats: $10B+ Volume | 99.98% Uptime | 100% On-Chain Settlement (Alpine.js count-up animation)
-
-[DESIGN GUIDE & VISUAL CONCEPT — IMPLEMENTED]:
-  Layout: <section> class="relative min-h-[100dvh] pt-32 pb-24 flex flex-col justify-between overflow-hidden bg-[#0b0e11] isolate"
-  Grid: grid-cols-1 lg:grid-cols-12  ->  Left: lg:col-span-7  |  Right: lg:col-span-5
-
-  Z-STACK BACKGROUND LAYERS (back to front):
-    -z-20  Dot grid (fixed, radial, 32px, opacity 0.03)
-    -z-20  Gold blob   top-1/4 left-1/4  500px  blur-120  8s pulse
-    -z-20  Indigo blob top-1/3 right-1/4 600px  blur-140 12s pulse
-    -z-20  Emerald blob bottom left-1/3  450px  blur-130
-    -z-10  Moon Arc backdrop (absolute inset-x-0 bottom-0)
-    -z-10  SVG Laser Overlay
-     z-0   Hero content grid
-
-  MOON ARC BACKDROP:
-    Container: absolute inset-x-0 bottom-0, pointer-events-none, -z-10, flex justify-center overflow-hidden
-    Arc div: w-[150vw] sm:w-[130vw] md:w-[120vw]  h-[280px]/[340px]
-             bg-white/[0.015]  border-t border-white/10
-             rounded-[50%_50%_0_0/100%_100%_0_0]  (upside-down moon C-shape)
-             shadow-[0_-20px_60px_rgba(247,166,0,0.08),inset_0_2px_0_rgba(255,255,255,0.12)]
-             backdrop-blur-md
-    Top edge glow: absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#f7a600]/60 to-transparent
-    Inner SVG laser: viewBox="0 0 1000 300" path: M 0 300 Q 500 -20 1000 300
-      class="moon-arc-laser-path" -> stroke-dasharray:260 1400, 4s ease-in-out infinite
-
-  MULTI-CHAIN LOGO BADGE SHOWCASE (inside Moon Arc):
-    Status Badge: "NATIVE MULTI-CHAIN ON-CHAIN SETTLEMENT" (amber-400 font-mono dot ping)
-    Local Token Logos with loading="lazy":
-      - Bitcoin (BTC: btc.png)
-      - Ethereum (ETH: eth.png)
-      - Solana (SOL: sol.png)
-      - BNB Chain (BNB: bnb.png)
-      - Polygon (POL: polygon.png)
-      - Arbitrum (ARB: arbitrum.png)
-      - Avalanche (AVAX: avalanche.png)
-      - Optimism (OP: optimism.png)
-      - Base (BASE: base.png)
-      - Tether (USDT: usdt.png)
-      - USD Coin (USDC: usdc.png)
-      - Tron (TRX: trx.png)
-    Card Glass: bg-[#151a21]/90 border-white/10 hover:border-amber-400/50 hover:shadow-[0_0_20px_rgba(247,166,0,0.25)]
-
-  SVG DATA PIPELINE LASERS (outer hero overlay, -z-10):
-    Cyan circuit: M 520 280 L 680 280 Q 740 280 740 330 L 740 410 Q 740 440 790 440 L 920 440
-      .circuit-laser-beam-1  3.5s cubic-bezier(0.4,0,0.2,1) infinite
-    Gold circuit:  M 520 380 L 640 380 Q 700 380 700 420 L 700 480 Q 700 510 750 510 L 920 510
-      .circuit-laser-beam-2  4s  1.2s delay  infinite
-
-  RIGHT SECTION — CONCEPT 1: BLEEDING MULTI-LAYER CONSOLE STACK:
-    Container: lg:col-span-5 w-[130%] -mr-[30%]
-               mask-image: linear-gradient(to right, #000 75%, transparent 98%)  select-none
-    Layer 1 (Main Console — double-bezel-outer):
-      Ambient orbs: gold top-right, purple bottom-left (blur-3xl)
-      Header:   Mac traffic lights (rose/amber/emerald) + "QUANT_BOT_ENGINE // ACTIVE"
-                Status pill: bg-emerald-500/10 border-emerald-500/20 text-emerald-400
-                             "● LIVE ALGO EXECUTION" (1.5px dot animate-pulse)
-      Metrics:  2-col grid — "$24,850.00 Total Deployed Capital" | "+$3,842.10 (+15.4%) Algo P/L"
-      Bot row:  icon (bg-[#f7a600]/10 border-[#f7a600]/20)
-                "Apex Scalper Pro v4"  BTC/USDT · High Frequency Arbitrage  "+2.84% / 24h Yield"
-      Order log (bg-black/60):
-                [ORDER_FILL] BUY BTC/USDT @ $94,280  ·  Just now
-                [TARGET_HIT] SOL/USDT arbitrage +2.15%  ·  1m ago
-    Layer 2 (Peeking Copy Card — translate-x-10):
-      bg-[#151a21]/90 border border-amber-500/20 rounded-2xl backdrop-blur-xl
-      Avatar: "SQ" (bg-amber-500/10 border-amber-500/20 text-amber-400)
-      "Satoshi Quant Systems"  +  pill "COPY CODE: SATO-QUANT-01"
-      "1,420 Active Copiers · Zero Latency Sync"
-      "+142.8%  30d PnL (88.4% Win Rate)"
-      hover:translate-x-4 transition-transform duration-300
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 2: PRODUCT PILLAR 1 — AUTONOMOUS AI BOT FLEET (BENTO GRID 2.0)
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Section Tag: "PRODUCT PILLAR 01"
-  Headline: "Autonomous Quantitative AI Trading Bots Executing 24/7"
-  Subheadline: "No emotion. No manual charting. Our quantitative bots analyze millions of tick
-                data points per second to capture market alpha across crypto and forex pairs."
-  Bot Cards:
-    1. Apex Scalper Pro   — High-Yield Micro-Scalping     +1.8-3.2% daily  30d lock  $100 min
-    2. Grid Matrix Alpha  — Sideways Channel Arbitrage    +0.9-1.6% daily  15d lock  $50 min
-    3. Sentinel Yield     — Low-Drawdown DEX/CEX Arb.    +0.5-0.95% daily  7d lock  $25 min
-  CTA: "Deploy Bot Contract" -> route('user.trading-bots.index')
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  Layout: Bento Grid 2.0, 3-col asymmetric, staggered entrance.
-  Cards: rounded-3xl bg-white/[0.02] border border-white/[0.08]
-         shadow-[inset_0_1px_0_rgba(255,255,255,0.1)]
-  Micro-interactions: font-mono text-emerald-400 yield values, scale-[1.02] spring hover.
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 3: INTERACTIVE YIELD & PROFIT SIMULATOR
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Tag: "REAL-TIME FINANCIAL MODELING"
-  Headline: "Calculate Your Projected Bot & Copy Trading Yields"
-  Controls: Strategy dropdown, capital slider ($100-$100k), lockup selector (7d/15d/30d/90d)
-  Outputs: Total Projected Profit | Daily Payout | Maturity Date | Compound ROI %
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  Layout: Dual-pane glass console (left inputs / right live SVG profit chart).
-  Live JS calculations, no page reload.
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 4: PRODUCT PILLAR 2 — REAL-TIME COPY TRADING NETWORK
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Tag: "PRODUCT PILLAR 02"
-  Headline: "Mirror Elite Master Traders with One-Click Copy Codes"
-  Subheadline: "...Every trade entry, target, and exit is synchronized instantaneously."
-  Activation: input placeholder "e.g. MASTER-APEX-88", CTA "Mirror Strategy"
-  Leaderboard:
-    1. Satoshi Quant Systems  SATO-QUANT-01  1,420 Copiers  +142.8% 30d PnL  88.4% WR
-    2. Alpha Momentum Fund    ALPHA-FUND-99    980 Copiers   +98.4% 30d PnL  84.1% WR
-    3. Nexus Arbitrage Vault  NEXUS-VAULT-04   640 Copiers   +76.2% 30d PnL  81.5% WR
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  Layout: Split (left activation widget / right master trader stack).
-  Peeking card style (match hero Layer 2): translate-x-10 bg-[#151a21] border-amber-500/20.
-  Cyan focus ring on input. Win-rate pill badges.
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 5: INFRASTRUCTURE — DIRECT MULTI-CHAIN BLOCKCHAIN SETTLEMENT
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Tag: "NATIVE ON-CHAIN INFRASTRUCTURE"
-  Headline: "Direct On-Chain Blockchain Settlement"
-  Subheadline: "Zero third-party payment gateways. Instant deposits and withdrawals via native
-                blockchain smart contracts."
-  Chains (match hero marquee exactly):
-    SOLANA · ETHEREUM · TRON · POLYGON · BITCOIN · BNB CHAIN
-    TETHER (USDT) · USD COIN (USDC) · ARBITRUM · AVALANCHE · OPTIMISM
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  Centered header + horizontal floating 3D glass token pill deck.
-  bg-white/[0.02] border border-white/[0.08] hover 3D tilt.
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 6: HOW IT WORKS — 3-STEP EXECUTION PIPELINE
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Tag: "ONBOARDING PIPELINE"
-  Headline: "Automate Your Trading in 3 Simple Steps"
-  Step 01: "Deposit Capital On-Chain" — blockchain network USDT/SOL/BTC/ETH
-  Step 02: "Select Bot or Enter Copy Code"
-  Step 03: "Collect Profits & Withdraw On-Chain"
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  3-col connector with cyan glowing path lines and step rings (01/02/03).
-  SVG connector lines: match hero circuit laser beam style (stroke-dasharray animated, cyan glow filter).
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 7: LIVE EXECUTION LEDGER & VERIFIED AUDIT
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Tag: "TRANSPARENCY LEDGER"
-  Headline: "Real Data. Real Profits. Unfiltered Execution."
-  Subheadline: "Live rolling stream of active bot executions, profit distributions, and copy trade completions."
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  Full-width kinetic vertical stream (match Concept 2 verticalStream animation style).
-  Rows: monospace trade fills [EXEC_BUY] [TP_HIT] [COPY_SYNC], 16s linear infinite, pause on hover.
-  Color-coded type tags: text-emerald-400, timestamp text-slate-500.
-
-
-----------------------------------------------------------------------------------------------------
-SECTION 8: FINAL CONVERSION CTA DECK
-----------------------------------------------------------------------------------------------------
-[COPYWRITING & CONTENT]:
-  Headline: "Ready to Automate Your Portfolio?"
-  Subheadline: "Join thousands of investors executing trades automatically on the world's leading
-                quantitative AI & Copy Trading ecosystem."
-  CTA: "Create Free Account" -> route('user.register')
-
-[DESIGN GUIDE & VISUAL CONCEPT]:
-  Centered high-contrast banner, ambient radial cyan + purple glow.
-  Button: solid #f7a600 background (NO gradient — matches nav CTA convention).
-  shadow-[0_0_40px_rgba(247,166,0,0.25)] spring hover scale.
-====================================================================================================
---}}

@@ -19,14 +19,6 @@ return [
             'is_active' => moduleEnabledFromJson('trading_bot_module')
         ],
         [
-            'name' => 'Copy Trading',
-            'route_name' => 'copy-trading',
-            'link' => null,
-            'type' => 'link',
-            'is_external' => false,
-            'is_active' => moduleEnabledFromJson('copy_trading_module')
-        ],
-        [
             'name' => 'Company',
             'route_name' => null,
             'link' => '#',
@@ -64,9 +56,8 @@ return [
             'name' => 'Trading',
             'items' => [
                 ['name' => 'Trading Bots', 'route_name' => 'trading-bots', 'is_active' => moduleEnabledFromJson('trading_bot_module')],
-                ['name' => 'Copy Trading', 'route_name' => 'copy-trading', 'is_active' => moduleEnabledFromJson('copy_trading_module')],
             ],
-            'is_active' => moduleEnabledFromJson('trading_bot_module') || moduleEnabledFromJson('copy_trading_module')
+            'is_active' => moduleEnabledFromJson('trading_bot_module')
         ],
         [
             'name' => 'Governance',

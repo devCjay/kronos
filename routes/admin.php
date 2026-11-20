@@ -25,7 +25,6 @@ use App\Http\Controllers\Admin\Settings\SeoController;
 use App\Http\Controllers\Admin\Settings\FaqController;
 use App\Http\Controllers\Admin\Settings\UtilityController;
 use App\Http\Controllers\Admin\Trading\TradingBotController;
-use App\Http\Controllers\Admin\Trading\CopyTradingController;
 use App\Http\Controllers\Admin\TransactionController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\WithdrawalController;
@@ -137,21 +136,6 @@ Route::middleware(['auth:admin', 'admin.otp.verified', 'sandbox'])->group(functi
 
         // Import Default Bots
         Route::post('import-defaults', [TradingBotController::class, 'importDefaults'])->name('import-defaults');
-    });
-
-    // Copy Trading
-    Route::prefix('copy-trading')->name('copy-trading.')->group(function () {
-        Route::get('/', [CopyTradingController::class, 'index'])->name('index');
-        Route::get('create', [CopyTradingController::class, 'create'])->name('create');
-        Route::post('store', [CopyTradingController::class, 'store'])->name('store');
-        Route::get('edit/{id}', [CopyTradingController::class, 'edit'])->name('edit');
-        Route::post('update/{id}', [CopyTradingController::class, 'update'])->name('update');
-        Route::post('delete/{id}', [CopyTradingController::class, 'destroy'])->name('delete');
-        Route::get('history', [CopyTradingController::class, 'history'])->name('history');
-        Route::get('get-signal-messages/{id}', [CopyTradingController::class, 'getSignalMessages'])->name('get-signal-messages');
-        Route::get('signals/{id}', [CopyTradingController::class, 'getSignalMessages'])->name('signals');
-        Route::get('chart-data', [CopyTradingController::class, 'chartData'])->name('chart-data');
-        Route::post('history/delete/{id}', [CopyTradingController::class, 'destroyHistory'])->name('history.delete');
     });
 
     // Deposits

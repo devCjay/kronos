@@ -17,15 +17,10 @@
     $hasBotActivation = $user->tradingBotActivations()->exists();
     $shouldShowBotPrompt = moduleEnabled('trading_bot_module') && !$hasBotActivation;
 
-    // 5. First Copy Trading
-    $hasCopyTrade = $user->copyTradingHistories()->exists();
-    $shouldShowCopyPrompt = moduleEnabled('copy_trading_module') && !$hasCopyTrade;
-
     $pendingCount = ($shouldShowKycPrompt ? 1 : 0)
         + ($shouldShowOnboardingPrompt ? 1 : 0)
         + ($shouldShowDepositPrompt ? 1 : 0)
-        + ($shouldShowBotPrompt ? 1 : 0)
-        + ($shouldShowCopyPrompt ? 1 : 0);
+        + ($shouldShowBotPrompt ? 1 : 0);
 
     $hasPendingActions = $pendingCount > 0;
 @endphp
@@ -281,42 +276,7 @@
                     </div>
                 </div>
             @endif
-
-            {{-- Action 5: First Copy Trading --}}
-            @if ($shouldShowCopyPrompt)
-                <div id="drawer-item-copy"
-                    class="group relative rounded-2xl p-[1px] bg-gradient-to-r from-orange-500/30 via-white/[0.06] to-orange-500/20 transition-all duration-300">
-                    <div class="relative bg-[#0c101c] rounded-[calc(1rem-1px)] p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-                        <div class="flex items-start gap-3.5">
-                            <div class="w-11 h-11 rounded-2xl bg-orange-500/10 border border-orange-500/25 text-orange-400 border flex items-center justify-center shrink-0 shadow-inner mt-0.5 sm:mt-0">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 stroke-[2]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <div class="inline-flex items-center gap-2 px-2 py-0.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 font-mono text-[9px] font-bold uppercase tracking-widest mb-1">
-                                    <span>{{ __('COPY TRADING') }}</span>
-                                </div>
-                                <h4 class="font-bold text-white text-sm tracking-tight">
-                                    {{ __('Start Copy Trading') }}
-                                </h4>
-                                <p class="text-xs text-slate-400 mt-1 leading-relaxed max-w-md">
-                                    {{ __('Follow top traders and mirror their moves in real time.') }}
-                                </p>
-                            </div>
-                        </div>
-
-                        <a href="{{ route('user.copy-trading.index') }}"
-                            class="group/btn w-full sm:w-auto whitespace-nowrap px-4 py-2.5 rounded-xl bg-gradient-to-r from-orange-400 to-orange-500 hover:from-orange-300 hover:to-orange-400 text-white font-mono text-xs font-black uppercase tracking-wider shadow-[0_0_20px_rgba(99,102,241,0.2)] transition-all flex items-center justify-center gap-2 active:scale-95 shrink-0">
-                            <span>{{ __('Copy Trades') }}</span>
-                            <span class="w-5 h-5 rounded-lg bg-black/20 flex items-center justify-center text-[10px] group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform">↗</span>
-                        </a>
-                    </div>
-                </div>
-            @endif
-
-        </div>
+</div>
     </div>
 @endif
 

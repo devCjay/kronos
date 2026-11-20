@@ -7,8 +7,6 @@ use App\Models\ManagementTeam;
 use App\Models\Faq;
 use App\Models\ClientReview;
 use App\Models\TradingBot;
-use App\Models\CopyTrading;
-use App\Models\CopyTradingHistory;
 use App\Models\Blockchain;
 use App\Models\Deposit;
 use App\Models\Withdrawal;
@@ -127,23 +125,6 @@ class HomeController extends Controller
 
         $featuredBots = TradingBot::active()->get();
 
-        // Copy Trading Stats for Home Page
-        $copyTradingStats = [
-            'total_profit' => CopyTradingHistory::where('status', 'completed')->sum('profit'),
-            'active_traders' => \App\Models\User::whereHas('copyTradingHistories', function ($q) {
-                $q->where('status', 'active');
-            })->count(),
-            'successful_trades' => CopyTradingHistory::where('status', 'completed')->where('profit', '>', 0)->count(),
-        ];
-
-        // Recent copy trading winners for home page
-        $copyTradingWinners = CopyTradingHistory::with('copyTrading')
-            ->where('status', 'completed')
-            ->where('profit', '>', 0)
-            ->latest('completed_at')
-            ->limit(4)
-            ->get();
-
         // Fetch all blockchains regardless of status for hero section display
         $heroBlockchains = Blockchain::orderBy('priority', 'asc')->get();
 
@@ -174,8 +155,6 @@ class HomeController extends Controller
             'reviews',
             'botTrading',
             'featuredBots',
-            'copyTradingStats',
-            'copyTradingWinners',
             'heroBlockchains',
             'faqs',
             'recentDeposits',
@@ -246,52 +225,6 @@ class HomeController extends Controller
     }
 
 
-    // Copy Trading (Dedicated Page)
-    public function copyTrading()
-    {
-        // check if copy trading module is enabled
-        if (!moduleEnabled('copy_trading_module')) {
-            abort(404);
-        }
-
-        $template = config('site.template');
-        $page_title = __("Copy Trading");
-        $page_description = __("Mirror the success of elite algorithmic strategies. Transparent results, verified performance, and direct market execution.");
-
-        // Statistics
-        $totalProfit = CopyTradingHistory::where('status', 'completed')->sum('profit');
-        $totalVolume = CopyTradingHistory::sum('amount');
-        $successfulTrades = CopyTradingHistory::where('status', 'completed')->where('profit', '>', 0)->count();
-        $totalTrades = CopyTradingHistory::where('status', 'completed')->count();
-        $successRate = $totalTrades > 0 ? ($successfulTrades / $totalTrades) * 100 : 0;
-
-        $activeTraders = \App\Models\User::whereHas('copyTradingHistories', function ($q) {
-            $q->where('status', 'active');
-        })->count();
-
-        // Recent winning trades (social proof)
-        $recentTrades = CopyTradingHistory::with('copyTrading')
-            ->where('status', 'completed')
-            ->where('profit', '>', 0)
-            ->latest('completed_at')
-            ->limit(10)
-            ->get();
-
-        $stats = [
-            'total_profit' => $totalProfit,
-            'total_volume' => $totalVolume,
-            'success_rate' => number_format($successRate, 1),
-            'active_traders' => $activeTraders,
-            'total_trades_count' => $totalTrades,
-        ];
-
-        return view('templates.' . $template . '.blades.pages.copy-trading', compact(
-            'page_title',
-            'page_description',
-            'stats',
-            'recentTrades'
-        ));
-    }
     public function aboutUs()
     {
         $template = config('site.template');

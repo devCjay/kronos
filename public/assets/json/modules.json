@@ -31,16 +31,5 @@
             }
         ],
         "description": "Provides identity verification workflows for user onboarding, document review, and compliance management."
-    },
-    "copy_trading_module": {
-        "name": "Copy Trading",
-        "status": "enabled",
-        "menu_search": [
-            {
-                "term": "Copy Trading",
-                "column": "label"
-            }
-        ],
-        "description": "Enables copy trading for users."
     }
 }

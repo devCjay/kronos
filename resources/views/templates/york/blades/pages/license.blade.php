@@ -154,7 +154,7 @@
                     {{ __('Ready to Trade with Confidence?') }}
                 </h2>
                 <p class="text-slate-400 text-sm max-w-xl mx-auto mb-8 font-body">
-                    {{ __('Start trading with automated AI bots and copy trading on a secure, verified platform.') }}
+                    {{ __('Start trading with automated AI bots on a secure, verified platform.') }}
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="{{ route('user.register') }}"
