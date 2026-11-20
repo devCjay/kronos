@@ -154,7 +154,11 @@ class DashboardController extends Controller
             ->with(['blockchain', 'blockchain.tokens' => fn($q) => $q->where('status', 'enabled')])
             ->get();
 
-        return view("templates.$template.blades.user.dashboard", compact(
+        $dashboardView = config('site.dashboard_design', 'exchange') === 'legacy'
+            ? 'dashboard'
+            : 'dashboard-exchange';
+
+        return view("templates.$template.blades.user.$dashboardView", compact(
             'page_title',
             'balance',
             'total_equity',
