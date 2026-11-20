@@ -225,6 +225,33 @@ class OveriewController extends Controller
     }
 
     /**
+     * Run outstanding database migrations from the authenticated admin panel.
+     */
+    public function runMigrations()
+    {
+        try {
+            Artisan::call('migrate', [
+                '--force' => true,
+                '--no-interaction' => true,
+            ]);
+
+            Artisan::call('optimize:clear');
+
+            return response()->json([
+                'success' => true,
+                'message' => __('Database migrations completed successfully.'),
+            ]);
+        } catch (\Throwable $e) {
+            report($e);
+
+            return response()->json([
+                'success' => false,
+                'message' => __('Database migration failed. Check the application logs for details.'),
+            ], 500);
+        }
+    }
+
+    /**
      * Update Environment Variables
      */
     public function updateEnvSetting(Request $request)
@@ -660,5 +687,4 @@ class OveriewController extends Controller
         return $pdf->download('security-audit-report-' . date('Y-m-d-H-i-s') . '.pdf');
     }
 }
-
 
