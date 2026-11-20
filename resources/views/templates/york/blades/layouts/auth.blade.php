@@ -30,14 +30,32 @@
     <div class="fixed top-[-10%] left-1/2 -translate-x-1/2 w-[700px] h-[500px] bg-amber-500/10 rounded-full blur-[180px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 8s;"></div>
     <div class="fixed bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-orange-600/10 rounded-full blur-[180px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 10s;"></div>
 
-    {{-- Top Bar: Back to Home + Language Switcher --}}
+    @php
+        $logo = getSetting('logo_rectangle');
+        $logoPath = public_path('assets/images/' . $logo);
+        $version = $logo && file_exists($logoPath) ? filemtime($logoPath) : time();
+    @endphp
+
+    {{-- Top Bar: Back to Home + Brand + Language Switcher --}}
     <div class="fixed top-5 inset-x-0 max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between z-50 pointer-events-none">
         <a href="{{ route('home') }}" class="pointer-events-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.03] hover:bg-white/[0.08] border border-white/[0.08] text-slate-400 hover:text-white text-xs font-mono transition-all backdrop-blur-xl group shadow-lg">
             <svg class="w-3.5 h-3.5 transform group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
-            <span>{{ __('Return to Site') }}</span>
+            <span class="hidden sm:inline">{{ __('Return to Site') }}</span>
         </a>
+
+        @hasSection('auth_showcase')
+            <a href="{{ route('home') }}"
+                class="pointer-events-auto absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-xl border border-white/[0.08] bg-[#0b0e11]/70 px-3 py-2 backdrop-blur-xl transition hover:border-amber-400/30">
+                @if ($logo)
+                    <img src="{{ asset('assets/images/' . $logo) . '?v=' . $version }}"
+                        alt="{{ getSetting('name') }}" class="h-7 w-auto max-w-[130px] object-contain">
+                @else
+                    <span class="font-heading text-lg font-black tracking-tight text-white">{{ getSetting('name') }}<span class="text-amber-400">.</span></span>
+                @endif
+            </a>
+        @endif
 
         {{-- Language Switcher Dropdown --}}
         <div class="pointer-events-auto relative group" id="lang-switcher">
@@ -80,15 +98,11 @@
         @endif
 
         <div class="w-full {{ View::hasSection('auth_showcase') ? 'max-w-[460px] lg:justify-self-end' : '' }}">
-        {{-- Brand Header --}}
+        @unless(View::hasSection('auth_showcase'))
+        {{-- Brand Header for centered authentication pages --}}
         <div class="mb-8 text-center">
             <a href="{{ route('home') }}" class="inline-block mb-3 group">
                 <div class="inline-flex items-center justify-center p-3 rounded-2xl bg-white/[0.02] border border-white/[0.08] group-hover:border-amber-500/30 transition-all backdrop-blur-xl shadow-inner">
-                    @php
-                        $logo = getSetting('logo_rectangle');
-                        $logoPath = public_path('assets/images/' . $logo);
-                        $version = $logo && file_exists($logoPath) ? filemtime($logoPath) : time();
-                    @endphp
                     @if ($logo)
                         <img src="{{ asset('assets/images/' . $logo) . '?v=' . $version }}"
                             alt="{{ getSetting('name') }}" class="h-9 w-auto object-contain">
@@ -98,6 +112,7 @@
                 </div>
             </a>
         </div>
+        @endunless
 
         {{-- Double-Bezel Glass Card --}}
         <div class="p-2 rounded-[2.5rem] bg-white/[0.02] border border-white/[0.1] backdrop-blur-2xl shadow-[0_25px_70px_rgba(0,0,0,0.9)] relative overflow-hidden group">
@@ -110,14 +125,16 @@
         </div>
 
         {{-- Security Badge & Footer --}}
-        <div class="mt-8 text-center space-y-2">
-            <div class="flex items-center justify-center gap-2 text-[10px] font-mono text-slate-500">
-                <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="mt-7 flex w-full flex-col items-center space-y-2 text-center">
+            <div class="flex max-w-sm items-start justify-center gap-2 px-3 font-mono text-[10px] leading-4 text-slate-500">
+                <svg class="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                 </svg>
                 <span>{{ __('256-Bit SSL Encrypted & Non-Custodial Safeguards') }}</span>
             </div>
-            <p class="font-mono text-[10px] text-slate-600">&copy; {{ date('Y') }} {{ getSetting('name') }}. {{ __('All rights reserved.') }}</p>
+            <p class="w-full px-3 font-mono text-[10px] leading-4 text-slate-600">
+                &copy; {{ date('Y') }} {{ getSetting('name') }}. {{ __('All rights reserved.') }}
+            </p>
         </div>
         </div>
 
