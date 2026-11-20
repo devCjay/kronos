@@ -10,8 +10,6 @@ return [
     'app_timezone' => env("APP_TIMEZONE", 'Europe/London'),
     'decimal_places' => env("DECIMAL_PLACES", 2),
     'use_vite' => env("USE_VITE", true),
-    // Switch to "legacy" to restore the original user dashboard without reverting code.
-    'dashboard_design' => env('DASHBOARD_DESIGN', 'exchange'),
     'search_engine_indexing' => env("SEARCH_ENGINE_INDEXING", true),
     'append_date_to_emails' => env("APPEND_DATE_TO_EMAILS", 'enabled'),
     'product_key' => env('PRODUCT_KEY'),

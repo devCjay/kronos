@@ -90,9 +90,9 @@
             @endforeach
         </div>
 
-        <div class="grid grid-cols-1 gap-4 xl:grid-cols-12">
+        <div>
             {{-- Recent ledger --}}
-            <section class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318] xl:col-span-8">
+            <section class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318]">
                 <div class="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
                     <div><h2 class="text-sm font-black text-white">{{ __('Recent Transactions') }}</h2><p class="mt-1 text-[10px] uppercase tracking-widest text-slate-500">{{ __('Account ledger') }}</p></div>
                     <a href="{{ route('user.transactions') }}" class="text-[10px] font-bold uppercase tracking-wider text-amber-300 hover:text-amber-200">{{ __('View All') }}</a>
@@ -117,26 +117,6 @@
                     </table>
                 </div>
             </section>
-
-            {{-- Wallet/network panel --}}
-            <aside class="rounded-2xl border border-white/[0.08] bg-[#111318] xl:col-span-4">
-                <div class="flex items-center justify-between border-b border-white/[0.07] px-5 py-4">
-                    <div><h2 class="text-sm font-black text-white">{{ __('Deposit Wallets') }}</h2><p class="mt-1 text-[10px] uppercase tracking-widest text-slate-500">{{ __('On-chain addresses') }}</p></div>
-                    <a href="{{ route('user.deposits.new') }}" class="text-[10px] font-bold text-amber-300">{{ __('Manage') }}</a>
-                </div>
-                <div class="max-h-[390px] space-y-2 overflow-y-auto p-3">
-                    @forelse ($user_wallets as $wallet)
-                        <div class="rounded-xl border border-white/[0.06] bg-black/20 p-3">
-                            <div class="flex items-center justify-between gap-3">
-                                <div class="min-w-0"><p class="truncate text-xs font-bold text-white">{{ $wallet->blockchain->name }}</p><p class="mt-1 truncate font-mono text-[9px] text-slate-600">{{ $wallet->address }}</p></div>
-                                <button type="button" data-copy-address="{{ $wallet->address }}" class="copy-wallet shrink-0 rounded-md border border-white/10 px-2 py-1 text-[9px] font-bold text-slate-400 hover:border-amber-400/40 hover:text-amber-300">{{ __('Copy') }}</button>
-                            </div>
-                        </div>
-                    @empty
-                        <div class="py-12 text-center text-xs text-slate-600">{{ __('No deposit wallets generated yet') }}</div>
-                    @endforelse
-                </div>
-            </aside>
         </div>
     </div>
 @endsection
@@ -179,10 +159,6 @@
                 } catch (error) { console.error('Dashboard chart update failed', error); }
             }));
 
-            document.querySelectorAll('.copy-wallet').forEach(button => button.addEventListener('click', async function () {
-                await navigator.clipboard.writeText(this.dataset.copyAddress);
-                Swal.fire({ toast: true, position: 'top-end', icon: 'success', title: '{{ __('Address copied') }}', showConfirmButton: false, timer: 1400 });
-            }));
         });
     </script>
 @endsection

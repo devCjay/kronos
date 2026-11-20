@@ -150,15 +150,7 @@ class DashboardController extends Controller
         ];
 
         $recent_transactions_hub = $user->transactions()->latest()->take(10)->get();
-        $user_wallets = \App\Models\UserBlockchainWallet::where('user_id', $user->id)
-            ->with(['blockchain', 'blockchain.tokens' => fn($q) => $q->where('status', 'enabled')])
-            ->get();
-
-        $dashboardView = config('site.dashboard_design', 'exchange') === 'legacy'
-            ? 'dashboard'
-            : 'dashboard-exchange';
-
-        return view("templates.$template.blades.user.$dashboardView", compact(
+        return view("templates.$template.blades.user.dashboard-exchange", compact(
             'page_title',
             'balance',
             'total_equity',
@@ -171,8 +163,7 @@ class DashboardController extends Controller
             'money_distribution',
             'smart_insights',
             'movement_stats',
-            'recent_transactions_hub',
-            'user_wallets'
+            'recent_transactions_hub'
         ));
     }
 
