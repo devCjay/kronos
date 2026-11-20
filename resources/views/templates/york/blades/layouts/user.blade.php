@@ -13,6 +13,16 @@
     <meta name="theme-color" content="#0f172a">
     <meta name="author" content="{{ getSetting('name') }} Team">
     <meta name="publisher" content="{{ getSetting('name') }} Team">
+    <script>
+        (() => {
+            const saved = localStorage.getItem('appearance') || 'system';
+            const resolved = saved === 'system'
+                ? (matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark')
+                : saved;
+            document.documentElement.dataset.theme = resolved;
+            document.documentElement.dataset.themePreference = saved;
+        })();
+    </script>
     @if (config('site.use_vite'))
         @vite(['resources/views/templates/york/css/app.css'])
     @else
@@ -167,7 +177,7 @@
 
     <!-- Sidebar DOCK -->
     <aside
-        class="hidden lg:flex flex-col w-20 hover:w-72 bg-gradient-to-b from-[#0a0a0c] to-[#040404] border-r border-white/[0.08] h-screen sticky top-0 z-30 transition-all duration-300 items-center hover:items-stretch py-6 group/sidebar york-sidebar">
+        class="app-sidebar hidden lg:flex flex-col w-20 hover:w-72 bg-gradient-to-b from-[#0a0a0c] to-[#040404] border-r border-white/[0.08] h-screen sticky top-0 z-30 transition-all duration-300 items-center hover:items-stretch py-6 group/sidebar york-sidebar">
         <!-- Logo Area -->
         <div class="h-16 flex items-center px-4 mb-8 shrink-0 w-full overflow-hidden relative">
             <a href="{{ route('user.dashboard') }}" class="flex items-center gap-3 w-full max-w-full">
@@ -349,7 +359,7 @@
     </aside>
 
     <!-- Main Content Wrapper -->
-    <div class="flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-primary-dark relative">
+    <div class="app-shell flex-1 flex flex-col min-w-0 h-screen overflow-hidden bg-primary-dark relative">
 
         @php
             $locale = app()->getLocale();
@@ -359,7 +369,7 @@
 
         <!-- Mobile Header -->
         <header
-            class="lg:hidden h-16 flex items-center justify-between px-4 bg-secondary-dark backdrop-blur-md border-b border-border-primary z-20 gap-3">
+            class="app-mobile-header lg:hidden h-16 flex items-center justify-between px-4 bg-secondary-dark backdrop-blur-md border-b border-border-primary z-20 gap-3">
             <!-- Logo -->
             <a href="{{ route('user.dashboard') }}" class="block shrink-0 max-w-[160px] overflow-hidden">
                 @if (getSetting('logo_rectangle'))
@@ -377,6 +387,12 @@
 
             <!-- Right Actions -->
             <div class="flex items-center gap-3">
+
+                <button type="button" class="theme-toggle flex h-8 w-8 items-center justify-center rounded-full border border-border-primary bg-white/[0.02] text-text-secondary transition hover:border-accent-primary/40 hover:text-accent-primary" aria-label="{{ __('Change appearance') }}" title="{{ __('Change appearance') }}">
+                    <svg data-theme-icon="dark" class="hidden h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+                    <svg data-theme-icon="light" class="hidden h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                    <svg data-theme-icon="system" class="hidden h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M8 21h8m-4-4v4"/></svg>
+                </button>
 
                 <!-- Language Switcher -->
                 <div class="relative">
@@ -548,7 +564,7 @@
 
         <!-- Top Bar (Desktop) -->
         <header
-            class="hidden lg:flex h-20 items-center justify-between px-8 border-b border-border-primary bg-primary-dark/80 backdrop-blur-md z-20">
+            class="app-topbar hidden lg:flex h-20 items-center justify-between px-8 border-b border-border-primary bg-primary-dark/80 backdrop-blur-md z-20">
             <div>
                 <h2 class="text-2xl font-bold text-white font-heading tracking-tight">
                     {{ $page_title ?? __('Dashboard') }}
@@ -563,6 +579,13 @@
 
 
             <div class="flex items-center gap-6">
+                <button type="button" class="theme-toggle flex h-10 items-center gap-2 rounded-xl border border-border-primary bg-white/[0.02] px-3 text-text-secondary transition hover:border-accent-primary/40 hover:text-accent-primary" aria-label="{{ __('Change appearance') }}" title="{{ __('Change appearance') }}">
+                    <svg data-theme-icon="dark" class="hidden h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg>
+                    <svg data-theme-icon="light" class="hidden h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+                    <svg data-theme-icon="system" class="hidden h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2" stroke-width="2"/><path stroke-linecap="round" stroke-width="2" d="M8 21h8m-4-4v4"/></svg>
+                    <span data-theme-label class="text-[10px] font-bold uppercase tracking-wider"></span>
+                </button>
+
                 <!-- Language Switcher -->
                 <div class="relative group" id="desktop-lang-switcher">
                     <button
@@ -788,7 +811,7 @@
         class="fixed inset-0 bg-black/60 backdrop-blur-sm z-40 hidden lg:hidden transition-opacity opacity-0"></div>
 
     <div id="mobile-sidebar"
-        class="fixed inset-y-0 left-0 w-72 bg-secondary-dark/95 backdrop-blur-xl z-50 transform -translate-x-full transition-transform duration-300 lg:hidden flex flex-col border-r border-border-primary">
+        class="app-sidebar fixed inset-y-0 left-0 w-72 bg-secondary-dark/95 backdrop-blur-xl z-50 transform -translate-x-full transition-transform duration-300 lg:hidden flex flex-col border-r border-border-primary">
         <div class="h-16 flex items-center justify-between px-6 border-b border-white/[0.03]">
             <a href="{{ url('/') }}" class="flex items-center gap-2 group">
                 @if (getSetting('logo_rectangle'))
@@ -1131,6 +1154,64 @@
                 }
             });
         });
+
+        // Persistent light / dark / system appearance module.
+        (() => {
+            const root = document.documentElement;
+            const media = window.matchMedia('(prefers-color-scheme: light)');
+            const modes = ['system', 'dark', 'light'];
+            const modeLabels = {
+                system: @json(__('System')),
+                dark: @json(__('Dark')),
+                light: @json(__('Light'))
+            };
+
+            const resolveMode = (preference) => preference === 'system'
+                ? (media.matches ? 'light' : 'dark')
+                : preference;
+
+            const renderAppearance = (preference) => {
+                const resolved = resolveMode(preference);
+                root.dataset.theme = resolved;
+                root.dataset.themePreference = preference;
+
+                const themeMeta = document.querySelector('meta[name="theme-color"]');
+                if (themeMeta) themeMeta.content = resolved === 'light' ? '#f4f6f8' : '#0b0e11';
+
+                document.querySelectorAll('.theme-toggle').forEach((button) => {
+                    button.querySelectorAll('[data-theme-icon]').forEach((icon) => {
+                        icon.classList.toggle('hidden', icon.dataset.themeIcon !== preference);
+                    });
+                    const label = button.querySelector('[data-theme-label]');
+                    if (label) label.textContent = modeLabels[preference];
+                    button.title = `${@json(__('Appearance'))}: ${modeLabels[preference]}`;
+                    button.setAttribute('aria-label', button.title);
+                });
+
+                window.dispatchEvent(new CustomEvent('appearance:changed', {
+                    detail: { preference, theme: resolved }
+                }));
+            };
+
+            let preference = localStorage.getItem('appearance') || 'system';
+            if (!modes.includes(preference)) preference = 'system';
+            renderAppearance(preference);
+
+            document.querySelectorAll('.theme-toggle').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const current = root.dataset.themePreference || 'system';
+                    const next = modes[(modes.indexOf(current) + 1) % modes.length];
+                    localStorage.setItem('appearance', next);
+                    renderAppearance(next);
+                });
+            });
+
+            media.addEventListener('change', () => {
+                if ((root.dataset.themePreference || 'system') === 'system') {
+                    renderAppearance('system');
+                }
+            });
+        })();
 
 
     </script>
