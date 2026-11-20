@@ -1,5 +1,49 @@
 @extends('templates.york.blades.layouts.auth')
 
+@section('auth_showcase')
+    <div class="relative min-h-[650px] overflow-hidden rounded-[2rem] border border-white/[0.09] bg-[#111318] shadow-[0_30px_90px_rgba(0,0,0,.6)]">
+        <img src="{{ asset('assets/images/ai-trading-login-visual.png') }}"
+            alt="{{ __('AI-powered market analysis visualization') }}"
+            class="absolute inset-0 h-full w-full object-cover object-center" fetchpriority="high">
+
+        <div class="absolute inset-0 bg-gradient-to-b from-black/15 via-black/25 to-[#0b0e11]/95"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0b0e11]/35 via-transparent to-transparent"></div>
+        <div class="absolute left-7 top-7 flex items-center gap-2 rounded-full border border-white/10 bg-black/35 px-3 py-1.5 backdrop-blur-xl">
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_10px_rgba(52,211,153,.9)]"></span>
+            <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-white/80">{{ __('AI Trading Infrastructure') }}</span>
+        </div>
+
+        <div class="absolute inset-x-0 bottom-0 p-7 xl:p-9">
+            <div class="max-w-xl">
+                <p class="mb-3 font-mono text-[10px] font-bold uppercase tracking-[0.24em] text-amber-400">
+                    {{ __('Intelligence meets execution') }}
+                </p>
+                <h2 class="font-heading text-3xl font-black leading-tight tracking-tight text-white xl:text-4xl">
+                    {{ __('Smarter automation for the crypto market.') }}
+                </h2>
+                <p class="mt-3 max-w-lg text-sm leading-6 text-slate-300">
+                    {{ __('Deploy automated trading strategies, monitor portfolio activity, and manage digital assets from one secure workspace.') }}
+                </p>
+
+                <div class="mt-6 grid grid-cols-3 gap-2.5">
+                    <div class="rounded-xl border border-white/[0.08] bg-black/30 p-3 backdrop-blur-xl">
+                        <svg class="mb-2 h-4 w-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                        <p class="text-[9px] font-bold uppercase leading-4 tracking-wider text-slate-200">{{ __('Automated strategies') }}</p>
+                    </div>
+                    <div class="rounded-xl border border-white/[0.08] bg-black/30 p-3 backdrop-blur-xl">
+                        <svg class="mb-2 h-4 w-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 19V9m5 10V5m5 14v-7m5 7V3"/></svg>
+                        <p class="text-[9px] font-bold uppercase leading-4 tracking-wider text-slate-200">{{ __('Portfolio analytics') }}</p>
+                    </div>
+                    <div class="rounded-xl border border-white/[0.08] bg-black/30 p-3 backdrop-blur-xl">
+                        <svg class="mb-2 h-4 w-4 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3zm0 0v9m8-4.5l-8 4.5m-8-4.5l8 4.5"/></svg>
+                        <p class="text-[9px] font-bold uppercase leading-4 tracking-wider text-slate-200">{{ __('On-chain settlement') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+
 @section('content')
     <div class="space-y-6" data-login-shell>
         {{-- Page identity --}}

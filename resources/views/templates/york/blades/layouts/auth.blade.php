@@ -71,9 +71,15 @@
         </div>
     </div>
 
-    {{-- Central Form Card Wrapper --}}
-    <div class="max-w-[460px] w-full mx-auto my-auto relative z-10 pt-20 pb-10 px-4 sm:px-6">
-        
+    {{-- Authentication Workspace --}}
+    <div class="{{ View::hasSection('auth_showcase') ? 'max-w-7xl lg:grid lg:grid-cols-[minmax(0,1.35fr)_minmax(400px,460px)] lg:items-center lg:gap-10 xl:gap-16' : 'max-w-[460px]' }} w-full mx-auto my-auto relative z-10 pt-20 pb-10 px-4 sm:px-6">
+        @hasSection('auth_showcase')
+            <aside class="hidden lg:block min-w-0">
+                @yield('auth_showcase')
+            </aside>
+        @endif
+
+        <div class="w-full {{ View::hasSection('auth_showcase') ? 'max-w-[460px] lg:justify-self-end' : '' }}">
         {{-- Brand Header --}}
         <div class="mb-8 text-center">
             <a href="{{ route('home') }}" class="inline-block mb-3 group">
@@ -112,6 +118,7 @@
                 <span>{{ __('256-Bit SSL Encrypted & Non-Custodial Safeguards') }}</span>
             </div>
             <p class="font-mono text-[10px] text-slate-600">&copy; {{ date('Y') }} {{ getSetting('name') }}. {{ __('All rights reserved.') }}</p>
+        </div>
         </div>
 
     </div>
