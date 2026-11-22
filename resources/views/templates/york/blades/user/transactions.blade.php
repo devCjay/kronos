@@ -1,257 +1,180 @@
 @extends('templates.' . config('site.template') . '.blades.layouts.user')
 
 @section('content')
-<div class="min-h-screen relative space-y-12 pb-24">
+    @php
+        $decimalPlaces = (int) getSetting('decimal_places', 2);
+        $currency = getSetting('currency');
+        $totalCredits = (float) ($moneyFlow->total_credits ?? 0);
+        $totalDebits = (float) ($moneyFlow->total_debits ?? 0);
+        $hasFilters = request()->filled('search') || (request('type', 'all') !== 'all') || (request('status', 'all') !== 'all') || request()->filled('date_from') || request()->filled('date_to');
+    @endphp
 
-    {{-- Global Ethereal Ambient Mesh Gradients --}}
-    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-orange-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-amber-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="relative min-h-screen pb-12">
+        <div class="pointer-events-none fixed right-0 top-0 -z-0 h-[38rem] w-[38rem] -translate-y-1/3 translate-x-1/3 rounded-full bg-amber-500/[0.04] blur-[140px]"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto space-y-12">
+        <div class="relative z-10 mx-auto max-w-7xl space-y-4">
+            <header class="rounded-2xl border border-white/[0.08] bg-[#111318] p-5 sm:p-6">
+                <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                        <div class="mb-2 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-amber-400">
+                            <span class="h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(247,166,0,.75)]"></span>
+                            {{ __('Account ledger') }}
+                        </div>
+                        <h1 class="font-heading text-2xl font-black tracking-tight text-white sm:text-3xl">{{ __('Transaction History') }}</h1>
+                        <p class="mt-1.5 max-w-2xl text-xs leading-5 text-slate-400">{{ __('Review completed and pending account entries, search references, and export your filtered statement.') }}</p>
+                    </div>
 
-        {{-- ══ HEADER HERO ════════════════════════════════════════════════════ --}}
-        <div class="relative rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
-            <div class="rounded-[calc(2.5rem-0.375rem)] p-8 sm:p-12 overflow-hidden relative"
-                 style="background: linear-gradient(135deg, rgba(8,9,14,0.98) 0%, rgba(3,4,7,0.99) 100%);">
-                
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="grid grid-cols-2 gap-2 sm:flex">
+                        <a href="{{ route('user.transactions', array_merge(request()->except(['page', 'export']), ['export' => 'csv'])) }}"
+                            class="flex min-h-10 items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.035] px-4 text-[10px] font-bold uppercase tracking-wider text-slate-200 transition hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-amber-400/30">
+                            <svg class="h-3.5 w-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14"/></svg>
+                            {{ __('Export CSV') }}
+                        </a>
+                        <a href="{{ route('user.transactions', array_merge(request()->except(['page', 'export']), ['export' => 'pdf'])) }}"
+                            class="flex min-h-10 items-center justify-center gap-2 rounded-xl bg-amber-400 px-4 text-[10px] font-black uppercase tracking-wider text-black transition hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-400/20">
+                            <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 3h7l5 5v13H7V3zm7 0v6h6"/></svg>
+                            {{ __('Export PDF') }}
+                        </a>
+                    </div>
+                </div>
+            </header>
 
-                <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-                    <div class="max-w-2xl space-y-4">
-                        <div class="inline-flex items-center gap-2 rounded-full border border-accent-primary/30 bg-accent-primary/10 px-3.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-accent-primary shadow-[0_0_15px_rgba(226,177,60,0.2)]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse"></span>
-                            <span>{{ __('Transactions') }}</span>
+            <section class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="{{ __('Transaction summary') }}">
+                <article class="rounded-xl border border-white/[0.07] bg-[#111318] p-4 sm:col-span-2 xl:col-span-1">
+                    <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">{{ __('Current Balance') }}</p>
+                    <p class="mt-2 break-all font-mono text-xl font-black text-white">{{ number_format($currentBalance, $decimalPlaces) }} <span class="text-[10px] font-semibold text-slate-500">{{ $currency }}</span></p>
+                    <p class="mt-1 text-[10px] text-slate-600">{{ __('Available account balance') }}</p>
+                </article>
+                <article class="rounded-xl border border-white/[0.07] bg-[#111318] p-4">
+                    <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">{{ __('Completed Credits') }}</p>
+                    <p class="mt-2 break-all font-mono text-xl font-black text-emerald-400">+{{ number_format($totalCredits, $decimalPlaces) }}</p>
+                    <p class="mt-1 text-[10px] text-slate-600">{{ __('All-time completed entries') }}</p>
+                </article>
+                <article class="rounded-xl border border-white/[0.07] bg-[#111318] p-4">
+                    <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">{{ __('Completed Debits') }}</p>
+                    <p class="mt-2 break-all font-mono text-xl font-black text-rose-400">-{{ number_format($totalDebits, $decimalPlaces) }}</p>
+                    <p class="mt-1 text-[10px] text-slate-600">{{ __('All-time completed entries') }}</p>
+                </article>
+                <article class="rounded-xl border border-white/[0.07] bg-[#111318] p-4">
+                    <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">{{ __('Net Completed Flow') }}</p>
+                    <p class="mt-2 break-all font-mono text-xl font-black {{ $netFlow >= 0 ? 'text-emerald-400' : 'text-rose-400' }}">{{ $netFlow >= 0 ? '+' : '' }}{{ number_format($netFlow, $decimalPlaces) }}</p>
+                    <p class="mt-1 text-[10px] text-slate-600">{{ __('Credits minus debits') }}</p>
+                </article>
+            </section>
+
+            <section class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318]" id="transactions-wrapper">
+                <div class="border-b border-white/[0.07] p-4 sm:p-5">
+                    <div class="flex flex-col gap-4 xl:flex-row xl:items-end xl:justify-between">
+                        <div class="shrink-0">
+                            <h2 class="text-sm font-black text-white">{{ __('All Transactions') }}</h2>
+                            <p class="mt-1 text-[10px] text-slate-500">{{ __(':count entries on this page', ['count' => $transactions->count()]) }}</p>
                         </div>
 
-                        <h1 class="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 tracking-tight leading-none">
-                            {{ __('Transaction History') }}
-                        </h1>
+                        <form id="filter-form" action="{{ route('user.transactions') }}" method="GET" class="grid grid-cols-1 gap-2 sm:grid-cols-2 xl:flex xl:items-end">
+                            <div class="sm:col-span-2 xl:w-60">
+                                <label for="transaction-search" class="sr-only">{{ __('Search transactions') }}</label>
+                                <div class="relative">
+                                    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M20 20l-3.5-3.5"/></svg>
+                                    <input id="transaction-search" type="search" name="search" value="{{ request('search') }}" placeholder="{{ __('Reference or description') }}"
+                                        class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] pl-9 pr-3 text-xs text-white outline-none transition placeholder:text-slate-600 focus:border-amber-400/60 focus:ring-2 focus:ring-amber-400/[0.08]">
+                                </div>
+                            </div>
 
-                        <p class="text-slate-400 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
-                            {{ __('Complete record of your deposits, withdrawals, trading profits, and referral rewards.') }}
-                        </p>
-                    </div>
+                            <div>
+                                <label for="transaction-type" class="sr-only">{{ __('Transaction type') }}</label>
+                                <select id="transaction-type" name="type" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60">
+                                    <option value="all" @selected(request('type', 'all') === 'all')>{{ __('All Types') }}</option>
+                                    <option value="credit" @selected(request('type') === 'credit')>{{ __('Credit') }}</option>
+                                    <option value="debit" @selected(request('type') === 'debit')>{{ __('Debit') }}</option>
+                                </select>
+                            </div>
 
-                    {{-- Quick Export CTA --}}
-                    <div class="flex items-center gap-3 shrink-0">
-                        <a href="{{ route('user.transactions', array_merge(request()->all(), ['export' => 'csv'])) }}" target="_blank"
-                           class="px-6 py-3.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-bold text-xs uppercase tracking-wider border border-white/10 transition-all flex items-center gap-2">
-                            <svg class="w-4 h-4 text-accent-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
-                            <span>{{ __('Export CSV') }}</span>
-                        </a>
-                        <a href="{{ route('user.transactions', array_merge(request()->all(), ['export' => 'pdf'])) }}" target="_blank"
-                           class="px-6 py-3.5 rounded-full bg-accent-primary hover:bg-accent-primary/90 text-black font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_20px_rgba(226,177,60,0.3)] active:scale-[0.98] flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/></svg>
-                            <span>{{ __('Export PDF') }}</span>
-                        </a>
+                            <div>
+                                <label for="transaction-status" class="sr-only">{{ __('Transaction status') }}</label>
+                                <select id="transaction-status" name="status" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60">
+                                    <option value="all" @selected(request('status', 'all') === 'all')>{{ __('All Statuses') }}</option>
+                                    <option value="completed" @selected(request('status') === 'completed')>{{ __('Completed') }}</option>
+                                    <option value="pending" @selected(request('status') === 'pending')>{{ __('Pending') }}</option>
+                                    <option value="failed" @selected(request('status') === 'failed')>{{ __('Failed') }}</option>
+                                    <option value="rejected" @selected(request('status') === 'rejected')>{{ __('Rejected') }}</option>
+                                </select>
+                            </div>
+
+                            <div><label for="date-from" class="sr-only">{{ __('From date') }}</label><input id="date-from" type="date" name="date_from" value="{{ request('date_from') }}" max="{{ now()->format('Y-m-d') }}" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60"></div>
+                            <div><label for="date-to" class="sr-only">{{ __('To date') }}</label><input id="date-to" type="date" name="date_to" value="{{ request('date_to') }}" max="{{ now()->format('Y-m-d') }}" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60"></div>
+
+                            <button type="submit" class="h-10 cursor-pointer rounded-lg bg-amber-400 px-4 text-[10px] font-black uppercase tracking-wider text-black transition hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-400/20">{{ __('Apply') }}</button>
+                            @if ($hasFilters)
+                                <a href="{{ route('user.transactions') }}" class="flex h-10 items-center justify-center rounded-lg border border-white/[0.09] px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 transition hover:bg-white/[0.05] hover:text-white">{{ __('Clear') }}</a>
+                            @endif
+                        </form>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        {{-- ══ MONEY FLOW HUD CARDS (3 CARDS GRID) ════════════════════════════ --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {{-- Net Cash Flow Card --}}
-            <div class="rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/8 shadow-2xl">
-                <div class="rounded-[calc(2.5rem-0.375rem)] p-7 space-y-3" style="background: linear-gradient(145deg, rgba(10,12,18,0.96) 0%, rgba(5,6,10,0.99) 100%);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Net Cash Flow') }}</span>
-                    <div class="text-3xl sm:text-4xl font-black font-mono tracking-tight {{ $netFlow >= 0 ? 'text-emerald-400' : 'text-red-400' }}">
-                        {{ $netFlow >= 0 ? '+' : '' }}{{ number_format($netFlow, getSetting('decimal_places', 2)) }}
-                        <span class="text-xs font-normal text-slate-500 font-sans">{{ getSetting('currency') }}</span>
-                    </div>
-                    <div class="text-[10px] text-slate-400 font-medium pt-2 border-t border-white/5 flex items-center justify-between">
-                        <span>{{ __('Account Balance:') }}</span>
-                        <strong class="text-white font-bold font-mono">{{ number_format($currentBalance, getSetting('decimal_places', 2)) }} {{ getSetting('currency') }}</strong>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Total Credits Card --}}
-            <div class="rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/8 shadow-2xl">
-                <div class="rounded-[calc(2.5rem-0.375rem)] p-7 space-y-3" style="background: linear-gradient(145deg, rgba(10,12,18,0.96) 0%, rgba(5,6,10,0.99) 100%);">
-                    <div class="flex items-center justify-between">
-                        <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Total Income (Credits)') }}</span>
-                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                    </div>
-                    <div class="text-3xl sm:text-4xl font-black text-emerald-400 font-mono tracking-tight">
-                        +{{ number_format($moneyFlow->total_credits, getSetting('decimal_places', 2)) }}
-                        <span class="text-xs font-normal text-slate-500 font-sans">{{ getSetting('currency') }}</span>
-                    </div>
-                    <div class="text-[10px] text-slate-400 font-medium pt-2 border-t border-white/5">
-                        <span>{{ __('Deposits, trading profits, and referral rewards') }}</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Total Debits Card --}}
-            <div class="rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/8 shadow-2xl">
-                <div class="rounded-[calc(2.5rem-0.375rem)] p-7 space-y-3" style="background: linear-gradient(145deg, rgba(10,12,18,0.96) 0%, rgba(5,6,10,0.99) 100%);">
-                    <div class="flex items-center justify-between">
-                        <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Total Expenses (Debits)') }}</span>
-                        <span class="w-2 h-2 rounded-full bg-red-400"></span>
-                    </div>
-                    <div class="text-3xl sm:text-4xl font-black text-red-400 font-mono tracking-tight">
-                        -{{ number_format($moneyFlow->total_debits, getSetting('decimal_places', 2)) }}
-                        <span class="text-xs font-normal text-slate-500 font-sans">{{ getSetting('currency') }}</span>
-                    </div>
-                    <div class="text-[10px] text-slate-400 font-medium pt-2 border-t border-white/5">
-                        <span>{{ __('Withdrawals, bot investments, and transfers') }}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- ══ BENTO GRID TELEMETRY METRICS ═══════════════════════════════════ --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {{-- Activity Breakdown --}}
-            <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-3" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Transaction Activity') }}</span>
-                    <div class="space-y-2 text-xs">
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('Today') }}</span><span class="text-white font-bold font-mono">{{ $activity->today_count }}</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('This Week') }}</span><span class="text-white font-bold font-mono">{{ $activity->week_count }}</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('This Month') }}</span><span class="text-white font-bold font-mono">{{ $activity->month_count }}</span></div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Credit/Debit Ratio --}}
-            <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-3" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Credit vs Debit') }}</span>
-                    <div class="h-2 bg-white/10 rounded-full overflow-hidden flex">
-                        <div class="h-full bg-emerald-500" style="width: {{ $creditRatio }}%"></div>
-                        <div class="h-full bg-red-500" style="width: {{ $debitRatio }}%"></div>
-                    </div>
-                    <div class="flex justify-between text-[11px] font-mono font-bold">
-                        <span class="text-emerald-400">{{ round($creditRatio) }}% {{ __('Credit') }}</span>
-                        <span class="text-red-400">{{ round($debitRatio) }}% {{ __('Debit') }}</span>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Operational Health --}}
-            <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-3" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Status Overview') }}</span>
-                    <div class="space-y-2 text-xs">
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('Pending') }}</span><span class="text-yellow-400 font-bold font-mono">{{ $statusCounts->pending_count }}</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('Success Rate') }}</span><span class="text-emerald-400 font-bold font-mono">{{ round($successRate) }}%</span></div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- Transaction Sizes --}}
-            <div class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-3" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Average Amounts') }}</span>
-                    <div class="space-y-2 text-xs">
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('Avg Deposit') }}</span><span class="text-emerald-400 font-bold font-mono">{{ number_format($sizeStats->avg_credit, 2) }}</span></div>
-                        <div class="flex justify-between"><span class="text-slate-400">{{ __('Avg Withdrawal') }}</span><span class="text-red-400 font-bold font-mono">{{ number_format($sizeStats->avg_debit, 2) }}</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        {{-- ══ TRANSACTION HISTORY TABLE ══════════════════════════════════════ --}}
-        <div class="rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/8 shadow-2xl overflow-hidden" id="transactions-wrapper">
-            <div class="rounded-[calc(2.5rem-0.375rem)] p-8 space-y-6" style="background: linear-gradient(145deg, rgba(10,12,18,0.96) 0%, rgba(5,6,10,0.99) 100%);">
-                
-                {{-- Table Filter Controls --}}
-                <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6 border-b border-white/5">
-                    <div>
-                        <h3 class="text-xl font-black text-white tracking-tight">{{ __('All Transactions') }}</h3>
-                        <p class="text-xs text-slate-400 font-medium mt-1">{{ __('Search and filter your transactions.') }}</p>
-                    </div>
-
-                    <form id="filter-form" action="{{ route('user.transactions') }}" method="GET" class="flex flex-wrap items-center gap-3">
-                        <input type="text" name="search" placeholder="{{ __('Search reference or description...') }}"
-                            value="{{ request('search') }}"
-                            class="bg-black/50 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white outline-none focus:border-accent-primary transition-all placeholder:text-slate-500 min-w-[200px]">
-
-                        {{-- Type Filter --}}
-                        <select name="type" onchange="this.form.submit()" class="bg-black/50 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white outline-none focus:border-accent-primary transition-all">
-                            <option value="all" {{ request('type', 'all') == 'all' ? 'selected' : '' }}>{{ __('All Types') }}</option>
-                            <option value="credit" {{ request('type') == 'credit' ? 'selected' : '' }}>{{ __('Income (Credit)') }}</option>
-                            <option value="debit" {{ request('type') == 'debit' ? 'selected' : '' }}>{{ __('Expense (Debit)') }}</option>
-                        </select>
-
-                        {{-- Status Filter --}}
-                        <select name="status" onchange="this.form.submit()" class="bg-black/50 border border-white/10 rounded-full px-5 py-2.5 text-xs text-white outline-none focus:border-accent-primary transition-all">
-                            <option value="all" {{ request('status', 'all') == 'all' ? 'selected' : '' }}>{{ __('All Statuses') }}</option>
-                            <option value="completed" {{ request('status') == 'completed' ? 'selected' : '' }}>{{ __('Completed') }}</option>
-                            <option value="pending" {{ request('status') == 'pending' ? 'selected' : '' }}>{{ __('Pending') }}</option>
-                            <option value="failed" {{ request('status') == 'failed' ? 'selected' : '' }}>{{ __('Failed') }}</option>
-                        </select>
-
-                        <button type="submit" class="px-6 py-2.5 rounded-full bg-accent-primary hover:bg-accent-primary/90 text-black font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(226,177,60,0.2)] active:scale-[0.97]">
-                            {{ __('Filter') }}
-                        </button>
-                    </form>
-                </div>
-
-                {{-- Table --}}
-                <div id="table-content" class="overflow-x-auto">
-                    <table class="w-full text-left border-separate border-spacing-y-2">
-                        <thead>
-                            <tr class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-black">
-                                <th class="px-4 py-3">{{ __('Reference') }}</th>
-                                <th class="px-4 py-3">{{ __('Description') }}</th>
-                                <th class="px-4 py-3 text-right">{{ __('Amount') }}</th>
-                                <th class="px-4 py-3 text-right">{{ __('Date') }}</th>
-                                <th class="px-4 py-3 text-center">{{ __('Status') }}</th>
-                            </tr>
+                <div class="hidden overflow-x-auto md:block">
+                    <table class="w-full min-w-[760px] text-left">
+                        <thead class="border-b border-white/[0.05] bg-black/10 text-[9px] font-bold uppercase tracking-[0.15em] text-slate-600">
+                            <tr><th class="px-5 py-3">{{ __('Transaction') }}</th><th class="px-4 py-3">{{ __('Reference') }}</th><th class="px-4 py-3">{{ __('Date') }}</th><th class="px-4 py-3">{{ __('Status') }}</th><th class="px-5 py-3 text-right">{{ __('Amount') }}</th></tr>
                         </thead>
-                        <tbody class="text-xs">
-                            @forelse($transactions as $tx)
-                                <tr class="bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.05] transition-all">
-                                    <td class="px-4 py-4 font-black font-mono text-white">
-                                        {{ $tx->tnx_id ?? $tx->transaction_id ?? $tx->reference ?? '#' . $tx->id }}
-                                    </td>
-                                    <td class="px-4 py-4 font-bold text-slate-300">
-                                        {{ $tx->description ?? $tx->remark ?? __('Transaction') }}
-                                    </td>
-                                    <td class="px-4 py-4 text-right font-mono font-bold {{ (isset($tx->type) && strtolower($tx->type) == 'credit') || (isset($tx->tx_type) && $tx->tx_type == '+') ? 'text-emerald-400' : 'text-red-400' }}">
-                                        {{ (isset($tx->type) && strtolower($tx->type) == 'credit') || (isset($tx->tx_type) && $tx->tx_type == '+') ? '+' : '-' }}{{ showAmount($tx->amount) }}
-                                    </td>
-                                    <td class="px-4 py-4 text-right text-slate-400 font-medium">
-                                        {{ date('M d, Y H:i', strtotime($tx->created_at)) }}
-                                    </td>
-                                    <td class="px-4 py-4 text-center">
-                                        @php
-                                            $st = strtolower($tx->status ?? 'completed');
-                                            $statusClasses = [
-                                                'completed' => 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-                                                'approved' => 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-                                                'pending' => 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
-                                                'failed' => 'bg-red-500/10 text-red-400 border-red-500/20',
-                                            ];
-                                            $cls = $statusClasses[$st] ?? 'bg-white/5 text-slate-400 border-white/10';
-                                        @endphp
-                                        <span class="px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border {{ $cls }}">
-                                            {{ ucfirst($st) }}
-                                        </span>
-                                    </td>
+                        <tbody class="divide-y divide-white/[0.05]">
+                            @forelse ($transactions as $tx)
+                                @php
+                                    $isCredit = strtolower($tx->type ?? '') === 'credit' || ($tx->tx_type ?? null) === '+';
+                                    $status = strtolower($tx->status ?? 'completed');
+                                    $reference = $tx->tnx_id ?? $tx->transaction_id ?? $tx->reference ?? '#' . $tx->id;
+                                    $statusClass = match ($status) {
+                                        'completed', 'approved' => 'border-emerald-400/15 bg-emerald-400/[0.07] text-emerald-400',
+                                        'pending', 'processing' => 'border-amber-400/15 bg-amber-400/[0.07] text-amber-400',
+                                        'failed', 'rejected', 'cancelled' => 'border-rose-400/15 bg-rose-400/[0.07] text-rose-400',
+                                        default => 'border-white/[0.08] bg-white/[0.035] text-slate-400',
+                                    };
+                                @endphp
+                                <tr class="transition hover:bg-white/[0.025]">
+                                    <td class="px-5 py-3.5"><div class="flex items-center gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ $isCredit ? 'bg-emerald-400/[0.08] text-emerald-400' : 'bg-rose-400/[0.08] text-rose-400' }}">{{ $isCredit ? '↓' : '↑' }}</span><div class="min-w-0"><div class="max-w-[260px] truncate text-xs font-semibold text-slate-200">{{ $tx->description ?? $tx->remark ?? __('Transaction') }}</div><div class="mt-0.5 text-[9px] uppercase tracking-wider text-slate-600">{{ $isCredit ? __('Credit') : __('Debit') }}</div></div></div></td>
+                                    <td class="px-4 py-3.5 font-mono text-[10px] text-slate-500">{{ $reference }}</td>
+                                    <td class="px-4 py-3.5 text-[10px] text-slate-500"><span class="block text-slate-300">{{ $tx->created_at->format('M d, Y') }}</span>{{ $tx->created_at->format('H:i') }}</td>
+                                    <td class="px-4 py-3.5"><span class="inline-flex rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider {{ $statusClass }}">{{ __($status) }}</span></td>
+                                    <td class="px-5 py-3.5 text-right font-mono text-xs font-bold {{ $isCredit ? 'text-emerald-400' : 'text-rose-400' }}">{{ $isCredit ? '+' : '-' }}{{ showAmount($tx->amount) }}</td>
                                 </tr>
                             @empty
-                                <tr>
-                                    <td colspan="5" class="px-4 py-8 text-center text-slate-500 text-xs italic font-medium">
-                                        {{ __('No transactions found.') }}
-                                    </td>
-                                </tr>
+                                <tr><td colspan="5" class="px-5 py-14 text-center"><div class="text-sm font-semibold text-slate-400">{{ __('No transactions found') }}</div><p class="mt-1 text-[10px] text-slate-600">{{ $hasFilters ? __('Try changing or clearing your filters.') : __('Your account ledger will appear here.') }}</p></td></tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
 
-                {{-- Pagination --}}
-                <div class="mt-4">
-                    {{ $transactions->links() }}
+                <div class="divide-y divide-white/[0.06] md:hidden">
+                    @forelse ($transactions as $tx)
+                        @php
+                            $isCredit = strtolower($tx->type ?? '') === 'credit' || ($tx->tx_type ?? null) === '+';
+                            $status = strtolower($tx->status ?? 'completed');
+                            $reference = $tx->tnx_id ?? $tx->transaction_id ?? $tx->reference ?? '#' . $tx->id;
+                            $statusClass = match ($status) {
+                                'completed', 'approved' => 'text-emerald-400',
+                                'pending', 'processing' => 'text-amber-400',
+                                'failed', 'rejected', 'cancelled' => 'text-rose-400',
+                                default => 'text-slate-400',
+                            };
+                        @endphp
+                        <article class="p-4">
+                            <div class="flex items-start justify-between gap-4"><div class="flex min-w-0 items-center gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg {{ $isCredit ? 'bg-emerald-400/[0.08] text-emerald-400' : 'bg-rose-400/[0.08] text-rose-400' }}">{{ $isCredit ? '↓' : '↑' }}</span><div class="min-w-0"><h3 class="truncate text-xs font-semibold text-slate-200">{{ $tx->description ?? $tx->remark ?? __('Transaction') }}</h3><p class="mt-0.5 truncate font-mono text-[9px] text-slate-600">{{ $reference }}</p></div></div><div class="shrink-0 text-right"><div class="font-mono text-xs font-bold {{ $isCredit ? 'text-emerald-400' : 'text-rose-400' }}">{{ $isCredit ? '+' : '-' }}{{ showAmount($tx->amount) }}</div><div class="mt-1 text-[9px] font-bold uppercase {{ $statusClass }}">{{ __($status) }}</div></div></div>
+                            <div class="mt-3 flex items-center justify-between border-t border-white/[0.05] pt-2 text-[9px] text-slate-600"><span>{{ $isCredit ? __('Credit') : __('Debit') }}</span><time datetime="{{ $tx->created_at->toIso8601String() }}">{{ $tx->created_at->format('M d, Y · H:i') }}</time></div>
+                        </article>
+                    @empty
+                        <div class="p-12 text-center"><div class="text-sm font-semibold text-slate-400">{{ __('No transactions found') }}</div><p class="mt-1 text-[10px] text-slate-600">{{ $hasFilters ? __('Try changing or clearing your filters.') : __('Your account ledger will appear here.') }}</p></div>
+                    @endforelse
                 </div>
 
+                @if ($transactions->hasPages())
+                    <div class="border-t border-white/[0.07] px-4 py-4 sm:px-5">{{ $transactions->withQueryString()->links() }}</div>
+                @endif
+            </section>
+
+            <div class="grid grid-cols-1 gap-3 sm:grid-cols-3">
+                <div class="rounded-xl border border-white/[0.07] bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">{{ __('Activity') }}</p><p class="mt-2 text-sm font-bold text-white">{{ $activity->month_count }} {{ __('this month') }}</p><p class="mt-1 text-[10px] text-slate-600">{{ $activity->today_count }} {{ __('today') }} · {{ $activity->week_count }} {{ __('this week') }}</p></div>
+                <div class="rounded-xl border border-white/[0.07] bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">{{ __('Status Overview') }}</p><p class="mt-2 text-sm font-bold text-white">{{ round($successRate) }}% {{ __('completed') }}</p><p class="mt-1 text-[10px] text-slate-600">{{ $statusCounts->pending_count }} {{ __('pending') }} · {{ $statusCounts->failed_count }} {{ __('failed') }}</p></div>
+                <div class="rounded-xl border border-white/[0.07] bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">{{ __('Average Completed Entry') }}</p><p class="mt-2 text-sm font-bold text-emerald-400">{{ number_format((float) ($sizeStats->avg_credit ?? 0), $decimalPlaces) }} <span class="text-[9px] text-slate-600">{{ __('credit') }}</span></p><p class="mt-1 text-[10px] text-rose-400">{{ number_format((float) ($sizeStats->avg_debit ?? 0), $decimalPlaces) }} <span class="text-slate-600">{{ __('debit') }}</span></p></div>
             </div>
         </div>
-
     </div>
-</div>
 @endsection
