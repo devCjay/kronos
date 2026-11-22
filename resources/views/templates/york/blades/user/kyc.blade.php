@@ -335,10 +335,21 @@
 @endsection
 
 @section('scripts')
+@php
+    $mobileStepLabels = [
+        __('Personal Details'),
+        __('Document Upload'),
+        __('Selfie Verification'),
+        __('Address Verification'),
+        __('Security Check'),
+        __('Review & Submit'),
+    ];
+    $submittedForReviewLabel = __('Submitted for review');
+@endphp
 <script>
 $(document).ready(function(){
     let cs=1,ts=6;
-    const mobileStepLabels = @json([__('Personal Details'), __('Document Upload'), __('Selfie Verification'), __('Address Verification'), __('Security Check'), __('Review & Submit')]);
+    const mobileStepLabels = {{ Illuminate\Support\Js::from($mobileStepLabels) }};
     function ur(s){
         for(let i=1;i<=ts;i++){
             var nd=$(`#rail-node-${i}`),lb=$(`#rail-label-${i}`),ck=$(`#rail-check-${i}`),nm=$(`#rail-num-${i}`),ln=$(`#rail-line-${i}`);
@@ -349,7 +360,7 @@ $(document).ready(function(){
     }
     function ui(){
         $('.kyc-step').addClass('hidden');
-        if(cs==='success'){$(`.kyc-step[data-step="success"]`).removeClass('hidden');$('#form-actions').addClass('hidden');$('#mobile-step-label').text(@json(__('Submitted for review')));$('#mobile-step-number').text('6');$('#mobile-step-progress').css('width','100%').removeClass('from-amber-500 to-amber-300').addClass('bg-emerald-400');return;}
+        if(cs==='success'){$(`.kyc-step[data-step="success"]`).removeClass('hidden');$('#form-actions').addClass('hidden');$('#mobile-step-label').text({{ Illuminate\Support\Js::from($submittedForReviewLabel) }});$('#mobile-step-number').text('6');$('#mobile-step-progress').css('width','100%').removeClass('from-amber-500 to-amber-300').addClass('bg-emerald-400');return;}
         $(`.kyc-step[data-step="${cs}"]`).removeClass('hidden');
         $('#mobile-step-label').text(mobileStepLabels[cs-1]);
         $('#mobile-step-number').text(cs);
