@@ -1,25 +1,31 @@
 @extends('templates.york.blades.layouts.user')
 
 @section('content')
-<div class="min-h-screen relative">
-    <div class="fixed top-0 right-0 w-[40rem] h-[40rem] bg-accent-primary/5 rounded-full blur-[120px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[30rem] h-[30rem] bg-teal-500/5 rounded-full blur-[120px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+<div class="min-h-screen relative pb-10">
+    <div class="fixed top-0 right-0 w-[40rem] h-[40rem] bg-amber-500/[0.04] rounded-full blur-[120px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
+    <div class="fixed bottom-0 left-0 w-[30rem] h-[30rem] bg-orange-500/[0.03] rounded-full blur-[120px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
     <div class="relative z-10 max-w-6xl mx-auto">
 
         {{-- FORM STATE --}}
         <div id="kyc-submission-form" class="{{ isset($last_kyc) && $last_kyc ? 'hidden' : '' }}">
-            <div class="mb-8">
-                <div class="flex items-center gap-2 mb-3">
-                    <span class="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse shadow-[0_0_8px_rgba(226,177,60,0.7)]"></span>
-                    <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-500">{{ __('Identity Verification') }}</span>
+            <div class="mb-7 flex flex-col gap-5 border-b border-white/[0.06] pb-6 sm:flex-row sm:items-end sm:justify-between">
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-primary shadow-[0_0_8px_rgba(226,177,60,0.7)]"></span>
+                        <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-500">{{ __('Identity Verification') }}</span>
+                    </div>
+                    <h1 class="text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">{{ __('Verify Your Identity') }}</h1>
+                    <p class="text-slate-500 text-sm mt-2 font-medium max-w-2xl">{{ __('Complete the secure verification flow to unlock all account features.') }}</p>
                 </div>
-                <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 tracking-tight leading-tight">{{ __('Verify Your Identity') }}</h1>
-                <p class="text-slate-500 text-sm mt-2 font-medium">{{ __('Complete the steps below to verify your account and unlock all features.') }}</p>
+                <div class="flex shrink-0 items-center gap-3 rounded-xl border border-emerald-400/10 bg-emerald-400/[0.035] px-3.5 py-3">
+                    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-400/[0.08] text-emerald-400"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+                    <div><div class="text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-400">{{ __('Secure submission') }}</div><div class="mt-0.5 text-[10px] text-slate-500">{{ __('Encrypted identity documents') }}</div></div>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
                 {{-- Left Rail --}}
-                <div class="lg:col-span-4 lg:sticky lg:top-24">
+                <div class="hidden lg:col-span-4 lg:sticky lg:top-24 lg:block">
                     <div class="flex items-center gap-3 mb-6 p-4 rounded-2xl border border-white/5 bg-white/[0.02]">
                         <div class="w-10 h-10 rounded-full bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center text-accent-primary font-black text-sm shrink-0">
                             {{ strtoupper(substr(Auth::user()->first_name ?? 'U', 0, 1)) }}
@@ -62,12 +68,19 @@
                 </div>
                 {{-- Right Form Panel --}}
                 <div class="lg:col-span-8">
-                    <form id="kyc-form" method="POST" enctype="multipart/form-data" class="relative rounded-2xl overflow-hidden" style="background:linear-gradient(145deg,rgba(8,9,14,0.97) 0%,rgba(5,6,10,0.99) 100%);border:1px solid rgba(255,255,255,0.06);">
+                    <div class="mb-4 rounded-xl border border-white/[0.07] bg-[#151a21]/90 p-4 lg:hidden">
+                        <div class="flex items-center justify-between gap-3">
+                            <div><div class="text-[9px] font-bold uppercase tracking-[0.14em] text-slate-500">{{ __('Verification progress') }}</div><div id="mobile-step-label" class="mt-1 text-sm font-bold text-white">{{ __('Personal Details') }}</div></div>
+                            <div class="font-mono text-xs font-bold text-amber-400"><span id="mobile-step-number">1</span><span class="text-slate-600"> / 6</span></div>
+                        </div>
+                        <div class="mt-3 h-1.5 overflow-hidden rounded-full bg-white/[0.06]"><div id="mobile-step-progress" class="h-full w-1/6 rounded-full bg-gradient-to-r from-amber-500 to-amber-300 transition-all duration-500"></div></div>
+                    </div>
+                    <form id="kyc-form" action="{{ route('user.kyc.submit') }}" method="POST" enctype="multipart/form-data" class="relative rounded-2xl overflow-hidden" style="background:linear-gradient(145deg,rgba(21,26,33,0.98) 0%,rgba(11,14,17,0.99) 100%);border:1px solid rgba(255,255,255,0.08);">
                         @csrf
                         <div class="absolute top-0 right-0 w-64 h-64 bg-accent-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
                         <div class="absolute bottom-0 left-0 w-48 h-48 bg-teal-500/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
-                        <div class="p-6 lg:p-8 relative z-10 min-h-[440px] flex flex-col">
+                        <div class="p-5 sm:p-6 lg:p-8 relative z-10 min-h-[420px] lg:min-h-[440px] flex flex-col">
 
                             {{-- STEP 1 --}}
                             <div class="kyc-step flex-1 flex flex-col" data-step="1">
@@ -102,8 +115,8 @@
                                     </div>
                                     <div class="space-y-1.5 md:col-span-2">
                                         <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Phone Number') }}</label>
-                                        <div class="flex gap-2">
-                                            <div class="relative w-[130px] shrink-0">
+                                        <div class="flex flex-col gap-2 sm:flex-row">
+                                            <div class="relative w-full sm:w-[130px] sm:shrink-0">
                                                 <select name="phone_code" id="country_code_select" class="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl pl-9 pr-3 py-3 text-white text-sm focus:outline-none focus:border-accent-primary/60 appearance-none truncate cursor-pointer transition-all">
                                                     @foreach($countries as $country)
                                                     <option value="{{ $country['dial_code'] }}" data-flag="{{ strtolower($country['code']) }}" class="bg-[#0a0b10]" {{ $country['code']=='US'?'selected':'' }}>{{ $country['code'] }} ({{ $country['dial_code'] }})</option>
@@ -122,7 +135,7 @@
                                 <div class="mb-6"><h3 class="text-lg font-black text-white tracking-tight">{{ __('Document Upload') }}</h3><p class="text-[11px] text-slate-500 mt-1">{{ __('Select your document type and upload clear, unobstructed photos.') }}</p></div>
                                 <div class="mb-6">
                                     <label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest block mb-3">{{ __('Document Type') }}</label>
-                                    <div class="grid grid-cols-3 gap-3">
+                                    <div class="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:gap-3">
                                         @foreach([['value'=>'passport','label'=>__('Passport')],['value'=>'id_card','label'=>__('National ID')],['value'=>'drivers_license','label'=>__("Driver's License")]] as $doc)
                                         <label class="cursor-pointer"><input type="radio" name="document_type" value="{{ $doc['value'] }}" class="peer sr-only" {{ $doc['value']==='passport'?'checked':'' }}><div class="py-3 px-2 rounded-xl border border-white/[0.08] bg-white/[0.03] text-slate-500 peer-checked:bg-accent-primary/10 peer-checked:text-accent-primary peer-checked:border-accent-primary/40 transition-all text-center text-[11px] font-bold uppercase tracking-wider">{{ $doc['label'] }}</div></label>
                                         @endforeach
@@ -171,7 +184,7 @@
                                 <div class="mb-6"><h3 class="text-lg font-black text-white tracking-tight">{{ __('Address Verification') }}</h3><p class="text-[11px] text-slate-500 mt-1">{{ __('Enter your current residential address and upload a recent proof of address document.') }}</p></div>
                                 <div class="space-y-4">
                                     <div class="space-y-1.5"><label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Address Line 1') }}</label><input type="text" name="address_line_1" class="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-primary/60 focus:ring-1 focus:ring-accent-primary/30 transition-all placeholder:text-slate-600" placeholder="123 Main St"></div>
-                                    <div class="grid grid-cols-2 gap-4">
+                                    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
                                         <div class="space-y-1.5"><label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('City') }}</label><input type="text" name="city" class="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-primary/60 focus:ring-1 focus:ring-accent-primary/30 transition-all placeholder:text-slate-600" placeholder="New York"></div>
                                         <div class="space-y-1.5"><label class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('ZIP') }}</label><input type="text" name="zip" class="w-full bg-white/[0.03] border border-white/[0.08] rounded-xl px-4 py-3 text-white text-sm focus:outline-none focus:border-accent-primary/60 focus:ring-1 focus:ring-accent-primary/30 transition-all placeholder:text-slate-600" placeholder="10001"></div>
                                     </div>
@@ -239,7 +252,7 @@
                                     </div>
                                     <div class="rounded-xl p-4 border border-white/[0.08] bg-white/[0.02]">
                                         <h4 class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-3 flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>{{ __('Documents') }}</h4>
-                                        <div class="grid grid-cols-2 gap-3">
+                                        <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
                                             <div class="flex items-center gap-2.5 rounded-lg bg-black/30 px-3 py-2.5 border border-white/5"><div class="w-7 h-7 rounded bg-accent-primary/15 text-accent-primary flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div><span class="text-[9px] text-slate-600 block">{{ __('ID Type') }}</span><span class="text-white font-bold text-xs capitalize" id="review_doc_type_label">--</span></div></div>
                                             <div class="flex items-center gap-2.5 rounded-lg bg-black/30 px-3 py-2.5 border border-white/5"><div class="w-7 h-7 rounded bg-emerald-500/15 text-emerald-500 flex items-center justify-center shrink-0"><svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div><div><span class="text-[9px] text-slate-600 block">{{ __('Security Check') }}</span><span class="text-emerald-400 font-bold text-xs">{{ __('Passed') }}</span></div></div>
                                         </div>
@@ -259,11 +272,11 @@
                         </div>
 
                         {{-- Nav footer --}}
-                        <div class="px-6 lg:px-8 py-4 border-t border-white/5 flex justify-between items-center" id="form-actions">
-                            <button type="button" id="btn-back" class="hidden items-center gap-2 px-5 py-2.5 rounded-xl border border-white/[0.08] text-slate-400 font-bold text-sm hover:text-white hover:bg-white/5 transition-all cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>{{ __('Back') }}</button>
-                            <div class="ml-auto flex items-center gap-3">
-                                <button type="button" id="btn-next" class="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl bg-accent-primary/90 hover:bg-accent-primary text-black font-black text-sm transition-all shadow-lg shadow-accent-primary/20 cursor-pointer">{{ __('Continue') }}<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></button>
-                                <button type="submit" id="btn-submit" class="hidden items-center gap-2 px-6 py-2.5 rounded-xl bg-emerald-500/90 hover:bg-emerald-500 text-white font-black text-sm transition-all shadow-lg shadow-emerald-500/20 cursor-pointer">{{ __('Submit Verification') }}<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></button>
+                        <div class="sticky bottom-0 z-30 flex items-center justify-between gap-3 border-t border-white/[0.07] bg-[#11161c]/95 px-4 py-4 backdrop-blur-xl sm:px-6 lg:static lg:px-8" id="form-actions">
+                            <button type="button" id="btn-back" class="hidden min-h-11 items-center justify-center gap-2 rounded-xl border border-white/[0.08] px-4 text-sm font-bold text-slate-400 transition-all hover:bg-white/5 hover:text-white sm:px-5 cursor-pointer"><svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>{{ __('Back') }}</button>
+                            <div class="ml-auto flex flex-1 items-center gap-3 sm:flex-none">
+                                <button type="button" id="btn-next" class="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-accent-primary/90 px-6 text-sm font-black text-black shadow-lg shadow-accent-primary/20 transition-all hover:bg-accent-primary sm:flex-none cursor-pointer">{{ __('Continue') }}<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg></button>
+                                <button type="submit" id="btn-submit" class="hidden min-h-11 flex-1 items-center justify-center gap-2 rounded-xl bg-emerald-500/90 px-6 text-sm font-black text-white shadow-lg shadow-emerald-500/20 transition-all hover:bg-emerald-500 sm:flex-none cursor-pointer">{{ __('Submit Verification') }}<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></button>
                             </div>
                         </div>
 </form>
@@ -280,9 +293,10 @@
             $isReviewComplete=$isApproved||$isRejected;
         @endphp
         <div id="kyc-status-card">
-            <div class="mb-8">
-                <div class="flex items-center gap-2 mb-3"><span class="w-1.5 h-1.5 rounded-full bg-{{ $statusClr }}-400 animate-pulse"></span><span class="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-500">{{ __('Identity Verification') }}</span></div>
-                <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 tracking-tight leading-tight">{{ __('Verification Status') }}</h1>
+            <div class="mb-7 border-b border-white/[0.06] pb-6">
+                <div class="flex items-center gap-2 mb-3"><span class="h-1.5 w-1.5 rounded-full {{ $isApproved ? 'bg-emerald-400' : ($isRejected ? 'bg-rose-400' : 'animate-pulse bg-amber-400') }}"></span><span class="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-500">{{ __('Identity Verification') }}</span></div>
+                <h1 class="text-3xl md:text-4xl font-black text-white tracking-tight leading-tight">{{ __('Verification Status') }}</h1>
+                <p class="mt-2 max-w-2xl text-sm text-slate-500">{{ __('Track your identity review and any action required to complete verification.') }}</p>
             </div>
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
                 <div class="lg:col-span-5">
@@ -324,6 +338,7 @@
 <script>
 $(document).ready(function(){
     let cs=1,ts=6;
+    const mobileStepLabels = @json([__('Personal Details'), __('Document Upload'), __('Selfie Verification'), __('Address Verification'), __('Security Check'), __('Review & Submit')]);
     function ur(s){
         for(let i=1;i<=ts;i++){
             var nd=$(`#rail-node-${i}`),lb=$(`#rail-label-${i}`),ck=$(`#rail-check-${i}`),nm=$(`#rail-num-${i}`),ln=$(`#rail-line-${i}`);
@@ -334,8 +349,11 @@ $(document).ready(function(){
     }
     function ui(){
         $('.kyc-step').addClass('hidden');
-        if(cs==='success'){$(`.kyc-step[data-step="success"]`).removeClass('hidden');$('#form-actions').addClass('hidden');return;}
+        if(cs==='success'){$(`.kyc-step[data-step="success"]`).removeClass('hidden');$('#form-actions').addClass('hidden');$('#mobile-step-label').text(@json(__('Submitted for review')));$('#mobile-step-number').text('6');$('#mobile-step-progress').css('width','100%').removeClass('from-amber-500 to-amber-300').addClass('bg-emerald-400');return;}
         $(`.kyc-step[data-step="${cs}"]`).removeClass('hidden');
+        $('#mobile-step-label').text(mobileStepLabels[cs-1]);
+        $('#mobile-step-number').text(cs);
+        $('#mobile-step-progress').css('width',`${(cs/ts)*100}%`);
         if(cs===1){$('#btn-back').addClass('hidden').removeClass('inline-flex');}else{$('#btn-back').removeClass('hidden').addClass('inline-flex');}
         if(cs===ts){$('#btn-next').addClass('hidden');$('#btn-submit').removeClass('hidden').addClass('inline-flex');}else{$('#btn-next').removeClass('hidden');$('#btn-submit').addClass('hidden').removeClass('inline-flex');}
         ur(cs);
