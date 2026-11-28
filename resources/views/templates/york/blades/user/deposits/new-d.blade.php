@@ -1,38 +1,38 @@
 @extends('templates.york.blades.layouts.user')
 
 @section('content')
-<div class="min-h-screen relative space-y-8 pb-16">
+@php $depositTokenGroups = array_values($token_blockchain_map); @endphp
+<div class="min-h-screen relative space-y-4 pb-16">
 
     {{-- Global ambient background blur --}}
     <div class="fixed top-0 right-0 w-[40rem] h-[40rem] bg-accent-primary/5 rounded-full blur-[120px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[30rem] h-[30rem] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="fixed bottom-0 left-0 w-[30rem] h-[30rem] bg-orange-500/[0.03] rounded-full blur-[120px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
 
-    <div class="relative z-10 max-w-5xl mx-auto space-y-8">
+    <div class="relative z-10 max-w-6xl mx-auto space-y-4">
 
         {{-- ══ HEADER DECK ══════════════════════════════════════════════════════ --}}
-        <div class="relative rounded-2xl overflow-hidden p-6 md:p-8"
-             style="background: linear-gradient(145deg, rgba(8,9,14,0.97) 0%, rgba(5,6,10,0.99) 100%); border: 1px solid rgba(255,255,255,0.06);">
+        <div class="relative rounded-2xl overflow-hidden border border-white/[0.08] bg-[#111318] p-5 sm:p-6">
             
             <div class="absolute top-0 right-0 w-80 h-80 bg-accent-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
 
-            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div class="relative z-10 flex flex-col md:flex-row md:items-end justify-between gap-5">
                 <div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse shadow-[0_0_8px_rgba(226,177,60,0.7)]"></span>
-                        <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-500">{{ __('Deposit Portal') }}</span>
+                    <div class="flex items-center gap-2 mb-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-accent-primary shadow-[0_0_8px_rgba(226,177,60,0.7)]"></span>
+                        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-amber-400">{{ __('On-chain funding') }}</span>
                     </div>
-                    <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 tracking-tight leading-tight">
+                    <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight leading-tight">
                         {{ __('Deposit Crypto') }}
                     </h1>
-                    <p class="text-slate-500 text-sm mt-2 font-medium max-w-xl">
-                        {{ __('Select a token and network to view or generate your deposit address.') }}
+                    <p class="text-slate-400 text-xs leading-5 mt-1.5 font-medium max-w-2xl">
+                        {{ __('Choose the asset first, then confirm the exact blockchain network before sending funds to your personal address.') }}
                     </p>
                 </div>
 
                 <div class="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
-                    <div class="inline-flex items-center gap-2 rounded-xl border border-white/8 bg-white/[0.02] px-4 py-2.5 text-xs font-bold text-slate-300">
-                        <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        <span>{{ __(':count Tokens Active', ['count' => count($token_blockchain_map)]) }}</span>
+                    <div class="inline-flex items-center gap-2 rounded-xl border border-emerald-400/10 bg-emerald-400/[0.035] px-4 py-2.5 text-xs font-bold text-slate-300">
+                        <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+                        <span>{{ trans_choice(':count asset available|:count assets available', count($depositTokenGroups), ['count' => count($depositTokenGroups)]) }}</span>
                     </div>
                 </div>
             </div>
@@ -53,13 +53,12 @@
             </div>
         @else
             {{-- ══ SEARCH & FILTER BAR ══════════════════════════════════════════════ --}}
-            <div class="relative rounded-2xl overflow-hidden p-4"
-                 style="background: linear-gradient(145deg, rgba(8,9,14,0.95) 0%, rgba(4,5,8,0.98) 100%); border: 1px solid rgba(255,255,255,0.05);">
-                <div class="relative">
+            <div class="rounded-2xl border border-white/[0.08] bg-[#111318] p-4">
+                <div class="relative flex items-center gap-3">
                     <input id="deposit-token-search"
-                           type="text"
-                           placeholder="{{ __('Search by token name, symbol, or blockchain network (e.g. USDT, Solana, TRX)...') }}"
-                           class="w-full bg-white/[0.03] border border-white/8 rounded-xl pl-11 pr-4 py-3.5 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-primary/60 transition-all font-medium">
+                           type="search" aria-label="{{ __('Search deposit assets') }}"
+                           placeholder="{{ __('Search asset or network') }}"
+                           class="h-11 w-full bg-[#0b0e11] border border-white/[0.09] rounded-xl pl-11 pr-4 text-sm text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-primary/60 focus:ring-4 focus:ring-amber-400/[0.08] transition-all font-medium">
                     <svg class="w-4 h-4 text-slate-600 absolute left-4 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                     </svg>
@@ -67,18 +66,17 @@
             </div>
 
             {{-- ══ TOKEN CARDS LIST ═════════════════════════════════════════════════ --}}
-            <div class="space-y-4">
-                @foreach ($token_blockchain_map as $index => $tokenGroup)
+            <div class="grid grid-cols-1 gap-3 lg:grid-cols-2" id="deposit-assets-grid">
+                @foreach ($depositTokenGroups as $index => $tokenGroup)
                     @php $token = $tokenGroup['token']; @endphp
                     
-                    <div class="deposit-token-card relative rounded-2xl overflow-hidden transition-all duration-300 hover:border-white/10"
-                         style="background: linear-gradient(145deg, rgba(8,9,14,0.95) 0%, rgba(4,5,8,0.98) 100%); border: 1px solid rgba(255,255,255,0.05);"
+                    <div class="deposit-token-card relative rounded-xl overflow-hidden border border-white/[0.07] bg-[#111318] transition-all duration-200 hover:border-white/[0.14]"
                          data-search="{{ strtolower($token['symbol']) }} {{ strtolower($token['name']) }} {{ collect($tokenGroup['blockchains'])->pluck('blockchain_code')->map(fn($code) => strtolower($code))->implode(' ') }}">
                         
                         {{-- Token Main Row --}}
-                        <div class="flex items-center justify-between gap-4 p-5">
-                            <div class="flex items-center gap-4 min-w-0">
-                                <div class="w-12 h-12 rounded-2xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center text-accent-primary font-black text-xs shrink-0 overflow-hidden relative shadow-[0_0_15px_rgba(226,177,60,0.1)]">
+                        <div class="flex flex-col gap-4 p-4 sm:flex-row sm:items-center sm:justify-between">
+                            <div class="flex items-center gap-3 min-w-0">
+                                <div class="w-11 h-11 rounded-xl bg-accent-primary/10 border border-accent-primary/20 flex items-center justify-center text-accent-primary font-black text-xs shrink-0 overflow-hidden relative">
                                     @php
                                         $tokenLogo = !empty($token['logo']) ? asset($token['logo']) : asset('assets/images/tokens/' . strtolower($token['symbol']) . '.png');
                                     @endphp
@@ -91,7 +89,7 @@
                                 <div class="min-w-0">
                                     <div class="flex items-center gap-2">
                                         <h3 class="text-base font-black text-white tracking-tight">{{ $token['symbol'] }}</h3>
-                                        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest bg-white/5 border border-white/5 px-2 py-0.5 rounded-md">
+                                        <span class="truncate text-[9px] font-bold text-slate-500 uppercase tracking-wider bg-white/5 border border-white/5 px-2 py-0.5 rounded-md">
                                             {{ $token['name'] }}
                                         </span>
                                     </div>
@@ -102,9 +100,8 @@
                             </div>
 
                             <div class="flex items-center gap-3 shrink-0">
-                                <button type="button"
-                                        class="px-5 py-2.5 rounded-xl bg-accent-primary/10 hover:bg-accent-primary text-accent-primary hover:text-black font-black text-xs uppercase tracking-wider transition-all border border-accent-primary/20 hover:border-accent-primary shadow-[0_0_15px_rgba(226,177,60,0.15)] active:scale-95 cursor-pointer flex items-center gap-2"
-                                        onclick="openNetworkSelectionModal({{ json_encode($tokenGroup) }})">
+                                <button type="button" data-token-index="{{ $index }}"
+                                        class="select-network-button flex min-h-10 w-full items-center justify-center gap-2 rounded-xl border border-accent-primary/20 bg-accent-primary/10 px-4 text-[10px] font-black uppercase tracking-wider text-accent-primary transition hover:border-accent-primary hover:bg-accent-primary hover:text-black focus:outline-none focus:ring-4 focus:ring-amber-400/10 sm:w-auto cursor-pointer">
                                     <span>{{ __('Select Network') }}</span>
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
                                 </button>
@@ -113,15 +110,15 @@
                     </div>
                 @endforeach
             </div>
+            <div id="deposit-search-empty" class="hidden rounded-2xl border border-dashed border-white/[0.09] bg-[#111318] p-10 text-center"><p class="text-sm font-semibold text-slate-300">{{ __('No matching deposit assets') }}</p><p class="mt-1 text-[10px] text-slate-600">{{ __('Try another asset symbol or network name.') }}</p></div>
         @endif
 
     </div>
 </div>
 
 {{-- ══ STEP 1: NETWORK SELECTION MODAL ════════════════════════════════════════ --}}
-<div id="networkSelectionModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-200">
-    <div class="relative w-full max-w-lg rounded-2xl overflow-hidden shadow-2xl"
-         style="background: linear-gradient(145deg, rgba(12,14,20,0.98) 0%, rgba(6,7,12,0.99) 100%); border: 1px solid rgba(255,255,255,0.08);">
+<div id="networkSelectionModal" class="hidden fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-md p-0 sm:items-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="modalTokenTitle">
+    <div class="relative flex max-h-[92dvh] w-full max-w-lg flex-col overflow-hidden rounded-t-2xl border border-white/[0.09] bg-[#11161c] shadow-2xl sm:rounded-2xl">
         
         {{-- Header --}}
         <div class="p-6 border-b border-white/5 flex items-center justify-between">
@@ -136,27 +133,26 @@
                 </div>
             </div>
 
-            <button type="button" onclick="closeNetworkSelectionModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+            <button type="button" onclick="closeNetworkSelectionModal()" aria-label="{{ __('Close network selection') }}" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/30">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
         </div>
 
         {{-- Network List Body --}}
-        <div id="modalNetworkList" class="p-6 space-y-3 max-h-[60vh] overflow-y-auto">
+        <div id="modalNetworkList" class="p-4 sm:p-6 space-y-3 overflow-y-auto overscroll-contain">
             {{-- Dynamically populated --}}
         </div>
     </div>
 </div>
 
 {{-- ══ STEP 2: DEPOSIT VAULT & QR CODE MODAL ══════════════════════════════════ --}}
-<div id="depositVaultModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md p-4 animate-in fade-in duration-200">
-    <div class="relative w-full max-w-md rounded-2xl overflow-hidden shadow-2xl"
-         style="background: linear-gradient(145deg, rgba(12,14,20,0.98) 0%, rgba(6,7,12,0.99) 100%); border: 1px solid rgba(255,255,255,0.08);">
+<div id="depositVaultModal" class="hidden fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-md p-0 sm:items-center sm:p-4" role="dialog" aria-modal="true" aria-labelledby="vaultModalHeaderTitle">
+    <div class="relative max-h-[94dvh] w-full max-w-md overflow-y-auto overscroll-contain rounded-t-2xl border border-white/[0.09] bg-[#11161c] shadow-2xl sm:rounded-2xl">
         
         {{-- Vault Header --}}
         <div class="p-6 border-b border-white/5 flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <button type="button" onclick="backToNetworkSelection()" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all mr-1" title="{{ __('Back to networks') }}">
+                <button type="button" onclick="backToNetworkSelection()" class="p-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white transition-all mr-1 cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/30" title="{{ __('Back to networks') }}">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
                 </button>
                 <div>
@@ -165,25 +161,25 @@
                 </div>
             </div>
 
-            <button type="button" onclick="closeDepositVaultModal()" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all">
+            <button type="button" onclick="closeDepositVaultModal()" aria-label="{{ __('Close deposit address') }}" class="w-8 h-8 rounded-xl bg-white/5 hover:bg-white/10 text-slate-400 hover:text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none focus:ring-2 focus:ring-amber-400/30">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
             </button>
         </div>
 
         {{-- Vault Body --}}
-        <div class="p-6 space-y-5 text-center">
+        <div class="p-5 sm:p-6 space-y-5 text-center">
             
             {{-- QR Code Box --}}
             <div id="vaultQrContainer" class="flex flex-col items-center justify-center">
                 <div class="p-3 bg-white rounded-2xl shadow-xl border border-white/10">
-                    <img id="vaultQrImage" src="" alt="QR Code" class="w-36 h-36">
+                    <img id="vaultQrImage" src="" alt="{{ __('Deposit address QR code') }}" class="w-36 h-36">
                 </div>
                 <p class="text-[10px] font-mono text-slate-500 mt-2">{{ __('Scan address with your mobile wallet app') }}</p>
             </div>
 
             {{-- Address Block or Generate CTA --}}
             <div id="vaultAddressContainer" class="space-y-3">
-                <div class="text-[10px] font-bold uppercase tracking-widest text-slate-500 text-left">{{ __('Personal Deposit Address') }}</div>
+                <div class="flex items-center justify-between gap-3 text-left"><span class="text-[10px] font-bold uppercase tracking-widest text-slate-500">{{ __('Personal Deposit Address') }}</span><span class="rounded-full border border-emerald-400/15 bg-emerald-400/[0.07] px-2 py-0.5 text-[8px] font-bold uppercase text-emerald-400">{{ __('Network specific') }}</span></div>
                 
                 <div class="p-3.5 rounded-xl bg-black/50 border border-white/8 font-mono text-xs text-white break-all text-left flex items-center justify-between gap-2 shadow-inner">
                     <span id="vaultAddressText" class="select-all"></span>
@@ -224,8 +220,13 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
+const depositTokenGroups = {{ Illuminate\Support\Js::from($depositTokenGroups) }};
 let currentActiveTokenGroup = null;
 let currentActiveNetwork = null;
+
+function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>'"]/g, character => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' }[character]));
+}
 
 function openNetworkSelectionModal(tokenGroup) {
     currentActiveTokenGroup = tokenGroup;
@@ -240,23 +241,23 @@ function openNetworkSelectionModal(tokenGroup) {
 
     // Populate Network List
     let html = '';
-    tokenGroup.blockchains.forEach(function(net) {
+    tokenGroup.blockchains.forEach(function(net, networkIndex) {
         const netLogo = net.blockchain_logo ? ('/' + net.blockchain_logo.replace(/^\//, '')) : ('/assets/images/tokens/' + net.blockchain_code.toLowerCase() + '.png');
         const statusBadge = net.wallet_exists 
-            ? '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>Address Active</span>'
-            : '<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20"><span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>Address Pending</span>';
+            ? '<span class="inline-flex items-center gap-1.5 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-emerald-400"><span class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>{{ __('Address active') }}</span>'
+            : '<span class="inline-flex items-center gap-1.5 rounded-full border border-amber-500/20 bg-amber-500/10 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-amber-400"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>{{ __('Setup required') }}</span>';
 
         html += `
-            <div onclick="selectNetworkAndOpenVault(${JSON.stringify(net).replace(/"/g, '&quot;')})"
-                 class="group p-4 rounded-xl bg-white/[0.02] hover:bg-white/[0.05] border border-white/5 hover:border-accent-primary/40 transition-all cursor-pointer flex items-center justify-between gap-4">
+            <button type="button" data-network-index="${networkIndex}"
+                 class="network-option group flex w-full cursor-pointer items-center justify-between gap-4 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-left transition hover:border-accent-primary/40 hover:bg-white/[0.05] focus:outline-none focus:ring-2 focus:ring-amber-400/30">
                 <div class="flex items-center gap-3 min-w-0">
                     <div class="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shrink-0 group-hover:border-accent-primary/40 transition-all">
-                        <img src="${netLogo}" onerror="this.style.display='none';" class="w-6 h-6 object-contain">
+                        <img src="${escapeHtml(netLogo)}" alt="" onerror="this.style.display='none';" class="w-6 h-6 object-contain">
                     </div>
                     <div>
                         <div class="text-sm font-bold text-white group-hover:text-accent-primary transition-colors flex items-center gap-2">
-                            <span>${net.blockchain_network || net.blockchain_name}</span>
-                            <span class="text-[10px] font-mono text-slate-500">(${net.blockchain_code.toUpperCase()})</span>
+                            <span>${escapeHtml(net.blockchain_network || net.blockchain_name)}</span>
+                            <span class="text-[10px] font-mono text-slate-500">(${escapeHtml(net.blockchain_code.toUpperCase())})</span>
                         </div>
                         <div class="mt-1">${statusBadge}</div>
                     </div>
@@ -265,16 +266,19 @@ function openNetworkSelectionModal(tokenGroup) {
                 <div class="shrink-0 text-slate-400 group-hover:text-accent-primary transition-colors">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
                 </div>
-            </div>
+            </button>
         `;
     });
 
     $('#modalNetworkList').html(html);
     $('#networkSelectionModal').removeClass('hidden');
+    $('body').addClass('overflow-hidden');
+    $('#networkSelectionModal button').first().trigger('focus');
 }
 
 function closeNetworkSelectionModal() {
     $('#networkSelectionModal').addClass('hidden');
+    if ($('#depositVaultModal').hasClass('hidden')) $('body').removeClass('overflow-hidden');
 }
 
 function selectNetworkAndOpenVault(network) {
@@ -288,7 +292,7 @@ function selectNetworkAndOpenVault(network) {
     $('#vaultModalHeaderSub').text('{{ __('Deposit via ') }}' + network.blockchain_name + ' (' + network.blockchain_code.toUpperCase() + ')');
 
     // Warning Text
-    $('#vaultWarningText').html('Send only <strong>' + token.symbol + '</strong> via the <strong>' + network.blockchain_name + ' (' + network.blockchain_code.toUpperCase() + ')</strong> network to this address. Transferred funds will settle automatically.');
+    $('#vaultWarningText').text({{ Illuminate\Support\Js::from(__('Send only the selected asset through this exact network. Transfers made with an incompatible asset or network may be permanently lost.')) }} + ' ' + token.symbol + ' · ' + network.blockchain_name + ' (' + network.blockchain_code.toUpperCase() + ')');
 
     if (network.wallet_exists && network.wallet_address) {
         $('#vaultAddressText').text(network.wallet_address);
@@ -307,6 +311,8 @@ function selectNetworkAndOpenVault(network) {
     }
 
     $('#depositVaultModal').removeClass('hidden');
+    $('body').addClass('overflow-hidden');
+    $('#depositVaultModal button').first().trigger('focus');
 }
 
 function backToNetworkSelection() {
@@ -318,13 +324,27 @@ function backToNetworkSelection() {
 
 function closeDepositVaultModal() {
     $('#depositVaultModal').addClass('hidden');
+    $('body').removeClass('overflow-hidden');
 }
 
 function copyVaultAddress() {
     const address = $('#vaultAddressText').text();
     if (!address) return;
 
-    navigator.clipboard.writeText(address).then(function() {
+    const copyPromise = navigator.clipboard?.writeText
+        ? navigator.clipboard.writeText(address)
+        : new Promise((resolve, reject) => {
+            const field = document.createElement('textarea');
+            field.value = address;
+            field.style.position = 'fixed';
+            field.style.opacity = '0';
+            document.body.appendChild(field);
+            field.select();
+            document.execCommand('copy') ? resolve() : reject();
+            field.remove();
+        });
+
+    copyPromise.then(function() {
         Swal.fire({
             toast: true,
             position: 'top-end',
@@ -335,6 +355,8 @@ function copyVaultAddress() {
             background: '#0f1217',
             color: '#fff'
         });
+    }).catch(function() {
+        if (typeof toastNotification === 'function') toastNotification({{ Illuminate\Support\Js::from(__('Could not copy the address. Please copy it manually.')) }}, 'error');
     });
 }
 
@@ -345,11 +367,35 @@ $(function () {
     $searchInput.on('input', function () {
         const query = $(this).val().toLowerCase().trim();
 
+        let visibleCount = 0;
         $cards.each(function () {
             const text = $(this).data('search') || '';
             const matches = text.includes(query);
             $(this).toggle(matches);
+            if (matches) visibleCount++;
         });
+        $('#deposit-search-empty').toggleClass('hidden', visibleCount > 0);
+    });
+
+    $(document).on('click', '.select-network-button', function() {
+        openNetworkSelectionModal(depositTokenGroups[Number($(this).data('token-index'))]);
+    });
+
+    $(document).on('click', '.network-option', function() {
+        const network = currentActiveTokenGroup?.blockchains?.[Number($(this).data('network-index'))];
+        if (network) selectNetworkAndOpenVault(network);
+    });
+
+    $('#networkSelectionModal, #depositVaultModal').on('click', function(event) {
+        if (event.target !== this) return;
+        if (this.id === 'networkSelectionModal') closeNetworkSelectionModal();
+        else closeDepositVaultModal();
+    });
+
+    $(document).on('keydown', function(event) {
+        if (event.key !== 'Escape') return;
+        if (!$('#depositVaultModal').hasClass('hidden')) closeDepositVaultModal();
+        else if (!$('#networkSelectionModal').hasClass('hidden')) closeNetworkSelectionModal();
     });
 });
 
