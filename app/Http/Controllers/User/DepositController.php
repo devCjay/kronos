@@ -171,7 +171,9 @@ class DepositController extends Controller
         $template = config('site.template');
         $page_title = __('View Deposit');
         $transaction_reference = $request->route('transaction_reference');
-        $deposit = Deposit::where('transaction_reference', $transaction_reference)->first();
+        $deposit = Deposit::where('transaction_reference', $transaction_reference)
+            ->where('user_id', auth()->id())
+            ->first();
         if (!$deposit) {
             return redirect()->route('user.deposits.index')->with('error', __('Deposit not found'));
         }

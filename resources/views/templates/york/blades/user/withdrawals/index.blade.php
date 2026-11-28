@@ -1,211 +1,179 @@
-@extends('templates.' . config('site.template') . '.blades.layouts.user')
+@extends('templates.york.blades.layouts.user')
 
 @section('content')
-<div class="min-h-screen relative space-y-12 pb-24">
+    @php
+        $currency = getSetting('currency');
+        $decimalPlaces = (int) getSetting('decimal_places', 2);
+        $totalWithdrawn = (float) ($withdrawals_analytics['total']['total'] ?? 0);
+        $pendingTotal = (float) ($withdrawals_analytics['pending']['total'] ?? 0);
+        $completedTotal = (float) ($withdrawals_analytics['completed']['total'] ?? 0);
+        $exceptionTotal = (float) ($withdrawals_analytics['failed']['total'] ?? 0) + (float) ($withdrawals_analytics['partial_payment']['total'] ?? 0);
+    @endphp
 
-    {{-- Global Ethereal Ambient Mesh Gradients --}}
-    <div class="fixed top-0 right-0 w-[50rem] h-[50rem] bg-gradient-to-br from-accent-primary/10 via-orange-600/5 to-transparent rounded-full blur-[160px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[40rem] h-[40rem] bg-gradient-to-tr from-emerald-500/5 via-amber-500/5 to-transparent rounded-full blur-[140px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="relative min-h-screen pb-12">
+        <div class="pointer-events-none fixed right-0 top-0 -z-0 h-[38rem] w-[38rem] -translate-y-1/3 translate-x-1/3 rounded-full bg-amber-500/[0.04] blur-[140px]"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto space-y-12">
-
-        {{-- ══ HEADER HERO & FLOATING ISLAND NAV DECK ══════════════════════════ --}}
-        <div class="relative rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/10 shadow-[0_0_80px_rgba(0,0,0,0.8)] backdrop-blur-2xl">
-            <div class="rounded-[calc(2.5rem-0.375rem)] p-8 sm:p-12 overflow-hidden relative"
-                 style="background: linear-gradient(135deg, rgba(8,9,14,0.98) 0%, rgba(3,4,7,0.99) 100%);">
-                
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent-primary/10 rounded-full blur-3xl pointer-events-none"></div>
-
-                <div class="relative z-10 flex flex-col lg:flex-row lg:items-end justify-between gap-8">
-                    <div class="max-w-2xl space-y-4">
-                        <div class="inline-flex items-center gap-2 rounded-full border border-accent-primary/30 bg-accent-primary/10 px-3.5 py-1 text-[10px] font-black uppercase tracking-[0.2em] text-accent-primary shadow-[0_0_15px_rgba(226,177,60,0.2)]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-accent-primary animate-pulse"></span>
-                            <span>{{ __('Withdrawals') }}</span>
+        <div class="relative z-10 mx-auto max-w-7xl space-y-4">
+            <header class="rounded-2xl border border-white/[0.08] bg-[#111318] p-5 sm:p-6">
+                <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <div class="mb-2 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-amber-400">
+                            <span class="h-1.5 w-1.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(247,166,0,.75)]"></span>
+                            {{ __('Funding activity') }}
                         </div>
-
-                        <h1 class="text-4xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-100 to-slate-400 tracking-tight leading-none">
-                            {{ __('Withdrawal History') }}
-                        </h1>
-
-                        <p class="text-slate-400 text-sm sm:text-base font-normal leading-relaxed max-w-xl">
-                            {{ __('Track your withdrawal requests, processing times, and payout status.') }}
-                        </p>
+                        <h1 class="font-heading text-2xl font-black tracking-tight text-white sm:text-3xl">{{ __('Withdrawal History') }}</h1>
+                        <p class="mt-1.5 max-w-2xl text-xs leading-5 text-slate-400">{{ __('Track payout references, destination networks, amounts, fees, and processing status.') }}</p>
                     </div>
-
-                    {{-- Floating Island Navigation Sub-Pills & New Payout CTA --}}
-                    <div class="flex flex-wrap items-center gap-3 shrink-0">
-                        <div class="flex items-center gap-2 p-2 rounded-full bg-white/[0.03] border border-white/10 backdrop-blur-xl">
-                            <a href="{{ route('user.withdrawals.index') }}"
-                               class="px-5 py-2.5 rounded-full bg-accent-primary text-black font-black text-xs uppercase tracking-wider shadow-[0_0_20px_rgba(226,177,60,0.3)] transition-all">
-                                <span>{{ __('Overview') }}</span>
-                            </a>
-                            <a href="{{ route('user.withdrawals.pending') }}"
-                               class="px-5 py-2.5 rounded-full hover:bg-white/10 text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider transition-all">
-                                <span>{{ __('Pending') }}</span>
-                            </a>
-                            <a href="{{ route('user.withdrawals.approved') }}"
-                               class="px-5 py-2.5 rounded-full hover:bg-white/10 text-slate-300 hover:text-white font-bold text-xs uppercase tracking-wider transition-all">
-                                <span>{{ __('Completed') }}</span>
-                            </a>
-                        </div>
-
-                        <a href="{{ route('user.withdrawals.new') }}"
-                           class="px-7 py-4 rounded-full bg-accent-primary hover:bg-accent-primary/90 text-black font-black text-xs uppercase tracking-wider transition-all shadow-[0_0_30px_rgba(226,177,60,0.35)] active:scale-[0.97] flex items-center gap-2">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4"/></svg>
-                            <span>{{ __('New Withdrawal') }}</span>
-                        </a>
-                    </div>
+                    <a href="{{ route('user.withdrawals.new') }}" class="flex min-h-11 w-full items-center justify-center gap-2 rounded-xl bg-amber-400 px-5 text-xs font-black uppercase tracking-wider text-black transition hover:bg-amber-300 focus:outline-none focus:ring-4 focus:ring-amber-400/20 sm:w-auto">
+                        <span class="text-base leading-none">+</span>{{ __('New Withdrawal') }}
+                    </a>
                 </div>
-            </div>
-        </div>
+            </header>
 
-        {{-- ══ ANALYTICS HUD GRID (4 CARDS) ═══════════════════════════════════ --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <a href="{{ route('user.withdrawals.index') }}" class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8 hover:border-accent-primary/40 transition-all group">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Total Withdrawn') }}</span>
-                    <div class="text-3xl font-black text-white font-mono tracking-tight">{{ number_format($withdrawals_analytics['total']['total'], 2) }} <span class="text-xs text-slate-500 font-sans">{{ getSetting('currency') }}</span></div>
-                    <div class="text-[10px] text-slate-400 font-medium pt-1">{{ $withdrawals_analytics['total']['count'] }} {{ __('Total Transactions') }}</div>
+            <section class="grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-4" aria-label="{{ __('Withdrawal summary') }}">
+                @foreach ([
+                    [__('All Withdrawals'), $totalWithdrawn, $withdrawals_analytics['total']['count'], 'text-white', __('records')],
+                    [__('Pending'), $pendingTotal, $withdrawals_analytics['pending']['count'], 'text-amber-400', __('processing')],
+                    [__('Completed'), $completedTotal, $withdrawals_analytics['completed']['count'], 'text-emerald-400', __('settled')],
+                    [__('Failed / Partial'), $exceptionTotal, $withdrawals_analytics['failed']['count'] + $withdrawals_analytics['partial_payment']['count'], 'text-rose-400', __('requires attention')],
+                ] as [$label, $amount, $count, $color, $caption])
+                    <article class="rounded-xl border border-white/[0.07] bg-[#111318] p-4">
+                        <p class="text-[9px] font-bold uppercase tracking-[0.15em] text-slate-500">{{ $label }}</p>
+                        <p class="mt-2 break-all font-mono text-xl font-black {{ $color }}">{{ number_format($amount, $decimalPlaces) }} <span class="text-[9px] font-semibold text-slate-600">{{ $currency }}</span></p>
+                        <p class="mt-1 text-[10px] text-slate-600">{{ $count }} {{ $caption }}</p>
+                    </article>
+                @endforeach
+            </section>
+
+            <section id="withdrawals-history-wrapper" class="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318]">
+                <div id="withdrawals-loading-spinner" class="absolute inset-0 z-50 hidden flex-col items-center justify-center bg-[#0b0e11]/80 backdrop-blur-sm" aria-live="polite">
+                    <div class="h-7 w-7 animate-spin rounded-full border-2 border-white/10 border-t-amber-400"></div>
+                    <p class="mt-2 text-[10px] font-bold text-slate-400">{{ __('Loading withdrawals...') }}</p>
                 </div>
-            </a>
 
-            <a href="{{ route('user.withdrawals.pending') }}" class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8 hover:border-yellow-500/40 transition-all group">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Pending') }}</span>
-                    <div class="text-3xl font-black text-yellow-400 font-mono tracking-tight">{{ number_format($withdrawals_analytics['pending']['total'], 2) }} <span class="text-xs text-slate-500 font-sans">{{ getSetting('currency') }}</span></div>
-                    <div class="text-[10px] text-yellow-500/80 font-medium pt-1">{{ $withdrawals_analytics['pending']['count'] }} {{ __('Processing') }}</div>
-                </div>
-            </a>
-
-            <a href="{{ route('user.withdrawals.approved') }}" class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8 hover:border-emerald-500/40 transition-all group">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Completed') }}</span>
-                    <div class="text-3xl font-black text-emerald-400 font-mono tracking-tight">{{ number_format($withdrawals_analytics['completed']['total'], 2) }} <span class="text-xs text-slate-500 font-sans">{{ getSetting('currency') }}</span></div>
-                    <div class="text-[10px] text-emerald-500/80 font-medium pt-1">{{ $withdrawals_analytics['completed']['count'] }} {{ __('Settled') }}</div>
-                </div>
-            </a>
-
-            <a href="{{ route('user.withdrawals.failed') }}" class="rounded-[2rem] p-1 bg-white/[0.03] border border-white/8 hover:border-red-500/40 transition-all group">
-                <div class="rounded-[calc(2rem-0.25rem)] p-6 space-y-2" style="background: rgba(8,10,15,0.95);">
-                    <span class="text-[9px] font-bold uppercase tracking-widest text-slate-500 block">{{ __('Failed / Partial') }}</span>
-                    <div class="text-3xl font-black text-red-400 font-mono tracking-tight">{{ number_format($withdrawals_analytics['failed']['total'] + $withdrawals_analytics['partial_payment']['total'], 2) }} <span class="text-xs text-slate-500 font-sans">{{ getSetting('currency') }}</span></div>
-                    <div class="text-[10px] text-red-400/80 font-medium pt-1">{{ $withdrawals_analytics['failed']['count'] }} {{ __('Failed') }} • {{ $withdrawals_analytics['partial_payment']['count'] }} {{ __('Partial') }}</div>
-                </div>
-            </a>
-        </div>
-
-        {{-- ══ PAYOUT SPEED TELEMETRY ══════════════════════════════════════════ --}}
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div class="rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/8 shadow-2xl">
-                <div class="rounded-[calc(2.5rem-0.375rem)] p-7 space-y-4" style="background: linear-gradient(145deg, rgba(10,12,18,0.96) 0%, rgba(5,6,10,0.99) 100%);">
-                    <h3 class="text-base font-black text-white tracking-tight flex items-center gap-2">
-                        <span class="w-2 h-2 rounded-full bg-accent-primary animate-pulse"></span>
-                        {{ __('Processing Times') }}
-                    </h3>
-
-                    <div class="space-y-3 pt-2">
-                        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-black/40 border border-white/5">
-                            <span class="text-xs text-slate-400 font-medium">{{ __('Average Processing Time') }}</span>
-                            <span class="text-sm font-black text-white font-mono">
-                                @if ($avg_processing_time)
-                                    {{ $avg_processing_time < 60 ? round($avg_processing_time) . 's' : round($avg_processing_time / 60) . 'm' }}
-                                @else
-                                    --
-                                @endif
-                            </span>
-                        </div>
-
-                        <div class="flex items-center justify-between p-3.5 rounded-2xl bg-black/40 border border-white/5">
-                            <span class="text-xs text-slate-400 font-medium">{{ __('Fastest Execution') }}</span>
-                            <span class="text-sm font-black text-emerald-400 font-mono">
-                                @if ($fastest_withdrawal)
-                                    @php $f_seconds = $fastest_withdrawal->created_at->diffInSeconds($fastest_withdrawal->updated_at); @endphp
-                                    {{ $f_seconds < 60 ? $f_seconds . 's' : round($f_seconds / 60) . 'm' }}
-                                @else
-                                    --
-                                @endif
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {{-- ══ WITHDRAWAL HISTORY TABLE ════════════════════════════════════ --}}
-            <div class="lg:col-span-2 rounded-[2.5rem] p-1.5 bg-white/[0.03] border border-white/8 shadow-2xl overflow-hidden">
-                <div class="rounded-[calc(2.5rem-0.375rem)] p-8 space-y-6" style="background: linear-gradient(145deg, rgba(10,12,18,0.96) 0%, rgba(5,6,10,0.99) 100%);">
-                    
-                    <div class="flex items-center justify-between">
+                <div class="border-b border-white/[0.07] p-4 sm:p-5">
+                    <div class="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                         <div>
-                            <h3 class="text-xl font-black text-white tracking-tight">{{ __('Recent Withdrawals') }}</h3>
-                            <p class="text-xs text-slate-400 font-medium mt-1">{{ __('Detailed records of your withdrawal requests.') }}</p>
+                            <div class="flex items-center gap-2">
+                                <h2 class="text-sm font-black text-white">{{ __('Withdrawal Records') }}</h2>
+                                <span class="rounded-full border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 text-[9px] font-bold text-slate-500">{{ $withdrawals->total() }}</span>
+                            </div>
+                            <p class="mt-1 text-[10px] text-slate-500">{{ __('Search references or move between payout status views.') }}</p>
+                        </div>
+
+                        <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                            <nav class="flex max-w-full overflow-x-auto rounded-lg bg-black/25 p-1" aria-label="{{ __('Withdrawal status') }}">
+                                <a href="{{ route('user.withdrawals.index') }}" class="shrink-0 rounded-md bg-white/[0.08] px-3 py-1.5 text-[10px] font-bold text-white">{{ __('All') }}</a>
+                                <a href="{{ route('user.withdrawals.pending') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold text-slate-500 transition hover:text-white">{{ __('Pending') }}</a>
+                                <a href="{{ route('user.withdrawals.approved') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold text-slate-500 transition hover:text-white">{{ __('Completed') }}</a>
+                                <a href="{{ route('user.withdrawals.failed') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold text-slate-500 transition hover:text-white">{{ __('Failed') }}</a>
+                            </nav>
+
+                            <form method="GET" action="{{ route('user.withdrawals.index') }}" class="flex min-w-0 gap-2">
+                                <label for="withdrawal-search" class="sr-only">{{ __('Search withdrawals') }}</label>
+                                <div class="relative min-w-0 flex-1 sm:w-56">
+                                    <svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M20 20l-3.5-3.5"/></svg>
+                                    <input id="withdrawal-search" type="search" name="search" value="{{ request('search') }}" placeholder="{{ __('Reference or hash') }}" class="h-9 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] pl-9 pr-3 text-xs text-white outline-none placeholder:text-slate-600 focus:border-amber-400/60">
+                                </div>
+                                <button type="submit" class="h-9 cursor-pointer rounded-lg bg-amber-400 px-3 text-[9px] font-black uppercase tracking-wider text-black">{{ __('Search') }}</button>
+                                @if (request()->filled('search'))
+                                    <a href="{{ route('user.withdrawals.index') }}" class="flex h-9 items-center rounded-lg border border-white/[0.08] px-3 text-[9px] font-bold uppercase text-slate-400">{{ __('Clear') }}</a>
+                                @endif
+                            </form>
                         </div>
                     </div>
+                </div>
 
-                    <div class="overflow-x-auto">
-                        <table class="w-full text-left border-separate border-spacing-y-2">
-                            <thead>
-                                <tr class="text-[10px] text-slate-500 uppercase tracking-[0.2em] font-black">
-                                    <th class="px-4 py-3">{{ __('Reference ID') }}</th>
-                                    <th class="px-4 py-3">{{ __('Source / Method') }}</th>
-                                    <th class="px-4 py-3 text-right">{{ __('Amount') }}</th>
-                                    <th class="px-4 py-3 text-right">{{ __('Requested Date') }}</th>
-                                    <th class="px-4 py-3 text-center">{{ __('Status') }}</th>
-                                </tr>
+                <div id="withdrawals-table-content">
+                    <div class="hidden overflow-x-auto md:block">
+                        <table class="w-full min-w-[860px] text-left">
+                            <thead class="border-b border-white/[0.05] bg-black/10 text-[9px] font-bold uppercase tracking-[0.15em] text-slate-600">
+                                <tr><th class="px-5 py-3">{{ __('Withdrawal') }}</th><th class="px-4 py-3">{{ __('Amount') }}</th><th class="px-4 py-3">{{ __('Destination') }}</th><th class="px-4 py-3">{{ __('Date') }}</th><th class="px-4 py-3">{{ __('Status') }}</th><th class="px-5 py-3 text-right">{{ __('Action') }}</th></tr>
                             </thead>
-                            <tbody class="text-xs">
-                                @forelse($withdrawals as $withdrawal)
-                                    <tr class="bg-white/[0.02] border border-white/5 rounded-2xl hover:bg-white/[0.05] transition-all">
-                                        <td class="px-4 py-4 font-black font-mono text-white">
-                                            <a href="{{ route('user.withdrawals.view', $withdrawal->transaction_reference) }}" class="hover:text-accent-primary transition-colors">
-                                                {{ $withdrawal->transaction_reference }}
-                                            </a>
-                                        </td>
-                                        <td class="px-4 py-4 font-bold text-slate-300">
-                                            {{ $withdrawal->gatewayName() }}
-                                        </td>
-                                        <td class="px-4 py-4 text-right font-mono font-bold text-white">
-                                            {{ showAmount($withdrawal->amount) }}
-                                        </td>
-                                        <td class="px-4 py-4 text-right text-slate-400 font-medium">
-                                            {{ date('M d, Y H:i', strtotime($withdrawal->created_at)) }}
-                                        </td>
-                                        <td class="px-4 py-4 text-center">
-                                            @php
-                                                $statusClasses = [
-                                                    'approved' => 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-                                                    'completed' => 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
-                                                    'pending' => 'bg-yellow-500/10 text-yellow-400 border-yellow-500/20',
-                                                    'rejected' => 'bg-red-500/10 text-red-400 border-red-500/20',
-                                                    'failed' => 'bg-red-500/10 text-red-400 border-red-500/20',
-                                                ];
-                                                $st = strtolower($withdrawal->status);
-                                                $cls = $statusClasses[$st] ?? 'bg-white/5 text-slate-400 border-white/10';
-                                            @endphp
-                                            <span class="px-2.5 py-1 rounded-full text-[9px] font-black uppercase tracking-widest border {{ $cls }}">
-                                                {{ ucfirst($withdrawal->status) }}
-                                            </span>
-                                        </td>
+                            <tbody class="divide-y divide-white/[0.05]">
+                                @forelse ($withdrawals as $withdrawal)
+                                    @php
+                                        $statusData = match ($withdrawal->status) {
+                                            'pending' => [__('Pending'), 'border-amber-400/15 bg-amber-400/[0.07] text-amber-400'],
+                                            'completed', 'approved' => [__('Completed'), 'border-emerald-400/15 bg-emerald-400/[0.07] text-emerald-400'],
+                                            'failed', 'rejected' => [__('Failed'), 'border-rose-400/15 bg-rose-400/[0.07] text-rose-400'],
+                                            'partial_payment' => [__('Partial'), 'border-orange-400/15 bg-orange-400/[0.07] text-orange-400'],
+                                            default => [__(str_replace('_', ' ', $withdrawal->status)), 'border-white/[0.08] bg-white/[0.03] text-slate-400'],
+                                        };
+                                        $shortReference = strlen($withdrawal->transaction_reference) > 14 ? substr($withdrawal->transaction_reference, 0, 7) . '...' . substr($withdrawal->transaction_reference, -5) : $withdrawal->transaction_reference;
+                                    @endphp
+                                    <tr class="transition hover:bg-white/[0.025]">
+                                        <td class="px-5 py-3.5"><div class="flex items-center gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/[0.07] text-amber-400" aria-hidden="true">&uarr;</span><div><a href="{{ route('user.withdrawals.view', $withdrawal->transaction_reference) }}" class="font-mono text-xs font-bold text-slate-200 transition hover:text-amber-400">{{ $shortReference }}</a>@if ($withdrawal->transaction_hash)<p class="mt-0.5 max-w-40 truncate font-mono text-[9px] text-slate-600" title="{{ $withdrawal->transaction_hash }}">{{ $withdrawal->transaction_hash }}</p>@endif</div></div></td>
+                                        <td class="px-4 py-3.5"><div class="font-mono text-xs font-bold text-white">{{ number_format($withdrawal->amount, $decimalPlaces) }} {{ $currency }}</div>@if ($withdrawal->currency && $withdrawal->currency !== $currency)<div class="mt-0.5 font-mono text-[9px] text-slate-600">{{ number_format($withdrawal->amount_payable, 6) }} {{ $withdrawal->currency }}</div>@endif</td>
+                                        <td class="px-4 py-3.5 text-xs font-semibold text-slate-300">{{ $withdrawal->gatewayName() }}</td>
+                                        <td class="px-4 py-3.5 text-[10px] text-slate-500"><span class="block text-slate-300">{{ $withdrawal->created_at->format('M d, Y') }}</span>{{ $withdrawal->created_at->format('H:i') }}</td>
+                                        <td class="px-4 py-3.5"><span class="inline-flex rounded-full border px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider {{ $statusData[1] }}">{{ $statusData[0] }}</span></td>
+                                        <td class="px-5 py-3.5 text-right"><a href="{{ route('user.withdrawals.view', $withdrawal->transaction_reference) }}" aria-label="{{ __('View withdrawal :reference', ['reference' => $withdrawal->transaction_reference]) }}" class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-slate-500 transition hover:bg-white/[0.05] hover:text-white"><svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></td>
                                     </tr>
                                 @empty
-                                    <tr>
-                                        <td colspan="5" class="px-4 py-8 text-center text-slate-500 text-xs italic font-medium">
-                                            {{ __('No withdrawal transactions logged.') }}
-                                        </td>
-                                    </tr>
+                                    <tr><td colspan="6" class="px-5 py-14 text-center"><div class="text-sm font-semibold text-slate-400">{{ __('No withdrawals found') }}</div><p class="mt-1 text-[10px] text-slate-600">{{ request()->filled('search') ? __('Try a different reference or clear your search.') : __('Your payout activity will appear here.') }}</p>@unless(request()->filled('search'))<a href="{{ route('user.withdrawals.new') }}" class="mt-4 inline-flex rounded-lg bg-amber-400 px-4 py-2 text-[10px] font-black uppercase text-black">{{ __('Make a Withdrawal') }}</a>@endunless</td></tr>
                                 @endforelse
                             </tbody>
                         </table>
                     </div>
 
-                    {{-- Pagination --}}
-                    <div class="mt-4">
-                        {{ $withdrawals->links() }}
+                    <div class="divide-y divide-white/[0.06] md:hidden">
+                        @forelse ($withdrawals as $withdrawal)
+                            @php
+                                $statusData = match ($withdrawal->status) {
+                                    'pending' => [__('Pending'), 'text-amber-400'], 'completed', 'approved' => [__('Completed'), 'text-emerald-400'], 'failed', 'rejected' => [__('Failed'), 'text-rose-400'], 'partial_payment' => [__('Partial'), 'text-orange-400'], default => [__(str_replace('_', ' ', $withdrawal->status)), 'text-slate-400'],
+                                };
+                            @endphp
+                            <a href="{{ route('user.withdrawals.view', $withdrawal->transaction_reference) }}" class="block p-4 transition hover:bg-white/[0.025]">
+                                <div class="flex items-start justify-between gap-4"><div class="min-w-0"><div class="flex items-center gap-2"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/[0.07] text-amber-400" aria-hidden="true">&uarr;</span><div class="min-w-0"><p class="truncate text-xs font-bold text-slate-200">{{ $withdrawal->gatewayName() }}</p><p class="mt-0.5 truncate font-mono text-[9px] text-slate-600">{{ $withdrawal->transaction_reference }}</p></div></div></div><div class="shrink-0 text-right"><p class="font-mono text-xs font-bold text-white">{{ number_format($withdrawal->amount, $decimalPlaces) }} {{ $currency }}</p><p class="mt-1 text-[9px] font-bold uppercase {{ $statusData[1] }}">{{ $statusData[0] }}</p></div></div>
+                                <div class="mt-3 flex items-center justify-between border-t border-white/[0.05] pt-2 text-[9px] text-slate-600">@if ($withdrawal->currency && $withdrawal->currency !== $currency)<span>{{ number_format($withdrawal->amount_payable, 6) }} {{ $withdrawal->currency }}</span>@else<span>{{ __('Withdrawal') }}</span>@endif<time datetime="{{ $withdrawal->created_at->toIso8601String() }}">{{ $withdrawal->created_at->format('M d, Y - H:i') }}</time></div>
+                            </a>
+                        @empty
+                            <div class="p-12 text-center"><div class="text-sm font-semibold text-slate-400">{{ __('No withdrawals found') }}</div><p class="mt-1 text-[10px] text-slate-600">{{ request()->filled('search') ? __('Try a different reference or clear your search.') : __('Your payout activity will appear here.') }}</p></div>
+                        @endforelse
                     </div>
 
+                    @if ($withdrawals->hasPages())
+                        <div class="ajax-pagination border-t border-white/[0.07] p-4 sm:p-5">{{ $withdrawals->withQueryString()->links('templates.york.blades.partials.pagination') }}</div>
+                    @endif
                 </div>
-            </div>
-        </div>
+            </section>
 
+            @if ($avg_processing_time || $highest_daily_total)
+                <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    @if ($avg_processing_time)<div class="rounded-xl border border-white/[0.07] bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">{{ __('Average Processing Time') }}</p><p class="mt-2 text-sm font-bold text-white">~{{ $avg_processing_time < 60 ? max(1, round($avg_processing_time)) . ' ' . __('seconds') : max(1, round($avg_processing_time / 60)) . ' ' . __('minutes') }}</p><p class="mt-1 text-[10px] text-slate-600">{{ __('Based on completed withdrawals') }}</p></div>@endif
+                    @if ($highest_daily_total)<div class="rounded-xl border border-white/[0.07] bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-500">{{ __('Peak Daily Volume') }}</p><p class="mt-2 font-mono text-sm font-bold text-emerald-400">{{ number_format($highest_daily_total->total, $decimalPlaces) }} {{ $currency }}</p><p class="mt-1 text-[10px] text-slate-600">{{ __('Highest recorded withdrawal day') }}</p></div>@endif
+                </div>
+            @endif
+        </div>
     </div>
-</div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const historyWrapper = document.getElementById('withdrawals-history-wrapper');
+            const query = new URLSearchParams(window.location.search);
+            if ((query.has('page') || query.has('search')) && historyWrapper) historyWrapper.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            $(document).on('click', '.ajax-pagination a', function(event) {
+                event.preventDefault();
+                const url = $(this).attr('href');
+                const spinner = $('#withdrawals-loading-spinner');
+                spinner.removeClass('hidden').addClass('flex');
+
+                $.get(url).done(function(data) {
+                    const content = $(data).find('#withdrawals-table-content').html();
+                    if (content) {
+                        $('#withdrawals-table-content').html(content);
+                        window.history.replaceState({}, '', url);
+                    }
+                }).fail(function() {
+                    if (typeof toastNotification === 'function') toastNotification({{ Illuminate\Support\Js::from(__('Could not load withdrawals. Please try again.')) }}, 'error');
+                }).always(function() {
+                    spinner.addClass('hidden').removeClass('flex');
+                });
+            });
+        });
+    </script>
 @endsection

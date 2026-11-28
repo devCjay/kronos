@@ -1,293 +1,145 @@
 @extends('templates.york.blades.layouts.user')
 
 @section('content')
-    <div class="space-y-8">
-        {{-- Header --}}
-        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
-            <div class="flex items-center gap-4">
-                <a href="{{ route('user.deposits.index') }}"
-                    class="p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-text-secondary hover:text-white transition-colors">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10 19l-7-7m0 0l7-7m-7 7h18">
-                        </path>
-                    </svg>
-                </a>
-                <div>
-                    <h1 class="text-2xl font-bold text-white">{{ __('Deposit Details') }}</h1>
-                    <p class="text-text-secondary text-sm mt-1">{{ __('Transaction') }}
-                        #{{ $deposit->transaction_reference }}</p>
-                </div>
-            </div>
+    @php
+        $currency = getSetting('currency');
+        $decimalPlaces = (int) getSetting('decimal_places', 2);
+        $statusData = match ($deposit->status) {
+            'pending' => [__('Pending'), 'border-amber-400/15 bg-amber-400/[0.07] text-amber-400', 'bg-amber-400', __('Awaiting blockchain confirmation or account review.')],
+            'completed' => [__('Completed'), 'border-emerald-400/15 bg-emerald-400/[0.07] text-emerald-400', 'bg-emerald-400', __('This deposit has been confirmed and credited.')],
+            'failed' => [__('Failed'), 'border-rose-400/15 bg-rose-400/[0.07] text-rose-400', 'bg-rose-400', __('This deposit was not completed successfully.')],
+            'partial_payment' => [__('Partial Payment'), 'border-orange-400/15 bg-orange-400/[0.07] text-orange-400', 'bg-orange-400', __('The received amount was lower than the expected deposit total.')],
+            default => [__(str_replace('_', ' ', $deposit->status)), 'border-white/[0.08] bg-white/[0.03] text-slate-400', 'bg-slate-400', __('The deposit status was updated.')],
+        };
+        $explorerUrl = $deposit->explorerTxUrl();
+        $rawStructuredData = $deposit->getAttributes()['structured_data'] ?? null;
+        $details = is_array($rawStructuredData) ? $rawStructuredData : (is_string($rawStructuredData) ? json_decode($rawStructuredData, true) : null);
+    @endphp
 
-            <div class="flex items-center gap-3">
-                @if (in_array($deposit->status, ['completed', 'partial_payment']))
-                    <a href="{{ route('user.deposits.receipt', $deposit->transaction_reference) }}"
-                        class="px-4 py-2 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 transition-all flex items-center gap-2 group">
-                        <svg class="w-4 h-4 text-accent-primary group-hover:scale-110 transition-transform" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
-                            </path>
-                        </svg>
-                        {{ __('Download Receipt') }}
-                    </a>
-                @endif
+    <div class="relative min-h-screen pb-12">
+        <div class="pointer-events-none fixed right-0 top-0 -z-0 h-[38rem] w-[38rem] -translate-y-1/3 translate-x-1/3 rounded-full bg-amber-500/[0.04] blur-[140px]"></div>
 
-                @if ($deposit->status === 'pending')
-                    @php
-                        $payNowLink = route('user.deposits.pay', ['pay' => $deposit->paymentMethod->pay, 'transaction_reference' => $deposit->transaction_reference]);
-                        if ($deposit->paymentMethod->pay === 'paymento') {
-                            $resDump = json_decode($deposit->auto_res_dump, true);
-                            if (isset($resDump['url'])) {
-                                $payNowLink = $resDump['url'];
-                            }
-                        }
-                    @endphp
-                    <a href="{{ $payNowLink }}"
-                        class="px-6 py-2 bg-accent-primary hover:bg-accent-primary-hover text-white font-bold rounded-xl transition-all shadow-[0_4px_14px_0_rgba(var(--color-accent-primary),0.39)] hover:shadow-[0_6px_20px_rgba(var(--color-accent-primary),0.23)] hover:-translate-y-[1px] active:translate-y-0">
-                        {{ __('Pay Now') }}
-                    </a>
-                @endif
-
-                @php
-                    $statusClasses = [
-                        'pending' => 'bg-yellow-500/10 text-yellow-500 border-yellow-500/20',
-                        'completed' => 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20',
-                        'failed' => 'bg-red-500/10 text-red-500 border-red-500/20',
-                        'partial_payment' => 'bg-orange-500/10 text-orange-500 border-orange-500/20',
-                    ];
-                    $class = $statusClasses[$deposit->status] ?? 'bg-white/10 text-white border-white/20';
-                @endphp
-                <span class="px-4 py-2 rounded-xl border {{ $class }} font-bold uppercase tracking-wider text-sm">
-                    {{ __($deposit->status) }}
-                </span>
-            </div>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            {{-- Main Info --}}
-            <div class="lg:col-span-2 space-y-6">
-                {{-- Financial Summary --}}
-                <div class="bg-secondary border border-white/5 rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-white mb-6">{{ __('Payment Summary') }}</h3>
-                    <div class="space-y-4">
-                        <div class="flex justify-between items-center py-3 border-b border-white/5">
-                            <span class="text-text-secondary">{{ __('Amount Requested') }}</span>
-                            <span class="text-white font-bold">{{ number_format($deposit->amount, 2) }}
-                                {{ getSetting('currency') }}</span>
+        <div class="relative z-10 mx-auto max-w-6xl space-y-4">
+            <header class="rounded-2xl border border-white/[0.08] bg-[#111318] p-5 sm:p-6">
+                <div class="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                    <div class="flex min-w-0 items-start gap-3">
+                        <a href="{{ route('user.deposits.index') }}" aria-label="{{ __('Back to deposits') }}" class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.08] bg-white/[0.03] text-slate-400 transition hover:bg-white/[0.06] hover:text-white focus:outline-none focus:ring-2 focus:ring-amber-400/30"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg></a>
+                        <div class="min-w-0">
+                            <div class="mb-1.5 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.18em] text-amber-400"><span class="h-1.5 w-1.5 rounded-full {{ $statusData[2] }}"></span>{{ __('Deposit record') }}</div>
+                            <h1 class="font-heading text-2xl font-black tracking-tight text-white sm:text-3xl">{{ __('Deposit Details') }}</h1>
+                            <p class="mt-1 truncate font-mono text-[10px] text-slate-500" title="{{ $deposit->transaction_reference }}">{{ $deposit->transaction_reference }}</p>
                         </div>
-                        <div class="flex justify-between items-center py-3 border-b border-white/5">
-                            <span class="text-text-secondary">{{ __('Fees') }}
-                                <span class="text-xs">({{ number_format($deposit->fee_percent, 2) }}%)</span></span>
-                            <span class="text-red-400 font-medium">+ {{ number_format($deposit->fee_amount, 2) }}
-                                {{ getSetting('currency') }}</span>
-                        </div>
-                        <div class="flex justify-between items-center py-3 border-b border-white/5">
-                            <span class="text-text-secondary">{{ __('Total Payable') }}</span>
-                            <span class="text-xl font-bold text-white">{{ number_format($deposit->total_amount, 2) }}
-                                {{ getSetting('currency') }}</span>
-                        </div>
+                    </div>
 
-                        @if ($deposit->exchange_rate != 1)
-                            @php
-                                $decimal_places = 8; // all deposits are blockchain/crypto
-                            @endphp
-                            <div class="bg-white/5 rounded-xl p-4 mt-4 space-y-3">
-                                <div class="flex justify-between items-center text-sm">
-                                    <span class="text-text-secondary">{{ __('Exchange Rate') }}</span>
-                                    <span class="text-white">1 {{ getSetting('currency') }} =
-                                        {{ number_format($deposit->exchange_rate, $decimal_places) }}
-                                        {{ $deposit->currency }}</span>
-                                </div>
-                                <div class="flex justify-between items-center pt-3 border-t border-white/10">
-                                    <span class="text-text-secondary font-medium">{{ __('Converted Amount') }}</span>
-                                    <span class="text-lg font-bold text-accent-primary">
-                                        {{ number_format($deposit->converted_amount, $decimal_places) }}
-                                        {{ $deposit->currency }}
-                                    </span>
-                                </div>
-                            </div>
+                    <div class="flex flex-col gap-2 sm:flex-row sm:items-center">
+                        @if (in_array($deposit->status, ['completed', 'partial_payment'], true))
+                            <a href="{{ route('user.deposits.receipt', $deposit->transaction_reference) }}" class="flex min-h-10 items-center justify-center gap-2 rounded-xl border border-white/[0.09] bg-white/[0.035] px-4 text-[10px] font-bold uppercase tracking-wider text-slate-200 transition hover:bg-white/[0.07] focus:outline-none focus:ring-2 focus:ring-amber-400/30"><svg class="h-3.5 w-3.5 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14"/></svg>{{ __('Download Receipt') }}</a>
                         @endif
+                        <span class="inline-flex min-h-10 items-center justify-center rounded-xl border px-4 text-[10px] font-black uppercase tracking-wider {{ $statusData[1] }}">{{ $statusData[0] }}</span>
                     </div>
                 </div>
+            </header>
 
-                {{-- Payment Method Details --}}
-                <div class="bg-secondary border border-white/5 rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-white mb-6">{{ __('Payment Method Details') }}</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pb-6">
-                        <div class="space-y-1">
-                            <p class="text-xs text-text-secondary uppercase tracking-wider">{{ __('Method') }}</p>
-                            <div class="text-white font-medium flex items-center gap-2">
-                                @if ($deposit->blockchain && $deposit->blockchainToken)
-                                    <span class="w-6 h-6 rounded bg-orange-500/10 border border-orange-500/20 flex items-center justify-center text-orange-400 font-bold text-[9px] overflow-hidden">
-                                        <img src="{{ $deposit->blockchainToken->logo ? asset($deposit->blockchainToken->logo) : asset('assets/images/tokens/' . strtolower($deposit->blockchainToken->symbol) . '.png') }}"
-                                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" 
-                                             alt="{{ $deposit->blockchainToken->symbol }}" class="w-full h-full object-contain">
-                                        <span class="hidden items-center justify-center w-full h-full font-bold text-[9px]">{{ $deposit->blockchainToken->symbol }}</span>
-                                    </span>
-                                @endif
-                                <span>{{ $deposit->gatewayName() }}</span>
+            <section class="rounded-2xl border border-white/[0.08] bg-[#111318] p-4 sm:p-5" aria-label="{{ __('Deposit status') }}">
+                <div class="flex items-start gap-3"><span class="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border {{ $statusData[1] }}"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">@if ($deposit->status === 'completed')<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>@elseif ($deposit->status === 'failed')<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>@else<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>@endif</svg></span><div><h2 class="text-xs font-bold text-slate-200">{{ $statusData[0] }}</h2><p class="mt-1 text-[10px] leading-4 text-slate-500">{{ $statusData[3] }}</p></div></div>
+            </section>
+
+            <div class="grid grid-cols-1 gap-4 lg:grid-cols-12">
+                <main class="space-y-4 lg:col-span-8">
+                    <section class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318]">
+                        <div class="border-b border-white/[0.07] px-5 py-4"><h2 class="text-sm font-black text-white">{{ __('Payment Summary') }}</h2><p class="mt-1 text-[10px] text-slate-500">{{ __('Recorded amounts and conversion values') }}</p></div>
+                        <div class="grid grid-cols-1 divide-y divide-white/[0.06] sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:divide-white/[0.06]">
+                            <div class="p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Requested Amount') }}</p><p class="mt-2 font-mono text-lg font-black text-white">{{ number_format($deposit->amount, $decimalPlaces) }} <span class="text-[9px] text-slate-600">{{ $currency }}</span></p></div>
+                            <div class="p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Fee') }} · {{ number_format($deposit->fee_percent, 2) }}%</p><p class="mt-2 font-mono text-lg font-black text-rose-400">+{{ number_format($deposit->fee_amount, $decimalPlaces) }} <span class="text-[9px] text-slate-600">{{ $currency }}</span></p></div>
+                            <div class="p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Total Payable') }}</p><p class="mt-2 font-mono text-lg font-black text-amber-400">{{ number_format($deposit->total_amount, $decimalPlaces) }} <span class="text-[9px] text-slate-600">{{ $currency }}</span></p></div>
+                        </div>
+
+                        @if ((float) $deposit->exchange_rate !== 1.0 || ($deposit->currency && $deposit->currency !== $currency))
+                            <div class="grid grid-cols-1 gap-px border-t border-white/[0.07] bg-white/[0.06] sm:grid-cols-2">
+                                <div class="bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Exchange Rate') }}</p><p class="mt-1.5 font-mono text-xs font-semibold text-slate-200">1 {{ $currency }} = {{ number_format($deposit->exchange_rate, 8) }} {{ $deposit->currency }}</p></div>
+                                <div class="bg-[#111318] p-4"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Converted Amount') }}</p><p class="mt-1.5 font-mono text-xs font-bold text-amber-400">{{ number_format($deposit->converted_amount, 8) }} {{ $deposit->currency }}</p></div>
                             </div>
+                        @endif
+                    </section>
+
+                    <section class="overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318]">
+                        <div class="border-b border-white/[0.07] px-5 py-4"><h2 class="text-sm font-black text-white">{{ __('Network Details') }}</h2><p class="mt-1 text-[10px] text-slate-500">{{ __('Blockchain source and transaction identifiers') }}</p></div>
+                        <div class="grid grid-cols-1 gap-4 p-5 sm:grid-cols-2">
+                            <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Deposit Source') }}</p><div class="mt-2 flex items-center gap-2">@if ($deposit->blockchainToken)<span class="flex h-7 w-7 items-center justify-center overflow-hidden rounded-lg border border-white/[0.08] bg-white/[0.03]"><img src="{{ $deposit->blockchainToken->logo ? asset($deposit->blockchainToken->logo) : asset('assets/images/tokens/' . strtolower($deposit->blockchainToken->symbol) . '.png') }}" alt="" class="h-5 w-5 object-contain" onerror="this.style.display='none'"></span>@endif<span class="text-xs font-bold text-slate-200">{{ $deposit->gatewayName() }}</span></div></div>
+                            <div class="rounded-xl border border-white/[0.06] bg-white/[0.02] p-3.5"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Reference') }}</p><div class="mt-2 flex items-center gap-2"><code class="min-w-0 flex-1 truncate font-mono text-[10px] text-slate-300" title="{{ $deposit->transaction_reference }}">{{ $deposit->transaction_reference }}</code><button type="button" class="copy-btn flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-white/[0.08] text-slate-500 transition hover:text-white" data-clipboard-text="{{ $deposit->transaction_reference }}" aria-label="{{ __('Copy deposit reference') }}"><svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 8h11v11H8zM5 16H4V5h11v1"/></svg></button></div></div>
                         </div>
 
                         @if ($deposit->transaction_hash)
-                            @php
-                                $txUrl = '#';
-                                if ($deposit->blockchain && $deposit->transaction_hash) {
-                                    $rpcUrl = $deposit->blockchain->rpc_url ?? '';
-                                    $isDevnet = (strpos($rpcUrl, 'devnet') !== false);
-                                    $pattern = $isDevnet ? $deposit->blockchain->explorer_url_devnet : $deposit->blockchain->explorer_url_live;
-                                    if ($pattern) {
-                                        $code = strtolower($deposit->blockchain->code ?? '');
-                                        if (strpos($pattern, 'tronscan') !== false || $code === 'tron') {
-                                            $txUrl = 'https://tronscan.org/transaction/' . $deposit->transaction_hash;
-                                        } elseif (strpos($pattern, 'solscan.io') !== false) {
-                                            $txUrl = str_replace('account/{address}', 'tx/' . $deposit->transaction_hash, $pattern);
-                                        } elseif (strpos($pattern, 'address/{address}') !== false) {
-                                            $txUrl = str_replace('address/{address}', 'tx/' . $deposit->transaction_hash, $pattern);
-                                        } else {
-                                            $txUrl = str_replace('{address}', $deposit->transaction_hash, $pattern);
-                                        }
-                                    }
-                                }
-                            @endphp
-                            <div class="space-y-1 md:col-span-2">
-                                <p class="text-xs text-text-secondary uppercase tracking-wider">
-                                    {{ __('Transaction ID / Hash') }}</p>
-                                <div class="flex items-center gap-2">
-                                    <p
-                                        class="text-white font-mono text-sm break-all bg-black/20 p-2 rounded-lg border border-white/5 w-full">
-                                        {{ $deposit->transaction_hash }}
-                                    </p>
-                                    @if ($txUrl !== '#')
-                                        <a href="{{ $txUrl }}" target="_blank"
-                                           class="p-2.5 hover:bg-orange-500/10 rounded-lg text-orange-400 border border-orange-500/20 transition-colors flex items-center justify-center gap-1.5 text-xs font-bold shrink-0 px-3.5 cursor-pointer"
-                                           title="{{ __('View in Explorer') }}">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                                            </svg>
-                                            <span class="hidden sm:inline">{{ __('Explorer') }}</span>
-                                        </a>
-                                    @endif
-                                    <button
-                                        class="p-2.5 hover:bg-white/10 rounded-lg text-text-secondary border border-white/5 transition-colors copy-btn flex items-center justify-center"
-                                        data-clipboard-text="{{ $deposit->transaction_hash }}">
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3">
-                                            </path>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
+                            <div class="border-t border-white/[0.06] p-5"><div class="flex items-center justify-between gap-3"><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Transaction Hash') }}</p>@if ($explorerUrl)<a href="{{ $explorerUrl }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 text-[9px] font-bold uppercase tracking-wider text-amber-400 transition hover:text-amber-300">{{ __('View Explorer') }}<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 3h7v7m0-7L10 14M5 7v14h14v-5"/></svg></a>@endif</div><div class="mt-2 flex items-start gap-2 rounded-xl border border-white/[0.06] bg-black/20 p-3"><code class="min-w-0 flex-1 break-all font-mono text-[10px] leading-5 text-slate-300">{{ $deposit->transaction_hash }}</code><button type="button" class="copy-btn flex h-7 w-7 shrink-0 cursor-pointer items-center justify-center rounded-lg border border-white/[0.08] text-slate-500 transition hover:text-white" data-clipboard-text="{{ $deposit->transaction_hash }}" aria-label="{{ __('Copy transaction hash') }}"><svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M8 8h11v11H8zM5 16H4V5h11v1"/></svg></button></div></div>
                         @endif
-                    </div>
 
-                    {{-- Structured Data Loop --}}
-                    @php
-                        $raw_structure = $deposit->getAttributes()['structured_data'] ?? null;
-                        $details = null;
-                        if (is_array($raw_structure)) {
-                            $details = $raw_structure;
-                        } elseif (is_string($raw_structure)) {
-                            $details = json_decode($raw_structure, true);
-                        }
-                    @endphp
-
-                    @if ($details && is_array($details))
-                        <div class="pt-6 border-t border-white/5 grid grid-cols-1 md:grid-cols-2 gap-6">
-                            @foreach ($details as $key => $value)
-                                @if (is_array($value))
-                                    @foreach ($value as $subKey => $subValue)
-                                        @continue($subKey === 'transaction_hash')
-                                        <div class="space-y-1">
-                                            <p class="text-xs text-text-secondary uppercase tracking-wider">
-                                                {{ ucwords(str_replace('_', ' ', $subKey)) }}</p>
-                                            <p class="text-white font-medium break-all">
-                                                {{ $subValue }}</p>
-                                        </div>
-                                    @endforeach
-                                @else
-                                    @continue($key === 'transaction_hash')
-                                    <div class="space-y-1">
-                                        <p class="text-xs text-text-secondary uppercase tracking-wider">
-                                            {{ ucwords(str_replace('_', ' ', $key)) }}</p>
-                                        <p class="text-white font-medium break-all">
-                                            {{ $value }}</p>
-                                    </div>
-                                @endif
-                            @endforeach
-                        </div>
-                    @endif
-                   
-                </div>
-            </div>
-
-            {{-- Sidebar --}}
-            <div class="space-y-6">
-                
-
-                {{-- Timeline --}}
-                <div class="bg-secondary border border-white/5 rounded-2xl p-6">
-                    <h3 class="text-lg font-bold text-white mb-4">{{ __('Timeline') }}</h3>
-                    <div class="relative pl-4 border-l-2 border-white/10 ml-2 space-y-8">
-                        <div class="relative">
-                            <div
-                                class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-accent-primary ring-4 ring-secondary">
-                            </div>
-                            <p class="text-xs text-text-secondary uppercase tracking-wider">{{ __('Created') }}</p>
-                            <p class="text-white font-bold text-sm mt-1">{{ $deposit->created_at->format('M d, Y') }}</p>
-                            <p class="text-text-secondary text-xs">{{ $deposit->created_at->format('H:i A') }}</p>
-                        </div>
-
-                        @if ($deposit->status === 'pending' && $deposit->expires_at)
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-yellow-500 ring-4 ring-secondary">
-                                </div>
-                                <p class="text-xs text-text-secondary uppercase tracking-wider">{{ __('Expires At') }}</p>
-                                <p class="text-white font-bold text-sm mt-1">
-                                    {{ \Carbon\Carbon::createFromTimestamp($deposit->expires_at)->format('M d, Y') }}</p>
-                                <p class="text-text-secondary text-xs">
-                                    {{ \Carbon\Carbon::createFromTimestamp($deposit->expires_at)->format('H:i A') }}</p>
-                            </div>
-                        @else
-                            <div class="relative">
-                                <div
-                                    class="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-emerald-500 ring-4 ring-secondary">
-                                </div>
-                                <p class="text-xs text-text-secondary uppercase tracking-wider">{{ __('Last Update') }}
-                                </p>
-                                <p class="text-white font-bold text-sm mt-1">{{ $deposit->updated_at->format('M d, Y') }}
-                                </p>
-                                <p class="text-text-secondary text-xs">{{ $deposit->updated_at->format('H:i A') }}</p>
-                            </div>
+                        @if ($details && is_array($details))
+                            <div class="border-t border-white/[0.06] p-5"><h3 class="mb-3 text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Additional Details') }}</h3><dl class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                                @foreach ($details as $key => $value)
+                                    @if (!is_array($value) && $key !== 'transaction_hash')<div class="rounded-lg bg-white/[0.02] p-3"><dt class="text-[9px] uppercase tracking-wider text-slate-600">{{ __(ucwords(str_replace('_', ' ', $key))) }}</dt><dd class="mt-1 break-all text-xs font-semibold text-slate-300">{{ $value }}</dd></div>@endif
+                                @endforeach
+                            </dl></div>
                         @endif
-                    </div>
-                </div>
+                    </section>
+                </main>
 
-                {{-- Support CTA --}}
-                <div
-                    class="bg-gradient-to-br from-accent-primary/20 to-orange-500/10 border border-accent-primary/20 rounded-2xl p-6 text-center">
-                    <div
-                        class="w-12 h-12 rounded-full bg-accent-primary/20 text-accent-primary flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z">
-                            </path>
-                        </svg>
-                    </div>
-                    <p class="text-white font-bold mb-2">{{ __('Need Help?') }}</p>
-                    <p class="text-text-secondary text-xs mb-4 leading-relaxed">
-                        {{ __('If you have any issues with this deposit, please contact support with the Reference ID.') }}
-                    </p>
-                    <a href="{{ route('contact') }}"
-                        class="inline-block px-4 py-2 bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">
-                        {{ __('Contact Support') }}
-                    </a>
-                </div>
+                <aside class="space-y-4 lg:col-span-4">
+                    <section class="rounded-2xl border border-white/[0.08] bg-[#111318] p-5">
+                        <h2 class="text-sm font-black text-white">{{ __('Timeline') }}</h2>
+                        <div class="relative mt-5 ml-1 border-l border-white/[0.09] pl-5">
+                            <div class="relative pb-7"><span class="absolute -left-[25px] top-0.5 h-2 w-2 rounded-full bg-amber-400 ring-4 ring-[#111318]"></span><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Created') }}</p><p class="mt-1 text-xs font-semibold text-slate-200">{{ $deposit->created_at->format('M d, Y · H:i') }}</p></div>
+                            @if ($deposit->status === 'pending' && $deposit->expires_at)
+                                <div class="relative"><span class="absolute -left-[25px] top-0.5 h-2 w-2 rounded-full bg-amber-400 ring-4 ring-[#111318]"></span><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Expires') }}</p><p class="mt-1 text-xs font-semibold text-amber-400">{{ \Carbon\Carbon::createFromTimestamp($deposit->expires_at)->format('M d, Y · H:i') }}</p><p id="countdown-timer" data-expires="{{ $deposit->expires_at }}" class="mt-1 font-mono text-[10px] text-slate-500"><span id="timer-display">--:--:--</span> {{ __('remaining') }}</p></div>
+                            @else
+                                <div class="relative"><span class="absolute -left-[25px] top-0.5 h-2 w-2 rounded-full {{ $statusData[2] }} ring-4 ring-[#111318]"></span><p class="text-[9px] font-bold uppercase tracking-wider text-slate-600">{{ __('Last Updated') }}</p><p class="mt-1 text-xs font-semibold text-slate-200">{{ $deposit->updated_at->format('M d, Y · H:i') }}</p></div>
+                            @endif
+                        </div>
+                    </section>
+
+                    <section class="rounded-2xl border border-amber-400/10 bg-amber-400/[0.035] p-5"><div class="flex items-start gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-400/[0.08] text-amber-400"><svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><div><h2 class="text-xs font-bold text-slate-200">{{ __('Need help with this deposit?') }}</h2><p class="mt-1 text-[10px] leading-4 text-slate-500">{{ __('Contact support and include the deposit reference so the transaction can be identified quickly.') }}</p><a href="{{ route('contact') }}" class="mt-3 inline-flex text-[9px] font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300">{{ __('Contact Support') }} →</a></div></div></section>
+                </aside>
             </div>
         </div>
     </div>
+@endsection
+
+@section('scripts')
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.copy-btn').forEach(function(button) {
+                button.addEventListener('click', async function() {
+                    const value = this.dataset.clipboardText;
+                    try {
+                        if (navigator.clipboard?.writeText) await navigator.clipboard.writeText(value);
+                        else {
+                            const field = document.createElement('textarea');
+                            field.value = value; field.style.position = 'fixed'; field.style.opacity = '0'; document.body.appendChild(field); field.select();
+                            if (!document.execCommand('copy')) throw new Error('Copy failed');
+                            field.remove();
+                        }
+                        if (typeof toastNotification === 'function') toastNotification({{ Illuminate\Support\Js::from(__('Copied to clipboard')) }}, 'success');
+                    } catch (error) {
+                        if (typeof toastNotification === 'function') toastNotification({{ Illuminate\Support\Js::from(__('Could not copy. Please copy it manually.')) }}, 'error');
+                    }
+                });
+            });
+
+            const timer = document.getElementById('countdown-timer');
+            const display = document.getElementById('timer-display');
+            if (timer && display) {
+                const expiresAt = Number(timer.dataset.expires) * 1000;
+                const updateCountdown = function() {
+                    const distance = expiresAt - Date.now();
+                    if (distance <= 0) { display.textContent = {{ Illuminate\Support\Js::from(__('Expired')) }}; display.classList.add('text-rose-400'); return false; }
+                    const hours = String(Math.floor(distance / 3600000)).padStart(2, '0');
+                    const minutes = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+                    const seconds = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+                    display.textContent = `${hours}:${minutes}:${seconds}`;
+                    return true;
+                };
+                updateCountdown();
+                const interval = setInterval(function() { if (!updateCountdown()) clearInterval(interval); }, 1000);
+            }
+        });
+    </script>
 @endsection
