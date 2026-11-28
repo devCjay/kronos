@@ -1,214 +1,115 @@
 @extends('templates.york.blades.layouts.user')
 
 @section('content')
-<div class="min-h-screen relative space-y-8">
+    @php
+        $currency = getSetting('currency');
+        $decimalPlaces = (int) getSetting('decimal_places', 2);
+        $scopeData = match ($status) {
+            'pending' => [__('Pending Deposits'), __('Deposits awaiting confirmation or review.'), 'text-amber-400', 'bg-amber-400', 'border-amber-400/15 bg-amber-400/[0.07] text-amber-400'],
+            'failed' => [__('Failed Deposits'), __('Deposits that were not completed successfully.'), 'text-rose-400', 'bg-rose-400', 'border-rose-400/15 bg-rose-400/[0.07] text-rose-400'],
+            default => [__('Completed Deposits'), __('Deposits confirmed and credited to your account.'), 'text-emerald-400', 'bg-emerald-400', 'border-emerald-400/15 bg-emerald-400/[0.07] text-emerald-400'],
+        };
+        $hasFilters = request()->filled('search') || request()->filled('from_date') || request()->filled('to_date') || request()->filled('method_id') || request()->filled('sort') || request()->filled('direction');
+    @endphp
 
-    {{-- Global ambient background blur --}}
-    <div class="fixed top-0 right-0 w-[40rem] h-[40rem] bg-accent-primary/5 rounded-full blur-[120px] pointer-events-none -z-0 -translate-y-1/3 translate-x-1/3"></div>
-    <div class="fixed bottom-0 left-0 w-[30rem] h-[30rem] bg-emerald-500/5 rounded-full blur-[120px] pointer-events-none -z-0 translate-y-1/3 -translate-x-1/3"></div>
+    <div class="relative min-h-screen pb-12">
+        <div class="pointer-events-none fixed right-0 top-0 -z-0 h-[38rem] w-[38rem] -translate-y-1/3 translate-x-1/3 rounded-full bg-amber-500/[0.04] blur-[140px]"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto space-y-8">
-
-        {{-- ══ HEADER DECK ══════════════════════════════════════════════════════ --}}
-        @php
-            $statusColors = [
-                'completed' => 'emerald',
-                'pending' => 'amber',
-                'failed' => 'rose',
-                'partial_payment' => 'orange',
-            ];
-            $safeStatus = isset($status) && isset($statusColors[$status]) ? $status : 'completed';
-            $color = $statusColors[$safeStatus];
-        @endphp
-
-        <div class="relative rounded-2xl overflow-hidden p-6 md:p-8"
-             style="background: linear-gradient(145deg, rgba(8,9,14,0.97) 0%, rgba(5,6,10,0.99) 100%); border: 1px solid rgba(255,255,255,0.06);">
-            
-            <div class="absolute top-0 right-0 w-80 h-80 bg-{{ $color }}-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-
-            <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                <div>
-                    <div class="flex items-center gap-2 mb-3">
-                        <span class="w-1.5 h-1.5 rounded-full bg-{{ $color }}-400 animate-pulse"></span>
-                        <span class="text-[9px] font-bold uppercase tracking-[0.25em] text-slate-500">{{ __('Filtered View') }}</span>
+        <div class="relative z-10 mx-auto max-w-7xl space-y-4">
+            <header class="rounded-2xl border border-white/[0.08] bg-[#111318] p-5 sm:p-6">
+                <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+                    <div>
+                        <div class="mb-2 flex items-center gap-2 text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500"><span class="h-1.5 w-1.5 rounded-full {{ $scopeData[3] }}"></span>{{ __('Deposit status') }}</div>
+                        <h1 class="font-heading text-2xl font-black tracking-tight text-white sm:text-3xl">{{ $scopeData[0] }}</h1>
+                        <p class="mt-1.5 max-w-2xl text-xs leading-5 text-slate-400">{{ $scopeData[1] }}</p>
                     </div>
-                    <h1 class="text-3xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white via-slate-200 to-slate-500 tracking-tight leading-tight">
-                        {{ $page_title }}
-                    </h1>
-                    <p class="text-slate-500 text-sm mt-2 font-medium max-w-xl">
-                        {{ __('Viewing all :status deposit records and settlement receipts.', ['status' => __($scopeName)]) }}
-                    </p>
+                    <div class="flex items-end justify-between gap-5 rounded-xl border border-white/[0.07] bg-black/15 px-4 py-3 md:block md:min-w-52 md:text-right">
+                        <div><p class="text-[9px] font-bold uppercase tracking-[0.14em] text-slate-600">{{ __('Filtered total') }}</p><p class="mt-1 font-mono text-lg font-black {{ $scopeData[2] }}">{{ number_format($totalAmount, $decimalPlaces) }} <span class="text-[9px] text-slate-600">{{ $currency }}</span></p></div>
+                        <p class="text-[10px] text-slate-500 md:mt-1">{{ $deposits->total() }} {{ __('records') }}</p>
+                    </div>
                 </div>
+            </header>
 
-                {{-- Total Filtered Summary Card --}}
-                <div id="summary-card-container">
-                    <div class="p-4 rounded-xl border border-white/5 bg-white/[0.02] min-w-[200px] text-right">
-                        <p class="text-[9px] font-bold text-slate-500 uppercase tracking-widest mb-1">
-                            {{ __('Total :status', ['status' => __($scopeName)]) }}
-                        </p>
-                        <div class="text-2xl font-black text-white">
-                            {{ number_format($totalAmount, 2) }}
-                            <span class="text-xs font-bold text-{{ $color }}-400 uppercase">{{ getSetting('currency') }}</span>
+            <section id="deposits-history-wrapper" class="relative overflow-hidden rounded-2xl border border-white/[0.08] bg-[#111318]">
+                <div id="deposits-loading-spinner" class="absolute inset-0 z-50 hidden flex-col items-center justify-center bg-[#0b0e11]/80 backdrop-blur-sm" aria-live="polite"><div class="h-7 w-7 animate-spin rounded-full border-2 border-white/10 border-t-amber-400"></div><p class="mt-2 text-[10px] font-bold text-slate-400">{{ __('Loading deposits...') }}</p></div>
+
+                <div class="border-b border-white/[0.07] p-4 sm:p-5">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+                            <nav class="flex max-w-full overflow-x-auto rounded-lg bg-black/25 p-1" aria-label="{{ __('Deposit status') }}">
+                                <a href="{{ route('user.deposits.index') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold text-slate-500 transition hover:text-white">{{ __('All') }}</a>
+                                <a href="{{ route('user.deposits.pending') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold {{ $status === 'pending' ? 'bg-white/[0.08] text-white' : 'text-slate-500 hover:text-white' }}">{{ __('Pending') }}</a>
+                                <a href="{{ route('user.deposits.approved') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold {{ $status === 'completed' ? 'bg-white/[0.08] text-white' : 'text-slate-500 hover:text-white' }}">{{ __('Completed') }}</a>
+                                <a href="{{ route('user.deposits.failed') }}" class="shrink-0 rounded-md px-3 py-1.5 text-[10px] font-bold {{ $status === 'failed' ? 'bg-white/[0.08] text-white' : 'text-slate-500 hover:text-white' }}">{{ __('Failed') }}</a>
+                            </nav>
+                            <a href="{{ route('user.deposits.new') }}" class="flex min-h-9 items-center justify-center rounded-lg bg-amber-400 px-4 text-[9px] font-black uppercase tracking-wider text-black transition hover:bg-amber-300">{{ __('New Deposit') }}</a>
                         </div>
+
+                        <form id="scope-filter-form" action="{{ url()->current() }}" method="GET" class="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-6">
+                            <div class="relative sm:col-span-2"><label for="scope-search" class="sr-only">{{ __('Search deposits') }}</label><svg class="pointer-events-none absolute left-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path stroke-linecap="round" d="M20 20l-3.5-3.5"/></svg><input id="scope-search" type="search" name="search" value="{{ request('search') }}" placeholder="{{ __('Reference, hash, or amount') }}" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] pl-9 pr-3 text-xs text-white outline-none placeholder:text-slate-600 focus:border-amber-400/60"></div>
+                            <div><label for="from-date" class="sr-only">{{ __('From date') }}</label><input id="from-date" type="date" name="from_date" value="{{ request('from_date') }}" max="{{ now()->format('Y-m-d') }}" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60"></div>
+                            <div><label for="to-date" class="sr-only">{{ __('To date') }}</label><input id="to-date" type="date" name="to_date" value="{{ request('to_date') }}" max="{{ now()->format('Y-m-d') }}" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60"></div>
+                            <div><label for="deposit-method" class="sr-only">{{ __('Deposit source') }}</label><select id="deposit-method" name="method_id" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60"><option value="">{{ __('All Sources') }}</option>@foreach ($payment_methods as $method)<option value="{{ $method->id }}" @selected((string) request('method_id') === (string) $method->id)>{{ $method->name }}</option>@endforeach</select></div>
+                            <div><label for="deposit-sort" class="sr-only">{{ __('Sort deposits') }}</label><select id="deposit-sort" name="sort" class="h-10 w-full rounded-lg border border-white/[0.09] bg-[#0b0e11] px-3 text-xs text-slate-300 outline-none focus:border-amber-400/60"><option value="created_at" @selected(request('sort', 'created_at') === 'created_at')>{{ __('Date') }}</option><option value="amount" @selected(request('sort') === 'amount')>{{ __('Amount') }}</option></select><input type="hidden" name="direction" value="{{ request('direction', 'desc') === 'asc' ? 'asc' : 'desc' }}"></div>
+                            <div class="flex gap-2 sm:col-span-2 lg:col-span-6 lg:justify-end"><button type="submit" class="h-10 flex-1 cursor-pointer rounded-lg bg-amber-400 px-4 text-[9px] font-black uppercase tracking-wider text-black transition hover:bg-amber-300 sm:flex-none">{{ __('Apply Filters') }}</button>@if ($hasFilters)<a href="{{ url()->current() }}" class="flex h-10 flex-1 items-center justify-center rounded-lg border border-white/[0.08] px-4 text-[9px] font-bold uppercase tracking-wider text-slate-400 transition hover:bg-white/[0.05] hover:text-white sm:flex-none">{{ __('Clear') }}</a>@endif</div>
+                        </form>
                     </div>
                 </div>
-            </div>
-        </div>
 
-        {{-- ══ FILTER BAR ═══════════════════════════════════════════════════════ --}}
-        <div class="p-4 rounded-2xl border border-white/5 bg-white/[0.02] flex flex-wrap items-center gap-4">
-            <form id="scope-filter-form" action="{{ url()->current() }}" class="flex flex-wrap items-center gap-3 w-full">
-                {{-- Search --}}
-                <div class="relative flex-1 min-w-[220px]">
-                    <input type="text" name="search" placeholder="{{ __('Search reference or amount...') }}"
-                           value="{{ request('search') }}"
-                           class="w-full bg-white/[0.03] border border-white/8 rounded-xl pl-9 pr-4 py-2.5 text-xs text-white placeholder:text-slate-600 focus:outline-none focus:border-accent-primary/60 transition-all">
-                    <svg class="w-3.5 h-3.5 text-slate-600 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                    </svg>
-                </div>
-
-                {{-- Dates --}}
-                <div class="flex items-center gap-2">
-                    <input type="date" name="from_date" value="{{ request('from_date') }}"
-                           class="px-3 py-2 bg-white/[0.03] border border-white/8 rounded-xl text-xs text-white focus:outline-none focus:border-accent-primary/60 transition-all">
-                    <span class="text-slate-600 text-[10px] uppercase font-bold">{{ __('To') }}</span>
-                    <input type="date" name="to_date" value="{{ request('to_date') }}"
-                           class="px-3 py-2 bg-white/[0.03] border border-white/8 rounded-xl text-xs text-white focus:outline-none focus:border-accent-primary/60 transition-all">
-                </div>
-
-                {{-- Source Filter --}}
-                <select name="method_id" onchange="this.form.submit()" class="bg-[#0a0b10] border border-white/8 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-accent-primary/60 cursor-pointer">
-                    <option value="">{{ __('All Deposit Sources') }}</option>
-                    @foreach($payment_methods as $pm)
-                        <option value="{{ $pm->id }}" {{ request('method_id') == $pm->id ? 'selected' : '' }}>{{ $pm->name }}</option>
-                    @endforeach
-                </select>
-
-                <button type="submit" class="px-4 py-2 bg-white/5 hover:bg-white/10 text-white rounded-xl text-xs font-bold transition-all border border-white/10">
-                    {{ __('Filter') }}
-                </button>
-            </form>
-        </div>
-
-        {{-- ══ DEPOSITS TABLE ═══════════════════════════════════════════════════ --}}
-        <div id="deposits-history-wrapper" class="relative rounded-2xl overflow-hidden"
-             style="background: linear-gradient(145deg, rgba(8,9,14,0.97) 0%, rgba(5,6,10,0.99) 100%); border: 1px solid rgba(255,255,255,0.06);">
-            
-            <div id="deposits-loading-spinner" class="hidden absolute inset-0 bg-black/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center">
-                <div class="w-8 h-8 border-2 border-accent-primary border-t-transparent rounded-full animate-spin"></div>
-                <p class="mt-2 text-xs text-slate-400 font-bold animate-pulse">{{ __('Loading records...') }}</p>
-            </div>
-
-            <div id="deposits-table-content">
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left border-collapse">
-                        <thead>
-                            <tr class="border-b border-white/5 bg-white/[0.01]">
-                                <th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Transaction') }}</th>
-                                <th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Amount') }}</th>
-                                <th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Deposit Source') }}</th>
-                                <th class="px-6 py-4 text-[10px] font-bold text-slate-500 uppercase tracking-widest">{{ __('Date') }}</th>
-                                <th class="px-6 py-4"></th>
-                            </tr>
-                        </thead>
-                        <tbody class="divide-y divide-white/5 text-xs">
-                            @forelse($deposits as $deposit)
-                                <tr class="hover:bg-white/[0.02] transition-colors group">
-                                    <td class="px-6 py-4">
-                                        <div class="flex items-center gap-3">
-                                            <div class="w-8 h-8 rounded-xl bg-{{ $color }}-500/10 text-{{ $color }}-400 border border-{{ $color }}-500/20 flex items-center justify-center shrink-0">
-                                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
-                                            </div>
-                                            <div>
-                                                <a href="{{ route('user.deposits.view', $deposit->transaction_reference) }}"
-                                                   class="text-white font-bold text-sm hover:text-accent-primary font-mono tracking-tight transition-colors">
-                                                    {{ strlen($deposit->transaction_reference) > 10 ? substr($deposit->transaction_reference, 0, 5) . '...' . substr($deposit->transaction_reference, -4) : $deposit->transaction_reference }}
-                                                </a>
-                                                @if($deposit->transaction_hash)
-                                                    <p class="text-slate-600 text-[10px] font-mono mt-0.5 truncate max-w-[140px]" title="{{ $deposit->transaction_hash }}">
-                                                        {{ substr($deposit->transaction_hash, 0, 6) }}...{{ substr($deposit->transaction_hash, -6) }}
-                                                    </p>
-                                                @endif
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="font-bold text-white text-sm">
-                                            {{ number_format($deposit->amount, 2) }}
-                                            <span class="text-[10px] text-slate-500 font-bold uppercase">{{ getSetting('currency') }}</span>
-                                        </div>
-                                        @if ($deposit->currency != getSetting('currency'))
-                                            <div class="text-[10px] text-slate-500 font-medium italic mt-0.5">
-                                                ≈ {{ number_format($deposit->converted_amount, 6) }} {{ $deposit->currency }}
-                                            </div>
-                                        @endif
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <span class="inline-flex items-center px-2.5 py-1 rounded-lg bg-white/[0.03] border border-white/8 text-[11px] font-bold text-white">
-                                            {{ $deposit->paymentMethod->name ?? __('Unknown') }}
-                                        </span>
-                                    </td>
-                                    <td class="px-6 py-4">
-                                        <div class="text-white font-medium text-xs">{{ $deposit->created_at->format('M d, Y') }}</div>
-                                        <div class="text-slate-500 text-[10px] font-mono mt-0.5">{{ $deposit->created_at->format('H:i A') }}</div>
-                                    </td>
-                                    <td class="px-6 py-4 text-right">
-                                        <a href="{{ route('user.deposits.view', $deposit->transaction_reference) }}"
-                                           class="inline-flex items-center justify-center w-8 h-8 rounded-xl bg-white/[0.03] hover:bg-white/10 text-slate-400 hover:text-white transition-all border border-white/5"
-                                           title="{{ __('View Receipt') }}">
-                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-                                        </a>
-                                    </td>
-                                </tr>
-                            @empty
-                                <tr>
-                                    <td colspan="5" class="px-6 py-16 text-center">
-                                        <div class="flex flex-col items-center justify-center max-w-sm mx-auto">
-                                            <div class="w-14 h-14 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-4 text-slate-500">
-                                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0a2 2 0 01-2 2H6a2 2 0 01-2-2m16 0V9a2 2 0 00-2-2H6a2 2 0 00-2 2v2m16 4v1a2 2 0 01-2 2H6a2 2 0 01-2-2v-1m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/></svg>
-                                            </div>
-                                            <h4 class="text-white font-bold text-base mb-1">{{ __('No Records Found') }}</h4>
-                                            <p class="text-slate-500 text-xs mb-6">{{ __('We couldn\'t find any records for :status deposits.', ['status' => strtolower(__($scopeName))]) }}</p>
-                                            <a href="{{ route('user.deposits.new') }}"
-                                               class="px-5 py-2.5 bg-accent-primary text-black font-black rounded-xl text-xs transition-all shadow-lg">
-                                                {{ __('Make a Deposit') }}
-                                            </a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforelse
-                        </tbody>
-                    </table>
-                </div>
-
-                @if ($deposits->hasPages())
-                    <div class="p-6 border-t border-white/5">
-                        {{ $deposits->links('templates.york.blades.partials.pagination') }}
+                <div id="deposits-table-content">
+                    <div class="hidden overflow-x-auto md:block">
+                        <table class="w-full min-w-[780px] text-left">
+                            <thead class="border-b border-white/[0.05] bg-black/10 text-[9px] font-bold uppercase tracking-[0.15em] text-slate-600"><tr><th class="px-5 py-3">{{ __('Deposit') }}</th><th class="px-4 py-3">{{ __('Amount') }}</th><th class="px-4 py-3">{{ __('Source') }}</th><th class="px-4 py-3">{{ __('Date') }}</th><th class="px-5 py-3 text-right">{{ __('Action') }}</th></tr></thead>
+                            <tbody class="divide-y divide-white/[0.05]">
+                                @forelse ($deposits as $deposit)
+                                    @php $shortReference = strlen($deposit->transaction_reference) > 14 ? substr($deposit->transaction_reference, 0, 7) . '…' . substr($deposit->transaction_reference, -5) : $deposit->transaction_reference; @endphp
+                                    <tr class="transition hover:bg-white/[0.025]">
+                                        <td class="px-5 py-3.5"><div class="flex items-center gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border {{ $scopeData[4] }}">↓</span><div><a href="{{ route('user.deposits.view', $deposit->transaction_reference) }}" class="font-mono text-xs font-bold text-slate-200 transition hover:text-amber-400">{{ $shortReference }}</a>@if ($deposit->transaction_hash)<p class="mt-0.5 max-w-40 truncate font-mono text-[9px] text-slate-600" title="{{ $deposit->transaction_hash }}">{{ $deposit->transaction_hash }}</p>@endif</div></div></td>
+                                        <td class="px-4 py-3.5"><div class="font-mono text-xs font-bold text-white">{{ number_format($deposit->amount, $decimalPlaces) }} {{ $currency }}</div>@if ($deposit->currency && $deposit->currency !== $currency)<div class="mt-0.5 font-mono text-[9px] text-slate-600">≈ {{ number_format($deposit->converted_amount, 6) }} {{ $deposit->currency }}</div>@endif</td>
+                                        <td class="px-4 py-3.5 text-xs font-semibold text-slate-300">{{ $deposit->gatewayName() }}</td>
+                                        <td class="px-4 py-3.5 text-[10px] text-slate-500"><span class="block text-slate-300">{{ $deposit->created_at->format('M d, Y') }}</span>{{ $deposit->created_at->format('H:i') }}</td>
+                                        <td class="px-5 py-3.5 text-right"><a href="{{ route('user.deposits.view', $deposit->transaction_reference) }}" aria-label="{{ __('View deposit :reference', ['reference' => $deposit->transaction_reference]) }}" class="inline-flex h-8 w-8 items-center justify-center rounded-lg border border-white/[0.08] text-slate-500 transition hover:bg-white/[0.05] hover:text-white"><svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg></a></td>
+                                    </tr>
+                                @empty
+                                    <tr><td colspan="5" class="px-5 py-14 text-center"><div class="text-sm font-semibold text-slate-400">{{ __('No :status deposits found', ['status' => strtolower(__($scopeName))]) }}</div><p class="mt-1 text-[10px] text-slate-600">{{ $hasFilters ? __('Try changing or clearing your filters.') : __('There are no records in this status yet.') }}</p></td></tr>
+                                @endforelse
+                            </tbody>
+                        </table>
                     </div>
-                @endif
-            </div>
-        </div>
 
+                    <div class="divide-y divide-white/[0.06] md:hidden">
+                        @forelse ($deposits as $deposit)
+                            <a href="{{ route('user.deposits.view', $deposit->transaction_reference) }}" class="block p-4 transition hover:bg-white/[0.025]">
+                                <div class="flex items-start justify-between gap-4"><div class="flex min-w-0 items-center gap-3"><span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border {{ $scopeData[4] }}">↓</span><div class="min-w-0"><p class="truncate text-xs font-bold text-slate-200">{{ $deposit->gatewayName() }}</p><p class="mt-0.5 truncate font-mono text-[9px] text-slate-600">{{ $deposit->transaction_reference }}</p></div></div><div class="shrink-0 text-right"><p class="font-mono text-xs font-bold text-white">{{ number_format($deposit->amount, $decimalPlaces) }} {{ $currency }}</p><p class="mt-1 text-[9px] font-bold uppercase {{ $scopeData[2] }}">{{ __($scopeName) }}</p></div></div>
+                                <div class="mt-3 flex items-center justify-between border-t border-white/[0.05] pt-2 text-[9px] text-slate-600">@if ($deposit->currency && $deposit->currency !== $currency)<span>≈ {{ number_format($deposit->converted_amount, 6) }} {{ $deposit->currency }}</span>@else<span>{{ __('Deposit') }}</span>@endif<time datetime="{{ $deposit->created_at->toIso8601String() }}">{{ $deposit->created_at->format('M d, Y · H:i') }}</time></div>
+                            </a>
+                        @empty
+                            <div class="p-12 text-center"><div class="text-sm font-semibold text-slate-400">{{ __('No :status deposits found', ['status' => strtolower(__($scopeName))]) }}</div><p class="mt-1 text-[10px] text-slate-600">{{ $hasFilters ? __('Try changing or clearing your filters.') : __('There are no records in this status yet.') }}</p></div>
+                        @endforelse
+                    </div>
+
+                    @if ($deposits->hasPages())<div class="ajax-pagination border-t border-white/[0.07] p-4 sm:p-5">{{ $deposits->links('templates.york.blades.partials.pagination') }}</div>@endif
+                </div>
+            </section>
+        </div>
     </div>
-</div>
 @endsection
 
 @section('scripts')
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    $(document).on('click', '.ajax-pagination a', function(e) {
-        e.preventDefault();
-        var url = $(this).attr('href');
-        $('#deposits-loading-spinner').removeClass('hidden');
-        $('html, body').animate({ scrollTop: $("#deposits-history-wrapper").offset().top - 100 }, 500);
-        $.get(url, function(data) {
-            $('#deposits-table-content').html($(data).find('#deposits-table-content').html());
-        }).always(function() {
-            setTimeout(function() { $('#deposits-loading-spinner').addClass('hidden'); }, 300);
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            $(document).on('click', '.ajax-pagination a', function(event) {
+                event.preventDefault();
+                const url = $(this).attr('href');
+                const spinner = $('#deposits-loading-spinner');
+                spinner.removeClass('hidden').addClass('flex');
+                $.get(url).done(function(data) {
+                    const content = $(data).find('#deposits-table-content').html();
+                    if (content) { $('#deposits-table-content').html(content); window.history.replaceState({}, '', url); }
+                }).fail(function() {
+                    if (typeof toastNotification === 'function') toastNotification({{ Illuminate\Support\Js::from(__('Could not load deposits. Please try again.')) }}, 'error');
+                }).always(function() { spinner.addClass('hidden').removeClass('flex'); });
+            });
         });
-    });
-});
-</script>
+    </script>
 @endsection
