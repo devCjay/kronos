@@ -56,7 +56,8 @@ class WithdrawalController extends Controller
         $totalAmount = (clone $query)->sum('amount_payable');
 
         // Sorting
-        $sort = $request->get('sort', 'created_at');
+        $allowedSorts = ['created_at', 'amount', 'amount_payable', 'transaction_reference'];
+        $sort = in_array($request->get('sort'), $allowedSorts, true) ? $request->get('sort') : 'created_at';
         $direction = in_array(strtolower($request->get('direction')), ['asc', 'desc']) ? $request->get('direction') : 'desc';
         $query->orderBy($sort, $direction);
 
